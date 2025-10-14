@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bitcoin-Mining Check — Lugh21</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#fff;--fg:#111;--muted:#e8e8e8;--card:#fff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.06)}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{border-bottom:1px solid var(--muted);background:#fff}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:24px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600}
+
+    /* organischer Top-Abstand (Überschrift weiter hoch) */
+    body.hire-page main{
+      padding-top: clamp(72px,10vh,140px) !important;
+      padding-bottom: 64px !important;
+    }
+
+    /* Anchor-Offset für Mini-Navigation */
+    :where(#pakete,#value,#szenarien,#deliverables,#ablauf,#bedarf,#preise,#faq,#kontakt){scroll-margin-top:120px;}
+
+    h1{margin:0 0 10px 0;font-size:36px;line-height:1.15}
+    p.sub{margin:0 12px 24px 0;opacity:.85;max-width:900px}
+    .grid{display:grid;gap:clamp(20px,3.5vw,36px)}
+    .grid-2{grid-template-columns:2fr 1fr}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .section{margin:28px 0}
+    .section h2{margin:0 0 10px 0;font-size:22px}
+    .section h3{margin:0 0 8px 0;font-size:18px}
+    .muted{opacity:.85}
+    ul.clean{margin:8px 0 0 18px;padding:0;line-height:1.55}
+    .kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .kpi{border:1px solid var(--muted);border-radius:12px;padding:8px 12px;font-weight:600;font-size:14px}
+    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .btn{display:inline-block;border:1px solid var(--muted);padding:12px 16px;border-radius:12px;font-weight:600}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+    .btn.ghost{background:#fff}
+    .btn.linklike{background:transparent;border:0;padding:0;text-decoration:underline;font-weight:600}
+    .price{font-weight:700;margin-top:8px}
+    .note{font-size:13px;opacity:.8;margin-top:6px}
+    .mini-nav{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0 0}
+    .pill{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;font-size:13px}
+
+    /* Pakete in 2 Spalten */
+    .grid-packages{display:grid;gap:clamp(20px,3.5vw,36px);grid-template-columns:repeat(2,minmax(0,1fr))}
+
+    /* Sidebar */
+    .sticky{position:sticky;top:120px}
+
+    @media (max-width:980px){
+      .grid-2{grid-template-columns:1fr}
+      .sticky{position:static;top:auto}
+    }
+    @media (max-width:920px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){
+      .grid-3{grid-template-columns:1fr}
+      .grid-packages{grid-template-columns:1fr}
+    }
+
+    footer{margin-top:48px}
+    footer .container{border-top:1px solid var(--muted)}
+    .foot{padding:16px 0;font-size:14px}
+  </style>
+  <link rel="stylesheet" href="/assets/global.css">
+</head>
+<body class="service-page service-mining">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">Lugh21</a>
+      <nav class="links" aria-label="Navigation">
+        <a href="/hire/">Hire</a>
+        <a href="/read/">Read</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" aria-label="Bitcoin-Mining Check">
+    <h1>Heizen + Bitcoin: Mehrdimensionale Energienutzung</h1>
+    <p class="sub">
+      Deine Kilowattstunde liefert Wärme + Sats statt nur Wärme. Ich rechne ehrlich, finde den Sweet-Spot zwischen Effizienz und Anschaffung, 
+      bewerte Lärm und Wärme-Reuse und gebe dir eine klare Go- oder No-Go-Empfehlung. Ideal für PV-Überschuss, Gewächshaus, Pool, Warmwasser oder günstige Nacht­tarife. 
+      Auf Wunsch beschaffe und installiere ich die Hardware gemeinsam mit dir.
+    </p>
+
+    <!-- Hero CTA -->
+    <div class="actions" aria-label="Schnellstart">
+      <a class="btn primary" href="mailto:contact@lugh21.com?subject=Bitcoin%20Mining%20Check&body=Hallo%20Lugh%2C%0A%0AStrompreis%20(ct%2FkWh)%3A%20%0APV%20%2F%20Nachtstrom%20%2F%20Dauerlauf%3A%20%0AW%C3%A4rme-Use-Case%20(Boiler%20%2F%20Heizung%20%2F%20Luft)%3A%20%0AL%C3%A4rm-Toleranz%20%2F%20Aufstellort%3A%20%0ACAPEX-Budget%20(ca.)%3A%20%0AFokus%3A%20HODL%20%2F%20EUR-Cashflow%0A%0ADanke!">
+        €39 / 30 Min Quick-Check
+      </a>
+      <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Call buchen</a>
+      <a class="btn ghost" href="/hire/">&larr; Zurück zu Hire</a>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">Zahlen statt Hype</div>
+      <div class="kpi">Vendor-neutral</div>
+      <div class="kpi">Heat-Reuse im Fokus</div>
+      <div class="kpi">Beschaffung + Installation möglich</div>
+      <div class="kpi">Deutsch / English</div>
+    </div>
+
+    <div class="mini-nav" aria-label="Abschnittsnavigation">
+      <a class="pill" href="#value">Warum es wirkt</a>
+      <a class="pill" href="#pakete">Pakete</a>
+      <a class="pill" href="#szenarien">Szenarien</a>
+      <a class="pill" href="#deliverables">Was du bekommst</a>
+      <a class="pill" href="#ablauf">Ablauf</a>
+      <a class="pill" href="#bedarf">Was ich brauche</a>
+      <a class="pill" href="#preise">Preise</a>
+      <a class="pill" href="#faq">FAQ</a>
+      <a class="pill" href="#kontakt">Kontakt</a>
+    </div>
+
+    <section class="grid grid-2 section" aria-label="Inhalt">
+      <!-- Main -->
+      <div class="col">
+
+        <!-- Warum es wirkt -->
+        <div class="card section" id="value">
+          <h2>Warum es wirkt</h2>
+          <ul class="clean">
+            <li><strong>Mehrdimensionale kWh:</strong> dieselbe Energie liefert Wärme + Sats</li>
+            <li><strong>Sweet-Spot statt Fanboy-Kauf:</strong> Effizienz in Joule pro Terahash vs. Anschaffung fair abgewogen</li>
+            <li><strong>Lärm und Wärme gemanagt:</strong> Drosselung, Schalldämm-Gehäuse, Luft- oder Wasserführung, optional Hydrominer</li>
+            <li><strong>Strategie passend zu dir:</strong> HODL oder EUR-Cashflow mit klarer Transparenz</li>
+          </ul>
+        </div>
+
+        <!-- Pakete -->
+        <div class="card section" id="pakete">
+          <h2>Pakete</h2>
+          <div class="grid-packages" style="margin-top:8px">
+
+            <div class="card">
+              <h3>Quick-Check</h3>
+              <p class="muted">30 Minuten Einschätzung</p>
+              <ul class="clean">
+                <li>Go oder No-Go mit kurzer Begründung</li>
+                <li>Empfehlung zur ASIC-Klasse passend zu Strompreis und Wärme-Use-Case</li>
+                <li>Betriebsmodus: PV-Fenster / Nachtstrom / Dauerlauf</li>
+              </ul>
+              <div class="price">€39 / 30 Min</div>
+            </div>
+
+            <div class="card">
+              <h3>Deep-Dive ROI</h3>
+              <p class="muted">Modell + Empfehlung</p>
+              <ul class="clean">
+                <li>ROI-Sheet mit Sensitivität: BTC-Preis / Difficulty / Uptime</li>
+                <li>HODL gegen EUR-Cashflow sauber verglichen</li>
+                <li>Lärm und Wärme-Plan: Drosselung / Gehäuse / Luft oder Wasser</li>
+              </ul>
+              <div class="price">ab €149</div>
+            </div>
+
+            <div class="card">
+              <h3>Heat-Reuse Plan</h3>
+              <p class="muted">Thermik-Blueprint</p>
+              <ul class="clean">
+                <li>Konzept für Luft- oder Wasserführung mit Schalldämmung</li>
+                <li>Wärmetauscher, Kondensat und Sicherheit erklärt</li>
+                <li>BOM und Inbetriebnahme-Checkliste</li>
+              </ul>
+              <div class="price">ab €199</div>
+            </div>
+
+            <div class="card">
+              <h3>Beschaffung + Installation</h3>
+              <p class="muted">Begleitung bis zum Laufen</p>
+              <ul class="clean">
+                <li>Seriöse Händler, Firmware und Pool-Setup, Baseline-Tests</li>
+                <li>Ich komme dazu und baue, verkabele, teste mit dir</li>
+                <li>Option: Monitoring-Alerts und Wartungs-Kurzschulung</li>
+              </ul>
+              <div class="price">€60 / h remote • €350 / Tag on-site Kreta</div>
+            </div>
+
+          </div>
+          <div class="note">Anschaffungskosten sind einmalig und werden als CAPEX bezeichnet. Laufende Kosten wie Strom sind OPEX. Ich rechne beide sauber ein.</div>
+        </div>
+
+        <!-- Szenarien -->
+        <div class="card section" id="szenarien">
+          <h2>Szenarien</h2>
+          <div class="grid-3" style="margin-top:8px">
+            <div class="card">
+              <h3>PV-Überschuss</h3>
+              <ul class="clean">
+                <li>Tagesfenster automatisch hochfahren</li>
+                <li>Warmwasser oder Heizkreis vorwärmen</li>
+                <li>Sats als Zusatznutzen</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Nachtstrom</h3>
+              <ul class="clean">
+                <li>Zeitfenster-Mining mit Taktung</li>
+                <li>Tags drosseln oder pausieren</li>
+                <li>Uptime gezielt steuern</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Gewächshaus / Pool</h3>
+              <ul class="clean">
+                <li>Luftkanal und Schalldämmung für Ruhe</li>
+                <li>Konstante Prozesswärme nutzen</li>
+                <li>Optional Hydrominer</li>
+              </ul>
+            </div>
+          </div>
+          <div class="note">Auch Hosted vs. Home lohnt einen Blick. Ich vergleiche All-in kWh beim Hoster gegen eigene kWh mit Wärme-Reuse.</div>
+        </div>
+
+        <!-- Deliverables -->
+        <div class="card section" id="deliverables">
+          <h2>Was du bekommst</h2>
+          <ul class="clean">
+            <li>ROI-Sheet mit Szenarien für PV-Fenster, Nachtstrom und Dauerlauf</li>
+            <li>Hardware-Pfad mit Effizienzklassen und Neu gegen Gebraucht</li>
+            <li>Strom zu Wärme Budget je Betriebsmodus</li>
+            <li>Lärm-Plan mit dB-Einordnung und Drossel-Profilen</li>
+            <li>Heat-Reuse Stückliste und Skizze beim Thermik-Blueprint</li>
+            <li>Klare Entscheidung mit Next Steps</li>
+          </ul>
+        </div>
+
+        <!-- Ablauf -->
+        <div class="card section" id="ablauf">
+          <h2>Ablauf</h2>
+          <ol class="clean" style="margin-left:18px">
+            <li>Kurz-Kickoff: Ziele, Daten, Rahmen</li>
+            <li>Analyse je Paket und Auswertung</li>
+            <li>Handover-Call: Walkthrough und Feinschliff</li>
+            <li>Optional Umsetzung: Beschaffung und Installation, Monitoring</li>
+          </ol>
+        </div>
+
+        <!-- Bedarf -->
+        <div class="card section" id="bedarf">
+          <h2>Was ich von dir brauche</h2>
+          <ul class="clean">
+            <li>kWh-Preis und Tarife: Tag / Nacht / PV-Fenster</li>
+            <li>Stromkreis und Absicherung am Aufstellort</li>
+            <li>Wärme-Use-Case: Boiler / Heizkreis / Luft</li>
+            <li>Lärm-Toleranz und geplanter Standort</li>
+            <li>Budgetrahmen und Fokus HODL oder EUR-Cashflow</li>
+          </ul>
+        </div>
+
+        <!-- Preise -->
+        <div class="card section" id="preise">
+          <h2>Preise</h2>
+          <ul class="clean">
+            <li><strong>Quick-Check:</strong> €39 / 30 Min</li>
+            <li><strong>Deep-Dive ROI:</strong> ab €149</li>
+            <li><strong>Heat-Reuse Plan:</strong> ab €199</li>
+            <li><strong>Beschaffung + Installation:</strong> €60 / h remote • €350 / Tag on-site Kreta</li>
+            <li><strong>Health-Check jährlich:</strong> €59 / Jahr</li>
+          </ul>
+          <div class="note">Preise netto, zuzüglich USt sofern anwendbar. Express möglich plus 25 Prozent.</div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card section" id="faq">
+          <h2>FAQ</h2>
+          <ul class="clean">
+            <li><strong>Lohnt Mining zuhause:</strong> mit günstiger kWh und Wärme-Use-Case oft ja, sonst eher nein</li>
+            <li><strong>Wie laut:</strong> luftgekühlt sehr laut, Drosselung und Gehäuse helfen, Hydro leiser mit höherem Aufwand</li>
+            <li><strong>Welche Effizienz ist gut:</strong> aktuelle Klassen sind deutlich sparsamer, der beste Wert ist nicht immer der beste Deal</li>
+            <li><strong>HODL oder in Euro verkaufen:</strong> ich rechne beide Pfade transparent</li>
+            <li><strong>Sicherheit und Recht:</strong> keine Finanz- oder Steuerberatung, Netzspannung nur durch Fachbetrieb, lokale Regeln beachten</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="/hire/">&larr; Zurück zur Übersicht</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sticky" id="kontakt">
+        <div class="card">
+          <h2>Kontakt</h2>
+          <p class="muted">Am schnellsten per E-Mail oder kurzer Terminbuchung.</p>
+          <div class="actions">
+            <a class="btn primary" 
+               href="mailto:contact@lugh21.com?subject=Bitcoin%20Mining%20Check&body=Hallo%20Lugh%2C%0A%0AStrompreis%20(ct%2FkWh)%3A%20%0APV%20%2F%20Nachtstrom%20%2F%20Dauerlauf%3A%20%0AW%C3%A4rme-Use-Case%3A%20%0AL%C3%A4rm-Toleranz%3A%20%0AStandort%20%28nur%20Region%29%3A%20%0ABudget%20%28ca.%29%3A%20%0AFokus%3A%20HODL%20%2F%20EUR-Cashflow%0A%0ADanke!">
+              E-Mail senden
+            </a>
+            <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Call buchen</a>
+            <a class="btn ghost" href="tel:+00000000000">Telefon</a>
+            <a class="btn ghost" href="https://t.me/YOUR_TELEGRAM_HANDLE">Telegram</a>
+          </div>
+          <div class="note">Installations-Begleitung möglich. Vor-Ort in Kreta oder remote weltweit.</div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Verwandte Services</h3>
+          <ul class="clean">
+            <li><a class="btn linklike" href="/hire/wlan-optimierung.html">WLAN-Optimierung →</a></li>
+            <li><a class="btn linklike" href="/hire/problem-zu-loesung.html">Problem → Lösung →</a></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">© <span id="y"></span> Lugh21</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

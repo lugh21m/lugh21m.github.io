@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Assistant — Setup & Automationen (Remote-first) — Lugh21</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#fff;--fg:#111;--muted:#e8e8e8;--card:#fff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.06)}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{border-bottom:1px solid var(--muted);background:#fff}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:24px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600}
+
+    /* organischer Top-Abstand (Überschrift weiter hoch) */
+    body.hire-page main{
+      padding-top: clamp(72px,10vh,140px) !important;
+      padding-bottom: 64px !important;
+    }
+
+    /* Anchor-Offset für Mini-Navigation */
+    :where(#fokus,#pakete,#inspiration,#addons,#ablauf,#preise,#bedarf,#faq,#kontakt){scroll-margin-top:120px;}
+
+    h1{margin:0 0 10px 0;font-size:36px;line-height:1.15}
+    p.sub{margin:0 12px 24px 0;opacity:.85;max-width:900px}
+    .grid{display:grid;gap:clamp(20px,3.5vw,36px)}
+    .grid-2{grid-template-columns:2fr 1fr}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .section{margin:28px 0}
+    .section h2{margin:0 0 10px 0;font-size:22px}
+    .section h3{margin:0 0 8px 0;font-size:18px}
+    .muted{opacity:.85}
+    ul.clean{margin:8px 0 0 18px;padding:0;line-height:1.55}
+    .kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .kpi{border:1px solid var(--muted);border-radius:12px;padding:8px 12px;font-weight:600;font-size:14px}
+    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .btn{display:inline-block;border:1px solid var(--muted);padding:12px 16px;border-radius:12px;font-weight:600}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+    .btn.ghost{background:#fff}
+    .btn.linklike{background:transparent;border:0;padding:0;text-decoration:underline;font-weight:600}
+    .price{font-weight:700;margin-top:8px}
+    .note{font-size:13px;opacity:.8;margin-top:6px}
+    .mini-nav{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0 0}
+    .pill{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;font-size:13px}
+
+    /* Toggle Pro/Privat */
+    .toggle{display:flex;gap:8px;margin:10px 0 14px 0;flex-wrap:wrap}
+    .chip{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;cursor:pointer;user-select:none}
+    .chip[aria-pressed="true"]{background:#111;color:#fff;border-color:#111}
+    .chip:focus{outline:2px solid #111;outline-offset:2px}
+
+    /* Pakete in 2 Spalten für bessere Lesbarkeit */
+    .grid-packages{display:grid;gap:clamp(20px,3.5vw,36px);grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:980px){.grid-2{grid-template-columns:1fr}}
+    @media (max-width:920px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){
+      .grid-3{grid-template-columns:1fr}
+      .grid-packages{grid-template-columns:1fr}
+    }
+
+    footer{margin-top:48px}
+    footer .container{border-top:1px solid var(--muted)}
+    .foot{padding:16px 0;font-size:14px}
+  </style>
+  <link rel="stylesheet" href="/assets/global.css">
+</head>
+<body class="service-page service-ha">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">Lugh21</a>
+      <nav class="links" aria-label="Navigation">
+        <a href="/hire/">Hire</a>
+        <a href="/read/">Read</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" aria-label="Home Assistant Setup & Automationen">
+    <h1>Home Assistant — alles spricht miteinander</h1>
+    <p class="sub">
+      Mach aus Räumen Erlebnisse: Licht, Klima, Zutritt, Medien, Sensoren — <strong>alles</strong> reagiert aufeinander. 
+      Ich richte dir Home Assistant <strong>remote-first</strong> ein, sichere den Fernzugang (<strong>Nabu Casa</strong> / <strong>Tailscale</strong>), 
+      baue <strong>Automationen</strong>, die täglich Arbeit abnehmen, und übergebe <strong>sauber dokumentiert</strong>.
+    </p>
+
+    <!-- Hero CTA -->
+    <div class="actions" aria-label="Schnellstart">
+      <a class="btn primary" href="mailto:contact@lugh21.com?subject=Home%20Assistant%20%E2%80%94%20Setup%20%26%20Automationen&body=Hallo%20Lugh%2C%0A%0AAnwendungsfall%20(Pro%20%2F%20Privat)%3A%20%0AZiele%20in%20einem%20Satz%3A%20%0AGer%C3%A4te%20%2F%20Integrationen%20(grob)%3A%20%0ARemote%20(Nabu%20Casa%20%2F%20Tailscale)%3A%20%0AZeitfenster%3A%20%0ABudgetband%20(grob)%3A%20%0A%0ADanke!">E-Mail senden</a>
+      <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+      <a class="btn ghost" href="/hire/">&larr; Zurück zu Hire</a>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">Remote-first</div>
+      <div class="kpi">Sicherer Fernzugang</div>
+      <div class="kpi">Dokumentiert & übergeben</div>
+      <div class="kpi">Vendor-neutral</div>
+      <div class="kpi">Deutsch / English</div>
+    </div>
+
+    <div class="mini-nav" aria-label="Abschnittsnavigation">
+      <a class="pill" href="#fokus">Wer bist du?</a>
+      <a class="pill" href="#pakete">Pakete</a>
+      <a class="pill" href="#inspiration">Was ist möglich?</a>
+      <a class="pill" href="#addons">Add-ons</a>
+      <a class="pill" href="#ablauf">Ablauf</a>
+      <a class="pill" href="#preise">Preise</a>
+      <a class="pill" href="#bedarf">Was ich brauche</a>
+      <a class="pill" href="#faq">FAQ</a>
+      <a class="pill" href="#kontakt">Kontakt</a>
+    </div>
+
+    <section class="grid grid-2 section" aria-label="Inhalt">
+      <!-- Main -->
+      <div class="col">
+
+        <!-- Fokus: Pro vs Privat -->
+        <div class="card section" id="fokus">
+          <h2>Wofür brauchst du es?</h2>
+          <div class="toggle" role="tablist" aria-label="Modus wählen">
+            <span class="chip" role="button" tabindex="0" aria-pressed="true"  data-mode="pro">Professionell (Vermietung / Boutique-Hotel / Office)</span>
+            <span class="chip" role="button" tabindex="0" aria-pressed="false" data-mode="privat">Privat (Zuhause / Ferienwohnung)</span>
+          </div>
+          <div class="mode mode-pro" aria-live="polite">
+            <p class="muted" style="margin:0 0 8px 0">
+              Gäste-Experience, Sicherheit, Betrieb: Check-in, Housekeeping, Energie & Meldungen greifen ineinander — ohne Friktion.
+            </p>
+            <ul class="clean">
+              <li>Rollen & Dashboards für Gäste / Staff</li>
+              <li>Automationen für Check-in / Check-out / Night Mode</li>
+              <li>Benachrichtigungen bei Störungen, Backups & Updates im Plan</li>
+            </ul>
+          </div>
+          <div class="mode mode-privat" hidden aria-live="polite">
+            <p class="muted" style="margin:0 0 8px 0">
+              Komfort, Sicherheit, Energie: Ankunft, Schlafen, Lüften, Erinnerungen — so fühlt sich Zuhause „smart“ an.
+            </p>
+            <ul class="clean">
+              <li>Einfacher Fernzugang, Szenen & Präsenz</li>
+              <li>Dashboards für Familie, Nightly Backups</li>
+              <li>Optional Sprachsteuerung mit Assist</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pakete -->
+        <div class="card section" id="pakete">
+          <h2>Pakete</h2>
+
+          <!-- PRO-PAKETE -->
+          <div class="mode mode-pro" aria-live="polite">
+            <div class="grid-packages" style="margin-top:8px">
+              <div class="card">
+                <h3>Starter Stack (Pro)</h3>
+                <p class="muted">Design & Setup — Fundament</p>
+                <ul class="clean">
+                  <li><strong>Systemfahrplan:</strong> Topologie, Integrationsliste, Rollen, Automations-Landkarte</li>
+                  <li><strong>Remote:</strong> Nabu Casa <strong>/</strong> Tailscale mit Doku</li>
+                  <li><strong>4 Integrationen</strong> (z. B. Locks <strong>/</strong> Klima <strong>/</strong> Zähler <strong>/</strong> Notify)</li>
+                  <li><strong>6 Automationen</strong> (Check-in, Check-out, Night Mode, Alerts …)</li>
+                  <li><strong>Dashboards:</strong> 1 Staff-View + 1 Gäste-Kiosk</li>
+                  <li><strong>Handoff-Call:</strong> 30 Min</li>
+                </ul>
+                <div class="price">ab €499</div>
+              </div>
+
+              <div class="card">
+                <h3>Integration Day</h3>
+                <p class="muted">4–6 Integrationen live</p>
+                <ul class="clean">
+                  <li>Smart-Locks, Klima, Kalender <strong>/</strong> Reinigungsplan, Verbrauch, Notify</li>
+                  <li>Policies, Rollen, Audit-Log, Feinschliff Dashboards</li>
+                </ul>
+                <div class="price">€60 / h remote <strong>/</strong> €350 / Tag on-site (Kreta)</div>
+              </div>
+
+              <div class="card">
+                <h3>Managed Care</h3>
+                <p class="muted">Updates, Backups, Health</p>
+                <ul class="clean">
+                  <li>Monatlicher Health-Check mit kurzem Report</li>
+                  <li>Update-Fenster (Core <strong>/</strong> Add-ons) inkl. Changelog-Hinweis</li>
+                  <li>Backup-Monitor + Warnung bei Ausfall</li>
+                  <li>Quartals-Optimierung (kleine QoL-Tweaks)</li>
+                </ul>
+                <div class="price">ab €59 / Monat</div>
+              </div>
+
+              <div class="card">
+                <h3>Team-Training</h3>
+                <p class="muted">Staff & Admin</p>
+                <ul class="clean">
+                  <li><strong>Staff:</strong> 45–60 Min (bis 6 Pers.) — Putzmodus, Kiosk, Do’s & Don’ts</li>
+                  <li><strong>Admin:</strong> 90 Min — Integrationen, Tokens, Automationen, Restore-Test</li>
+                  <li>Live-Call mit Aufzeichnung + PDF-Spickzettel</li>
+                </ul>
+                <div class="price">Staff €149 <strong>/</strong> Admin €199</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRIVAT-PAKETE -->
+          <div class="mode mode-privat" hidden aria-live="polite">
+            <div class="grid-packages" style="margin-top:8px">
+              <div class="card">
+                <h3>Setup Sprint</h3>
+                <p class="muted">Schnell startklar</p>
+                <ul class="clean">
+                  <li>Basischeck, Remote-Zugang (Nabu Casa <strong>/</strong> Tailscale)</li>
+                  <li><strong>3 Integrationen</strong> + <strong>5 Automationen</strong></li>
+                  <li>1 Dashboard (mobil-tauglich), Nightly Backups</li>
+                  <li>Mini-Doku (PDF)</li>
+                </ul>
+                <div class="price">ab €199</div>
+              </div>
+
+              <div class="card">
+                <h3>Comfort Pack</h3>
+                <p class="muted">Mehr Komfort</p>
+                <ul class="clean">
+                  <li>+ <strong>3 Integrationen</strong> (z. B. Heizung <strong>/</strong> Medien <strong>/</strong> Präsenz)</li>
+                  <li>+ <strong>5 Automationen</strong> (Szenen, Timer, Erinnerungen)</li>
+                  <li>App-Onboarding (iOS <strong>/</strong> Android)</li>
+                </ul>
+                <div class="price">ab €329</div>
+              </div>
+
+              <div class="card">
+                <h3>Pro Pack Home</h3>
+                <p class="muted">Fein kuratiert</p>
+                <ul class="clean">
+                  <li>Bis <strong>15 Automationen</strong> (Räume, Szenen, Zeitpläne)</li>
+                  <li>Energy-Dashboard (falls Zähler), 2 Views (Family <strong>/</strong> Admin)</li>
+                  <li>Assist Voice-Setup (lokal <strong>/</strong> Cloud, optional)</li>
+                  <li>Handoff-Call 30 Min</li>
+                </ul>
+                <div class="price">ab €549</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inspiration: Was ist möglich? -->
+        <div class="card section" id="inspiration">
+          <h2>Was ist möglich? (ein Auszug)</h2>
+          <div class="grid-3" style="margin-top:8px">
+            <div class="card">
+              <h3>Momente statt Schalter</h3>
+              <ul class="clean">
+                <li>Ankunft → Licht, Klima, Musik, Begrüßung</li>
+                <li>Nachtruhe → Rollos, Lautstärke, Türkontakte</li>
+                <li>Housekeeping-Modus → Lichtzonen, Status, Timer</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Energie & Luftqualität</h3>
+              <ul class="clean">
+                <li>Peak-Shaving, PV-Überschuss nutzen</li>
+                <li>CO₂ / Feuchte → Lüften / Klima</li>
+                <li>Verbrauchsmeldungen, Leck-Alarm</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Zutritt & Gäste</h3>
+              <ul class="clean">
+                <li>Check-in / Check-out Flows mit Codes</li>
+                <li>Gäste-Dashboard (Kiosk) statt App-Chaos</li>
+                <li>Benachrichtigungen bei Ausfällen</li>
+              </ul>
+            </div>
+          </div>
+          <div class="note">Vendor-neutral. Ich empfehle Zigbee <strong>/</strong> Thread <strong>/</strong> WLAN je nach Einsatz — nicht nach Logo.</div>
+        </div>
+
+        <!-- Add-ons -->
+        <div class="card section" id="addons">
+          <h2>Add-ons</h2>
+          <ul class="clean">
+            <li><strong>Hardware & Funk-Plan:</strong> Beratung zu Zigbee <strong>/</strong> Thread <strong>/</strong> WLAN-Plugs, Bridges, Mesh, Tablet-Kiosk</li>
+            <li><strong>One-off Maintenance:</strong> „Einmal warten, bitte“ — €39 pauschal (bis 20 Min), danach €60 / h</li>
+            <li><strong>On-Site Kreta:</strong> €350 / Tag (Begehung, Feinschliff)</li>
+          </ul>
+        </div>
+
+        <!-- Ablauf -->
+        <div class="card section" id="ablauf">
+          <h2>Ablauf</h2>
+          <ol class="clean" style="margin-left:18px">
+            <li><strong>Kickoff (15 Min):</strong> Ziele, Geräte, Nutzer (Gäste <strong>/</strong> Staff <strong>/</strong> Familie)</li>
+            <li><strong>Zugänge:</strong> Nabu Casa <strong>/</strong> Tailscale, Logins <strong>/</strong> Tokens</li>
+            <li><strong>Umsetzung:</strong> gemäß Paket (1–2 Sessions)</li>
+            <li><strong>Übergabe:</strong> Kurz-Guide (PDF), Namenskonventionen, „Wie erweitere ich …?“</li>
+            <li><strong>Optional:</strong> Training, Managed Care</li>
+          </ol>
+        </div>
+
+        <!-- Preise (Zusammenfassung) -->
+        <div class="card section" id="preise">
+          <h2>Preise (Kurz)</h2>
+          <ul class="clean">
+            <li><strong>Setup Sprint (Privat):</strong> ab €199</li>
+            <li><strong>Comfort Pack (Privat):</strong> ab €329</li>
+            <li><strong>Pro Pack Home (Privat):</strong> ab €549</li>
+            <li><strong>Starter Stack (Pro):</strong> ab €499</li>
+            <li><strong>Integration Day:</strong> €60 / h remote <strong>/</strong> €350 / Tag on-site (Kreta)</li>
+            <li><strong>Managed Care:</strong> ab €59 / Monat</li>
+            <li><strong>Team-Training:</strong> Staff €149 <strong>/</strong> Admin €199</li>
+          </ul>
+          <div class="note">Preise netto, zzgl. USt (falls anwendbar). Express +25 % möglich.</div>
+        </div>
+
+        <!-- Bedarf -->
+        <div class="card section" id="bedarf">
+          <h2>Was ich von dir brauche</h2>
+          <ul class="clean">
+            <li>Entscheidung für Remote: Nabu Casa <strong>/</strong> Tailscale (ich helfe beim Einrichten)</li>
+            <li>Logins <strong>/</strong> Tokens für Integrationen (oder wir legen sie gemeinsam an)</li>
+            <li>Liste „Must-have“ <strong>/</strong> „Nice-to-have“ Automationen</li>
+            <li>Nutzer: Admin <strong>/</strong> Staff <strong>/</strong> Gäste <strong>/</strong> Familie</li>
+            <li>Optional: vorhandene Sensoren, Aktoren, Tablet-Kiosk</li>
+          </ul>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card section" id="faq">
+          <h2>FAQ</h2>
+          <ul class="clean">
+            <li><strong>Cloud oder lokal?</strong> Beides möglich. Standard: Nabu Casa; Option: Tailscale (VPN). Wir wählen, was zu Zielen passt.</li>
+            <li><strong>Sicherheit?</strong> Minimale Rechte, Secrets-Store, Rollen, Audit-Log, Backups.</li>
+            <li><strong>Vendor-Lock-in?</strong> Nein. Offen, portierbar, vendor-neutral.</li>
+            <li><strong>On-Site?</strong> Kreta möglich; sonst remote.</li>
+            <li><strong>Elektroarbeiten?</strong> Keine. Netzspannung nur durch Fachbetrieb.</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="/hire/">&larr; Zurück zur Übersicht</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sticky" id="kontakt">
+        <div class="card">
+          <h2>Kontakt</h2>
+          <p class="muted">Am schnellsten per E-Mail oder kurzer Terminbuchung.</p>
+          <div class="actions">
+            <a class="btn primary" href="mailto:contact@lugh21.com?subject=Home%20Assistant%20%E2%80%94%20Setup%20%26%20Automationen&body=Hallo%20Lugh%2C%0A%0AAnwendungsfall%20(Pro%20%2F%20Privat)%3A%20%0AZiele%20in%20einem%20Satz%3A%20%0AGer%C3%A4te%20%2F%20Integrationen%20(grob)%3A%20%0ARemote%20(Nabu%20Casa%20%2F%20Tailscale)%3A%20%0AZeitfenster%3A%20%0ABudgetband%20(grob)%3A%20%0A%0ADanke!">
+              E-Mail senden
+            </a>
+            <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+            <a class="btn ghost" href="tel:+00000000000">Telefon</a>
+            <a class="btn ghost" href="https://t.me/YOUR_TELEGRAM_HANDLE">Telegram</a>
+          </div>
+          <div class="note">Kickoff üblicherweise zeitnah nach deiner Anfrage.</div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Kurz-Ablauf</h3>
+          <ol class="clean" style="margin-left:18px">
+            <li>Kickoff (15 Min)</li>
+            <li>Umsetzung (1–2 Sessions)</li>
+            <li>Übergabe (PDF, Handoff)</li>
+            <li>Optional: Training <strong>/</strong> Managed Care</li>
+          </ol>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Verwandte Services</h3>
+          <ul class="clean">
+            <li><a class="btn linklike" href="/hire/wlan-optimierung.html">WLAN-Optimierung →</a></li>
+            <li><a class="btn linklike" href="/hire/problem-zu-loesung.html">Problem → Lösung →</a></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">© <span id="y"></span> Lugh21</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Toggle Pro <-> Privat (a11y: aria-pressed + keyboard)
+    const chips = document.querySelectorAll('.chip');
+    const modes = {
+      pro: document.querySelectorAll('.mode-pro'),
+      privat: document.querySelectorAll('.mode-privat')
+    };
+
+    function setMode(mode){
+      const isPro = mode === 'pro';
+      modes.pro.forEach(el => el.hidden = !isPro);
+      modes.privat.forEach(el => el.hidden = isPro);
+      chips.forEach(c => {
+        const active = c.dataset.mode === mode;
+        c.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    }
+
+    chips.forEach(ch => {
+      ch.addEventListener('click', () => setMode(ch.dataset.mode));
+      ch.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setMode(ch.dataset.mode); }
+      });
+    });
+
+    // init: Pro vorausgewählt
+    setMode('pro');
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+:root{
+    --gutter-min:16px;
+    --gutter-vw:4vw;
+    --gutter-max:28px;
+  }
+  /* Gilt für Header, Main, Footer – überall wo .container genutzt wird */
+  .container{
+    padding-left: calc(clamp(var(--gutter-min), var(--gutter-vw), var(--gutter-max)) + env(safe-area-inset-left));
+    padding-right: calc(clamp(var(--gutter-min), var(--gutter-vw), var(--gutter-max)) + env(safe-area-inset-right));
+  }
+  /* Einheitlicher oberer Abstand */
+body.hire-page main{
+  padding-top: clamp(20px, 4svh, 30px) !important;
+  padding-bottom: 64px !important;
+}
+body.service-page main{
+  padding-top: clamp(20px, 4svh, 30px) !important;
+  padding-bottom: 80px !important;
+}

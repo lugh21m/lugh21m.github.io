@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PCB nach Wunsch (KiCad) — Lugh21</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#fff;--fg:#111;--muted:#e8e8e8;--card:#fff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.06)}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{border-bottom:1px solid var(--muted);background:#fff}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:24px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600}
+
+    /* organischer Top-Abstand (Überschrift weiter hoch) */
+    body.hire-page main{
+      padding-top: clamp(72px,10vh,140px) !important;
+      padding-bottom: 64px !important;
+    }
+
+    /* Anchor-Offset für Mini-Navigation */
+    :where(#pakete,#scope,#examples,#process,#inputs,#limits,#changes,#rights,#preise,#kontakt,#faq){scroll-margin-top:120px;}
+
+    h1{margin:0 0 10px 0;font-size:36px;line-height:1.15}
+    p.sub{margin:0 12px 24px 0;opacity:.8;max-width:860px}
+    .grid{display:grid;gap:clamp(20px,3.5vw,36px)}
+    .grid-2{grid-template-columns:2fr 1fr} /* Hauptlayout: Inhalt + Sidebar */
+    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .section{margin:28px 0}
+    .section h2{margin:0 0 10px 0;font-size:22px}
+    .section h3{margin:0 0 8px 0;font-size:18px}
+    .muted{opacity:.8}
+    ul.clean{margin:8px 0 0 18px;padding:0;line-height:1.55}
+    .kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .kpi{border:1px solid var(--muted);border-radius:12px;padding:8px 12px;font-weight:600;font-size:14px}
+    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .btn{display:inline-block;border:1px solid var(--muted);padding:12px 16px;border-radius:12px;font-weight:600}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+    .btn.ghost{background:#fff}
+    .btn.linklike{background:transparent;border:0;padding:0;text-decoration:underline;font-weight:600}
+
+    .price{font-weight:700;margin-top:8px}
+    .note{font-size:13px;opacity:.8;margin-top:6px}
+    .mini-nav{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0 0}
+    .pill{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;font-size:13px}
+
+    /* Pakete: 2 Spalten gleich breit */
+    .grid-packages{display:grid;gap:clamp(20px,3.5vw,36px);grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:640px){
+      .grid-packages{grid-template-columns:1fr}
+    }
+
+    /* Sidebar */
+    .sticky{position:sticky;top:120px}
+
+    @media (max-width:980px){
+      .grid-2{grid-template-columns:1fr}
+      .sticky{position:static;top:auto}
+    }
+    footer{margin-top:48px}
+    footer .container{border-top:1px solid var(--muted)}
+    .foot{padding:16px 0;font-size:14px}
+  </style>
+  <link rel="stylesheet" href="/assets/global.css">
+</head>
+<body class="service-page service-pcb">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">Lugh21</a>
+      <nav class="links" aria-label="Navigation">
+        <a href="/hire/">Hire</a>
+        <a href="/read/">Read</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" aria-label="PCB nach Wunsch">
+    <h1>PCB nach Wunsch (KiCad)</h1>
+    <p class="sub">Sie haben eine Idee, aber nicht sicher ob 2-Layer oder 4-Layer? Ich bringe Ihre Platine von der Idee bis zum fertigen Datenpaket – in KiCad, mit DFM-Fokus und klarer Übergabe an JLCPCB / Aisler / PCBWay oder einen Fertiger Ihrer Wahl.</p>
+
+    <!-- Hero CTA -->
+    <div class="actions" aria-label="Schnellstart">
+      <!-- TODO: echte Kontaktdaten/Link einsetzen -->
+      <a class="btn primary" href="mailto:contact@lugh21.com?subject=PCB%20nach%20Wunsch%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0Aich%20m%C3%B6chte%20ein%20PCB-Design%20anfragen.%0APaket%3A%20S%20PCB%20Scope%20Mini%20%2F%20A%20Layout%20aus%20geliefertem%20Schaltplan%20%2F%20B%20Neuentwurf%3A%20Schaltplan%20%2B%20Layout%20%2F%20C%20DFM%20%26%20Bring-to-Fab%20%2F%20D%204-Layer%20Pro%20%2F%20E%20Redesign%20%2F%20Migration%20%2F%20F%20Assembly-Begleitung%0ALagen%3A%202-Layer%20%2F%204-Layer%20%2F%20unklar%0ABauteile%20(ca.)%3A%20%0AZiel-Fertiger%3A%20JLCPCB%20%2F%20Aisler%20%2F%20PCBWay%20%2F%20andere%0ASpezial%3A%20Impedanz%20%2F%20HV%20%2F%20HF%20%2F%20keine%0AKontakt%3A%20%0A%0ADanke!">E-Mail senden</a>
+      <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">Gerber / Drill / BOM / CPL</div>
+      <div class="kpi">Sauberer DFM-Check</div>
+      <div class="kpi">2-Layer / 4-Layer</div>
+      <div class="kpi">JLC / Aisler / PCBWay ready</div>
+      <div class="kpi">Deutsch / English</div>
+    </div>
+
+    <div class="mini-nav" aria-label="Abschnittsnavigation">
+      <a class="pill" href="#pakete">Pakete</a>
+      <a class="pill" href="#scope">Leistungsumfang</a>
+      <a class="pill" href="#examples">Beispiele</a>
+      <a class="pill" href="#process">Ablauf</a>
+      <a class="pill" href="#inputs">Was ich brauche</a>
+      <a class="pill" href="#limits">Grenzen</a>
+      <a class="pill" href="#changes">Revisionen</a>
+      <a class="pill" href="#rights">Daten & Rechte</a>
+      <a class="pill" href="#preise">Preise</a>
+      <a class="pill" href="#kontakt">Kontakt</a>
+      <a class="pill" href="#faq">FAQ</a>
+    </div>
+
+    <!-- Content + Sticky CTA -->
+    <section class="grid grid-2 section" aria-label="Inhalt">
+      <!-- Main -->
+      <div class="col">
+
+        <!-- Pakete (2 Spalten) -->
+        <div class="card section" id="pakete">
+          <h2>Pakete</h2>
+          <div class="grid-packages" style="margin-top:8px">
+            <!-- S -->
+            <div class="card">
+              <h3>S) PCB Scope Mini</h3>
+              <p class="muted">Beratung / 20 Min / anrechenbar</p>
+              <ul class="clean">
+                <li><strong>Ihr Input:</strong> Idee / Funktionen / Spannungen · optional Wunsch-Fertiger</li>
+                <li><strong>Ich liefere:</strong> Layer-Empfehlung (2-Layer / 4-Layer) · Stackup-Vorschlag · DFM-Hinweise (Fiducials / Testpunkte / Clearances)</li>
+                <li><strong>Ergebnis:</strong> empfohlenes Hauptpaket (A / B / C / D) · Richtpreis · Next Steps · Mini-Memo</li>
+              </ul>
+              <div class="price">€49 · wird bei Beauftragung angerechnet</div>
+            </div>
+
+            <!-- A -->
+            <div class="card">
+              <h3>A) Layout aus geliefertem Schaltplan</h3>
+              <p class="muted">2-Layer / ≤ 50 Bauteile</p>
+              <ul class="clean">
+                <li><strong>Ihr Input:</strong> finaler Schaltplan (KiCad .kicad_sch oder PDF) · BOM mit MPN · Fertiger-Vorgaben</li>
+                <li><strong>Ich liefere:</strong> PCB-Layout (KiCad) · Gerber (RS-274X) / Excellon Drill · BOM (CSV) · CPL (XY / Rotation) · kurze Fab-Notes</li>
+                <li><strong>DFM:</strong> Design-Regeln des Ziel-Fertigers angewendet</li>
+              </ul>
+              <div class="price">ab €399</div>
+            </div>
+
+            <!-- B -->
+            <div class="card">
+              <h3>B) Neuentwurf: Schaltplan + Layout</h3>
+              <p class="muted">2-Layer / ≤ 50 Bauteile</p>
+              <ul class="clean">
+                <li><strong>Ihr Input:</strong> Anforderungen / Blockdiagramm · Schnittstellen · Spannungen / Ströme · Bauteilpräferenzen</li>
+                <li><strong>Ich liefere:</strong> Schaltplan (PDF / KiCad-Quellen) · PCB-Layout · Gerber / Drill · BOM (MPN) · CPL · Fab-Notes</li>
+                <li><strong>Review:</strong> 1–2 kurze Runden bis Freigabe</li>
+              </ul>
+              <div class="price">ab €599</div>
+            </div>
+
+            <!-- C -->
+            <div class="card">
+              <h3>C) DFM & Bring-to-Fab</h3>
+              <p class="muted">bestehendes KiCad-Projekt</p>
+              <ul class="clean">
+                <li><strong>Ihr Input:</strong> KiCad-Projekt · Ziel-Fertiger</li>
+                <li><strong>Ich liefere:</strong> DRC / ERC · Silks / Paste / Fiducials · Exportpaket: Gerber / Drill / BOM / CPL / Notes</li>
+                <li><strong>Optional:</strong> STEP der Leiterplatte fürs Gehäuse-Fit</li>
+              </ul>
+              <div class="price">€149 (klein) · oder €60 / h</div>
+            </div>
+
+            <!-- D -->
+            <div class="card">
+              <h3>D) 4-Layer Pro</h3>
+              <p class="muted">≤ 150 Bauteile / Stackup</p>
+              <ul class="clean">
+                <li><strong>Ihr Input:</strong> Schaltplan (vorhanden) oder Anforderung für Neuentwurf</li>
+                <li><strong>Ich liefere:</strong> 4-Layer-Layout mit Zonen / Planes · Stackup-Abstimmung mit Fertiger · Gerber / Drill / BOM / CPL / Notes</li>
+                <li><strong>Impedanz:</strong> Hinweise / Zielwerte · detaillierte Berechnung auf Anfrage</li>
+              </ul>
+              <div class="price">ab €899 · + €60 / h für High-Speed / Impedanz</div>
+            </div>
+
+            <!-- E -->
+            <div class="card">
+              <h3>E) Redesign / Migration</h3>
+              <p class="muted">Altium / Eagle → KiCad</p>
+              <ul class="clean">
+                <li><strong>Ihr Input:</strong> Quelldaten / Gerber / PDFs</li>
+                <li><strong>Ich liefere:</strong> saubere KiCad-Daten · Library-Bereinigung · DFM-Check · vollständiges Output-Pack</li>
+              </ul>
+              <div class="price">€60 / h</div>
+            </div>
+
+            <!-- F -->
+            <div class="card">
+              <h3>F) Assembly-Begleitung</h3>
+              <p class="muted">Bestückung / Handoff</p>
+              <ul class="clean">
+                <li><strong>Ich übernehme:</strong> Handoff-Call an Fertiger (15–20 Min) · Bestückungsfreigabe · eine Korrekturrunde der Daten</li>
+                <li><strong>Mehrbedarf:</strong> weitere Abstimmungen nach Aufwand</li>
+              </ul>
+              <div class="price">€99 · Mehrarbeit €60 / h</div>
+            </div>
+          </div>
+          <div class="note">Größeres Vorhaben? <a class="btn linklike" href="/hire/projekt-problem-zu-loesung/">Komplette Lösung planen →</a></div>
+        </div>
+
+        <!-- Leistungsumfang -->
+        <div class="card section" id="scope">
+          <h2>Was ich für Sie erledige (Done-for-You)</h2>
+          <ul class="clean">
+            <li>PCB-Design in KiCad mit Fokus auf DFM und spätere Bestückung</li>
+            <li>Vollständiges Output-Pack: Gerber / Drill / BOM / CPL / Fab-Notes</li>
+            <li>Abstimmung mit gängigen Fertigern (JLCPCB / Aisler / PCBWay)</li>
+            <li>Optional: STEP der Leiterplatte für Gehäuseintegration</li>
+          </ul>
+        </div>
+
+        <!-- Beispiele -->
+        <div class="card section" id="examples">
+          <h2>Beispiele (Anwendungsfälle)</h2>
+          <ul class="clean">
+            <li>Sensor-Breakout (I²C / SPI) mit 2-Layer</li>
+            <li>Controller-Board mit Step-Down 12 V → 5 V</li>
+            <li>LED-Treiberplatine mit MOSFET / PWM</li>
+            <li>Kleines IoT-Board (ESP32 / STM32) mit Antennen-Clearance</li>
+            <li>Adapterplatinen / Pegelwandler / Verbinder-Fächer</li>
+          </ul>
+        </div>
+
+        <!-- Ablauf -->
+        <div class="card section" id="process">
+          <h2>Ablauf</h2>
+          <ol class="clean" style="margin-left:18px">
+            <li><strong>0) PCB Scope Mini (optional)</strong> – Layer-Empfehlung / Stackup / DFM-Hinweise · Paket-Empfehlung · Mini-Memo</li>
+            <li><strong>1) Kickoff (15 Min)</strong> – Zweck, Spannungen / Ströme, Bauteilzahl, Ziel-Fertiger</li>
+            <li><strong>2) Schematic / Libraries</strong> – Neuanlage oder Review bestehender Daten</li>
+            <li><strong>3) Layout + DFM</strong> – Regeln des Fertigers, Fiducials, Testpunkte, Rückstrompfade</li>
+            <li><strong>4) Review</strong> – 1–2 kurze Runden bis Freigabe</li>
+            <li><strong>5) Output-Pack</strong> – Gerber / Drill / BOM / CPL / Notes (optional STEP)</li>
+          </ol>
+        </div>
+
+        <!-- Was ich brauche -->
+        <div class="card section" id="inputs">
+          <h2>Was ich brauche</h2>
+          <ul class="clean">
+            <li><strong>Blockdiagramm / grobe Anforderungen</strong> (Funktion, Schnittstellen)</li>
+            <li><strong>Versorgung</strong> (Eingangsspannung / Ströme / Schutzbedarf)</li>
+            <li><strong>Bauteilpräferenzen</strong> (MPN / Alternativen) · Ziel-Fertiger</li>
+            <li><strong>Mechanik-Rahmen</strong> (Boardgröße, Befestigung, Keepouts)</li>
+            <li><strong>Regulatorik</strong> (z. B. HV / EMV-Sensibilität)</li>
+          </ul>
+        </div>
+
+        <!-- Grenzen -->
+        <div class="card section" id="limits">
+          <h2>Grenzen (fair & klar)</h2>
+          <ul class="clean">
+            <li>Keine Zertifizierungen / CE / UL / Medizin · keine Rechtsberatung</li>
+            <li>Netz / Hochspannung / sicherheitskritisch nur nach separater Vereinbarung</li>
+            <li>Sehr hohe Datenraten / komplexe Impedanz- und HF-Designs auf Anfrage</li>
+            <li>Firmware / Treiberentwicklung nicht enthalten (optional nach Aufwand)</li>
+          </ul>
+        </div>
+
+        <!-- Revisionen -->
+        <div class="card section" id="changes">
+          <h2>Revisionen & Changes (transparent)</h2>
+          <ul class="clean">
+            <li><strong>Inklusive:</strong> paketweise kleine Korrekturrunden (Silks / Paste / Platzierung / Labels)</li>
+            <li><strong>Nicht enthalten:</strong> Funktions- / Konzeptänderungen, Layer-Wechsel, große MPN-Umbauten</li>
+            <li><strong>Zusatzaufwand:</strong> weitere Runden / Änderungen mit <strong>€60 / h</strong> (15-Min-Takt) nach Bestätigung</li>
+          </ul>
+        </div>
+
+        <!-- Daten & Rechte -->
+        <div class="card section" id="rights">
+          <h2>Daten & Rechte</h2>
+          <ul class="clean">
+            <li><strong>Lieferdateien:</strong> Gerber / Excellon Drill / BOM (CSV) / CPL (XY) / Fab-Notes</li>
+            <li><strong>Native Source (auf Wunsch):</strong> KiCad-Projekt (.kicad_pro / .kicad_sch / .kicad_pcb) · geprüfte Footprints</li>
+            <li><strong>Nutzungsrechte</strong> gehen nach Zahlung auf Sie über · <strong>NDA</strong> auf Wunsch</li>
+          </ul>
+        </div>
+
+        <!-- Preise -->
+        <div class="card section" id="preise">
+          <h2>Preise</h2>
+          <ul class="clean">
+            <li><strong>S PCB Scope Mini:</strong> €49 · anrechenbar bei Beauftragung (14 Tage)</li>
+            <li><strong>A Layout aus geliefertem Schaltplan:</strong> ab €399</li>
+            <li><strong>B Neuentwurf: Schaltplan + Layout:</strong> ab €599</li>
+            <li><strong>C DFM &amp; Bring-to-Fab:</strong> €149 (klein) · oder €60 / h</li>
+            <li><strong>D 4-Layer Pro:</strong> ab €899 · + €60 / h für High-Speed / Impedanz</li>
+            <li><strong>E Redesign / Migration:</strong> €60 / h</li>
+            <li><strong>F Assembly-Begleitung:</strong> €99 · Mehrarbeit €60 / h</li>
+          </ul>
+          <div class="note">Preise netto, zzgl. USt (falls anwendbar).</div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card section" id="faq">
+          <h2>FAQ</h2>
+          <ul class="clean">
+            <li><strong>JLC Basic / Extended Parts?</strong> Ich berücksichtige Basic / Extended in der BOM und kennzeichne Alternativen.</li>
+            <li><strong>CPL-Rotation passt?</strong> Ja, ich liefere XY / Rotation gemäß Fertiger-Vorgaben.</li>
+            <li><strong>Impedanz / Stackup?</strong> Für 4-Layer stimme ich Standard-Stackups ab und gebe Zielwerte an; detaillierte Berechnung auf Anfrage.</li>
+            <li><strong>Daten bleiben vertraulich?</strong> Ja, NDA gern. Native KiCad-Quellen auf Wunsch.</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="/hire/">&larr; Zurück zur Übersicht</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sticky">
+        <div class="card" id="kontakt">
+          <h2>Kontakt</h2>
+          <p class="muted">Am schnellsten per E-Mail oder kurzer Terminbuchung.</p>
+          <div class="actions">
+            <!-- TODO: echte Kontaktdaten/Link einsetzen -->
+            <a class="btn primary"
+               href="mailto:contact@lugh21.com?subject=PCB%20nach%20Wunsch%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0Aich%20m%C3%B6chte%20ein%20PCB-Design%20anfragen.%0APaket%3A%20S%20PCB%20Scope%20Mini%20%2F%20A%20Layout%20aus%20geliefertem%20Schaltplan%20%2F%20B%20Neuentwurf%3A%20Schaltplan%20%2B%20Layout%20%2F%20C%20DFM%20%26%20Bring-to-Fab%20%2F%20D%204-Layer%20Pro%20%2F%20E%20Redesign%20%2F%20Migration%20%2F%20F%20Assembly-Begleitung%0ALagen%3A%202-Layer%20%2F%204-Layer%20%2F%20unklar%0ABauteile%20(ca.)%3A%20%0AZiel-Fertiger%3A%20JLCPCB%20%2F%20Aisler%20%2F%20PCBWay%20%2F%20andere%0ASpezial%3A%20Impedanz%20%2F%20HV%20%2F%20HF%20%2F%20keine%0AKontakt%3A%20%0A%0ADanke!">
+              E-Mail senden
+            </a>
+            <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+            <a class="btn ghost" href="tel:+00000000000">Telefon</a>
+            <a class="btn ghost" href="https://t.me/YOUR_TELEGRAM_HANDLE">Telegram</a>
+          </div>
+          <div class="note">Kickoff üblicherweise zeitnah nach Ihrer Anfrage.</div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Kurz-Ablauf</h3>
+          <ol class="clean" style="margin-left:18px">
+            <li>PCB Scope Mini (optional)</li>
+            <li>Layout / DFM</li>
+            <li>Output-Pack (Gerber / Drill / BOM / CPL)</li>
+          </ol>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">© <span id="y"></span> Lugh21</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

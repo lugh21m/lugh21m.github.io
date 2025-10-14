@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WLAN-Optimierung — Lugh21</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#fff;--fg:#111;--muted:#e8e8e8;--card:#fff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.06)}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{border-bottom:1px solid var(--muted);background:#fff}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:24px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600}
+
+    /* organischer Top-Abstand (Überschrift weiter hoch) */
+    body.hire-page main{
+      padding-top: clamp(140px,500vh,5000px) !important;
+      padding-bottom: 64px !important;
+    }
+
+    /* Anchor-Offset für Mini-Navigation */
+    :where(#pakete,#scope,#warum,#daten,#preise,#kontakt,#faq){scroll-margin-top:120px;}
+
+    h1{margin:0 0 10px 0;font-size:36px;line-height:1.15}
+    p.sub{margin:0 12px 24px 0;opacity:.8;max-width:860px}
+    .grid{display:grid;gap:clamp(20px,3.5vw,36px)}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:2fr 1fr}
+    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .section{margin:28px 0}
+    .section h2{margin:0 0 10px 0;font-size:22px}
+    .section h3{margin:0 0 8px 0;font-size:18px}
+    .muted{opacity:.8}
+    ul.clean{margin:8px 0 0 18px;padding:0;line-height:1.55}
+    .kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .kpi{border:1px solid var(--muted);border-radius:12px;padding:8px 12px;font-weight:600;font-size:14px}
+    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .btn{display:inline-block;border:1px solid var(--muted);padding:12px 16px;border-radius:12px;font-weight:600}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+    .btn.ghost{background:#fff}
+    .btn.linklike{background:transparent;border:0;padding:0;text-decoration:underline;font-weight:600}
+
+    .price{font-weight:700;margin-top:8px}
+    .note{font-size:13px;opacity:.8;margin-top:6px}
+    .mini-nav{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0 0}
+    .pill{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;font-size:13px}
+
+    /* Toggle Remote/Vor-Ort – a11y */
+    .toggle{display:flex;gap:8px;margin:10px 0 14px 0;flex-wrap:wrap}
+    .chip{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;cursor:pointer;user-select:none}
+    .chip[aria-pressed="true"]{background:#111;color:#fff;border-color:#111}
+    .chip:focus{outline:2px solid #111;outline-offset:2px}
+
+    /* Sidebar */
+    .sticky{position:sticky;top:120px}
+
+    /* Diagram */
+    .diagram{width:100%;height:auto;display:block}
+    .legend{display:flex;gap:12px;margin-top:10px;align-items:center;font-size:13px;opacity:.85}
+    .legend span{display:inline-flex;gap:6px;align-items:center}
+    .dot{width:12px;height:12px;border-radius:3px;display:inline-block;border:1px solid var(--muted)}
+
+    @media (max-width:980px){
+      .grid-2{grid-template-columns:1fr}
+      .sticky{position:static;top:auto}
+    }
+    @media (max-width:920px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid-3{grid-template-columns:1fr}}
+    footer{margin-top:48px}
+    footer .container{border-top:1px solid var(--muted)}
+    .foot{padding:16px 0;font-size:14px}
+  </style>
+  <link rel="stylesheet" href="/assets/global.css">
+</head>
+<body class="service-page service-wifi">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">Lugh21</a>
+      <nav class="links" aria-label="Navigation">
+        <a href="/hire/">Hire</a>
+        <a href="/read/">Read</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" aria-label="WLAN-Optimierung">
+    <h1>WLAN-Optimierung</h1>
+    <p class="sub">„Manchmal gut, manchmal schlecht“ – das muss nicht sein. Ich stelle Kanäle, Bandbreiten, Sendeleistungen & AP-Standorte so ein, dass Ihr WLAN <strong>stabil, planbar und schnell</strong> läuft. Ideal für Hotels, Villen, Cafés und kleine Gewerbe.</p>
+
+    <!-- Hero CTA -->
+    <div class="actions" aria-label="Schnellstart">
+      <!-- TODO: echte Kontaktdaten/Link einsetzen -->
+      <a class="btn primary" href="mailto:contact@lugh21.com?subject=WLAN%20Optimierung%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0Aich%20m%C3%B6chte%20WLAN-Optimierung%20anfragen.%0APaket%3A%20Basic%20%2F%20Plus%20%2F%20Redesign%0AModus%3A%20Remote%20%2F%20Vor%20Ort%0AAdresse%3A%20%0AAnzahl%20APs%20(ca.)%3A%20%0AKontakt%3A%20%0A%0ADanke!">E-Mail senden</a>
+      <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">Stabil & vorhersagbar</div>
+      <div class="kpi">Messbar schneller</div>
+      <div class="kpi">Sauberer Kanalplan</div>
+      <div class="kpi">Roaming im Gleichgewicht</div>
+      <div class="kpi">AP-Placement geprüft</div>
+    </div>
+
+    <div class="mini-nav" aria-label="Abschnittsnavigation">
+      <a class="pill" href="#pakete">Pakete</a>
+      <a class="pill" href="#scope">Leistungsumfang</a>
+      <a class="pill" href="#warum">Warum es wirkt</a>
+      <a class="pill" href="#daten">Remote / Vor Ort</a>
+      <a class="pill" href="#preise">Preise</a>
+      <a class="pill" href="#kontakt">Kontakt</a>
+      <a class="pill" href="#faq">FAQ</a>
+    </div>
+
+    <!-- Content + Sticky CTA -->
+    <section class="grid grid-2 section" aria-label="Inhalt">
+      <!-- Main -->
+      <div class="col">
+
+        <!-- Pakete ganz nach oben -->
+        <div class="card section" id="pakete">
+          <h2>Pakete</h2>
+          <div class="grid grid-3" style="margin-top:8px">
+            <div class="card">
+              <h3>Basic</h3>
+              <p class="muted">Einstellung & Stabilisierung</p>
+              <ul class="clean">
+                <li>Kanäle in 2,4 / 5 GHz korrekt einstellen</li>
+                <li>Bandbreiten sinnvoll wählen</li>
+                <li>Sendeleistungen so setzen, dass APs sich nicht stören</li>
+                <li>Kurze Doku (PDF)</li>
+              </ul>
+              <div class="price">€149 / Standort</div>
+            </div>
+
+            <div class="card">
+              <h3>Plus</h3>
+              <p class="muted">Einstellung + Vor/Nach-Vergleich</p>
+              <ul class="clean">
+                <li>Alles aus Basic (direkt eingestellt)</li>
+                <li>Messung vor der Änderung (Down/Up/Ping)</li>
+                <li>Messung nach der Änderung (gleiche Punkte)</li>
+                <li>1-Pager mit Vor/Nach-Tabelle</li>
+              </ul>
+              <div class="price">€199 / Standort</div>
+            </div>
+
+            <div class="card">
+              <h3>Redesign</h3>
+              <p class="muted">Netzwerk & Hardware — auf Anfrage</p>
+              <ul class="clean">
+                <li>Topologie-Skizze & Segmentierung</li>
+                <li>Hardware-Beratung & BOM</li>
+                <li>Gäste-Netz/SSID-Layout, VLAN-Plan</li>
+              </ul>
+              <div class="price">
+                auf Anfrage<br>
+                <a class="btn linklike" href="/hire/hotel-wlan-design/">Hotel-WLAN: Neuaufbau & Design →</a>
+              </div>
+            </div>
+          </div>
+          <div class="note">Optional: Vor-Ort-Begleitung auf Kreta (siehe Preise) kann zu jedem Paket ergänzt werden.</div>
+        </div>
+
+        <!-- Leistungsumfang + Grenzen -->
+        <div class="card section" id="scope">
+          <h2>Was ich für Sie erledige (Done-for-You)</h2>
+          <ul class="clean">
+            <li>Ich <strong>stelle die Kanäle</strong> in 2,4 GHz und 5 GHz korrekt ein (ohne Überlappung)</li>
+            <li>Ich wähle die <strong>richtigen Bandbreiten</strong> je Radio (stabil statt „Auto“)</li>
+            <li>Ich setze <strong>Sendeleistungen</strong> so, dass APs sich nicht gegenseitig stören</li>
+            <li>Ich prüfe <strong>AP-Standorte</strong> & skizziere sinnvolle Anpassungen</li>
+            <li><strong>SSID-Layout</strong> (Gäste/Personal/IoT) mit sinnvollen Defaults</li>
+          </ul>
+          <h3>Nicht enthalten (fair & klar)</h3>
+          <ul class="clean">
+            <li>Neuverkabelung / bauliche Arbeiten</li>
+            <li>Controller-Migrationen oder Lizenzbeschaffung</li>
+            <li>Ersatz defekter Hardware</li>
+          </ul>
+          <div class="price">Ergebnis: <strong>funktionierendes WLAN — stabil & verlässlich.</strong></div>
+        </div>
+
+        <!-- Warum es wirkt: Visual -->
+        <div class="card section" id="warum">
+          <h2>Warum Optimierung wirkt</h2>
+          <p class="muted" style="margin:0 0 10px 0">Überlappende Kanäle und zu breite Bandbreiten machen Netze langsam. Ein sauberer Plan entkoppelt die APs und sorgt für verlässliche Leistung.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center">
+            <div>
+              <h3 style="margin:0 0 6px 0">Schlecht (überlappend)</h3>
+              <svg class="diagram" viewBox="0 0 320 120" role="img" aria-label="Überlappende Kanäle">
+                <rect x="10" y="20" width="140" height="22" fill="#ffb3b3" stroke="#e8e8e8"/>
+                <rect x="90" y="48" width="140" height="22" fill="#ffb3b3" stroke="#e8e8e8"/>
+                <rect x="170" y="76" width="140" height="22" fill="#ffb3b3" stroke="#e8e8e8"/>
+                <text x="12" y="16" font-size="12" fill="#555">2,4 GHz — breite/überlappende Kanäle</text>
+              </svg>
+            </div>
+            <div>
+              <h3 style="margin:0 0 6px 0">Gut (entkoppelt)</h3>
+              <svg class="diagram" viewBox="0 0 320 120" role="img" aria-label="Entkoppelte Kanäle">
+                <rect x="10" y="20" width="80" height="22" fill="#b8e6c9" stroke="#e8e8e8"/>
+                <rect x="120" y="20" width="80" height="22" fill="#b8e6c9" stroke="#e8e8e8"/>
+                <rect x="230" y="20" width="80" height="22" fill="#b8e6c9" stroke="#e8e8e8"/>
+                <text x="12" y="16" font-size="12" fill="#555">2,4 GHz — 1 / 6 / 11 (20 MHz)</text>
+                <rect x="10" y="70" width="120" height="22" fill="#b8d2f5" stroke="#e8e8e8"/>
+                <rect x="170" y="70" width="120" height="22" fill="#b8d2f5" stroke="#e8e8e8"/>
+                <text x="12" y="66" font-size="12" fill="#555">5 GHz — 40/80 MHz, koordiniert</text>
+              </svg>
+            </div>
+          </div>
+          <div class="legend">
+            <span><span class="dot" style="background:#ffb3b3"></span> überlappende Kanäle</span>
+            <span><span class="dot" style="background:#b8e6c9"></span> sauber getrennt</span>
+            <span><span class="dot" style="background:#b8d2f5"></span> 5 GHz breit, koordiniert</span>
+          </div>
+          <div class="note">Illustration vereinfacht. Ich setze konkrete Einstellungen für Ihr Objekt um.</div>
+        </div>
+
+        <!-- Remote vs On-Site -->
+        <div class="card section" id="daten">
+          <h2>Remote oder Vor Ort – Sie wählen</h2>
+          <div class="toggle" role="tablist" aria-label="Modus wählen">
+            <span class="chip" role="button" tabindex="0" aria-pressed="true" data-mode="remote">Remote</span>
+            <span class="chip" role="button" tabindex="0" aria-pressed="false" data-mode="onsite">Vor Ort (Kreta)</span>
+          </div>
+
+          <!-- Remote -->
+          <div class="mode mode-remote" aria-live="polite">
+            <p class="muted" style="margin:0 0 10px 0">
+              Mit temporärem Admin-Zugang stelle ich die Settings <strong>direkt</strong> ein; ohne Zugang führen wir sie im Call <strong>Schritt für Schritt</strong> gemeinsam aus.
+            </p>
+            <div class="grid grid-3" style="margin-top:8px">
+              <div class="card">
+                <h3>Was ich brauche</h3>
+                <ul class="clean">
+                  <li>Adresse + kurze Skizze/Foto vom Grundriss</li>
+                  <li>Router/Controller (Modell) & Anzahl APs</li>
+                  <li>Optional: temporärer Zugang zum Controller</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Was Sie bekommen</h3>
+                <ul class="clean">
+                  <li>Korrekt eingestellte Kanäle/ Bandbreiten/ Power</li>
+                  <li>Kurze Doku der Einstellungen (PDF)</li>
+                  <li>Bei Plus: Vor/Nach-Vergleich (1-Pager)</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Dauer</h3>
+                <ul class="clean">
+                  <li>Kurz-Kickoff per Call</li>
+                  <li>Umsetzung meist in einer Session</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- On-Site -->
+          <div class="mode mode-onsite" hidden aria-live="polite">
+            <p class="muted" style="margin:0 0 10px 0">Ich komme vorbei, messe Spots und setze die empfohlenen Einstellungen gemeinsam mit Ihnen um.</p>
+            <div class="grid grid-3" style="margin-top:8px">
+              <div class="card">
+                <h3>Vorbereitung</h3>
+                <ul class="clean">
+                  <li>Kontaktperson & Raumzugang</li>
+                  <li>Admin-Zugang zu Controller/Router</li>
+                  <li>Kurze Liste vorhandener Geräte</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Vor Ort mache ich</h3>
+                <ul class="clean">
+                  <li>Begehung & Spot-Messungen</li>
+                  <li>AP-Positionen prüfen/markieren</li>
+                  <li>Einstellungen vornehmen</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Übergabe</h3>
+                <ul class="clean">
+                  <li>Doku (PDF) & kurze Einweisung</li>
+                  <li>Optional: Team-Briefing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preise -->
+        <div class="card section" id="preise">
+          <h2>Preise</h2>
+          <ul class="clean">
+            <li><strong>Basic:</strong> €149 pro Standort (bis 15 APs)</li>
+            <li><strong>Plus:</strong> €199 pro Standort (inkl. Vor/Nach-Vergleich)</li>
+            <li><strong>Vor Ort (Kreta, optional):</strong> €350 pro Tag</li>
+            <li><strong>Redesign (Hardware/Topologie):</strong> auf Anfrage</li>
+          </ul>
+          <div class="note">
+            Standort = zusammenhängender Bereich / ein Controller. Mehrere Häuser auf einem Grundstück gelten als mehrere Standorte.
+            Preise netto, zzgl. USt. (falls anwendbar). Vor-Ort außerhalb Heraklion: Reisekosten €0,80/km.
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card section" id="faq">
+          <h2>FAQ</h2>
+          <ul class="clean">
+            <li><strong>Remote komplett möglich?</strong> Ja, mit Controller-Zugang oder gemeinsam im Call.</li>
+            <li><strong>Welche Systeme?</strong> UniFi, TP-Link Omada, MikroTik, Cisco-SB u. a.</li>
+            <li><strong>Neue Hardware nötig?</strong> Häufig nein. Erst sauber einstellen; Redesign nur bei Bedarf.</li>
+            <li><strong>Sprache & Datenschutz?</strong> Deutsch/English. Daten werden vertraulich behandelt.</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="/hire/">&larr; Zurück zur Übersicht</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sticky">
+        <div class="card" id="kontakt">
+          <h2>Kontakt</h2>
+          <p class="muted">Am schnellsten per E-Mail oder kurzer Terminbuchung.</p>
+          <div class="actions">
+            <!-- TODO: echte Kontaktdaten/Link einsetzen -->
+            <a class="btn primary"
+               href="mailto:contact@lugh21.com?subject=WLAN%20Optimierung%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0Aich%20m%C3%B6chte%20WLAN-Optimierung%20anfragen.%0APaket%3A%20Basic%20%2F%20Plus%20%2F%20Redesign%0AModus%3A%20Remote%20%2F%20Vor%20Ort%0AAdresse%3A%20%0AAnzahl%20APs%20(ca.)%3A%20%0AKontakt%3A%20%0A%0ADanke!">
+              E-Mail senden
+            </a>
+            <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+            <a class="btn ghost" href="tel:+00000000000">Telefon</a>
+            <a class="btn ghost" href="https://t.me/YOUR_TELEGRAM_HANDLE">Telegram</a>
+          </div>
+          <div class="note">Kickoff üblicherweise zeitnah nach Ihrer Anfrage.</div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Kurz-Ablauf</h3>
+          <ol class="clean" style="margin-left:18px">
+            <li>15-Min-Check & Ziele</li>
+            <li>Einstellungen (Basic) / + Vergleich (Plus)</li>
+            <li>Check & Übergabe (Doku)</li>
+          </ol>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">© <span id="y"></span> Lugh21</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Toggle Remote <-> On-Site (a11y: aria-pressed + keyboard)
+    const chips = document.querySelectorAll('.chip');
+    const remote = document.querySelector('.mode-remote');
+    const onsite = document.querySelector('.mode-onsite');
+
+    function setMode(mode){
+      const isRemote = mode === 'remote';
+      remote.hidden = !isRemote;
+      onsite.hidden = isRemote;
+      chips.forEach(c => {
+        const active = c.dataset.mode === mode;
+        c.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    }
+
+    chips.forEach(ch => {
+      ch.addEventListener('click', () => setMode(ch.dataset.mode));
+      ch.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setMode(ch.dataset.mode); }
+      });
+    });
+
+    // init
+    setMode('remote');
+  </script>
+</body>
+</html>

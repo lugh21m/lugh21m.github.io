@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Sprint — Lugh21</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#fff;--fg:#111;--muted:#e8e8e8;--card:#fff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.06)}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{border-bottom:1px solid var(--muted);background:#fff}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:24px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600}
+
+    /* organischer Top-Abstand (Überschrift weiter hoch) */
+    body.hire-page main{
+      padding-top: clamp(72px,10vh,140px) !important;
+      padding-bottom: 64px !important;
+    }
+
+    /* Anchor-Offset für Mini-Navigation */
+    :where(#pakete,#umfang,#prozess,#beispiele,#technik,#preise,#faq,#kontakt,#limits){scroll-margin-top:120px;}
+
+    h1{margin:0 0 10px 0;font-size:36px;line-height:1.15}
+    p.sub{margin:0 12px 24px 0;opacity:.85;max-width:900px}
+    .grid{display:grid;gap:clamp(20px,3.5vw,36px)}
+    .grid-2{grid-template-columns:2fr 1fr} /* Inhalt + Sidebar */
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .section{margin:28px 0}
+    .section h2{margin:0 0 10px 0;font-size:22px}
+    .section h3{margin:0 0 8px 0;font-size:18px}
+    .muted{opacity:.85}
+    ul.clean{margin:8px 0 0 18px;padding:0;line-height:1.55}
+    .kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .kpi{border:1px solid var(--muted);border-radius:12px;padding:8px 12px;font-weight:600;font-size:14px}
+    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .btn{display:inline-block;border:1px solid var(--muted);padding:12px 16px;border-radius:12px;font-weight:600}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+    .btn.ghost{background:#fff}
+    .btn.linklike{background:transparent;border:0;padding:0;text-decoration:underline;font-weight:600}
+    .price{font-weight:700;margin-top:8px}
+    .note{font-size:13px;opacity:.8;margin-top:6px}
+    .mini-nav{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0 0}
+    .pill{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;font-size:13px}
+
+    /* Pakete: 2 Spalten */
+    .grid-packages{display:grid;gap:clamp(20px,3.5vw,36px);grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:640px){ .grid-packages{grid-template-columns:1fr} }
+
+    /* Sidebar */
+    .sticky{position:sticky;top:120px}
+
+    @media (max-width:980px){
+      .grid-2{grid-template-columns:1fr}
+      .sticky{position:static;top:auto}
+    }
+    @media (max-width:920px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid-3{grid-template-columns:1fr}}
+
+    footer{margin-top:48px}
+    footer .container{border-top:1px solid var(--muted)}
+    .foot{padding:16px 0;font-size:14px}
+  </style>
+  <link rel="stylesheet" href="/assets/global.css">
+</head>
+<body class="service-page service-web">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">Lugh21</a>
+      <nav class="links" aria-label="Navigation">
+        <a href="/hire/">Hire</a>
+        <a href="/read/">Read</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" aria-label="Website Sprint">
+    <h1>Website Sprint — Design + Build</h1>
+    <p class="sub">
+      Schnelle, schlanke Websites, die verkaufen. Ich übernehme <strong>Konzept, Design und Umsetzung</strong> — mobile-first, performant, mit klaren CTAs
+      und sauberer Grund-SEO. Statisch, schnell, wartungsarm. Fix beauftragen, zügig live.
+    </p>
+
+    <!-- Hero CTA -->
+    <div class="actions" aria-label="Schnellstart">
+      <a class="btn primary"
+         href="mailto:contact@lugh21.com?subject=Website%20Sprint%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0AZiel%20der%20Website%20%28z.%20B.%20Leads%20%2F%20Buchungen%20%2F%20Verkauf%29%3A%20%0ASeitenumfang%20%28Landing%20Page%20%2F%20Mini-Site%20%2F%203%E2%80%935%20Seiten%29%3A%20%0ABeispielseiten%20%28Links%29%3A%20%0ACall-to-Actions%20%28Kontakt%20%2F%20Cal.com%20%2F%20Checkout%29%3A%20%0ADomain%20%2F%20Provider%3A%20%0ABranche%20%2F%20Kurzbeschreibung%3A%20%0A%0ADanke%21">
+        Projekt anfragen
+      </a>
+      <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+      <a class="btn ghost" href="/hire/">&larr; Zurück zu Hire</a>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">Design + Build</div>
+      <div class="kpi">Mobile-first</div>
+      <div class="kpi">Lighthouse 90+</div>
+      <div class="kpi">SEO Basics</div>
+      <div class="kpi">Cal.com / Plausible</div>
+      <div class="kpi">Deutsch / English</div>
+    </div>
+
+    <div class="mini-nav" aria-label="Abschnittsnavigation">
+      <a class="pill" href="#pakete">Pakete</a>
+      <a class="pill" href="#umfang">Was ich erledige</a>
+      <a class="pill" href="#prozess">Prozess</a>
+      <a class="pill" href="#beispiele">Beispiele</a>
+      <a class="pill" href="#technik">Technik</a>
+      <a class="pill" href="#preise">Preise</a>
+      <a class="pill" href="#faq">FAQ</a>
+      <a class="pill" href="#kontakt">Kontakt</a>
+    </div>
+
+    <section class="grid grid-2 section" aria-label="Inhalt">
+      <!-- Main -->
+      <div class="col">
+
+        <!-- Pakete -->
+        <div class="card section" id="pakete">
+          <h2>Pakete</h2>
+          <div class="grid-packages" style="margin-top:8px">
+
+            <div class="card">
+              <h3>Landing Page Starter</h3>
+              <p class="muted">One-Pager, der verkauft</p>
+              <ul class="clean">
+                <li>Hero, Nutzen, Angebot, Trust, Kontakt</li>
+                <li>Mobile-first, Lighthouse 90+</li>
+                <li>SEO Basics: Title, Meta, OG / Twitter</li>
+                <li>Cal.com Termin / Kontaktformular</li>
+                <li>1 Revision inkl.</li>
+              </ul>
+              <div class="price">ab €590</div>
+            </div>
+
+            <div class="card">
+              <h3>Website Sprint (3–5 Seiten)</h3>
+              <p class="muted">Mini-Site mit Struktur</p>
+              <ul class="clean">
+                <li>Home, Angebote, Über mich, Kontakt, 1 Detail</li>
+                <li>Interne Links, Sitemap / robots</li>
+                <li>Schema.org Basic (Organization / WebSite)</li>
+                <li>GitHub Pages oder Cloudflare Pages Deploy</li>
+                <li>2 Revisionen inkl.</li>
+              </ul>
+              <div class="price">ab €1.290</div>
+            </div>
+
+            <div class="card">
+              <h3>Performance & SEO Fix</h3>
+              <p class="muted">Quick-Wins, die wirken</p>
+              <ul class="clean">
+                <li>Core Web Vitals: Bilder, Lazy, CSS-Budget</li>
+                <li>Head-Tags, OG-Preview, Favicon</li>
+                <li>Mini-Report mit Empfehlungen</li>
+              </ul>
+              <div class="price">€149</div>
+            </div>
+
+            <div class="card">
+              <h3>Care Plan</h3>
+              <p class="muted">Kleine Änderungen & Checks</p>
+              <ul class="clean">
+                <li>30 Minuten Updates pro Monat</li>
+                <li>Uptime-Ping, kleiner Security-Check</li>
+                <li>Monatlicher KPI-Snapshot (optional)</li>
+              </ul>
+              <div class="price">€39 / Monat</div>
+            </div>
+
+          </div>
+
+          <div class="card" style="margin-top:16px">
+            <h3>Add-ons</h3>
+            <ul class="clean">
+              <li>Copy Boost (Hooks & Abschnittstexte) — €99</li>
+              <li>Brand Mini-Kit (Typo / Farben / Logo-Lockup) — €149</li>
+              <li>Mehrsprachig de / en — + €149</li>
+              <li>Analytics Setup (Plausible / Umami) — €39</li>
+              <li>Checkout-Embed (Stripe / Gumroad / Ko-fi) — + €149</li>
+              <li>Formulare (Netlify Forms / Formspark) — inklusive</li>
+              <li>Visuals: Drohnen-/Foto-Add-on — laut Drohnen-Seite</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Umfang -->
+        <div class="card section" id="umfang">
+          <h2>Was ich für dich erledige</h2>
+          <ul class="clean">
+            <li><strong>Konzept & Struktur:</strong> klare Story, saubere Navigation, starke CTAs</li>
+            <li><strong>Design:</strong> moderne Typo, Spacing, visuelle Hierarchie im Lugh-Stil</li>
+            <li><strong>Build:</strong> statisches HTML / CSS, minimal JS, schnell und stabil</li>
+            <li><strong>SEO-Grundsetup:</strong> Meta, OG / Preview, strukt. Daten basic</li>
+            <li><strong>Deploy:</strong> GitHub Pages oder Cloudflare Pages, Domain-Anleitung</li>
+            <li><strong>Handoff:</strong> ZIP / Repo + 10-Min Walkthrough</li>
+          </ul>
+        </div>
+
+        <!-- Prozess -->
+        <div class="card section" id="prozess">
+          <h2>Prozess</h2>
+          <ol class="clean" style="margin-left:18px">
+            <li><strong>Kickoff (20 Min):</strong> Ziel, Angebot, CTA, Stilreferenzen</li>
+            <li><strong>Assets & Copy:</strong> Logo, Bilder, Statements einsammeln</li>
+            <li><strong>Design + Build:</strong> erster Wurf, mobile-first</li>
+            <li><strong>Review & Revision:</strong> Feinschliff scope-gerecht</li>
+            <li><strong>Go-Live:</strong> Deploy, DNS, Checks, Handover</li>
+          </ol>
+          <div class="note">One-Pager typischerweise in wenigen Tagen nach Asset-Eingang live.</div>
+        </div>
+
+        <!-- Beispiele -->
+        <div class="card section" id="beispiele">
+          <h2>Beispiele</h2>
+          <ul class="clean">
+            <li>Service-One-Pager mit Hero, Benefits, Paketen und Kontakt</li>
+            <li>Mini-Site für Hotel / Villa mit Buchungs-CTA (Cal.com)</li>
+            <li>Creator-Portfolio mit Reel-Grid und Kontaktblock</li>
+            <li>Technik-Angebote (WLAN / CAD / PCB) im schlanken Layout</li>
+          </ul>
+        </div>
+
+        <!-- Technik -->
+        <div class="card section" id="technik">
+          <h2>Technik</h2>
+          <ul class="clean">
+            <li>Statisch: HTML / CSS, minimal JS</li>
+            <li>Optional: Astro / Eleventy für Multi-Pages</li>
+            <li>Analytics: Plausible / Umami (cookielos)</li>
+            <li>Forms: Netlify Forms / Formspark</li>
+            <li>Termine: Cal.com</li>
+            <li>Hosting: GitHub Pages / Cloudflare Pages</li>
+          </ul>
+        </div>
+
+        <!-- Preise -->
+        <div class="card section" id="preise">
+          <h2>Preise</h2>
+          <ul class="clean">
+            <li><strong>Landing Page Starter:</strong> ab €590</li>
+            <li><strong>Website Sprint (3–5 Seiten):</strong> ab €1.290</li>
+            <li><strong>Performance & SEO Fix:</strong> €149</li>
+            <li><strong>Care Plan:</strong> €39 / Monat</li>
+            <li><strong>Express:</strong> + 25 %</li>
+          </ul>
+          <div class="note">Preise netto, zzgl. USt sofern anwendbar. Fixpreis gilt für definierten Scope; Erweiterungen nach Stundensatz.</div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card section" id="faq">
+          <h2>FAQ</h2>
+          <ul class="clean">
+            <li><strong>Kannst du Texte schreiben?</strong> Ja — „Copy Boost“ Add-on.</li>
+            <li><strong>SEO vollständig?</strong> Grundsetup + Performance. Content-SEO und Link-Building optional.</li>
+            <li><strong>Selbst Änderungen möglich?</strong> Gern über mich oder statisches CMS als Add-on.</li>
+            <li><strong>E-Commerce?</strong> Leichte Lösungen via Checkout-Embed (Stripe / Gumroad), kein komplexer Shop.</li>
+            <li><strong>Hosting & Domain?</strong> Übernehme ich Einrichtung und Doku; Domain bleibt bei dir.</li>
+          </ul>
+        </div>
+
+        <!-- Limits -->
+        <div class="card section" id="limits">
+          <h2>Grenzen & Klarheit</h2>
+          <ul class="clean">
+            <li>Kein individuelles Backend oder komplexes CMS</li>
+            <li>Kein Warenkorb / Inventar</li>
+            <li>Rechtstexte (Impressum / DSGVO) liegen beim Auftraggeber</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="/hire/">&larr; Zurück zur Übersicht</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sticky" id="kontakt">
+        <div class="card">
+          <h2>Kontakt</h2>
+          <p class="muted">Am schnellsten per E-Mail oder kurzer Terminbuchung.</p>
+          <div class="actions">
+            <a class="btn primary"
+               href="mailto:contact@lugh21.com?subject=Website%20Sprint%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0AZiel%20der%20Website%3A%20%0ASeitenumfang%3A%20%0ABeispielseiten%20%28Links%29%3A%20%0ACTAs%20%28Kontakt%20%2F%20Cal.com%20%2F%20Checkout%29%3A%20%0ADomain%20%2F%20Provider%3A%20%0A%0ADanke%21">
+              E-Mail senden
+            </a>
+            <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+            <a class="btn ghost" href="tel:+00000000000">Telefon</a>
+            <a class="btn ghost" href="https://t.me/YOUR_TELEGRAM_HANDLE">Telegram</a>
+          </div>
+          <div class="note">Kickoff typischerweise zeitnah nach deiner Anfrage.</div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Was vorbereiten?</h3>
+          <ul class="clean">
+            <li>3–5 Kernstatements und 1–2 CTAs</li>
+            <li>2–6 Bilder / Clips (oder Drohnen-Add-on)</li>
+            <li>Domain / Provider</li>
+            <li>2–3 Seiten, die dir gefallen</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">© <span id="y"></span> Lugh21</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Read — Lugh21</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#f7f7f7;--fg:#111;--muted:#e8e8e8;--card:#fff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.06)}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{border-bottom:1px solid var(--muted);background:#fff}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:24px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600}
+
+    /* >>> SPACING OVERRIDES <<< */
+    body.read-page main{padding:clamp(72px,10vh,140px) 0 64px !important;}
+    body.read-page .grid{gap:clamp(20px,3.5vw,36px) !important;}
+
+    h1{margin:0 0 22px 0;font-size:34px;line-height:1.1}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);min-height:120px;padding:20px}
+
+    @media (max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+    /* Footer nicht mehr über volle Breite „stricheln“ */
+    footer { margin-top: 48px; }                 /* kein border-top hier */
+    footer .container { border-top: 1px solid var(--muted); }
+
+    /* Inhalt linksbündig, keine Streckung */
+    .foot { padding: 16px 0; font-size: 14px; }  /* kein display:flex nötig */
+  </style>
+</head>
+<body class="read-page">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">Lugh21</a>
+      <nav class="links" aria-label="Navigation">
+        <a href="/hire/">Hire</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" aria-label="Read">
+    <h1>Read</h1>
+    <section class="grid" aria-label="Einträge">
+      <article class="card">
+        <h2 style="margin:0 0 6px 0;">Coming Soon</h2>
+        
+      </article>
+      <article class="card"></article>
+      <article class="card"></article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">© <span id="y"></span> Lugh21</div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

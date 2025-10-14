@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CAD-Auftragskonstruktion — Lugh21</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#fff;--fg:#111;--muted:#e8e8e8;--card:#fff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.06)}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{border-bottom:1px solid var(--muted);background:#fff}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:24px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600}
+
+    /* organischer Top-Abstand (Überschrift weiter hoch) */
+    body.hire-page main{
+      padding-top: clamp(72px,10vh,140px) !important;
+      padding-bottom: 64px !important;
+    }
+
+    /* Anchor-Offset für Mini-Navigation */
+    :where(#pakete,#scope,#examples,#process,#inputs,#limits,#changes,#rights,#preise,#kontakt,#faq){scroll-margin-top:120px;}
+
+    h1{margin:0 0 10px 0;font-size:36px;line-height:1.15}
+    p.sub{margin:0 12px 24px 0;opacity:.8;max-width:860px}
+    .grid{display:grid;gap:clamp(20px,3.5vw,36px)}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:2fr 1fr}
+    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .section{margin:28px 0}
+    .section h2{margin:0 0 10px 0;font-size:22px}
+    .section h3{margin:0 0 8px 0;font-size:18px}
+    .muted{opacity:.8}
+    ul.clean{margin:8px 0 0 18px;padding:0;line-height:1.55}
+    .kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .kpi{border:1px solid var(--muted);border-radius:12px;padding:8px 12px;font-weight:600;font-size:14px}
+    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .btn{display:inline-block;border:1px solid var(--muted);padding:12px 16px;border-radius:12px;font-weight:600}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+    .btn.ghost{background:#fff}
+    .btn.linklike{background:transparent;border:0;padding:0;text-decoration:underline;font-weight:600}
+
+    .price{font-weight:700;margin-top:8px}
+    .note{font-size:13px;opacity:.8;margin-top:6px}
+    .mini-nav{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0 0}
+    .pill{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;font-size:13px}
+
+    /* Sidebar */
+    .sticky{position:sticky;top:120px}
+
+    @media (max-width:980px){
+      .grid-2{grid-template-columns:1fr}
+      .sticky{position:static;top:auto}
+    }
+    @media (max-width:920px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid-3{grid-template-columns:1fr}}
+    footer{margin-top:48px}
+    footer .container{border-top:1px solid var(--muted)}
+    .foot{padding:16px 0;font-size:14px}
+  </style>
+  <link rel="stylesheet" href="/assets/global.css">
+</head>
+<body class="service-page service-cad">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">Lugh21</a>
+      <nav class="links" aria-label="Navigation">
+        <a href="/hire/">Hire</a>
+        <a href="/read/">Read</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" aria-label="CAD-Auftragskonstruktion">
+    <h1>CAD-Auftragskonstruktion</h1>
+    <p class="sub">Ich konstruiere Ihr <strong>Teil oder Ihre Baugruppe</strong> nach Vorgabe – für <strong>3D-Druck, CNC oder Blech</strong>. Professionell in einer <strong>Open-Source-CAD-Umgebung</strong>, fertigungsgerecht mit klarer Übergabe.</p>
+
+    <!-- Hero CTA -->
+    <div class="actions" aria-label="Schnellstart">
+      <!-- TODO: echte Kontaktdaten/Link einsetzen -->
+      <a class="btn primary" href="mailto:contact@lugh21.com?subject=CAD%20Auftragskonstruktion%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0Aich%20m%C3%B6chte%20eine%20CAD-Auftragskonstruktion%20anfragen.%0APaket%3A%20A%20Sketch-to-CAD%20%2F%20B%20Print-Ready%20Pro%20%2F%20C%20Drawing%20Pack%20%2F%20D%20Reverse%20Engineering%20%2F%20E%20Assembly%20Starter%0AZielprozess%3A%203D-Druck%20(FDM%20%2F%20Resin)%20oder%20CNC%20%2F%20Blech%0AMaterial%3A%20%0AKritische%20Ma%C3%9Fe%20%2F%20Bezugsfl%C3%A4chen%3A%20%0AMating-Parts%20(Fotos%20%2F%20Skizze)%3A%20%0ASetup%3A%20Drucker%20%26%20D%C3%BCse%20%2F%20min.%20Fr%C3%A4ser%20%2F%20Arbeitsraum%0AKontakt%3A%20%0A%0ADanke!">E-Mail senden</a>
+      <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">Parametrische Modelle</div>
+      <div class="kpi">Print / CNC-ready</div>
+      <div class="kpi">STEP + STL inkl.</div>
+      <div class="kpi">24–48 h (einfaches Teil)</div>
+      <div class="kpi">Deutsch / English</div>
+    </div>
+
+    <div class="mini-nav" aria-label="Abschnittsnavigation">
+      <a class="pill" href="#pakete">Pakete</a>
+      <a class="pill" href="#scope">Leistungsumfang</a>
+      <a class="pill" href="#examples">Beispiele</a>
+      <a class="pill" href="#process">Ablauf</a>
+      <a class="pill" href="#inputs">Was ich brauche</a>
+      <a class="pill" href="#limits">Grenzen</a>
+      <a class="pill" href="#changes">Revisionen</a>
+      <a class="pill" href="#rights">Daten & Rechte</a>
+      <a class="pill" href="#preise">Preise</a>
+      <a class="pill" href="#kontakt">Kontakt</a>
+      <a class="pill" href="#faq">FAQ</a>
+    </div>
+
+    <!-- Content + Sticky CTA -->
+    <section class="grid grid-2 section" aria-label="Inhalt">
+      <!-- Main -->
+      <div class="col">
+
+        <!-- Pakete ganz nach oben -->
+        <div class="card section" id="pakete">
+          <h2>Pakete</h2>
+          <div class="grid grid-3" style="margin-top:8px">
+            <div class="card">
+              <h3>A) Sketch-to-CAD</h3>
+              <p class="muted">Einzelteil aus Skizze / Fotos</p>
+              <ul class="clean">
+                <li>1 <strong>Einzelteil</strong> in Open-Source CAD (parametrisch)</li>
+                <li>Dateien: <strong>STEP + STL</strong> (auf Wunsch <abbr title="FreeCAD-Projektdatei">FCStd</abbr>)</li>
+                <li>1 kleine Korrekturrunde</li>
+                <li>10–15 Min Übergabe-Call</li>
+              </ul>
+              <div class="price">€149 / Teil</div>
+            </div>
+
+            <div class="card">
+              <h3>B) Print-Ready Pro</h3>
+              <p class="muted">3D-Druck DFM (FDM / Resin)</p>
+              <ul class="clean">
+                <li>Alles aus A</li>
+                <li><strong>Druckgerecht</strong>: Spaltmaße, Wandstärken, Fasen / Radien</li>
+                <li>Kurze Hinweise zu Orientierung / Slicing</li>
+                <li>2 kleine Korrekturrunden</li>
+              </ul>
+              <div class="price">€199 / Teil</div>
+            </div>
+
+            <div class="card">
+              <h3>C) Fab-Ready Drawing Pack</h3>
+              <p class="muted">CNC / Blech – Werkstatt-ready</p>
+              <ul class="clean">
+                <li>Alles aus A</li>
+                <li>Prozessgerecht (Radien / Mindestfräser, einfache Abwicklung)</li>
+                <li><strong>2D-Zeichnung (PDF)</strong> + optional DXF</li>
+                <li>2 kleine Korrekturrunden</li>
+              </ul>
+              <div class="price">€229 / Teil</div>
+            </div>
+
+            <div class="card">
+              <h3>D) Reverse Engineering</h3>
+              <p class="muted">Ersatzteil nachbauen</p>
+              <ul class="clean">
+                <li>CAD-Nachbau nach Fotos / Maßskizze / Referenzteil</li>
+                <li>Dateien: <strong>STEP + STL</strong> (auf Wunsch 2D-PDF)</li>
+                <li>2 kleine Korrekturrunden</li>
+              </ul>
+              <div class="price">€249 / Teil</div>
+            </div>
+
+            <div class="card">
+              <h3>E) Assembly Starter</h3>
+              <p class="muted">Baugruppe (2–6 Teile)</p>
+              <ul class="clean">
+                <li>Baugruppe in Open-Source CAD (parametrisch)</li>
+                <li><strong>Exploded View</strong> + BOM-Skizze</li>
+                <li>2–3 Review-Calls (je 20–30 Min)</li>
+                <li>STEP je Teil + Gesamt-STEP</li>
+              </ul>
+              <div class="price">ab €349 · oder €60 / h / €350 / Tag</div>
+            </div>
+          </div>
+          <div class="note">Größeres Vorhaben? <a class="btn linklike" href="/hire/projekt-problem-zu-loesung/">Komplette Lösung planen →</a></div>
+        </div>
+
+        <!-- Leistungsumfang -->
+        <div class="card section" id="scope">
+          <h2>Was ich für Sie erledige (Done-for-You)</h2>
+          <ul class="clean">
+            <li><strong>Parametrische Konstruktion</strong> – Maße / Features sind änderbar, spätere Anpassungen gehen schnell</li>
+            <li><strong>Prozessgerecht</strong> für 3D-Druck (FDM / Resin) oder CNC / Blech</li>
+            <li>Auf Wunsch: <strong>2D-Zeichnung</strong>, einfache Visualisierung, kurze Montagehinweise</li>
+            <li><strong>Dateiformate</strong>: STEP, STL, <abbr title="FreeCAD-Projektdatei">FCStd</abbr>; optional IGES, DXF (2D), OBJ</li>
+            <li><strong>Keine eigene Fertigung</strong> – ich liefere digitale Daten und empfehle passende Dienstleister</li>
+          </ul>
+        </div>
+
+        <!-- Beispiele -->
+        <div class="card section" id="examples">
+          <h2>Beispiele (Anwendungsfälle)</h2>
+          <ul class="clean">
+            <li>Ersatz- / Adapterteil (Clip, Abdeckung, Bracket)</li>
+            <li>Elektronik-Gehäuse (Schnapper, Inserts, Kabelführung)</li>
+            <li>Halterungen (Kamera, Sensorik, Rohr / Profil)</li>
+            <li>Jig / Fixture (Montage / Prüfung)</li>
+            <li>Kleine Baugruppen (2–6 Teile, Schrauben, Dreh- / Schiebeteile)</li>
+          </ul>
+        </div>
+
+        <!-- Ablauf -->
+        <div class="card section" id="process">
+          <h2>Ablauf</h2>
+          <ol class="clean" style="margin-left:18px">
+            <li><strong>Kurz-Call (15 Min)</strong> – Ziel, Prozess, <em>kritische Maße</em> & Bezugsflächen klären</li>
+            <li><strong>Entwurf</strong> – erster Stand (Screens / kurzes Video)</li>
+            <li><strong>Korrekturen</strong> – je Paket 1–2 kleine Runden</li>
+            <li><strong>Übergabe</strong> – Dateien, Zeichnung (bei C), kurze Fertigungs-Tipps</li>
+            <li><strong>Optional</strong> – Handoff-Call mit Ihrer Werkstatt; weitere Anpassungen nach Aufwand</li>
+          </ol>
+          <div class="note">Richtzeiten: Einfaches Teil 24–48 h, Baugruppe je nach Umfang.</div>
+        </div>
+
+        <!-- Was ich brauche -->
+        <div class="card section" id="inputs">
+          <h2>Was ich brauche</h2>
+          <ul class="clean">
+            <li><strong>Wofür ist das Teil?</strong> (Funktion, Last, Umgebung)</li>
+            <li><strong>Zielprozess & Material</strong> (z. B. FDM PLA / PETG / ABS; Resin; CNC Alu / POM; Blechstahl)</li>
+            <li><strong>Kritische Maße</strong> + <strong>Bezugsflächen</strong> (Passungen, Bohrbilder, Referenzen)</li>
+            <li><strong>Mating-Parts</strong> (Fotos / Skizze / Abmaße; ideal: Maßskizze oder Referenzteil)</li>
+            <li><strong>Ihr Setup</strong> (Drucker & Düse / min. Fräser / Arbeitsraum)</li>
+          </ul>
+        </div>
+
+        <!-- Grenzen -->
+        <div class="card section" id="limits">
+          <h2>Grenzen (fair & klar)</h2>
+          <ul class="clean">
+            <li>Keine Zertifizierungen / CE / UL / Medizin; keine Rechtsberatung</li>
+            <li><strong>Sicherheitskritische Anwendungen</strong> nur nach separater Vereinbarung</li>
+            <li><strong>Sehr enge Toleranzen</strong> (&lt; ±0,05 mm) oder <strong>GD&amp;T</strong> nur auf Anfrage</li>
+            <li>Serien-Datenmanagement / PLM ist nicht Teil des Angebots (auf Anfrage möglich)</li>
+          </ul>
+        </div>
+
+        <!-- Revisionen -->
+        <div class="card section" id="changes">
+          <h2>Revisionen & Changes (transparent)</h2>
+          <ul class="clean">
+            <li><strong>Inklusive:</strong> Paketweise <em>kleine Korrekturrunden</em> (z. B. Fillets, Aussparungen, Bohrungen, Wandstärken)</li>
+            <li><strong>Nicht enthalten:</strong> <em>Konzeptänderungen</em> (z. B. völlig andere Befestigung / Funktion, Prozesswechsel Druck ↔ CNC)</li>
+            <li><strong>Zusatzaufwand:</strong> Weitere Runden / Änderungen nach Bestätigung mit <strong>€60 / h</strong> (Abrechnung in 15-Min-Schritten)</li>
+          </ul>
+        </div>
+
+        <!-- Daten & Rechte -->
+        <div class="card section" id="rights">
+          <h2>Daten & Rechte</h2>
+          <ul class="clean">
+            <li><strong>Lieferdateien:</strong> STEP & STL (optional IGES / DXF / OBJ)</li>
+            <li><strong>Native Source:</strong> <abbr title="FreeCAD-Projektdatei">FCStd</abbr> auf Wunsch</li>
+            <li><strong>Nutzungsrechte</strong> gehen nach Zahlung auf Sie über; <strong>NDA</strong> auf Wunsch</li>
+          </ul>
+        </div>
+
+        <!-- Preise -->
+        <div class="card section" id="preise">
+          <h2>Preise</h2>
+          <ul class="clean">
+            <li><strong>A Sketch-to-CAD:</strong> €149 / Teil</li>
+            <li><strong>B Print-Ready Pro:</strong> €199 / Teil</li>
+            <li><strong>C Fab-Ready Drawing Pack:</strong> €229 / Teil</li>
+            <li><strong>D Reverse Engineering:</strong> €249 / Teil</li>
+            <li><strong>E Assembly Starter:</strong> ab €349 · oder €60 / h / €350 / Tag</li>
+          </ul>
+          <div class="note">Preise netto, zzgl. USt (falls anwendbar).</div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="/hire/">&larr; Zurück zur Übersicht</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sticky">
+        <div class="card" id="kontakt">
+          <h2>Kontakt</h2>
+          <p class="muted">Am schnellsten per E-Mail oder kurzer Terminbuchung.</p>
+          <div class="actions">
+            <!-- TODO: echte Kontaktdaten/Link einsetzen -->
+            <a class="btn primary"
+               href="mailto:contact@lugh21.com?subject=CAD%20Auftragskonstruktion%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0Aich%20m%C3%B6chte%20eine%20CAD-Auftragskonstruktion%20anfragen.%0APaket%3A%20A%20Sketch-to-CAD%20%2F%20B%20Print-Ready%20Pro%20%2F%20C%20Drawing%20Pack%20%2F%20D%20Reverse%20Engineering%20%2F%20E%20Assembly%20Starter%0AZielprozess%3A%203D-Druck%20(FDM%20%2F%20Resin)%20oder%20CNC%20%2F%20Blech%0AMaterial%3A%20%0AKritische%20Ma%C3%9Fe%20%2F%20Bezugsfl%C3%A4chen%3A%20%0AMating-Parts%20(Fotos%20%2F%20Skizze)%3A%20%0ASetup%3A%20Drucker%20%26%20D%C3%BCse%20%2F%20min.%20Fr%C3%A4ser%20%2F%20Arbeitsraum%0AKontakt%3A%20%0A%0ADanke!">
+              E-Mail senden
+            </a>
+            <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+            <a class="btn ghost" href="tel:+00000000000">Telefon</a>
+            <a class="btn ghost" href="https://t.me/YOUR_TELEGRAM_HANDLE">Telegram</a>
+          </div>
+          <div class="note">Handoff-Call zur Werkstatt auf Wunsch (15–20 Min).</div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Kurz-Ablauf</h3>
+          <ol class="clean" style="margin-left:18px">
+            <li>15-Min-Check & Ziele</li>
+            <li>Entwurf & Korrekturen</li>
+            <li>Übergabe (Dateien / Zeichnung)</li>
+          </ol>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">© <span id="y"></span> Lugh21</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

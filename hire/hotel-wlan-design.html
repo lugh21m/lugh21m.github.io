@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hotel-WLAN: Neuaufbau & Design — Lugh21</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#fff;--fg:#111;--muted:#e8e8e8;--card:#fff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.06)}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{border-bottom:1px solid var(--muted);background:#fff}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:24px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600}
+
+    /* organischer Top-Abstand (Überschrift weiter hoch) */
+    body.hire-page main{
+      padding-top: clamp(72px,10vh,140px) !important;
+      padding-bottom: 64px !important;
+    }
+
+    /* Anchor-Offset für Mini-Navigation */
+    :where(#fokus,#lieferpaket,#addons,#ablauf,#preise,#bedarf,#faq,#kontakt){scroll-margin-top:120px;}
+
+    h1{margin:0 0 10px 0;font-size:36px;line-height:1.15}
+    p.sub{margin:0 12px 24px 0;opacity:.8;max-width:860px}
+    .grid{display:grid;gap:clamp(20px,3.5vw,36px)}
+    .grid-2{grid-template-columns:2fr 1fr} /* Inhalt + Sidebar */
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .section{margin:28px 0}
+    .section h2{margin:0 0 10px 0;font-size:22px}
+    .section h3{margin:0 0 8px 0;font-size:18px}
+    .muted{opacity:.85}
+    ul.clean{margin:8px 0 0 18px;padding:0;line-height:1.55}
+    .kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .kpi{border:1px solid var(--muted);border-radius:12px;padding:8px 12px;font-weight:600;font-size:14px}
+    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .btn{display:inline-block;border:1px solid var(--muted);padding:12px 16px;border-radius:12px;font-weight:600}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+    .btn.ghost{background:#fff}
+    .btn.linklike{background:transparent;border:0;padding:0;text-decoration:underline;font-weight:600}
+    .price{font-weight:700;margin-top:8px}
+    .note{font-size:13px;opacity:.8;margin-top:6px}
+    .mini-nav{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0 0}
+    .pill{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;font-size:13px}
+
+    /* Toggle Use-Case */
+    .toggle{display:flex;gap:8px;margin:10px 0 14px 0;flex-wrap:wrap}
+    .chip{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;cursor:pointer;user-select:none}
+    .chip[aria-pressed="true"]{background:#111;color:#fff;border-color:#111}
+    .chip:focus{outline:2px solid #111;outline-offset:2px}
+
+    /* Sidebar */
+    .sticky{position:sticky;top:120px}
+
+    @media (max-width:980px){
+      .grid-2{grid-template-columns:1fr}
+      .sticky{position:static;top:auto}
+    }
+    @media (max-width:920px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid-3{grid-template-columns:1fr}}
+    footer{margin-top:48px}
+    footer .container{border-top:1px solid var(--muted)}
+    .foot{padding:16px 0;font-size:14px}
+  </style>
+  <link rel="stylesheet" href="/assets/global.css">
+</head>
+<body class="service-page service-hotel-wlan">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">Lugh21</a>
+      <nav class="links" aria-label="Navigation">
+        <a href="/hire/">Hire</a>
+        <a href="/read/">Read</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" aria-label="Hotel-WLAN: Neuaufbau & Design">
+    <h1>Hotel-WLAN: Neuaufbau & Design</h1>
+    <p class="sub">Planbares Gäste-WLAN für Hotels, Resorts & Villen — <strong>stabil, skalierbar, messbar</strong>. Ich designe Topologie, SSID / VLAN-Matrix, Kanal- & Leistungsplan sowie die BOM — und übergebe alles sauber dokumentiert.</p>
+
+    <!-- Hero CTA -->
+    <div class="actions" aria-label="Schnellstart">
+      <a class="btn primary" href="mailto:contact@lugh21.com?subject=Hotel-WLAN%20Design%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0AHotel%20%2F%20Objekt%3A%20%0AStandort%3A%20%0AZimmer%20%2F%20Stockwerke%3A%20%0AGrundrisse%3A%20%28ja%20%2F%20nein%29%0ABestehende%20Hardware%3A%20%0APortal%20%2F%20PMS%3A%20%0AZiel%3A%20Neuaufbau%20%2F%20Redesign%0AZeitfenster%3A%20%0ABudgetband%20%28grob%29%3A%20%0A%0ADanke!">E-Mail senden</a>
+      <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+      <a class="btn ghost" href="/hire/wlan-optimierung.html">Nur optimieren? → WLAN-Optimierung</a>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">Roaming stabil</div>
+      <div class="kpi">SSID / VLAN sauber getrennt</div>
+      <div class="kpi">Kanal- & Leistungsplan</div>
+      <div class="kpi">BOM mit Alternativen</div>
+      <div class="kpi">Dokumentation & Handoff</div>
+    </div>
+
+    <div class="mini-nav" aria-label="Abschnittsnavigation">
+      <a class="pill" href="#fokus">Fokus wählen</a>
+      <a class="pill" href="#lieferpaket">Lieferpaket</a>
+      <a class="pill" href="#addons">Add-ons</a>
+      <a class="pill" href="#ablauf">Ablauf</a>
+      <a class="pill" href="#preise">Preise</a>
+      <a class="pill" href="#bedarf">Was ich brauche</a>
+      <a class="pill" href="#faq">FAQ</a>
+      <a class="pill" href="#kontakt">Kontakt</a>
+    </div>
+
+    <section class="grid grid-2 section" aria-label="Inhalt">
+      <!-- Main -->
+      <div class="col">
+
+        <!-- Use-Case Toggle -->
+        <div class="card section" id="fokus">
+          <h2>Wofür brauchst du es?</h2>
+          <div class="toggle" role="tablist" aria-label="Fokus wählen">
+            <span class="chip" role="button" tabindex="0" aria-pressed="true" data-mode="newbuild">Neubau / Renovierung</span>
+            <span class="chip" role="button" tabindex="0" aria-pressed="false" data-mode="fix">Bestehendes Netz verbessern</span>
+          </div>
+
+          <div class="mode mode-newbuild" aria-live="polite">
+            <p class="muted" style="margin:0 0 8px 0">Von Grund auf richtig: Kapazität, Platzierung, SSID / VLAN-Matrix und Policies sind geplant — nicht erraten.</p>
+            <ul class="clean">
+              <li>Abdeckung <em>und</em> Kapazität pro Bereich (Lobby, Zimmer, Pool, Konferenz)</li>
+              <li>Sauberes Roaming statt „Sticky Clients“</li>
+              <li>Gäste / Personal / IoT strikt getrennt</li>
+            </ul>
+          </div>
+
+          <div class="mode mode-fix" hidden aria-live="polite">
+            <p class="muted" style="margin:0 0 8px 0">Dein WLAN nervt? Wir heben es auf Hotel-Level: Redesign mit Kanal- / Leistungsplan, SSID-Aufräumen und Platzierungsvorschlag.</p>
+            <ul class="clean">
+              <li>Überlappungen raus, Bandbreiten passend, Leistung im Gleichgewicht</li>
+              <li>Weniger SSIDs, klarere Policies, Client-Isolation</li>
+              <li>Upgrade-Pfad für Hardware (nur wo nötig)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Lieferpaket -->
+        <div class="card section" id="lieferpaket">
+          <h2>Lieferpaket (Design & Übergabe)</h2>
+          <ul class="clean">
+            <li><strong>Topologie-Skizze:</strong> WAN / Firewall / Controller / Switching / AP-Zonen</li>
+            <li><strong>SSID- / VLAN-Matrix:</strong> Gäste / Personal / IoT mit Isolation, Rate-Limits, QoS</li>
+            <li><strong>Kanal- & Leistungsplan:</strong> 2,4 GHz 1 / 6 / 11 / 20 MHz • 5 GHz koordiniert</li>
+            <li><strong>AP-Platzierungsvorschlag:</strong> heuristisch auf Grundriss (pro Bereich)</li>
+            <li><strong>BOM:</strong> 1 Hauptvorschlag + 1 Alternative (Budget / Pro)</li>
+            <li><strong>Akzeptanz-Checkliste:</strong> vereinbarte Mindestwerte für Coverage / Roaming / Durchsatz</li>
+            <li><strong>Übergabe:</strong> Doku (PDF) + 30-Min-Handoff</li>
+          </ul>
+          <div class="note">Vendor-neutral. Hardware nur empfohlen, wenn sie wirklich gebraucht wird.</div>
+        </div>
+
+        <!-- Add-ons -->
+        <div class="card section" id="addons">
+          <h2>Add-ons (optional)</h2>
+          <ul class="clean">
+            <li><strong>Controller-Setup remote:</strong> SSIDs, Policies, Raten, Gast-Isolation, Backups</li>
+            <li><strong>Captive-Portal / PMS-Konzept:</strong> Voucher / Zimmer-Login / Tiers / Branding</li>
+            <li><strong>On-Site (Kreta):</strong> Begehung, Spot-Messungen, Markierung von AP-Positionen</li>
+            <li><strong>Site Survey:</strong> virtuell oder vor Ort als separates Paket</li>
+          </ul>
+        </div>
+
+        <!-- Ablauf -->
+        <div class="card section" id="ablauf">
+          <h2>Ablauf</h2>
+          <ol class="clean" style="margin-left:18px">
+            <li><strong>Kickoff (15 Min):</strong> Ziele, Saisonalität, Flächen, Peak-Last</li>
+            <li><strong>Unterlagen:</strong> Grundrisse, Bauweise, ISP / Backhaul, Bestands-HW</li>
+            <li><strong>Entwurf V1:</strong> Topologie, SSID / VLAN, Kanal- / Leistungsplan, BOM</li>
+            <li><strong>Review (30 Min):</strong> Feedback, Anpassungen</li>
+            <li><strong>Finale Übergabe:</strong> PDF + Checkliste + Handoff</li>
+            <li><strong>Optional Umsetzung:</strong> Controller / Portal, On-Site-Begleitung</li>
+          </ol>
+        </div>
+
+        <!-- Preise -->
+        <div class="card section" id="preise">
+          <h2>Preise</h2>
+          <ul class="clean">
+            <li><strong>Design & Übergabe:</strong> ab €1.200</li>
+            <li><strong>Controller-Setup remote:</strong> ab €240</li>
+            <li><strong>Captive-Portal / PMS-Konzept:</strong> ab €390</li>
+            <li><strong>On-Site (Kreta):</strong> €350 / Tag</li>
+            <li><strong>Site Survey:</strong> auf Anfrage</li>
+          </ul>
+          <div class="note">Preise netto, zzgl. USt (falls anwendbar). Endpreis abhängig von Fläche, Grundrissen und Komplexität.</div>
+        </div>
+
+        <!-- Bedarf -->
+        <div class="card section" id="bedarf">
+          <h2>Was ich von Ihnen brauche</h2>
+          <ul class="clean">
+            <li>Grundrisse als PDF / PNG und kurze Flächenbeschreibung</li>
+            <li>Zimmeranzahl, Stockwerke, Bauweise (Beton / Leichtbau)</li>
+            <li>Bereiche mit hoher Last: Lobby, Pool, Konferenz, Restaurant</li>
+            <li>ISP / Backhaul, vorhandene Hardware (falls vorhanden)</li>
+            <li>Gewünschtes Gästelogin: frei / Voucher / Zimmer-Login / Portal</li>
+          </ul>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card section" id="faq">
+          <h2>FAQ</h2>
+          <ul class="clean">
+            <li><strong>Welche Hersteller?</strong> Vendor-neutral. Empfehlung nach Ziel / Budget / Risiko.</li>
+            <li><strong>Ist ein Portal Pflicht?</strong> Nein. Es kann sinnvoll sein (Branding, Voucher, PMS), ist aber nicht immer nötig.</li>
+            <li><strong>Wi-Fi 6 / 6E?</strong> Möglich. Abhängig vom Client-Mix und Budget sinnvoll — ich lege es transparent dar.</li>
+            <li><strong>Nur optimieren statt neu bauen?</strong> Ja — dann bist du bei <a href="/hire/wlan-optimierung.html">WLAN-Optimierung</a> richtig.</li>
+            <li><strong>Datenschutz / Sicherheit?</strong> Trennung Gäste / Personal / IoT, Client-Isolation, minimale Rechte. NDA auf Wunsch.</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="/hire/">&larr; Zurück zur Übersicht</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sticky" id="kontakt">
+        <div class="card">
+          <h2>Kontakt</h2>
+          <p class="muted">Am schnellsten per E-Mail oder kurzer Terminbuchung.</p>
+          <div class="actions">
+            <a class="btn primary" href="mailto:contact@lugh21.com?subject=Hotel-WLAN%20Design%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0AHotel%20%2F%20Objekt%3A%20%0AStandort%3A%20%0AZimmer%20%2F%20Stockwerke%3A%20%0AGrundrisse%3A%20%28ja%20%2F%20nein%29%0ABestehende%20Hardware%3A%20%0APortal%20%2F%20PMS%3A%20%0AZiel%3A%20Neuaufbau%20%2F%20Redesign%0AZeitfenster%3A%20%0ABudgetband%20%28grob%29%3A%20%0A%0ADanke!">E-Mail senden</a>
+            <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+            <a class="btn ghost" href="tel:+00000000000">Telefon</a>
+            <a class="btn ghost" href="https://t.me/YOUR_TELEGRAM_HANDLE">Telegram</a>
+          </div>
+          <div class="note">Kickoff üblicherweise zeitnah nach deiner Anfrage.</div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Kurz-Ablauf</h3>
+          <ol class="clean" style="margin-left:18px">
+            <li>Kickoff (15 Min)</li>
+            <li>Entwurf V1</li>
+            <li>Review & Feinschliff</li>
+            <li>Übergabe & Handoff</li>
+          </ol>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Auch interessant</h3>
+          <ul class="clean">
+            <li><a class="btn linklike" href="/hire/wlan-optimierung.html">WLAN-Optimierung →</a></li>
+            <li><a class="btn linklike" href="/hire/home-assistant-setup.html">Home-Assistant Setup →</a></li>
+            <li><a class="btn linklike" href="/hire/problem-zu-loesung.html">Problem → Lösung →</a></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">© <span id="y"></span> Lugh21</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Toggle Neubau/Redesign <-> Bestehendes Netz verbessern
+    const chips = document.querySelectorAll('.chip');
+    const newbuild = document.querySelector('.mode-newbuild');
+    const fixmode = document.querySelector('.mode-fix');
+
+    function setMode(mode){
+      const isNew = mode === 'newbuild';
+      newbuild.hidden = !isNew;
+      fixmode.hidden = isNew;
+      chips.forEach(c => {
+        const active = c.dataset.mode === mode;
+        c.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    }
+
+    chips.forEach(ch => {
+      ch.addEventListener('click', () => setMode(ch.dataset.mode));
+      ch.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setMode(ch.dataset.mode); }
+      });
+    });
+
+    // init
+    setMode('newbuild');
+  </script>
+</body>
+</html>

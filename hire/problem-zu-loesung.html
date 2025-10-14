@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Problem → Lösung (Scoping / Proof of Concept / Integration / Prototyping-Service) — Lugh21</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#fff;--fg:#111;--muted:#e8e8e8;--card:#fff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.06)}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{border-bottom:1px solid var(--muted);background:#fff}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:24px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600}
+
+    /* organischer Top-Abstand (Überschrift weiter hoch) */
+    body.hire-page main{
+      padding-top: clamp(72px,10vh,140px) !important;
+      padding-bottom: 64px !important;
+    }
+
+    /* Anchor-Offset für Mini-Navigation */
+    :where(#pakete,#outcomes,#process,#examples,#preise,#kontakt,#faq,#limits,#rights){scroll-margin-top:120px;}
+
+    h1{margin:0 0 10px 0;font-size:36px;line-height:1.15}
+    p.sub{margin:0 12px 24px 0;opacity:.8;max-width:860px}
+    .grid{display:grid;gap:clamp(20px,3.5vw,36px)}
+    .grid-2{grid-template-columns:2fr 1fr} /* Inhalt + Sidebar */
+    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .section{margin:28px 0}
+    .section h2{margin:0 0 10px 0;font-size:22px}
+    .section h3{margin:0 0 8px 0;font-size:18px}
+    .muted{opacity:.8}
+    ul.clean{margin:8px 0 0 18px;padding:0;line-height:1.55}
+    .kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .kpi{border:1px solid var(--muted);border-radius:12px;padding:8px 12px;font-weight:600;font-size:14px}
+    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .btn{display:inline-block;border:1px solid var(--muted);padding:12px 16px;border-radius:12px;font-weight:600}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+    .btn.ghost{background:#fff}
+    .btn.linklike{background:transparent;border:0;padding:0;text-decoration:underline;font-weight:600}
+    .price{font-weight:700;margin-top:8px}
+    .note{font-size:13px;opacity:.8;margin-top:6px}
+    .mini-nav{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0 0}
+    .pill{border:1px solid var(--muted);border-radius:999px;padding:6px 10px;font-weight:600;font-size:13px}
+
+    /* Pakete: 2 Spalten */
+    .grid-packages{display:grid;gap:clamp(20px,3.5vw,36px);grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:640px){ .grid-packages{grid-template-columns:1fr} }
+
+    /* Sidebar */
+    .sticky{position:sticky;top:120px}
+
+    @media (max-width:980px){
+      .grid-2{grid-template-columns:1fr}
+      .sticky{position:static;top:auto}
+    }
+    footer{margin-top:48px}
+    footer .container{border-top:1px solid var(--muted)}
+    .foot{padding:16px 0;font-size:14px}
+  </style>
+  <link rel="stylesheet" href="/assets/global.css">
+</head>
+<body class="service-page service-solution">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">Lugh21</a>
+      <nav class="links" aria-label="Navigation">
+        <a href="/hire/">Hire</a>
+        <a href="/read/">Read</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" aria-label="Problem → Lösung">
+    <h1>Problem → Lösung</h1>
+    <p class="sub">
+      Du beschreibst das Ziel — ich liefere <strong>Scoping / Proof of Concept / Integration</strong> und auf Wunsch die Umsetzung.
+      Vendor-neutral, messbar, mit klaren Next Steps. <em>(Auch als <strong>Prototyping-Service</strong>.)</em>
+    </p>
+
+    <!-- Hero CTA -->
+    <div class="actions" aria-label="Schnellstart">
+      <!-- TODO: echte Kontaktdaten/Links einsetzen -->
+      <a class="btn primary" href="mailto:contact@lugh21.com?subject=Problem%20%E2%86%92%20L%C3%B6sung%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0AZiel%20in%20einem%20Satz%3A%20%0AStatus%20quo%20(Link%20%2F%20Fotos%20%2F%20Skizzen)%3A%20%0AMust-haves%20%2F%20Nice-to-haves%3A%20%0AZeitfenster%20%2F%20Deadline%3A%20%0ABudgetband%20(grob)%3A%20%0AAbnahme%20durch%3A%20(Entscheider%20%2F%20IT%20%2F%20Handwerker)%0A%0AInteresse%20an%20Paket%3A%20Scoping-Session%20(Mini)%20%2F%20Solution%20Architecture%20Blueprint%20%2F%20Proof%20of%20Concept%20Sprint%20(Prototyping)%20%2F%20Integration%20Day%20%2F%20Prototype%20%E2%86%92%20Build%20(Hardware%20%2F%20Software)%0A%0ADanke!">E-Mail senden</a>
+      <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">Scoping / Proof of Concept / Integration</div>
+      <div class="kpi">Ergebnis-fokus</div>
+      <div class="kpi">Vendor-neutral</div>
+      <div class="kpi">Deutsch / English</div>
+      <div class="kpi">Dokumentation / Handoff</div>
+    </div>
+
+    <div class="mini-nav" aria-label="Abschnittsnavigation">
+      <a class="pill" href="#pakete">Pakete</a>
+      <a class="pill" href="#outcomes">Was du bekommst</a>
+      <a class="pill" href="#process">Ablauf</a>
+      <a class="pill" href="#examples">Beispiele</a>
+      <a class="pill" href="#preise">Preise</a>
+      <a class="pill" href="#faq">FAQ</a>
+      <a class="pill" href="#limits">Grenzen</a>
+      <a class="pill" href="#kontakt">Kontakt</a>
+    </div>
+
+    <section class="grid grid-2 section" aria-label="Inhalt">
+      <!-- Main -->
+      <div class="col">
+
+        <!-- Pakete (Marktbezeichnungen, 2 Spalten) -->
+        <div class="card section" id="pakete">
+          <h2>Pakete</h2>
+          <div class="grid-packages" style="margin-top:8px">
+
+            <!-- Scoping-Session (Mini) -->
+            <div class="card">
+              <h3>Scoping-Session (Mini)</h3>
+              <p class="muted">30 Min / anrechenbar</p>
+              <ul class="clean">
+                <li><strong>Ihr Input:</strong> Zielbild / Status quo / Rahmen</li>
+                <li><strong>Ich liefere:</strong> Problem-Schärfung · 2–3 Optionen (Buy / Build / Integrate) · Paket-Empfehlung · Mini-Memo</li>
+                <li><strong>Next Step:</strong> Solution Architecture Blueprint oder Proof of Concept</li>
+              </ul>
+              <div class="price">€49 · wird bei Beauftragung angerechnet</div>
+            </div>
+
+            <!-- Solution Architecture Blueprint -->
+            <div class="card">
+              <h3>Solution Architecture Blueprint</h3>
+              <p class="muted">Entscheidungsvorlage / 2–6 Seiten</p>
+              <ul class="clean">
+                <li><strong>Ergebnis:</strong> Zielmetriken · Optionen mit Pro / Contra · Architektur-Skizze · grobe BOM · Kostenband · Risiken · Timeline</li>
+                <li><strong>Handoff:</strong> klare Next Steps · Verantwortlichkeiten · Akzeptanzkriterien</li>
+              </ul>
+              <div class="price">ab €499</div>
+            </div>
+
+            <!-- Proof of Concept Sprint (Prototyping) -->
+            <div class="card">
+              <h3>Proof of Concept Sprint (Prototyping)</h3>
+              <p class="muted">3–5 Tage / Demo</p>
+              <ul class="clean">
+                <li><strong>Output:</strong> Minimal-Prototyp (z. B. Automation-Flow / Steuerung / Sensor-Mockup / Mini-Rig)</li>
+                <li><strong>Messbar:</strong> Demo-Video · Messwerte · „Was klappt / Was nicht“ · Empfehlung für Build</li>
+              </ul>
+              <div class="price">ab €1.490 + Material</div>
+            </div>
+
+            <!-- Integration Day -->
+            <div class="card">
+              <h3>Integration Day</h3>
+              <p class="muted">2–4 Integrationen live</p>
+              <ul class="clean">
+                <li><strong>Heute lösen:</strong> Systeme verbinden · Flows einrichten · Fallbacks setzen</li>
+                <li><strong>Doku:</strong> 1-Pager Setup / Pflege / Backup · kurze Übergabe</li>
+              </ul>
+              <div class="price">€350 / Tag vor Ort · €60 / h remote</div>
+            </div>
+
+            <!-- Prototype → Build (Hardware / Software) -->
+            <div class="card">
+              <h3>Prototype → Build (Hardware / Software)</h3>
+              <p class="muted">Hardware auf Anfrage / remote-first</p>
+              <ul class="clean">
+                <li><strong>PoC:</strong> Konzept + einfacher Funktionsnachweis so schlank wie möglich</li>
+                <li><strong>Upgrade:</strong> vom PoC in den Build (Detail-Design / Beschaffung / Abnahme) · lokale Beschaffung möglich</li>
+              </ul>
+              <div class="price">PoC ab €899 · Build auf Anfrage</div>
+            </div>
+
+          </div>
+          <div class="note">
+            Weitere Umsetzungsschienen:
+            <a class="btn linklike" href="/hire/automation-sprint/">Automation Sprint → eigene Seite</a> ·
+            <a class="btn linklike" href="/hire/wlan-optimierung.html">WLAN-Optimierung →</a> ·
+            <a class="btn linklike" href="/hire/home-assistant-setup.html">Home Assistant Setup →</a> ·
+            <a class="btn linklike" href="/hire/cad-auftragskonstruktion.html">CAD →</a> ·
+            <a class="btn linklike" href="/hire/pcb-nach-wunsch.html">PCB →</a>
+          </div>
+        </div>
+
+        <!-- Outcomes -->
+        <div class="card section" id="outcomes">
+          <h2>Was du bekommst</h2>
+          <ul class="clean">
+            <li><strong>Ergebnis statt Methode:</strong> Plan / Proof of Concept / funktionierendes Setup</li>
+            <li><strong>Messbare Kriterien:</strong> gemeinsam definierte Akzeptanzwerte für Abnahme</li>
+            <li><strong>Dokumentation:</strong> 1-Pager je Paket · Handoff-Call auf Wunsch</li>
+            <li><strong>Weiterführung:</strong> Umsetzung über meine WLAN / CAD / PCB / Automation-Angebote</li>
+          </ul>
+        </div>
+
+        <!-- Process -->
+        <div class="card section" id="process">
+          <h2>Ablauf</h2>
+          <ol class="clean" style="margin-left:18px">
+            <li><strong>Kickoff (15 Min)</strong> — Ziel / Status / Randbedingungen</li>
+            <li><strong>Scoping-Session (Mini)</strong> — Problem schärfen · Optionen · Paket-Empfehlung</li>
+            <li><strong>Solution Architecture Blueprint</strong> — Entscheidungsvorlage</li>
+            <li><strong>Proof of Concept Sprint (Prototyping)</strong> — Beweis, dass es funktioniert</li>
+            <li><strong>Integration Day / Prototype → Build / Automation Sprint</strong> — je nach Fall</li>
+            <li><strong>Übergabe</strong> — Doku · To-dos · Verantwortlichkeiten</li>
+          </ol>
+        </div>
+
+        <!-- Examples -->
+        <div class="card section" id="examples">
+          <h2>Beispiele</h2>
+          <ul class="clean">
+            <li><strong>Boutique-Hotel:</strong> Self-Check-in Flow / Gäste-WLAN-Automation / Mitarbeiter-Dash</li>
+            <li><strong>Home / Garage:</strong> Anfahr-Trigger → Tor / Licht / Kaffee mit Fallback</li>
+            <li><strong>Spezial-Setup:</strong> Dock / Sensorik / Steuerung als Prototype → Build</li>
+            <li><strong>Ops / Creator:</strong> „Reel in a Day“ Pipeline: Intake / Transcode / Cloud / Publish / Notify</li>
+          </ul>
+        </div>
+
+        <!-- Prices -->
+        <div class="card section" id="preise">
+          <h2>Preise</h2>
+          <ul class="clean">
+            <li><strong>Scoping-Session (Mini):</strong> €49 · anrechenbar bei Beauftragung (14 Tage)</li>
+            <li><strong>Solution Architecture Blueprint:</strong> ab €499</li>
+            <li><strong>Proof of Concept Sprint (Prototyping):</strong> ab €1.490 + Material</li>
+            <li><strong>Integration Day:</strong> €350 / Tag vor Ort · €60 / h remote</li>
+            <li><strong>Prototype → Build (Hardware / Software):</strong> PoC ab €899 · Build auf Anfrage</li>
+          </ul>
+          <div class="note">Preise netto, zzgl. USt (falls anwendbar). Größere Vorhaben gern als Meilenstein-Plan.</div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card section" id="faq">
+          <h2>FAQ</h2>
+          <ul class="clean">
+            <li><strong>Arbeitest du mit meinen Dienstleistern zusammen?</strong> Ja — IT / Elektriker / Handwerker binde ich ein und übergebe sauber.</li>
+            <li><strong>Vendor-neutral?</strong> Ja. Ich empfehle auf Basis von Ziel / Budget / Risiko, nicht wegen Provisionen.</li>
+            <li><strong>Was, wenn der Proof of Concept scheitert?</strong> Dann weißt du es früh und günstig. Ich liefere eine alternative Empfehlung.</li>
+            <li><strong>Hardware ohne eigenes Lab?</strong> Ja, auf Anfrage: lokale Beschaffung / Partner-Fertiger · Remote-Anleitung · vor Ort möglich.</li>
+            <li><strong>Datenschutz / Sicherheit?</strong> Best Practices · minimal notwendige Rechte · NDA auf Wunsch.</li>
+          </ul>
+        </div>
+
+        <!-- Limits / Rights -->
+        <div class="card section" id="limits">
+          <h2>Grenzen & Rechte</h2>
+          <ul class="clean">
+            <li>Keine CE / UL Zertifizierung · keine Rechtsberatung</li>
+            <li>Hochspannung / Netz nur mit Fachbetrieb</li>
+            <li>Nutzungsrechte gehen nach Zahlung auf dich über · NDA auf Wunsch</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="/hire/">&larr; Zurück zur Übersicht</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sticky" id="kontakt">
+        <div class="card">
+          <h2>Kontakt</h2>
+          <p class="muted">Am schnellsten per E-Mail oder kurzer Terminbuchung.</p>
+          <div class="actions">
+            <a class="btn primary"
+               href="mailto:contact@lugh21.com?subject=Problem%20%E2%86%92%20L%C3%B6sung%20%E2%80%94%20Anfrage&body=Hallo%20Lugh%2C%0A%0AZiel%20in%20einem%20Satz%3A%20%0AStatus%20quo%20(Link%20%2F%20Fotos%20%2F%20Skizzen)%3A%20%0AMust-haves%20%2F%20Nice-to-haves%3A%20%0AZeitfenster%20%2F%20Deadline%3A%20%0ABudgetband%20(grob)%3A%20%0AAbnahme%20durch%3A%20(Entscheider%20%2F%20IT%20%2F%20Handwerker)%0A%0AInteresse%20an%20Paket%3A%20Scoping-Session%20(Mini)%20%2F%20Solution%20Architecture%20Blueprint%20%2F%20Proof%20of%20Concept%20Sprint%20(Prototyping)%20%2F%20Integration%20Day%20%2F%20Prototype%20%E2%86%20Build%20(Hardware%20%2F%20Software)%0A%0ADanke!">
+              E-Mail senden
+            </a>
+            <a class="btn ghost" href="https://cal.com/YOUR-HANDLE/15min">15-Min-Check buchen</a>
+            <a class="btn ghost" href="tel:+00000000000">Telefon</a>
+            <a class="btn ghost" href="https://t.me/YOUR_TELEGRAM_HANDLE">Telegram</a>
+          </div>
+          <div class="note">Kickoff üblicherweise zeitnah nach deiner Anfrage.</div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Kurz-Ablauf</h3>
+          <ol class="clean" style="margin-left:18px">
+            <li>Scoping-Session (Mini)</li>
+            <li>Solution Architecture Blueprint</li>
+            <li>Proof of Concept Sprint (Prototyping)</li>
+            <li>Integration Day / Prototype → Build / Automation Sprint</li>
+          </ol>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">© <span id="y"></span> Lugh21</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
