@@ -20,8 +20,11 @@
     .links{display:flex;gap:18px}
     .links a{font-weight:600}
 
-    /* >>> SPACING OVERRIDES <<< */
-    body.read-page main{padding:clamp(72px,10vh,140px) 0 64px !important;}
+    /* organischer Top-Abstand (Überschrift weiter hoch) */
+    body.read-page main{
+      padding-top: clamp(72px,10vh,140px) !important;
+      padding-bottom: 64px !important;
+    }
     body.read-page .grid{gap:clamp(20px,3.5vw,36px) !important;}
 
     h1{margin:0 0 22px 0;font-size:34px;line-height:1.1}
@@ -37,6 +40,9 @@
     /* Inhalt linksbündig, keine Streckung */
     .foot { padding: 16px 0; font-size: 14px; }  /* kein display:flex nötig */
   </style>
+  <link rel="stylesheet" href="/assets/global.css">
+
+
 </head>
 <body class="read-page">
   <header>
