@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lugh21.com/sitemap.xml
