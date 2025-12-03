@@ -291,7 +291,8 @@
       .grid-2{grid-template-columns:1fr}
       .sticky{position:static;top:auto}
       header{position:fixed;width:100%}
-      main{padding-top:96px}
+      /* mehr Luft zwischen Header und erstem Inhalt auf Phone/Tablet */
+      body.vanos-page main{padding-top:120px !important;}
     }
     @media (max-width:920px){
       .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
