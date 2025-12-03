@@ -51,7 +51,16 @@
     .grid{display:grid;gap:clamp(20px,3.5vw,36px)}
     .grid-2{grid-template-columns:2fr 1fr}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--muted);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+      word-wrap:break-word;
+      overflow-wrap:anywhere;
+      hyphens:auto;
+    }
     .section{margin:28px 0}
     .section h2{margin:0 0 10px 0;font-size:22px}
     .section h3{margin:0 0 8px 0;font-size:18px}

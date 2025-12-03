@@ -47,7 +47,17 @@
     h1{margin:0 0 8px 0;font-size:34px;line-height:1.1}
     p.sub{margin:0 0 26px 0;opacity:.75}
     .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-    .card{background:var(--card);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);min-height:120px;padding:20px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--muted);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      min-height:120px;
+      padding:20px;
+      word-wrap:break-word;
+      overflow-wrap:anywhere;
+      hyphens:auto;
+    }
 
     .price{font-weight:700;margin-top:8px}
     .meta{font-size:13px;opacity:.8;margin-top:6px}
