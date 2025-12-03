@@ -1,564 +1,444 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>CamperVanOs — Modularer Camper-Ausbau zum Selbermachen | Lugh21</title>
-  <link rel="canonical" href="https://lugh21.com/VanOs/">
-  <meta name="description" content="CamperVanOs ist ein modulares Camper-Ökosystem: 3D-druckbare Teile, präzise Schablonen, BOM, Schritt-für-Schritt-Guides und smarte Workflows. Für sichere, wiederholbare DIY-Ausbauten.">
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
-
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Lugh21">
-  <meta property="og:locale" content="de_DE">
-  <meta property="og:title" content="CamperVanOs — Modularer Camper-Ausbau zum Selbermachen">
-  <meta property="og:description" content="Modulare Camper-Module mit 3D-Druckteilen, Schablonen, BOM & Assembly-Flows. Passgenau, wiederholbar, DIY-freundlich.">
-  <meta property="og:url" content="https://lugh21.com/VanOs/">
-  <!-- TODO: eigenes OG-Bild ablegen -->
-  <meta property="og:image" content="https://example.com/assets/og/vanos.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CamperVanOs — Modularer Camper-Ausbau zum Selbermachen">
-  <meta name="twitter:description" content="CamperVanOs macht Van-Ausbau planbar: Layout wählen, Paket bekommen, in Modulen aufbauen.">
-  <meta name="twitter:image" content="https://example.com/assets/og/vanos.jpg">
+  <title>CamperVanOs · Testseite mit Frosted-Glass-Look</title>
+  <meta name="description" content="CamperVanOs als modulares Camper-Ökosystem. Diese Testseite zeigt Inhalte im Frosted-Glass-Look mit weichen Farbverläufen.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#f6f6f5;
-      --fg:#111;
-      --muted:#dededb;
-      --card:#ffffff;
-      --accent:#0f766e;
-      --accent-soft:#e0f2f1;
-      --radius:18px;
-      --shadow:0 14px 40px rgba(0,0,0,.07);
+      --bg-start:#0f9bbf;
+      --bg-end:#0d1f5c;
+      --glass:rgba(255,255,255,.15);
+      --border:rgba(255,255,255,.25);
+      --text:#f6fbff;
+      --muted:rgba(255,255,255,.75);
+      --accent:#48e08f;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      background:radial-gradient(circle at top left,#f3faf9 0,#f6f6f5 40%,#f3f4f6 100%);
-      color:var(--fg);
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      min-height:100vh;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:radial-gradient(circle at 15% 20%,#31d2ff 0,var(--bg-start) 30%,var(--bg-end) 80%);
+      color:var(--text);
       -webkit-font-smoothing:antialiased;
+      padding:40px clamp(20px,5vw,60px) 60px;
+      position:relative;
+    }
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:radial-gradient(circle at 80% 10%,rgba(255,255,255,.25),transparent 40%);
+      pointer-events:none;
+      mix-blend-mode:screen;
     }
     a{color:inherit;text-decoration:none}
-    .container{
-      max-width:1100px;
-      margin:0 auto;
-      padding:0 20px;
-    }
     header{
-      position:sticky;
-      top:0;
-      z-index:10;
-      background:rgba(247,247,247,.85);
-      backdrop-filter:saturate(140%) blur(8px);
-      border-bottom:1px solid var(--muted);
-    }
-    .nav{
+      max-width:1100px;
+      margin:0 auto 30px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:14px 0;
+      gap:20px;
     }
     .brand{
       display:flex;
+      gap:12px;
       align-items:center;
-      gap:8px;
-      font-family:"Bitcount Prop Single Ink",Inter,sans-serif;
-      font-size:24px;
-      letter-spacing:.04em;
-    }
-    .brand-mark{
-      width:28px;
-      height:18px;
-      border-radius:999px;
-      background:linear-gradient(135deg,#0f766e,#22c55e);
-      position:relative;
-      box-shadow:0 6px 18px rgba(15,118,110,.45);
-    }
-    .brand-mark::after{
-      content:"";
-      position:absolute;
-      inset:4px 3px;
-      border-radius:999px;
-      background:linear-gradient(to right,#bbf7d0,#e0f2f1);
-      opacity:.9;
-    }
-    .links{display:flex;gap:18px;font-size:14px}
-    .links a{font-weight:600;opacity:.85}
-    .links a:hover{opacity:1}
-
-    /* gleiche vertikale Skalierung wie Hire-Seiten */
-    body.vanos-page main{
-      padding-top: clamp(72px,10vh,140px) !important;
-      padding-bottom: 64px !important;
-    }
-
-    h1{
-      margin:0 0 14px 0;
-      font-size:clamp(34px,4vw,42px);
-      line-height:1.1;
-      letter-spacing:-.02em;
-    }
-    p.sub{
-      margin:0 0 22px 0;
-      opacity:.85;
-      max-width:860px;
-      font-size:16px;
-    }
-    .grid{
-      display:grid;
-      gap:clamp(20px,3vw,32px);
-    }
-    .grid-2{grid-template-columns:2.1fr 1.1fr}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-
-    .badge-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-bottom:18px;
-      font-size:12px;
+      font-size:20px;
+      font-weight:600;
       text-transform:uppercase;
       letter-spacing:.12em;
     }
-    .pill-soft{
-      border-radius:999px;
-      padding:5px 10px;
-      background:rgba(15,118,110,.07);
-      color:#064e3b;
-      font-weight:600;
-    }
-
-    .card{
-      background:var(--card);
-      border:1px solid rgba(0,0,0,.04);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:20px 20px 18px 20px;
-      /* lange deutsche Wörter sicher umbrechen */
-      word-wrap:break-word;
-      overflow-wrap:anywhere;
-      hyphens:auto;
-    }
-    .section{margin:28px 0}
-    .section h2{
-      margin:0 0 10px 0;
-      font-size:22px;
-      letter-spacing:-.01em;
-    }
-    .section h3{
-      margin:0 0 8px 0;
-      font-size:17px;
-    }
-    .muted{opacity:.8}
-    ul.clean{
-      margin:8px 0 0 18px;
-      padding:0;
-      line-height:1.55;
-    }
-    ol.clean{
-      margin:8px 0 0 20px;
-      padding:0;
-      line-height:1.55;
-    }
-
-    .kpis{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:10px;
-    }
-    .kpi{
-      border-radius:999px;
-      padding:7px 11px;
-      font-weight:600;
-      font-size:13px;
-      background:rgba(255,255,255,.8);
-      border:1px solid rgba(0,0,0,.04);
-    }
-    .kpi strong{font-weight:700}
-
-    .actions{
-      display:flex;
-      gap:10px;
-      margin-top:16px;
-      flex-wrap:wrap;
-    }
-    .btn{
+    .brand span.icon{
+      width:36px;
+      height:36px;
+      border-radius:14px;
+      background:linear-gradient(145deg,#55ffe6,#4d9dff);
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:6px;
-      border-radius:12px;
-      padding:11px 16px;
-      border:1px solid rgba(15,23,42,.12);
+      color:#0d1f5c;
+      font-weight:700;
+      box-shadow:0 10px 30px rgba(10,20,70,.35);
+    }
+    nav a{
+      margin-left:20px;
+      font-weight:500;
+      opacity:.8;
+    }
+    nav a:hover{opacity:1}
+
+    main{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:30px;
+    }
+    .glass{
+      background:var(--glass);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:32px;
+      backdrop-filter:blur(18px);
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
+    }
+    .hero{
+      text-align:center;
+      padding:50px 40px;
+    }
+    .hero h1{
+      margin:0 0 20px;
+      font-size:clamp(32px,6vw,54px);
       font-weight:600;
-      font-size:14px;
-      cursor:pointer;
-      background:#fff;
+    }
+    .hero p{
+      margin:0 auto;
+      max-width:720px;
+      font-size:18px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+    .hero .tagline{
+      text-transform:uppercase;
+      letter-spacing:.3em;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+    .cta{
+      margin-top:32px;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      border-radius:999px;
+      padding:12px 26px;
+      border:1px solid rgba(255,255,255,.4);
+      color:var(--text);
+      font-weight:600;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      font-size:13px;
     }
     .btn.primary{
-      background:linear-gradient(135deg,#0f766e,#22c55e);
-      border-color:#0f766e;
-      color:#f9fafb;
-      box-shadow:0 10px 35px rgba(15,118,110,.45);
+      background:linear-gradient(135deg,#47ff9a,#24c7d6);
+      color:#062437;
+      border-color:transparent;
+      box-shadow:0 15px 35px rgba(0,0,0,.35);
     }
-    .btn.ghost{
-      background:rgba(255,255,255,.9);
+    .grid{
+      display:grid;
+      gap:20px;
     }
-    .btn.linklike{
-      background:transparent;
-      border:0;
-      padding:0;
-      text-decoration:underline;
-      font-weight:600;
-    }
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 
-    .mini-nav{
+    .icon-card{
+      background:rgba(255,255,255,.12);
+      border-radius:22px;
+      padding:22px;
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .icon-card .icon{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      background:rgba(255,255,255,.2);
       display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin:18px 0 4px 0;
-    }
-    .pill{
-      border-radius:999px;
-      padding:6px 10px;
-      border:1px solid var(--muted);
-      font-weight:600;
-      font-size:13px;
-      background:rgba(255,255,255,.9);
-    }
-
-    :where(#module,#workflow,#fit,#daten,#preise,#kontakt,#faq){scroll-margin-top:110px;}
-
-    .price{font-weight:700;margin-top:8px}
-    .note{font-size:13px;opacity:.8;margin-top:6px}
-
-    .sticky{
-      position:sticky;
-      top:110px;
-    }
-
-    .diagram-van{
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
-    .legend{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:10px;
       align-items:center;
-      font-size:13px;
-      opacity:.85;
+      justify-content:center;
+      margin-bottom:18px;
+      color:#062437;
     }
-    .legend span{display:inline-flex;gap:6px;align-items:center}
-    .dot{
-      width:12px;
-      height:12px;
-      border-radius:4px;
-      display:inline-block;
-      border:1px solid var(--muted);
+    .icon-card h3{
+      margin:0 0 10px;
+      font-size:18px;
+    }
+    .icon-card p,
+    .icon-card ul{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+    .icon-card ul{padding-left:18px;margin-top:8px}
+
+    .steps{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      margin:0;
+      padding:0;
+      list-style:none;
+      counter-reset:step;
+    }
+    .steps li{
+      counter-increment:step;
+      position:relative;
+      padding-left:54px;
+      color:var(--muted);
+      line-height:1.55;
+    }
+    .steps li strong{color:var(--text);display:block;margin-bottom:4px}
+    .steps li::before{
+      content:counter(step);
+      position:absolute;
+      left:0;
+      top:0;
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      background:rgba(255,255,255,.2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:600;
+      color:#051b2d;
+      backdrop-filter:blur(10px);
+    }
+
+    .section-title{
+      text-transform:uppercase;
+      letter-spacing:.4em;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:16px;
+    }
+    .section-heading{
+      margin:0 0 16px;
+      font-size:28px;
+      font-weight:600;
     }
 
     footer{
-      margin-top:48px;
-    }
-    footer .container{
-      border-top:1px solid var(--muted);
-    }
-    .foot{
-      padding:16px 0;
+      text-align:center;
       font-size:14px;
+      color:var(--muted);
+      margin-top:30px;
     }
 
-    /* Globaler responsiver Seiten-Gutter (Header, Main, Footer) inkl. iOS Safe-Area */
-    .container{
-      padding-left: calc(clamp(16px,4vw,28px) + env(safe-area-inset-left));
-      padding-right: calc(clamp(16px,4vw,28px) + env(safe-area-inset-right));
-    }
-
-    @media (max-width:980px){
-      .grid-2{grid-template-columns:1fr}
-      .sticky{position:static;top:auto}
-      header{position:fixed;width:100%}
-      /* mehr Luft zwischen Header und erstem Inhalt auf Phone/Tablet */
-      body.vanos-page main{padding-top:120px !important;}
-    }
-    @media (max-width:920px){
-      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
-    @media (max-width:640px){
-      .grid-3{grid-template-columns:1fr}
-      h1{font-size:30px}
+    @media (max-width:600px){
+      header{flex-direction:column;align-items:flex-start}
+      nav a{margin-left:0;margin-right:18px}
+      .hero{padding:40px 24px}
+      .steps li{padding-left:46px}
+      .hero h1{font-size:34px}
     }
   </style>
 </head>
-<body class="vanos-page">
+<body>
   <header>
-    <div class="container nav">
-      <a class="brand" href="/">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>Lugh21 · CamperVanOs</span>
-      </a>
-      <nav class="links" aria-label="Navigation">
-        <a href="/hire/">Hire</a>
-        <a href="/read/">Read</a>
-      </nav>
-    </div>
+    <a class="brand" href="/">
+      <span class="icon">VO</span>
+      <span>CamperVanOs</span>
+    </a>
+    <nav aria-label="Navigation">
+      <a href="/hire/">Hire</a>
+      <a href="/read/">Read</a>
+      <a href="mailto:contact@lugh21.com">Kontakt</a>
+    </nav>
   </header>
 
-  <main class="container" aria-label="CamperVanOs — Camper-System">
-    <section aria-label="Hero">
-      <div class="badge-row">
-        <span class="pill-soft">Modulares Camper-Ökosystem</span>
-        <span class="pill-soft">Für DIY, Maker & Budget-Builds</span>
-      </div>
-      <h1>CamperVanOs macht Camper-Ausbau <br>modular, sicher & komplett DIY-fähig.</h1>
-      <p class="sub">
-        Wähle deinen Van und dein Layout – CamperVanOs liefert dir ein <strong>komplettes System</strong>:
-        3D-druckbare Teile, präzise Schablonen, Stücklisten (BOM), Schritt-für-Schritt-Guides und smarte
-        Assembly-Workflows. <strong>Passgenau, wiederholbar und kosteneffizient</strong>, ohne Planungsstress
-        und Maßchaos.
+  <main>
+    <section class="glass hero" aria-label="Hero">
+      <div class="tagline">Modulares Camper-Ökosystem</div>
+      <h1>Sanfte Gradients, glasige Karten<br>und klare CamperVanOs Story.</h1>
+      <p>
+        Diese Testseite zeigt CamperVanOs im Frosted-Glass-Stil: selbe Inhalte, neuer Look.
+        Layout wählen, Paket bekommen, in Modulen aufbauen – <strong>passgenau, sicher, dokumentiert</strong>.
       </p>
-
-      <div class="actions" aria-label="Schnellstart">
-        <a class="btn primary" href="mailto:contact@lugh21.com?subject=CamperVanOs%20Projekt%20anfragen&body=Hallo%2C%0A%0Aich%20m%C3%B6chte%20CamperVanOs%20f%C3%Bcr%20meinen%20Camper%20nutzen.%0AVan-Modell%3A%20%0ALayout%3A%20Solo%20%2F%20Duo%20%2F%20Family%0ATimeline%3A%20%0ABudgetrahmen%3A%20%0A%0ABeste%20Gr%C3%BC%C3%9Fe%2C%0A">
-          CamperVanOs für meinen Van starten
+      <div class="cta">
+        <a class="btn primary" href="mailto:contact@lugh21.com?subject=CamperVanOs%20Testseite">
+          CamperVanOs starten
         </a>
-        <a class="btn ghost" href="#module">Module ansehen</a>
-      </div>
-
-      <div class="kpis">
-        <div class="kpi"><strong>One System</strong> — Layout wählen, alles passt zusammen</div>
-        <div class="kpi"><strong>3D & Schablonen</strong> — druckbare Parts & CNC/Handschablonen</div>
-        <div class="kpi"><strong>Messbar sicher</strong> — Strom/Wasser-Module mit klaren Standards</div>
-        <div class="kpi"><strong>DIY-first</strong> — für Anfänger dokumentiert, für Maker optimiert</div>
-      </div>
-
-      <div class="mini-nav" aria-label="Abschnittsnavigation">
-        <a class="pill" href="#module">Module</a>
-        <a class="pill" href="#workflow">Ablauf</a>
-        <a class="pill" href="#fit">Warum CamperVanOs?</a>
-        <a class="pill" href="#daten">Daten & Dateien</a>
-        <a class="pill" href="#preise">Preise</a>
-        <a class="pill" href="#faq">FAQ</a>
+        <a class="btn" href="#module">Mehr erfahren</a>
       </div>
     </section>
 
-    <section class="grid grid-2 section" aria-label="Inhalt">
-      <div class="col">
-        <div class="card section" id="module">
-          <h2>Module statt Chaos</h2>
-          <p class="muted" style="margin:0 0 10px 0">
-            CamperVanOs denkt Camper-Ausbau in klaren, kompatiblen Modulen — von Bett und Stauraum bis Strom, Wasser und
-            Funktionsteilen. Jedes Modul ist für <strong>definierte Van-Modelle & Layouts</strong> ausgelegt.
+    <section class="glass" id="module" aria-label="Module">
+      <div class="section-title">Module</div>
+      <h2 class="section-heading">Nie mehr Chaos im Ausbau</h2>
+      <p style="color:var(--muted);max-width:760px;margin-bottom:26px">
+        CamperVanOs denkt Ausbau in klaren, kompatiblen Modulen: Bett & Stauraum,
+        Strom & Wasser, 3D-printbare Smart Parts. Alle Sets sind auf definierte Vans
+        und Layouts abgestimmt und lassen sich wiederholbar aufbauen.
+      </p>
+      <div class="grid grid-3">
+        <article class="icon-card">
+          <div class="icon">🛏️</div>
+          <h3>Core-Module</h3>
+          <p>Struktur & Alltag</p>
+          <ul>
+            <li>Bett- & Sitzmodule mit Raster</li>
+            <li>Stauraum-Frames und Iso-Kits</li>
+            <li>Verkleidungen je Plattform</li>
+          </ul>
+        </article>
+        <article class="icon-card">
+          <div class="icon">⚡</div>
+          <h3>System-Module</h3>
+          <p>Strom & Wasser</p>
+          <ul>
+            <li>12 V / 230 V Layouts inkl. Schutz</li>
+            <li>Wasserblöcke mit festen Anschlüssen</li>
+            <li>Geführte Kabel- & Schlauchwege</li>
+          </ul>
+        </article>
+        <article class="icon-card">
+          <div class="icon">🧩</div>
+          <h3>Smart-Parts</h3>
+          <p>3D-Print & Helpers</p>
+          <ul>
+            <li>Adapter für OEM-Punkte</li>
+            <li>Klickverbinder & Kabelmanager</li>
+            <li>Toleranzausgleich, Anti-Rattle</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="glass" id="workflow" aria-label="Workflow">
+      <div class="section-title">Workflow</div>
+      <h2 class="section-heading">Von Van-Modell zu fertigem Ausbau</h2>
+      <ol class="steps">
+        <li>
+          <strong>Van & Layout wählen</strong>
+          Basisfahrzeug, Radstand, Höhe, Solo/Duo/Family definieren.
+        </li>
+        <li>
+          <strong>CamperVanOs-Paket erhalten</strong>
+          3D-Dateien, Schablonen, BOM, Workflow-Board – alles in einem Paket.
+        </li>
+        <li>
+          <strong>Teile vorbereiten</strong>
+          Zuschnitt per Schablone, 3D-Druck, bei Bedarf CNC- oder Servicepartner.
+        </li>
+        <li>
+          <strong>Assembly-Flow folgen</strong>
+          Schritt-für-Schritt-Reihenfolge, Checks und klare Freigaben.
+        </li>
+        <li>
+          <strong>Feintuning & Varianten</strong>
+          Erweiterungen, Layout-Switches und dokumentierte Updates.
+        </li>
+      </ol>
+    </section>
+
+    <section class="glass" id="fit" aria-label="Warum CamperVanOs">
+      <div class="section-title">Warum</div>
+      <h2 class="section-heading">System schlägt Zufall</h2>
+      <div class="grid grid-2">
+        <div class="icon-card">
+          <h3>Ohne System</h3>
+          <p>
+            Ad-hoc-Möbel, keine Servicewege, vibrierende Installationen. Jeder Ausbau wird neu
+            erfunden – und kostet Zeit, Geld und Nerven.
           </p>
-          <div class="grid grid-3" style="margin-top:10px">
-            <div class="card">
-              <h3>Core-Module</h3>
-              <p class="muted">Struktur & Alltag</p>
-              <ul class="clean">
-                <li>Bett- & Sitzmodule mit definierter Rasterung</li>
-                <li>Unterschränke & Stauraum-Frames</li>
-                <li>Iso-/Verkleidungskonzepte pro Van-Typ</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>System-Module</h3>
-              <p class="muted">Strom & Wasser</p>
-              <ul class="clean">
-                <li>12 V / 230 V Layouts mit Schutz-Konzept</li>
-                <li>Wasserblöcke inkl. Ein-/Ausbaupunkten</li>
-                <li>Montagepunkte & Kabel-/Schlauchführung</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Smart-Parts</h3>
-              <p class="muted">3D-printbare Helfer</p>
-              <ul class="clean">
-                <li>Adapter & Halter für OEM-Punkte</li>
-                <li>Click-in-Verbinder & Kabelmanager</li>
-                <li>Toleranzausgleich & Anti-Rattle-Parts</li>
-              </ul>
-            </div>
-          </div>
-          <div class="note">
-            Alle Module sind so angelegt, dass sie <strong>wiederholbar aufgebaut</strong> werden können –
-            ohne jedes Mal neu zu planen oder zu messen.
-          </div>
         </div>
-
-        <div class="card section" id="workflow">
-          <h2>Von Van-Modell zu fertigem Ausbau</h2>
-          <ul class="clean">
-            <li><strong>1. Van & Layout wählen</strong> – Basisfahrzeug, Radstand, Höhe, Wunschlayout (Solo/Duo/Family).</li>
-            <li><strong>2. CamperVanOs-Paket erhalten</strong> – 3D-Dateien, Schablonen, BOM, Anleitungen & Workflow-Board.</li>
-            <li><strong>3. Teile vorbereiten</strong> – Zuschnitt mit Schablonen, 3D-Drucke, ggf. CNC/Service nutzen.</li>
-            <li><strong>4. Assembly-Flow folgen</strong> – Schritt-für-Schritt-Aufbau mit klaren Reihenfolgen & Checks.</li>
-            <li><strong>5. Feintuning & Varianten</strong> – Erweiterungen & Layout-Switches auf gleichem System.</li>
-          </ul>
-          <div class="price">
-            Ergebnis: <strong>professionell wirkender Ausbau</strong> mit dokumentierter Basis – jederzeit erweiterbar.
-          </div>
-        </div>
-
-        <div class="card section" id="fit">
-          <h2>Warum CamperVanOs wirkt</h2>
-          <p class="muted" style="margin:0 0 10px 0">
-            Spontan planen, „irgendwie“ verschrauben und Maße unterwegs raten führt zu Stress, Fehlern
-            und teuren Rebuilds. CamperVanOs verschiebt die Komplexität in <strong>vorbereitete Systeme</strong>.
+        <div class="icon-card">
+          <h3>Mit CamperVanOs</h3>
+          <p>
+            Raster, definierte Zonen, dokumentierte Sicherheit. Strom- und Wasserpfade sind sichtbar,
+            Module sitzen reproduzierbar – ideal für DIY und Maker.
           </p>
-
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center">
-            <div>
-              <h3 style="margin:0 0 6px 0">Ohne System</h3>
-              <svg class="diagram-van" viewBox="0 0 320 140" role="img" aria-label="Unstrukturierter Ausbau">
-                <rect x="10" y="30" width="70" height="36" fill="#fed7d7" stroke="#e8e8e8"/>
-                <rect x="90" y="18" width="90" height="40" fill="#fecaca" stroke="#e8e8e8"/>
-                <rect x="150" y="62" width="110" height="36" fill="#fee2e2" stroke="#e8e8e8"/>
-                <rect x="40" y="82" width="70" height="30" fill="#fee2e2" stroke="#e8e8e8"/>
-                <text x="12" y="18" font-size="12" fill="#555">Zufällige Blöcke, Kollisionen, kein Raster</text>
-              </svg>
-            </div>
-            <div>
-              <h3 style="margin:0 0 6px 0">Mit CamperVanOs</h3>
-              <svg class="diagram-van" viewBox="0 0 320 140" role="img" aria-label="Modularer Ausbau">
-                <rect x="10" y="30" width="90" height="34" fill="#bbf7d0" stroke="#e8e8e8"/>
-                <rect x="104" y="30" width="90" height="34" fill="#bbf7d0" stroke="#e8e8e8"/>
-                <rect x="198" y="30" width="110" height="34" fill="#bbf7d0" stroke="#e8e8e8"/>
-                <rect x="10" y="72" width="120" height="32" fill="#bae6fd" stroke="#e8e8e8"/>
-                <rect x="134" y="72" width="90" height="32" fill="#e9d5ff" stroke="#e8e8e8"/>
-                <rect x="228" y="72" width="80" height="32" fill="#fef9c3" stroke="#e8e8e8"/>
-                <text x="12" y="18" font-size="12" fill="#555">Raster, definierte Zonen & Service-Wege</text>
-              </svg>
-            </div>
-          </div>
-          <div class="legend">
-            <span><span class="dot" style="background:#fed7d7"></span> Ad-hoc-Möbel / ungeplante Blöcke</span>
-            <span><span class="dot" style="background:#bbf7d0"></span> Struktur-Module (Bett/Stauraum)</span>
-            <span><span class="dot" style="background:#bae6fd"></span> Strompfad / Kabelbereich</span>
-            <span><span class="dot" style="background:#e9d5ff"></span> Wasserzone</span>
-          </div>
-          <div class="note">
-            Illustration vereinfacht. CamperVanOs definiert konkrete Raster, Bohrbilder und Service-Zugänge für deine Plattform.
-          </div>
-        </div>
-
-        <div class="card section" id="daten">
-          <h2>Alle Dateien, die du brauchst</h2>
-          <div class="grid grid-3" style="margin-top:8px">
-            <div class="card">
-              <h3>3D & CAD</h3>
-              <ul class="clean">
-                <li>3D-Print-Files (STL / 3MF)</li>
-                <li>Referenzmodelle der Module</li>
-                <li>Optionale CAD-Exports für Anpassungen</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Schablonen & BOM</h3>
-              <ul class="clean">
-                <li>Druckbare / CNC-Schablonen</li>
-                <li>Stücklisten (BOM) mit Links & Alternativen</li>
-                <li>Materialvarianten je Budget</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Workflows & Checks</h3>
-              <ul class="clean">
-                <li>Assembly-Boards (Kanban-Style)</li>
-                <li>Safety-Checks für Strom/Wasser</li>
-                <li>Fotoguides & kurze Videos (optional)</li>
-              </ul>
-            </div>
-          </div>
-          <div class="note">
-            Für Einsteiger sind alle Schritte <strong>„idiotensicher“ beschrieben</strong>, für Erfahrene gibt es
-            kompakte Cheatsheets & Rohdaten.
-          </div>
-        </div>
-
-        <div class="card section" id="preise">
-          <h2>Geplante Pakete</h2>
-          <ul class="clean">
-            <li><strong>Starter Layout:</strong> Basis-Modulset für ein Van-Modell inkl. Kernmodule & Guides.</li>
-            <li><strong>System Layout:</strong> Starter + Strom/Wasser-Module & Safety-Checks.</li>
-            <li><strong>Builder Layout:</strong> Vollpaket inkl. Varianten, CAD-Exports & erweiterten Workflows.</li>
-          </ul>
-          <div class="note">
-            Konkrete Preise & erste unterstützte Plattformen werden im Laufe der Projektphase veröffentlicht.
-            Wenn du Testnutzer:in werden möchtest, melde dich kurz.
-          </div>
-        </div>
-
-        <div class="card section" id="faq">
-          <h2>FAQ</h2>
-          <ul class="clean">
-            <li><strong>Für wen ist CamperVanOs gedacht?</strong> Für Einsteiger, Maker und Budget-Bauer, die strukturiert bauen wollen statt „irgendwie“.</li>
-            <li><strong>Welche Vans werden unterstützt?</strong> Gestartet wird mit gängigen Kastenwagen-Plattformen (z. B. Ducato/Boxer/Jumper, Sprinter/Crafter). Weitere folgen nach Nachfrage.</li>
-            <li><strong>Brauche ich teure Maschinen?</strong> Nein. Alles ist auf Handsäge + 3D-Drucker ausgelegt, kann aber bei Bedarf CNC-/Servicefreundlich skaliert werden.</li>
-            <li><strong>Kann ich CamperVanOs kommerziell nutzen?</strong> Geplante Builder-Lizenzen richten sich explizit an kleine Ausbauer & Maker-Betriebe.</li>
-          </ul>
-        </div>
-
-        <div class="actions">
-          <a class="btn" href="/">&larr; Zurück zur Startseite</a>
         </div>
       </div>
+    </section>
 
-      <aside class="sticky" id="kontakt">
-        <div class="card">
-          <h2>Mit CamperVanOs starten</h2>
-          <p class="muted">
-            Du willst ein konkretes Projekt planen oder als Testnutzer:in mitlaufen?
-            Schreib kurz, welches Fahrzeug du hast und wann du starten willst.
-          </p>
-          <div class="actions">
-            <a class="btn primary"
-               href="mailto:contact@lugh21.com?subject=CamperVanOs%20Projekt&body=Hallo%2C%0A%0Aich%20habe%20Interesse%20an%20CamperVanOs.%0AVan-Modell%3A%20%0ALayout-Idee%3A%20%0AZiel-Start%3A%20%0AErfahrung%20(DIY%2FProfi)%3A%20%0A%0ABeste%20Gr%C3%BC%C3%9Fe%2C%0A">
-              E-Mail senden
-            </a>
-            <a class="btn ghost" href="#preise">Infos zu Paketen</a>
-          </div>
-          <div class="note">
-            Rückmeldung in der Regel binnen weniger Werktage.
-          </div>
-        </div>
+    <section class="glass" id="daten" aria-label="Daten">
+      <div class="section-title">Daten & Dateien</div>
+      <h2 class="section-heading">Alles was du brauchst</h2>
+      <div class="grid grid-3">
+        <article class="icon-card">
+          <div class="icon">📐</div>
+          <h3>3D & CAD</h3>
+          <p>3D-Print (STL/3MF), Referenz-Module, optionale CAD-Exports.</p>
+        </article>
+        <article class="icon-card">
+          <div class="icon">🧾</div>
+          <h3>Schablonen & BOM</h3>
+          <p>Druckbare Schablonen, CNC-Dateien, Stücklisten mit Alternativen.</p>
+        </article>
+        <article class="icon-card">
+          <div class="icon">✅</div>
+          <h3>Workflows & Checks</h3>
+          <p>Assembly-Boards, Safety-Checks für Strom/Wasser und Fotoguides.</p>
+        </article>
+      </div>
+    </section>
 
-        <div class="card" style="margin-top:16px">
-          <h3>Projekt-Phase</h3>
-          <ol class="clean">
-            <li>Plattform & Layouts definieren</li>
-            <li>Module & Dateien ausarbeiten</li>
-            <li>Mit Testnutzer:innen iterieren</li>
-            <li>Öffentlichen Launch vorbereiten</li>
-          </ol>
+    <section class="glass" id="preise" aria-label="Pakete">
+      <div class="section-title">Pakete</div>
+      <h2 class="section-heading">Geplante Layouts & Preise</h2>
+      <div class="grid grid-3">
+        <article class="icon-card">
+          <h3>Starter Layout</h3>
+          <p>Basis-Set für ein Van-Modell inkl. Kernmodule & Guides.</p>
+        </article>
+        <article class="icon-card">
+          <h3>System Layout</h3>
+          <p>Starter plus Strom/Wasser-Module & Safety-Checks.</p>
+        </article>
+        <article class="icon-card">
+          <h3>Builder Layout</h3>
+          <p>Vollpaket inkl. Varianten, CAD-Exports & erweiterten Workflows.</p>
+        </article>
+      </div>
+      <p style="color:var(--muted);margin-top:18px">
+        Konkrete Preise folgen, Testnutzer:innen können sich bereits melden.
+      </p>
+    </section>
+
+    <section class="glass" id="faq" aria-label="FAQ & Kontakt">
+      <div class="section-title">FAQ</div>
+      <h2 class="section-heading">Noch Fragen?</h2>
+      <div class="grid grid-2">
+        <div class="icon-card">
+          <h3>Wer passt zu CamperVanOs?</h3>
+          <p>Einsteiger, Maker und Budget-Bauer, die strukturiert statt improvisiert arbeiten wollen.</p>
         </div>
-      </aside>
+        <div class="icon-card">
+          <h3>Welche Vans?</h3>
+          <p>Start mit Ducato/Boxer/Jumper sowie Sprinter/Crafter. Weitere Plattformen folgen.</p>
+        </div>
+        <div class="icon-card">
+          <h3>Brauche ich teure Maschinen?</h3>
+          <p>Nein. Ausgelegt auf Handsäge + 3D-Drucker, skalierbar auf CNC-Services.</p>
+        </div>
+        <div class="icon-card">
+          <h3>Kommerziell nutzbar?</h3>
+          <p>Builder-Lizenzen richten sich an kleine Ausbauer und Maker-Betriebe.</p>
+        </div>
+      </div>
+      <div class="cta" style="margin-top:30px">
+        <a class="btn primary"
+           href="mailto:contact@lugh21.com?subject=CamperVanOs%20Projekt&body=Hallo%2C%0Aich%20will%20mit%20CamperVanOs%20starten.%0AVan-Modell%3A%20%0ALayout%3A%20Solo%2FDuo%2FFamily%0ATimeline%3A%20%0ABudget%3A%20%0A">
+          Projekt anfragen
+        </a>
+        <a class="btn" href="/">Zurück zur Startseite</a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <div class="container foot">
-      <span>© <span id="y"></span> Lugh21 · CamperVanOs</span>
-      <span>Modularer Camper-Ausbau für DIY & Maker</span>
-    </div>
+    © <span id="year"></span> Lugh21 · CamperVanOs · Frosted-Testseite
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
 
