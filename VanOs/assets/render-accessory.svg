@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c1224"/>
+      <stop offset="1" stop-color="#1f355a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#g3)"/>
+  <rect x="80" y="120" width="1040" height="660" rx="42" fill="#f6f7fb" stroke="#0c1224" stroke-opacity="0.08" stroke-width="7"/>
+  <rect x="140" y="210" width="920" height="480" rx="30" fill="#ffffff" stroke="#0c1224" stroke-opacity="0.08" stroke-width="6"/>
+  <rect x="180" y="260" width="240" height="360" rx="18" fill="#e4e9f6"/>
+  <rect x="460" y="260" width="230" height="360" rx="18" fill="#d7def0"/>
+  <rect x="730" y="260" width="250" height="360" rx="18" fill="#c8d5f2"/>
+  <rect x="210" y="300" width="180" height="110" rx="14" fill="#0c1224" fill-opacity="0.85"/>
+  <rect x="210" y="440" width="180" height="70" rx="12" fill="#111b33" fill-opacity="0.9"/>
+  <rect x="490" y="300" width="170" height="90" rx="14" fill="#0c1224" fill-opacity="0.8"/>
+  <rect x="490" y="420" width="170" height="80" rx="14" fill="#dfe6f6"/>
+  <rect x="760" y="300" width="190" height="140" rx="16" fill="#0c1224" fill-opacity="0.85"/>
+  <rect x="760" y="470" width="190" height="80" rx="14" fill="#e4e9f6"/>
+  <circle cx="930" cy="190" r="14" fill="#0c1224" fill-opacity="0.8"/>
+  <circle cx="970" cy="190" r="14" fill="#0c1224" fill-opacity="0.5"/>
+  <text x="200" y="200" fill="#0c1224" font-family="Sora,Arial,sans-serif" font-size="24" font-weight="700">Rendering · Zubehör</text>
+  <text x="200" y="230" fill="#5a6172" font-family="Sora,Arial,sans-serif" font-size="16" font-weight="600">Power · Water · Vent · Storage</text>
+</svg>

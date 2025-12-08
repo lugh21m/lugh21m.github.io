@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f9fd"/>
+      <stop offset="1" stop-color="#e8edf6"/>
+    </linearGradient>
+    <linearGradient id="metal3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d3dbe8"/>
+      <stop offset="0.5" stop-color="#f8fafe"/>
+      <stop offset="1" stop-color="#c2cbd9"/>
+    </linearGradient>
+    <linearGradient id="accent3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f192f"/>
+      <stop offset="1" stop-color="#1e3052"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="30" fill="url(#bg3)"/>
+  <rect x="80" y="110" width="1040" height="580" rx="40" fill="#ffffff" stroke="#0f192f" stroke-opacity="0.08" stroke-width="7"/>
+  <rect x="140" y="190" width="920" height="440" rx="30" fill="url(#metal3)" stroke="#0f192f" stroke-opacity="0.08" stroke-width="5"/>
+  <rect x="200" y="240" width="240" height="320" rx="18" fill="#eef1f7" stroke="#1b2943" stroke-opacity="0.08" stroke-width="3"/>
+  <rect x="470" y="240" width="240" height="320" rx="18" fill="#e1e6f2" stroke="#1b2943" stroke-opacity="0.08" stroke-width="3"/>
+  <rect x="740" y="240" width="240" height="320" rx="18" fill="#d2dbe9" stroke="#1b2943" stroke-opacity="0.08" stroke-width="3"/>
+  <rect x="230" y="280" width="180" height="110" rx="16" fill="url(#accent3)" opacity="0.9"/>
+  <rect x="230" y="420" width="180" height="70" rx="12" fill="#152138" opacity="0.92"/>
+  <rect x="500" y="280" width="180" height="100" rx="14" fill="url(#accent3)" opacity="0.82"/>
+  <rect x="500" y="410" width="180" height="70" rx="12" fill="#d6ddea"/>
+  <rect x="770" y="280" width="180" height="120" rx="14" fill="url(#accent3)" opacity="0.85"/>
+  <rect x="770" y="430" width="180" height="70" rx="12" fill="#dfe4f1"/>
+  <circle cx="960" cy="170" r="14" fill="#0f192f" opacity="0.65"/>
+  <circle cx="1000" cy="170" r="14" fill="#0f192f" opacity="0.35"/>
+  <text x="190" y="180" fill="#0f192f" font-family="Sora,Arial,sans-serif" font-size="24" font-weight="700">Fusion-Style Rendering · Zubehör</text>
+  <text x="190" y="210" fill="#5a6172" font-family="Sora,Arial,sans-serif" font-size="16" font-weight="600">Power · Water · Vent · Storage</text>
+</svg>

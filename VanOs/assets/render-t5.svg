@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c1224"/>
+      <stop offset="1" stop-color="#1b2d4f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#g1)"/>
+  <rect x="60" y="80" width="1080" height="740" rx="46" fill="#f6f7fb" stroke="#0c1224" stroke-opacity="0.08" stroke-width="8"/>
+  <rect x="120" y="180" width="960" height="520" rx="36" fill="#ffffff" stroke="#0c1224" stroke-opacity="0.08" stroke-width="6"/>
+  <rect x="180" y="240" width="320" height="320" rx="18" fill="#e4e8f5"/>
+  <rect x="540" y="240" width="440" height="80" rx="14" fill="#d6def0"/>
+  <rect x="540" y="340" width="440" height="70" rx="14" fill="#e9edfa"/>
+  <rect x="540" y="430" width="440" height="130" rx="18" fill="#c9d4f0"/>
+  <rect x="540" y="580" width="440" height="60" rx="14" fill="#e4e8f5"/>
+  <rect x="220" y="280" width="240" height="120" rx="16" fill="#0c1224" fill-opacity="0.84"/>
+  <rect x="220" y="430" width="240" height="80" rx="16" fill="#111b33" fill-opacity="0.92"/>
+  <rect x="220" y="530" width="240" height="60" rx="14" fill="#d6def0"/>
+  <rect x="640" y="470" width="240" height="30" rx="12" fill="#0c1224" fill-opacity="0.85"/>
+  <circle cx="900" cy="190" r="16" fill="#0c1224" fill-opacity="0.8"/>
+  <circle cx="940" cy="190" r="16" fill="#0c1224" fill-opacity="0.5"/>
+  <text x="200" y="200" fill="#0c1224" font-family="Sora,Arial,sans-serif" font-size="26" font-weight="700">Rendering · T5 System</text>
+  <text x="200" y="230" fill="#5a6172" font-family="Sora,Arial,sans-serif" font-size="16" font-weight="600">Modulare Möbel · Strom · Wasser</text>
+</svg>
