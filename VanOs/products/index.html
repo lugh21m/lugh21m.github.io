@@ -37,7 +37,7 @@
       -webkit-font-smoothing:antialiased;
     }
     a{color:inherit;text-decoration:none}
-    .frame{max-width:1180px;margin:0 auto;padding:32px clamp(20px,5vw,38px) 80px;}
+    .frame{max-width:1180px;margin:0 auto;padding:clamp(72px,10vh,140px) clamp(20px,5vw,38px) 80px;}
     header{
       display:flex;
       align-items:center;
@@ -80,6 +80,7 @@
       gap:30px;
       align-items:center;
       margin-top:28px;
+      display:none;
     }
     .pill{
       display:inline-flex;
@@ -145,7 +146,10 @@
       aspect-ratio:4/3;
       background:#0f1627;
     }
-    .section{margin-top:64px;}
+    h1{margin:0 0 8px 0;font-size:36px;line-height:1.15;color:#f9fbff;}
+    p.sub{margin:0 0 24px;opacity:.75;max-width:900px;font-size:16px;color:var(--muted);}
+    .section{margin-top:48px;}
+    .section:first-of-type{margin-top:32px;}
     .section-kicker{
       text-transform:uppercase;
       letter-spacing:0.24em;
@@ -182,6 +186,13 @@
     .stack div::before{content:"• ";color:var(--muted);}
     .mini-meta{display:flex;gap:12px;align-items:center;margin-top:12px;color:var(--muted);font-size:14px;}
     .mini-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);}
+    .mini-nav{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 28px;}
+    .pill-link{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:600;font-size:13px;color:var(--muted);transition:all .18s ease;}
+    .pill-link:hover{color:var(--text);border-color:var(--accent);}
+    .kpis{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0 32px;}
+    .kpi{display:flex;align-items:center;gap:10px;padding:10px 16px;background:rgba(244,180,0,0.08);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--text);font-weight:600;}
+    .kpi::before{content:'✓';color:var(--accent);font-weight:700;}
+    .category-intro{margin:20px 0 24px;color:var(--muted);font-size:15px;line-height:1.6;}
     footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 28px;}
     @media(max-width:960px){
       .hero{grid-template-columns:1fr;gap:22px}
@@ -192,6 +203,9 @@
       header{flex-direction:column;align-items:flex-start;gap:10px;position:static;}
       nav a{margin-left:0;margin-right:14px;}
       .frame{padding:22px 18px 60px;}
+      .mini-nav{flex-direction:column;}
+      .pill-link{display:block;text-align:center;}
+      .kpis{flex-direction:column;}
     }
   </style>
   <link rel="stylesheet" href="../assets/dark-theme.css">
@@ -215,39 +229,36 @@
 
   <main id="main">
   <div class="frame">
-    <section class="hero" aria-label="Produkte">
-      <div class="hero-content">
-        <div class="pill"><span></span> Modulare Camper-Systeme</div>
-        <h1>Planbar, druckbar, sicher und stressfrei.</h1>
-        <p class="lead">
-          Einfache Auswahl, klare Pakete: Für T5, T6, Sprinter, Ducato – oder dein Modell.
-          Jedes System kommt mit dokumentiertem Prozess, 3D-Schablonen, BOM und TÜV-Checklisten.
-          Alles bereit für deinen fehlerfreien Ausbau.
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="#t5">T5 Kit zuerst</a>
-          <a class="btn" href="mailto:contact@lugh21.com?subject=CamperVanOs%20Bestellung">Anfrage senden</a>
-        </div>
-        <div class="mini-meta">
-          <span class="mini-dot"></span>
-          <span>Dokumentation, CAD/3D-Daten und Fotoguides sind bei jedem Produkt dabei.</span>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <img src="../assets/render-fusion-t5.svg" alt="Fusion-Style Rendering des CamperVanOs T5 Kits" width="1200" height="800">
-      </div>
-    </section>
+    <h1>Produkte & Kits</h1>
+    <p class="sub">Alle Systeme dokumentiert, modular, ready-to-build. Für T5, T6, Sprinter, Ducato – oder dein Modell.</p>
+    
+    <div class="kpis">
+      <div class="kpi">Dokumentiert</div>
+      <div class="kpi">Modular</div>
+      <div class="kpi">Alles bereit</div>
+      <div class="kpi">CAD & 3D-Daten</div>
+    </div>
 
-    <section class="section" id="shop" aria-label="Shop (visuell)">
-      <div class="section-kicker">Visuell</div>
-      <h2 class="section-title">Shop Vorschau</h2>
+    <div class="mini-nav" aria-label="Produktkategorien">
+      <a class="pill-link" href="#t5">T5 Kit</a>
+      <a class="pill-link" href="#kits">Weitere Systeme</a>
+      <a class="pill-link" href="#accessories">Zubehör</a>
+      <a class="pill-link" href="#kontakt">Kontakt & Anfrage</a>
+    </div>
+
+    <section class="section" id="shop" aria-label="Produktübersicht">
+      <div class="section-kicker">Alle Produkte</div>
+      <h2 class="section-title">Schnelle Übersicht</h2>
+      <p class="category-intro">Alle verfügbaren Kits und Zubehör auf einen Blick. Wähle ein Produkt und fordere unverbindliche Details an.</p>
       <div class="shop-grid" data-shop></div>
     </section>
 
     <section class="section" id="t5" aria-label="System VW T5">
-      <div class="section-kicker">Highlight</div>
+      <div class="section-kicker">Bestseller</div>
+      <h2 class="section-title">VW T5 · Komplett-Kit</h2>
+      <p class="category-intro">Das vollständige Ausbausystem für T5 L1/L2. Alles dokumentiert, modular, ready-to-build.</p>
       <div class="panel">
-        <h3>System VW T5 · Komplett-Kit</h3>
+        <h3 style="margin-top:0">Was ist enthalten?</h3>
         <p>
           Schlafplattform, Stauraum, Küchenblock, Strom- und Wasserpfade – passgenau für T5 L1/L2.
           Inklusive CAD-Files, Schablonen, Lieferlinks und Safety-Briefing für Vermietung oder Eigenbau.
@@ -267,19 +278,21 @@
     <section class="section" id="kits" aria-label="Weitere Systeme">
       <div class="section-kicker">Systeme</div>
       <h2 class="section-title">Weitere Van-Modelle</h2>
+      <p class="category-intro">Für T6, Sprinter, Ducato und weitere Modelle: Jeweils ein modulares System, dokumentiert und getestet.</p>
       <div class="grid grid-3" data-kits></div>
     </section>
 
     <section class="section" id="accessories" aria-label="Zubehör">
       <div class="section-kicker">Zubehör</div>
       <h2 class="section-title">Kompatible Add-ons</h2>
+      <p class="category-intro">Module für Strom, Wasser, Montage und Verbesserungen – alle Systeme miteinander kompatibel.</p>
       <div class="grid grid-3" data-accessories></div>
     </section>
 
-    <section class="section" aria-label="Kontakt">
+    <section class="section" id="kontakt" aria-label="Kontakt & Anfrage">
       <div class="panel">
-        <div class="section-kicker" style="margin-bottom:6px">Bereit?</div>
-        <h3 style="margin:0 0 10px">Schick uns dein Modell und wähle dein Paket.</h3>
+        <div class="section-kicker" style="margin-bottom:6px">Nächste Schritte</div>
+        <h3 style="margin:0 0 10px">Dein Modell, dein Paket.</h3>
         <p style="margin:0 0 14px">
           Teile Van-Modell, Radstand und gewünschte Module – wir schicken dir das passende Datenpaket plus Lieferlinks.
         </p>
