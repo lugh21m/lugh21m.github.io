@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CamperVanOs · Produkte & Kits</title>
+  <meta name="description" content="Produktübersicht von CamperVanOs: T5 Kit, Systeme für weitere Vans und Zubehör für Strom, Wasser und Montage.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --panel:#ffffff;
+      --text:#0c1224;
+      --muted:#5a6172;
+      --line:rgba(12,18,36,0.08);
+      --shadow:0 12px 28px rgba(12,18,36,0.12);
+      --accent:#0f192f;
+      --pill:#e7eaf2;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:"Sora",system-ui,-apple-system,Segoe UI,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    .frame{max-width:1200px;margin:0 auto;padding:28px clamp(20px,5vw,38px) 70px;}
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:18px clamp(20px,5vw,38px);
+      border-bottom:1px solid var(--line);
+      background:var(--bg);
+      position:sticky;
+      top:0;
+      z-index:5;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      letter-spacing:0.02em;
+      font-size:18px;
+    }
+    .brand-mark{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:var(--text);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:700;
+      box-shadow:var(--shadow);
+    }
+    nav a{margin-left:18px;color:var(--muted);font-weight:500;}
+    nav a:first-child{margin-left:0;}
+    nav a:hover{color:var(--text)}
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 0.9fr;
+      gap:30px;
+      align-items:center;
+      margin-top:28px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--pill);
+      color:#244;
+      font-size:13px;
+      font-weight:600;
+    }
+    .pill span{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--text);
+    }
+    h1{
+      margin:14px 0 12px;
+      font-size:clamp(34px,5vw,52px);
+      line-height:1.1;
+      letter-spacing:-0.02em;
+    }
+    p.lead{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.6;
+    }
+    .cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+    .btn{
+      border-radius:12px;
+      padding:13px 18px;
+      font-weight:600;
+      font-size:15px;
+      border:1px solid var(--line);
+      background:var(--panel);
+      color:var(--text);
+      box-shadow:0 8px 24px rgba(10,15,28,0.08);
+      transition:transform .18s ease,box-shadow .18s ease;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(10,15,28,0.12)}
+    .btn.primary{background:var(--text);color:#fff;border:none;}
+
+    .hero-visual{
+      background:var(--panel);
+      border-radius:20px;
+      padding:16px;
+      position:relative;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      border:1px solid var(--line);
+    }
+    .hero-visual img{
+      width:100%;
+      border-radius:14px;
+      display:block;
+      object-fit:cover;
+      aspect-ratio:4/3;
+    }
+    .section{margin-top:60px;}
+    .section-kicker{
+      text-transform:uppercase;
+      letter-spacing:0.24em;
+      color:var(--muted);
+      font-size:12px;
+      margin-bottom:8px;
+    }
+    .section-title{margin:0 0 10px;font-size:26px;letter-spacing:-0.01em;}
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+    .panel h3{margin:0 0 10px;font-size:20px;}
+    .panel p{margin:0;color:var(--muted);line-height:1.55;}
+    .grid{display:grid;gap:16px;}
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      background:var(--text);
+      color:#fff;
+      font-weight:700;
+      margin-bottom:12px;
+      box-shadow:0 10px 20px rgba(12,18,36,0.16);
+    }
+    .stack{display:flex;flex-direction:column;gap:8px;color:var(--muted);margin-top:12px;padding-left:16px;}
+    .stack div::before{content:"• ";color:var(--text);}
+    .mini-meta{display:flex;gap:12px;align-items:center;margin-top:12px;color:var(--muted);font-size:14px;}
+    .mini-dot{width:8px;height:8px;border-radius:50%;background:var(--text);}
+    footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 28px;}
+    @media(max-width:960px){
+      .hero{grid-template-columns:1fr;gap:22px}
+      .hero-visual{order:2}
+      .hero-content{order:1}
+    }
+    @media(max-width:640px){
+      header{flex-direction:column;align-items:flex-start;gap:10px;position:static;}
+      nav a{margin-left:0;margin-right:14px;}
+      .frame{padding:22px 18px 60px;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="../">
+      <span class="brand-mark">VO</span>
+      <span>CamperVanOs</span>
+    </a>
+    <nav aria-label="Navigation">
+      <a href="../">Start</a>
+      <a href="#t5">T5 Kit</a>
+      <a href="#kits">Systeme</a>
+      <a href="#accessories">Zubehör</a>
+    </nav>
+  </header>
+
+  <div class="frame">
+    <section class="hero" aria-label="Produkte">
+      <div class="hero-content">
+        <div class="pill"><span></span> Produktübersicht</div>
+        <h1>CamperVanOs Produkte & Kits.</h1>
+        <p class="lead">
+          Einfache Auswahl, klare Pakete: Vom T5 System bis zu Kits für T6, Sprinter oder Ducato – plus Zubehör für Strom,
+          Wasser und Montage. Alles dokumentiert und bereit für deinen Ausbau.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#t5">T5 Kit zuerst</a>
+          <a class="btn" href="mailto:contact@lugh21.com?subject=CamperVanOs%20Bestellung">Anfrage senden</a>
+        </div>
+        <div class="mini-meta">
+          <span class="mini-dot"></span>
+          <span>Dokumentation, CAD/3D-Daten und Fotoguides sind bei jedem Produkt dabei.</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80" alt="VW T5 Campervan am Meer, minimalistischer Ausbau">
+      </div>
+    </section>
+
+    <section class="section" id="t5" aria-label="System VW T5">
+      <div class="section-kicker">Highlight</div>
+      <div class="panel">
+        <h3>System VW T5 · Komplett-Kit</h3>
+        <p>
+          Schlafplattform, Stauraum, Küchenblock, Strom- und Wasserpfade – passgenau für T5 L1/L2.
+          Inklusive CAD-Files, Schablonen, Lieferlinks und Safety-Briefing für Vermietung oder Eigenbau.
+        </p>
+        <div class="stack">
+          <div>Ready-to-build Board mit Fotos der Montage-Reihenfolge</div>
+          <div>Anti-Rattle-Lösungen, Kabelwege und Wartungspunkte</div>
+          <div>Materiallisten mit Alternativen und Lieferlinks</div>
+        </div>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn primary" href="mailto:contact@lugh21.com?subject=CamperVanOs%20T5%20Kit">T5 Kit anfragen</a>
+          <a class="btn" href="../">Zur T5 Landing</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kits" aria-label="Weitere Systeme">
+      <div class="section-kicker">Systeme</div>
+      <h2 class="section-title">Weitere Van-Modelle</h2>
+      <div class="grid grid-3">
+        <article class="panel">
+          <div class="badge">T6</div>
+          <h3>VW T6 / T6.1</h3>
+          <p>Modulares Schlaf- und Stauraum-System mit optionalem Küchenmodul, vorbereitet für Zweitbatterie und Solar.</p>
+        </article>
+        <article class="panel">
+          <div class="badge">SP</div>
+          <h3>Sprinter / Crafter L2-L3</h3>
+          <p>Seitliche Highline-Möbel, Querbett-Optionen und integrierte Technik-Box mit leiser Lüftung.</p>
+        </article>
+        <article class="panel">
+          <div class="badge">DU</div>
+          <h3>Ducato / Boxer / Jumper</h3>
+          <p>Offenes Raster für Heckbett, Schubladen und Wetroom-Option. Dokumentierte Strom- und Wasserwege.</p>
+        </article>
+        <article class="panel">
+          <div class="badge">CA</div>
+          <h3>Caddy / CityVan</h3>
+          <p>Kompaktes Weekender-Setup mit Klappbett, Boxen-System und steckbaren Küchenmodulen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="accessories" aria-label="Zubehör">
+      <div class="section-kicker">Zubehör</div>
+      <h2 class="section-title">Kompatible Add-ons</h2>
+      <div class="grid grid-3">
+        <article class="panel">
+          <div class="badge">P1</div>
+          <h3>Power Pack</h3>
+          <p>230V/12V Panel, Ladegerät, Sicherungen und vorkonfektionierte Kabelwege. Dokumentiert für deine Basis.</p>
+        </article>
+        <article class="panel">
+          <div class="badge">W1</div>
+          <h3>Water Pack</h3>
+          <p>Frisch-/Abwasser, Pumpe, Verlegung und Anschlüsse mit Safety-Briefing und Wartungspunkten.</p>
+        </article>
+        <article class="panel">
+          <div class="badge">V1</div>
+          <h3>Vent & Noise Kit</h3>
+          <p>Dachlüfter, Schwingungsdämpfung und Anti-Rattle-Set für Türen und Möbelfronten.</p>
+        </article>
+        <article class="panel">
+          <div class="badge">R1</div>
+          <h3>Rail & Floor Pack</h3>
+          <p>Befestigungspunkte, Airlineschienen, Bodenaufbau und Schablonen für exakte Bohrungen.</p>
+        </article>
+        <article class="panel">
+          <div class="badge">S1</div>
+          <h3>Storage Add-ons</h3>
+          <p>Stauraum-Organizer, Kisten-Raster und textile Fronten für leises Fahren.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Kontakt">
+      <div class="panel">
+        <div class="section-kicker" style="margin-bottom:6px">Bereit?</div>
+        <h3 style="margin:0 0 10px">Schick uns dein Modell und wähle dein Paket.</h3>
+        <p style="margin:0 0 14px">
+          Teile Van-Modell, Radstand und gewünschte Module – wir schicken dir das passende Datenpaket plus Lieferlinks.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:contact@lugh21.com?subject=CamperVanOs%20Produkte">Produkte anfragen</a>
+          <a class="btn" href="/VanOs/">Zurück zur Startseite</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Lugh21 · CamperVanOs
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
