@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CamperVanOs · System für VW T5</title>
   <meta name="description" content="Minimalistische Produktseite für das CamperVanOs System im VW T5 – modular, dokumentiert, bereit für den Ausbau oder die Vermietung.">
+  <meta property="og:title" content="CamperVanOs · System für VW T5">
+  <meta property="og:description" content="Dokumentiertes Ausbau-System für den VW T5 – mit Datenpaket, Montage-Reihenfolge und Fotoguide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lugh21.com/VanOs/">
+  <link rel="canonical" href="https://lugh21.com/VanOs/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/shared.css">
 
   <style>
     :root{
@@ -362,19 +368,22 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
   <header>
-    <a class="brand" href="/">
+    <a class="brand" href="./">
       <span class="brand-mark">VO</span>
       <span>CamperVanOs</span>
     </a>
     <nav aria-label="Navigation">
       <a href="#details">System</a>
       <a href="products/">Produkte</a>
+      <a href="about/">Über</a>
+      <a href="contact/">Kontakt</a>
       <a href="#bilder">Bilder</a>
-      <a href="mailto:contact@lugh21.com">Kontakt</a>
     </nav>
   </header>
 
+  <main id="main">
   <div class="frame">
     <section class="hero" aria-label="Hero">
       <div class="hero-content">
@@ -395,7 +404,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="assets/render-fusion-t5.svg" alt="Fusion-Style Rendering eines modularen VW T5 Systems">
+        <img src="assets/render-fusion-t5.svg" alt="Fusion-Style Rendering eines modularen VW T5 Systems" width="1200" height="800">
         <div class="subpanel">
           <span class="dot"></span>
           <div>
@@ -444,7 +453,7 @@
             <div>• Workflow-Board inklusive Checklisten</div>
           </div>
         </div>
-        <img src="assets/render-fusion-layout.svg" alt="Fusion-Style Rendering des CamperVanOs Layouts im VW T5">
+        <img src="assets/render-fusion-layout.svg" alt="Fusion-Style Rendering des CamperVanOs Layouts im VW T5" width="1200" height="800" loading="lazy">
       </div>
     </section>
 
@@ -453,15 +462,15 @@
       <h2 class="section-title">Camper, wie sie im Portfolio glänzen</h2>
       <div class="gallery">
         <figure>
-          <img src="assets/render-fusion-t5.svg" alt="Fusion-Style Rendering eines CamperVanOs Innenraums im T5">
+          <img src="assets/render-fusion-t5.svg" alt="Fusion-Style Rendering eines CamperVanOs Innenraums im T5" width="1200" height="800" loading="lazy">
           <figcaption>System T5</figcaption>
         </figure>
         <figure>
-          <img src="assets/render-fusion-layout.svg" alt="Fusion-Style Rendering eines modularen Layouts mit Technikfach">
+          <img src="assets/render-fusion-layout.svg" alt="Fusion-Style Rendering eines modularen Layouts mit Technikfach" width="1200" height="800" loading="lazy">
           <figcaption>Modul-Layout</figcaption>
         </figure>
         <figure>
-          <img src="assets/render-fusion-accessory.svg" alt="Fusion-Style Rendering von Zubehörpaketen Strom und Wasser">
+          <img src="assets/render-fusion-accessory.svg" alt="Fusion-Style Rendering von Zubehörpaketen Strom und Wasser" width="1200" height="800" loading="lazy">
           <figcaption>Zubehör</figcaption>
         </figure>
       </div>
@@ -470,24 +479,7 @@
     <section class="section" id="workflow" aria-label="Workflow">
       <div class="section-kicker">Workflow</div>
       <h2 class="section-title">In drei Schritten zu deinem T5-System</h2>
-      <ol class="steps">
-        <li>
-          <span class="number">1</span>
-          <div><strong>T5 Setup wählen</strong> Radstand, Sitzanzahl und Schlaf-/Stauraum definieren.</div>
-        </li>
-        <li>
-          <span class="number">2</span>
-          <div><strong>Datenpaket erhalten</strong> Board mit CAD, Schablonen, Lieferlinks und Safety-Briefing landet in deinem Posteingang.</div>
-        </li>
-        <li>
-          <span class="number">3</span>
-          <div><strong>Teile vorbereiten</strong> Zuschnitt per CNC/Hand, 3D-Druck für Adapter – alles sitzt.</div>
-        </li>
-        <li>
-          <span class="number">4</span>
-          <div><strong>Montage folgen</strong> Fotos, Schritte und Checks begleiten den Einbau in deinen T5.</div>
-        </li>
-      </ol>
+      <ol class="steps" data-steps></ol>
     </section>
 
     <section class="section" aria-label="Call to action">
@@ -504,17 +496,33 @@
             <a class="btn" href="products/">Alle Produkte</a>
           </div>
         </div>
-        <img src="assets/render-fusion-accessory.svg" alt="Fusion-Style Rendering eines CamperVanOs Modul-Setups">
+        <img src="assets/render-fusion-accessory.svg" alt="Fusion-Style Rendering eines CamperVanOs Modul-Setups" width="1200" height="800" loading="lazy">
       </div>
     </section>
   </div>
-
+  </main>
   <footer>
     © <span id="year"></span> Lugh21 · CamperVanOs
   </footer>
 
+  <script src="assets/content.js"></script>
+  <script src="assets/consent.js" data-gtag-id="G-XXXXXXX"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    // Render workflow steps from content config
+    (function(){
+      const list = document.querySelector('[data-steps]');
+      if(!list || !window.vanOsContent?.home?.steps) return;
+      list.innerHTML = "";
+      window.vanOsContent.home.steps.forEach((step, idx)=>{
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span class="number">${idx+1}</span>
+          <div><strong>${step.title}</strong> ${step.body}</div>
+        `;
+        list.appendChild(li);
+      });
+    })();
   </script>
 </body>
 </html>

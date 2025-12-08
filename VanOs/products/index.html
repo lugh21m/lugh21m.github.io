@@ -5,31 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CamperVanOs · Produkte & Kits</title>
   <meta name="description" content="Produktübersicht von CamperVanOs: T5 Kit, Systeme für weitere Vans und Zubehör für Strom, Wasser und Montage.">
+  <meta property="og:title" content="CamperVanOs · Produkte & Kits">
+  <meta property="og:description" content="Alle CamperVanOs Systeme: T5 Kit, weitere Vans und Zubehör. Dokumentiert, bereit für den Ausbau.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lugh21.com/VanOs/products/">
+  <link rel="canonical" href="https://lugh21.com/VanOs/products/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/shared.css">
   <style>
     :root{
-      --bg:#f6f7fb;
-      --panel:#ffffff;
-      --text:#0c1224;
-      --muted:#5a6172;
-      --line:rgba(12,18,36,0.08);
-      --shadow:0 12px 28px rgba(12,18,36,0.12);
-      --accent:#0f192f;
-      --pill:#e7eaf2;
+      --bg:#0d1221;
+      --panel:#0f1627;
+      --text:#e8ecf5;
+      --muted:#9aa6c2;
+      --line:rgba(255,255,255,0.08);
+      --shadow:0 20px 40px rgba(5,8,14,0.5);
+      --accent:#f4b400;
+      --pill:rgba(244,180,0,0.14);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       min-height:100vh;
       font-family:"Sora",system-ui,-apple-system,Segoe UI,sans-serif;
-      background:var(--bg);
+      background:radial-gradient(circle at 20% 20%,rgba(244,180,0,0.14),transparent 32%),radial-gradient(circle at 80% 0,rgba(99,131,255,0.16),transparent 28%),var(--bg);
       color:var(--text);
       -webkit-font-smoothing:antialiased;
     }
     a{color:inherit;text-decoration:none}
-    .frame{max-width:1200px;margin:0 auto;padding:28px clamp(20px,5vw,38px) 70px;}
+    .frame{max-width:1180px;margin:0 auto;padding:32px clamp(20px,5vw,38px) 80px;}
     header{
       display:flex;
       align-items:center;
@@ -37,7 +43,8 @@
       gap:24px;
       padding:18px clamp(20px,5vw,38px);
       border-bottom:1px solid var(--line);
-      background:var(--bg);
+      background:rgba(13,18,33,0.9);
+      backdrop-filter:blur(8px);
       position:sticky;
       top:0;
       z-index:5;
@@ -54,20 +61,20 @@
       width:44px;
       height:44px;
       border-radius:14px;
-      background:var(--text);
+      background:var(--accent);
       display:grid;
       place-items:center;
-      color:#fff;
+      color:#0d1221;
       font-weight:700;
-      box-shadow:var(--shadow);
+      box-shadow:0 12px 28px rgba(244,180,0,0.3);
     }
-    nav a{margin-left:18px;color:var(--muted);font-weight:500;}
+    nav a{margin-left:18px;color:var(--muted);font-weight:600;}
     nav a:first-child{margin-left:0;}
     nav a:hover{color:var(--text)}
 
     .hero{
       display:grid;
-      grid-template-columns:1fr 0.9fr;
+      grid-template-columns:1.05fr 0.95fr;
       gap:30px;
       align-items:center;
       margin-top:28px;
@@ -79,21 +86,24 @@
       padding:8px 14px;
       border-radius:999px;
       background:var(--pill);
-      color:#244;
+      color:#f7c64d;
       font-size:13px;
-      font-weight:600;
+      font-weight:700;
+      letter-spacing:0.04em;
     }
     .pill span{
       width:10px;
       height:10px;
       border-radius:50%;
-      background:var(--text);
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(244,180,0,0.18);
     }
     h1{
       margin:14px 0 12px;
       font-size:clamp(34px,5vw,52px);
       line-height:1.1;
       letter-spacing:-0.02em;
+      color:#f9fbff;
     }
     p.lead{
       margin:0 0 22px;
@@ -105,21 +115,21 @@
     .btn{
       border-radius:12px;
       padding:13px 18px;
-      font-weight:600;
+      font-weight:700;
       font-size:15px;
       border:1px solid var(--line);
-      background:var(--panel);
+      background:rgba(255,255,255,0.04);
       color:var(--text);
-      box-shadow:0 8px 24px rgba(10,15,28,0.08);
-      transition:transform .18s ease,box-shadow .18s ease;
+      box-shadow:0 10px 26px rgba(0,0,0,0.3);
+      transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease;
     }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(10,15,28,0.12)}
-    .btn.primary{background:var(--text);color:#fff;border:none;}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 14px 34px rgba(0,0,0,0.36);border-color:rgba(255,255,255,0.14);}
+    .btn.primary{background:var(--accent);color:#0d1221;border:none;box-shadow:0 14px 30px rgba(244,180,0,0.35);}
 
     .hero-visual{
-      background:var(--panel);
+      background:linear-gradient(145deg,rgba(244,180,0,0.12),rgba(99,131,255,0.12));
       border-radius:20px;
-      padding:16px;
+      padding:18px;
       position:relative;
       box-shadow:var(--shadow);
       overflow:hidden;
@@ -131,8 +141,9 @@
       display:block;
       object-fit:cover;
       aspect-ratio:4/3;
+      background:#0f1627;
     }
-    .section{margin-top:60px;}
+    .section{margin-top:64px;}
     .section-kicker{
       text-transform:uppercase;
       letter-spacing:0.24em;
@@ -140,15 +151,15 @@
       font-size:12px;
       margin-bottom:8px;
     }
-    .section-title{margin:0 0 10px;font-size:26px;letter-spacing:-0.01em;}
+    .section-title{margin:0 0 10px;font-size:26px;letter-spacing:-0.01em;color:#f9fbff;}
     .panel{
-      background:var(--panel);
+      background:rgba(15,22,39,0.75);
       border:1px solid var(--line);
-      border-radius:16px;
-      padding:20px;
+      border-radius:18px;
+      padding:22px;
       box-shadow:var(--shadow);
     }
-    .panel h3{margin:0 0 10px;font-size:20px;}
+    .panel h3{margin:0 0 10px;font-size:20px;color:#f9fbff;}
     .panel p{margin:0;color:var(--muted);line-height:1.55;}
     .grid{display:grid;gap:16px;}
     .grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
@@ -159,16 +170,16 @@
       width:36px;
       height:36px;
       border-radius:12px;
-      background:var(--text);
-      color:#fff;
+      background:var(--accent);
+      color:#0d1221;
       font-weight:700;
       margin-bottom:12px;
-      box-shadow:0 10px 20px rgba(12,18,36,0.16);
+      box-shadow:0 10px 24px rgba(244,180,0,0.28);
     }
     .stack{display:flex;flex-direction:column;gap:8px;color:var(--muted);margin-top:12px;padding-left:16px;}
-    .stack div::before{content:"• ";color:var(--text);}
+    .stack div::before{content:"• ";color:var(--accent);}
     .mini-meta{display:flex;gap:12px;align-items:center;margin-top:12px;color:var(--muted);font-size:14px;}
-    .mini-dot{width:8px;height:8px;border-radius:50%;background:var(--text);}
+    .mini-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
     footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 28px;}
     @media(max-width:960px){
       .hero{grid-template-columns:1fr;gap:22px}
@@ -183,6 +194,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
   <header>
     <a class="brand" href="../">
       <span class="brand-mark">VO</span>
@@ -193,9 +205,12 @@
       <a href="#t5">T5 Kit</a>
       <a href="#kits">Systeme</a>
       <a href="#accessories">Zubehör</a>
+      <a href="../about/">Über</a>
+      <a href="../contact/">Kontakt</a>
     </nav>
   </header>
 
+  <main id="main">
   <div class="frame">
     <section class="hero" aria-label="Produkte">
       <div class="hero-content">
@@ -215,7 +230,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="../assets/render-fusion-t5.svg" alt="Fusion-Style Rendering des CamperVanOs T5 Kits">
+        <img src="../assets/render-fusion-t5.svg" alt="Fusion-Style Rendering des CamperVanOs T5 Kits" width="1200" height="800">
       </div>
     </section>
 
@@ -242,60 +257,13 @@
     <section class="section" id="kits" aria-label="Weitere Systeme">
       <div class="section-kicker">Systeme</div>
       <h2 class="section-title">Weitere Van-Modelle</h2>
-      <div class="grid grid-3">
-        <article class="panel">
-          <div class="badge">T6</div>
-          <h3>VW T6 / T6.1</h3>
-          <p>Modulares Schlaf- und Stauraum-System mit optionalem Küchenmodul, vorbereitet für Zweitbatterie und Solar.</p>
-        </article>
-        <article class="panel">
-          <div class="badge">SP</div>
-          <h3>Sprinter / Crafter L2-L3</h3>
-          <p>Seitliche Highline-Möbel, Querbett-Optionen und integrierte Technik-Box mit leiser Lüftung.</p>
-        </article>
-        <article class="panel">
-          <div class="badge">DU</div>
-          <h3>Ducato / Boxer / Jumper</h3>
-          <p>Offenes Raster für Heckbett, Schubladen und Wetroom-Option. Dokumentierte Strom- und Wasserwege.</p>
-        </article>
-        <article class="panel">
-          <div class="badge">CA</div>
-          <h3>Caddy / CityVan</h3>
-          <p>Kompaktes Weekender-Setup mit Klappbett, Boxen-System und steckbaren Küchenmodulen.</p>
-        </article>
-      </div>
+      <div class="grid grid-3" data-kits></div>
     </section>
 
     <section class="section" id="accessories" aria-label="Zubehör">
       <div class="section-kicker">Zubehör</div>
       <h2 class="section-title">Kompatible Add-ons</h2>
-      <div class="grid grid-3">
-        <article class="panel">
-          <div class="badge">P1</div>
-          <h3>Power Pack</h3>
-          <p>230V/12V Panel, Ladegerät, Sicherungen und vorkonfektionierte Kabelwege. Dokumentiert für deine Basis.</p>
-        </article>
-        <article class="panel">
-          <div class="badge">W1</div>
-          <h3>Water Pack</h3>
-          <p>Frisch-/Abwasser, Pumpe, Verlegung und Anschlüsse mit Safety-Briefing und Wartungspunkten.</p>
-        </article>
-        <article class="panel">
-          <div class="badge">V1</div>
-          <h3>Vent & Noise Kit</h3>
-          <p>Dachlüfter, Schwingungsdämpfung und Anti-Rattle-Set für Türen und Möbelfronten.</p>
-        </article>
-        <article class="panel">
-          <div class="badge">R1</div>
-          <h3>Rail & Floor Pack</h3>
-          <p>Befestigungspunkte, Airlineschienen, Bodenaufbau und Schablonen für exakte Bohrungen.</p>
-        </article>
-        <article class="panel">
-          <div class="badge">S1</div>
-          <h3>Storage Add-ons</h3>
-          <p>Stauraum-Organizer, Kisten-Raster und textile Fronten für leises Fahren.</p>
-        </article>
-      </div>
+      <div class="grid grid-3" data-accessories></div>
     </section>
 
     <section class="section" aria-label="Kontakt">
@@ -312,10 +280,46 @@
       </div>
     </section>
   </div>
+  </main>
 
   <footer>
     © <span id="year"></span> Lugh21 · CamperVanOs
   </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <script src="../assets/content.js"></script>
+  <script src="../assets/consent.js" data-gtag-id="G-XXXXXXX"></script>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    (function(){
+      const kitsContainer = document.querySelector('[data-kits]');
+      const accContainer = document.querySelector('[data-accessories]');
+      const data = window.vanOsContent?.products;
+      if(data?.kits && kitsContainer){
+        kitsContainer.innerHTML = "";
+        data.kits.forEach(item=>{
+          const article = document.createElement('article');
+          article.className = "panel";
+          article.innerHTML = `
+            <div class="badge">${item.code}</div>
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+          `;
+          kitsContainer.appendChild(article);
+        });
+      }
+      if(data?.accessories && accContainer){
+        accContainer.innerHTML = "";
+        data.accessories.forEach(item=>{
+          const article = document.createElement('article');
+          article.className = "panel";
+          article.innerHTML = `
+            <div class="badge">${item.code}</div>
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+          `;
+          accContainer.appendChild(article);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

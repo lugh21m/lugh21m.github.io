@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt · CamperVanOs</title>
+  <meta name="description" content="Kontakt zu CamperVanOs: Anfragen zu Kits, Zubehör oder Kooperationen.">
+  <meta property="og:title" content="Kontakt · CamperVanOs">
+  <meta property="og:description" content="Anfragen zu CamperVanOs Kits, Zubehör oder Kooperationen.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lugh21.com/VanOs/contact/">
+  <link rel="canonical" href="https://lugh21.com/VanOs/contact/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/shared.css">
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --panel:#ffffff;
+      --text:#0c1224;
+      --muted:#5a6172;
+      --line:rgba(12,18,36,0.08);
+      --shadow:0 12px 28px rgba(12,18,36,0.12);
+      --accent:#0f192f;
+    }
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:24px;
+      padding:18px clamp(20px,5vw,38px);border-bottom:1px solid var(--line);
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:0.02em;font-size:18px;}
+    .brand-mark{width:44px;height:44px;border-radius:14px;background:var(--text);display:grid;place-items:center;color:#fff;font-weight:700;box-shadow:var(--shadow);}
+    nav a{margin-left:18px;color:var(--muted);font-weight:500;}
+    nav a:first-child{margin-left:0;}
+    nav a:hover{color:var(--text);}
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;margin-top:26px;}
+    .pill{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:#e7eaf2;color:#244;font-size:13px;font-weight:600;}
+    .pill span{width:10px;height:10px;border-radius:50%;background:var(--text);box-shadow:0 0 0 6px rgba(15,25,47,0.12);}
+    h1{margin:16px 0 12px;font-size:clamp(32px,5vw,48px);line-height:1.15;letter-spacing:-0.02em;}
+    p.lead{margin:0 0 20px;color:var(--muted);font-size:17px;line-height:1.6;}
+    form{display:flex;flex-direction:column;gap:14px;}
+    .meta-list{display:grid;gap:10px;color:var(--muted);margin-top:10px;}
+    .meta-list strong{color:var(--text);}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <header>
+    <a class="brand" href="../">
+      <span class="brand-mark">VO</span>
+      <span>CamperVanOs</span>
+    </a>
+    <nav aria-label="Navigation">
+      <a href="../">Start</a>
+      <a href="../products/">Produkte</a>
+      <a href="../about/">Über</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="frame">
+      <section class="hero" aria-label="Kontaktformular">
+        <div>
+          <div class="pill"><span></span> Kontakt</div>
+          <h1>Lass uns dein Van-Projekt starten.</h1>
+          <p class="lead">Sag uns dein Modell, Radstand und was du vorhast. Wir melden uns mit dem passenden Paket.</p>
+          <div class="meta-list">
+            <div><strong>E-Mail</strong><br><a href="mailto:contact@lugh21.com">contact@lugh21.com</a></div>
+            <div><strong>Reaktionszeit</strong><br>In der Regel innerhalb von 24h.</div>
+          </div>
+        </div>
+        <div class="panel">
+          <form action="mailto:contact@lugh21.com" method="post">
+            <div class="form-grid">
+              <div class="input-field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required autocomplete="name" placeholder="Dein Name">
+              </div>
+              <div class="input-field">
+                <label for="email">E-Mail</label>
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="du@example.com">
+              </div>
+              <div class="input-field">
+                <label for="van">Van-Modell</label>
+                <input id="van" name="van" type="text" placeholder="z.B. VW T5 L1, T6.1, Sprinter L2">
+              </div>
+              <div class="input-field">
+                <label for="intent">Ziel</label>
+                <select id="intent" name="intent">
+                  <option value="">Bitte wählen</option>
+                  <option>Eigenbau</option>
+                  <option>Vermietung</option>
+                  <option>Flotte/Partnerschaft</option>
+                </select>
+              </div>
+              <div class="input-field">
+                <label for="message">Notizen</label>
+                <textarea id="message" name="message" rows="4" placeholder="Was soll das System können?"></textarea>
+              </div>
+            </div>
+            <div class="cta">
+              <button class="btn primary" type="submit">Nachricht senden</button>
+              <a class="btn" href="mailto:contact@lugh21.com?subject=CamperVanOs%20Anfrage">Mail öffnen</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Lugh21 · CamperVanOs
+  </footer>
+  <script src="../assets/consent.js" data-gtag-id="G-XXXXXXX"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

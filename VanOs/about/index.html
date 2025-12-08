@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Über CamperVanOs</title>
+  <meta name="description" content="CamperVanOs kombiniert Design-Systeme, Dokumentation und modulare Ausbauten für Vans.">
+  <meta property="og:title" content="Über CamperVanOs">
+  <meta property="og:description" content="Design-Systeme, Dokumentation und modulare Ausbauten für Vans.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lugh21.com/VanOs/about/">
+  <link rel="canonical" href="https://lugh21.com/VanOs/about/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/shared.css">
+  <style>
+    :root{
+      --bg:#f7f8fc;
+      --panel:#ffffff;
+      --text:#0c1224;
+      --muted:#5a6172;
+      --line:rgba(12,18,36,0.08);
+      --shadow:0 12px 28px rgba(12,18,36,0.12);
+      --accent:#0f192f;
+    }
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:24px;
+      padding:18px clamp(20px,5vw,38px);border-bottom:1px solid var(--line);
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:0.02em;font-size:18px;}
+    .brand-mark{width:44px;height:44px;border-radius:14px;background:var(--text);display:grid;place-items:center;color:#fff;font-weight:700;box-shadow:var(--shadow);}
+    nav a{margin-left:18px;color:var(--muted);font-weight:500;}
+    nav a:first-child{margin-left:0;}
+    nav a:hover{color:var(--text);}
+    .hero{display:grid;grid-template-columns:1.1fr 0.9fr;gap:28px;align-items:center;margin-top:26px;}
+    .pill{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:#e7eaf2;color:#244;font-size:13px;font-weight:600;}
+    .pill span{width:10px;height:10px;border-radius:50%;background:var(--text);box-shadow:0 0 0 6px rgba(15,25,47,0.12);}
+    h1{margin:16px 0 12px;font-size:clamp(34px,5vw,52px);line-height:1.1;letter-spacing:-0.02em;}
+    p.lead{margin:0 0 22px;color:var(--muted);font-size:18px;line-height:1.6;}
+    .hero-visual{background:var(--panel);border-radius:18px;padding:16px;box-shadow:var(--shadow);border:1px solid var(--line);}
+    .hero-visual img{width:100%;border-radius:14px;display:block;object-fit:cover;aspect-ratio:4/3;}
+    .timeline{display:grid;gap:12px;margin-top:14px;}
+    .timeline-item{display:flex;gap:12px;align-items:flex-start;}
+    .timeline-dot{width:12px;height:12px;border-radius:50%;background:var(--text);margin-top:6px;flex-shrink:0;}
+    .feature-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <header>
+    <a class="brand" href="../">
+      <span class="brand-mark">VO</span>
+      <span>CamperVanOs</span>
+    </a>
+    <nav aria-label="Navigation">
+      <a href="../">Start</a>
+      <a href="../products/">Produkte</a>
+      <a href="../contact/">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="frame">
+      <section class="hero" aria-label="Über CamperVanOs">
+        <div>
+          <div class="pill"><span></span> Über</div>
+          <h1>Produkt-Design trifft Van-Ausbau.</h1>
+          <p class="lead">
+            CamperVanOs verbindet modulare Möbel, Technik-Layouts und dokumentierte Prozesse zu einem Produkt,
+            das sich wie ein Serienfahrzeug anfühlt – ob für Vermietung oder Eigenbesitz.
+          </p>
+          <div class="feature-row">
+            <div class="card">
+              <div class="badge">DOC</div>
+              <h3>Dokumentiert</h3>
+              <p>CAD/3D, Stücklisten und Safety-Briefings werden zusammen ausgeliefert.</p>
+            </div>
+            <div class="card">
+              <div class="badge">OPS</div>
+              <h3>Workflows</h3>
+              <p>Foto-geführte Abläufe, Checklisten und Freigaben je Schritt.</p>
+            </div>
+            <div class="card">
+              <div class="badge">KIT</div>
+              <h3>Module</h3>
+              <p>Rasterbasierte Möbel, Technik-Boxen und Zubehör, das zusammenpasst.</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="../assets/render-fusion-layout.svg" alt="Rendering eines modularen Layouts" width="1200" height="800" loading="lazy">
+        </div>
+      </section>
+
+      <section class="section" aria-label="Historie">
+        <div class="section-kicker">Ansatz</div>
+        <h2 class="section-title">Aus Projekten in ein System überführt.</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div><strong>Research & Tests</strong><br>Interviews mit Vermietern, DIY-Bauern und Werkstätten – Fokus auf Wartbarkeit und Ruhe.</div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div><strong>Module & Kits</strong><br>Raster für Möbel, Kabelwege, Wasserpfade und Anti-Rattle-Setups, die sich skalieren lassen.</div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div><strong>Dokumentation</strong><br>Board mit 3D/2D-Daten, Schablonen, Lieferlinks und Fotoguide für jeden Schritt.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="CTA">
+        <div class="panel">
+          <div class="section-kicker" style="margin-bottom:6px">Let’s talk</div>
+          <h3 style="margin:0 0 10px">Projekt oder Partnerschaft?</h3>
+          <p style="margin:0 0 14px">Schreib uns dein Modell, dein Ziel und ob du selbst baust oder bauen lässt.</p>
+          <div class="cta">
+            <a class="btn primary" href="../contact/">Kontakt aufnehmen</a>
+            <a class="btn" href="../products/">Produkte ansehen</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Lugh21 · CamperVanOs
+  </footer>
+  <script src="../assets/consent.js" data-gtag-id="G-XXXXXXX"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
