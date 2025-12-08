@@ -9,6 +9,8 @@
   <meta property="og:description" content="Anfragen zu CamperVanOs Kits, Zubehör oder Kooperationen.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lugh21.com/VanOs/contact/">
+  <meta property="og:image" content="https://lugh21.com/VanOs/assets/render-fusion-t5.svg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://lugh21.com/VanOs/contact/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,19 +86,20 @@
                 <label for="van">Van-Modell</label>
                 <input id="van" name="van" type="text" placeholder="z.B. VW T5 L1, T6.1, Sprinter L2">
               </div>
-              <div class="input-field">
-                <label for="intent">Ziel</label>
-                <select id="intent" name="intent">
-                  <option value="">Bitte wählen</option>
-                  <option>Eigenbau</option>
-                  <option>Vermietung</option>
-                  <option>Flotte/Partnerschaft</option>
-                </select>
-              </div>
-              <div class="input-field">
-                <label for="message">Notizen</label>
-                <textarea id="message" name="message" rows="4" placeholder="Was soll das System können?"></textarea>
-              </div>
+          <div class="input-field">
+            <label for="intent">Ziel <span class="sr-only">(optional)</span></label>
+            <select id="intent" name="intent" aria-describedby="intent-help">
+              <option value="">Bitte wählen</option>
+              <option>Eigenbau</option>
+              <option>Vermietung</option>
+              <option>Flotte/Partnerschaft</option>
+            </select>
+            <small id="intent-help" style="color:var(--muted)">Hilft uns, das passende Paket zu senden.</small>
+          </div>
+          <div class="input-field">
+            <label for="message">Notizen</label>
+            <textarea id="message" name="message" rows="4" placeholder="Was soll das System können?"></textarea>
+          </div>
             </div>
             <div class="cta">
               <button class="btn primary" type="submit">Nachricht senden</button>
@@ -111,7 +114,7 @@
   <footer>
     © <span id="year"></span> Lugh21 · CamperVanOs
   </footer>
-  <script src="../assets/consent.js" data-gtag-id="G-XXXXXXX"></script>
+  <script src="../assets/consent.js" data-gtag-id="G-XXXXXXX" defer></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

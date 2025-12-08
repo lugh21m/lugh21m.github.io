@@ -23,3 +23,14 @@
 ## Components
 - Shared styles in `assets/shared.css` (buttons, cards/panels, forms, grid, skip-link).
 - Forms use accessible labels; images use `loading="lazy"` where possible.
+
+## Checklist Fortschritt
+- [x] Routing + Seitenstruktur (Home, Produkt, Über, Kontakt, 404)
+- [x] Header/Footer + Navigation (Desktop/Mobile)
+- [x] Grund-Komponenten: Hero, Feature-Block, Card, CTA, Formular
+- [x] CMS/Content-Felder anlegen und anbinden (`assets/content.js`)
+- [x] SEO-Basis: Title, Meta, OpenGraph, Sitemap, robots
+- [x] Analytics + Consent (GA4/Privacy via opt-in)
+- [x] Performance-Basics: Lazy Images, Shared CSS, defer Scripts
+- [x] A11y: Skip-Link, Labels, Fokusreihenfolge über `main`, Kontraste geprüft
+- [x] Deploy + Staging-Hinweise (static hosting, 404 fallback)

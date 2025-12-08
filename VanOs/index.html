@@ -9,6 +9,8 @@
   <meta property="og:description" content="Dokumentiertes Ausbau-System für den VW T5 – mit Datenpaket, Montage-Reihenfolge und Fotoguide.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lugh21.com/VanOs/">
+  <meta property="og:image" content="https://lugh21.com/VanOs/assets/render-fusion-t5.svg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://lugh21.com/VanOs/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -388,10 +390,10 @@
     <section class="hero" aria-label="Hero">
       <div class="hero-content">
         <div class="pill"><span></span> System für VW T5</div>
-        <h1>Das modulare CamperVanOs System für den T5.</h1>
+        <h1>Der modulare T5-Ausbau, der wie ein OS funktioniert.</h1>
         <p class="lead">
-          Minimalistische Produktseite, maximaler Fokus: ein klar dokumentiertes Ausbau-System für den VW T5 –
-          mit Datenpaket, Montage-Reihenfolge und Fotoguide, damit dein Van wie ein Serienprodukt wirkt.
+          CamperVanOs nimmt die Unsicherheit aus dem Selbstausbau: klar dokumentiert, planbar und fehlerarm.
+          Du weißt Dauer, Kosten und Reihenfolge – mit Datenpaket, Fotoguide und 3D-Druck-Schablonen.
         </p>
         <div class="cta">
           <a class="btn primary" href="products/#t5">T5 Kit ansehen</a>
@@ -411,6 +413,38 @@
             <div style="font-weight:700">System T5</div>
             <div style="font-size:13px;color:#1f2a3d">Konfiguriert mit CamperVanOs</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="claim" aria-label="Warum CamperVanOs">
+      <div class="section-kicker">Claim</div>
+      <div class="panel">
+        <h2 class="section-title">Der modulare Camper-Ausbau, der wie ein OS funktioniert.</h2>
+        <p style="margin:0 0 14px;color:var(--muted)">
+          Wir machen den Van-Ausbau planbar, druckbar, fehlerarm – damit jede:r den Traumcamper sicher bauen kann.
+        </p>
+        <div class="grid grid-2" style="margin-top:14px">
+          <div>
+            <strong>Das Problem</strong>
+            <div class="stack">
+              <div>Unsicherheit: „Was, wenn es nicht passt?“</div>
+              <div>Keine Roadmap, Angst vor Elektrik/Wasser</div>
+              <div>Fehler sind teuer, Youtube ersetzt keinen Prozess</div>
+            </div>
+          </div>
+          <div>
+            <strong>Unsere Lösung</strong>
+            <div class="stack">
+              <div>Dokumentierte Schritte mit Dauer, Kosten, Reihenfolge</div>
+              <div>3D-Druck-Schablonen & smarte Konstruktion für Passung</div>
+              <div>BOM + STL-Dateien und fertige Druckteile auf Wunsch</div>
+            </div>
+          </div>
+        </div>
+        <div class="stack" style="margin-top:16px">
+          <div><strong>Mission:</strong> Ausbau so einfach, sicher und bezahlbar machen, dass jede:r ihn bauen kann.</div>
+          <div><strong>Zielgruppe:</strong> Maker mit 3D-Druck, Anfänger mit Sicherheitsbedarf, Budgetbewusste, alle die planbar bauen wollen.</div>
         </div>
       </div>
     </section>
@@ -505,12 +539,12 @@
     © <span id="year"></span> Lugh21 · CamperVanOs
   </footer>
 
-  <script src="assets/content.js"></script>
-  <script src="assets/consent.js" data-gtag-id="G-XXXXXXX"></script>
+  <script src="assets/content.js" defer></script>
+  <script src="assets/consent.js" data-gtag-id="G-XXXXXXX" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    // Render workflow steps from content config
-    (function(){
+    // Render workflow steps from content config once DOM and content are ready
+    function renderSteps() {
       const list = document.querySelector('[data-steps]');
       if(!list || !window.vanOsContent?.home?.steps) return;
       list.innerHTML = "";
@@ -522,7 +556,12 @@
         `;
         list.appendChild(li);
       });
-    })();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderSteps);
+    } else {
+      renderSteps();
+    }
   </script>
 </body>
 </html>

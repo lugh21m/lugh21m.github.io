@@ -9,6 +9,8 @@
   <meta property="og:description" content="Alle CamperVanOs Systeme: T5 Kit, weitere Vans und Zubehör. Dokumentiert, bereit für den Ausbau.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lugh21.com/VanOs/products/">
+  <meta property="og:image" content="https://lugh21.com/VanOs/assets/render-fusion-t5.svg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://lugh21.com/VanOs/products/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -161,6 +163,8 @@
     }
     .panel h3{margin:0 0 10px;font-size:20px;color:#f9fbff;}
     .panel p{margin:0;color:var(--muted);line-height:1.55;}
+    .price{margin-top:8px;font-weight:700;color:#f7c64d;}
+    .sku{color:var(--muted);font-size:13px;margin-top:2px;}
     .grid{display:grid;gap:16px;}
     .grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
     .badge{
@@ -285,11 +289,12 @@
   <footer>
     © <span id="year"></span> Lugh21 · CamperVanOs
   </footer>
-  <script src="../assets/content.js"></script>
-  <script src="../assets/consent.js" data-gtag-id="G-XXXXXXX"></script>
+  <script src="../assets/content.js" defer></script>
+  <script src="../assets/consent.js" data-gtag-id="G-XXXXXXX" defer></script>
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
-    (function(){
+    // Render products once DOM and content config are ready
+    function renderProducts(){
       const kitsContainer = document.querySelector('[data-kits]');
       const accContainer = document.querySelector('[data-accessories]');
       const data = window.vanOsContent?.products;
@@ -302,6 +307,12 @@
             <div class="badge">${item.code}</div>
             <h3>${item.title}</h3>
             <p>${item.desc}</p>
+            <div class="price">${item.price || ""}</div>
+            <div class="sku">SKU: ${item.sku || "–"}</div>
+            <div class="cta" style="margin-top:12px;gap:10px">
+              <a class="btn primary" href="mailto:contact@lugh21.com?subject=CamperVanOs%20${encodeURIComponent(item.title)}&body=SKU%3A%20${encodeURIComponent(item.sku||\"\")}%0A">Anfragen</a>
+              <a class="btn" href="#" aria-disabled="true" style="pointer-events:none;opacity:0.6">Shop (bald)</a>
+            </div>
           `;
           kitsContainer.appendChild(article);
         });
@@ -315,11 +326,22 @@
             <div class="badge">${item.code}</div>
             <h3>${item.title}</h3>
             <p>${item.desc}</p>
+            <div class="price">${item.price || ""}</div>
+            <div class="sku">SKU: ${item.sku || "–"}</div>
+            <div class="cta" style="margin-top:12px;gap:10px">
+              <a class="btn primary" href="mailto:contact@lugh21.com?subject=CamperVanOs%20${encodeURIComponent(item.title)}&body=SKU%3A%20${encodeURIComponent(item.sku||\"\")}%0A">Anfragen</a>
+              <a class="btn" href="#" aria-disabled="true" style="pointer-events:none;opacity:0.6">Shop (bald)</a>
+            </div>
           `;
           accContainer.appendChild(article);
         });
       }
-    })();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderProducts);
+    } else {
+      renderProducts();
+    }
   </script>
 </body>
 </html>
