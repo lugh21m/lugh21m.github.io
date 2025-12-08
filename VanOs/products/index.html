@@ -196,6 +196,7 @@
       .frame{padding:22px 18px 60px;}
     }
   </style>
+  <link rel="stylesheet" href="../assets/dark-theme.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -236,6 +237,12 @@
       <div class="hero-visual">
         <img src="../assets/render-fusion-t5.svg" alt="Fusion-Style Rendering des CamperVanOs T5 Kits" width="1200" height="800">
       </div>
+    </section>
+
+    <section class="section" id="shop" aria-label="Shop (visuell)">
+      <div class="section-kicker">Visuell</div>
+      <h2 class="section-title">Shop Vorschau</h2>
+      <div class="shop-grid" data-shop></div>
     </section>
 
     <section class="section" id="t5" aria-label="System VW T5">
@@ -303,17 +310,54 @@
         data.kits.forEach(item=>{
           const article = document.createElement('article');
           article.className = "panel";
-          article.innerHTML = `
-            <div class="badge">${item.code}</div>
-            <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-            <div class="price">${item.price || ""}</div>
-            <div class="sku">SKU: ${item.sku || "–"}</div>
-            <div class="cta" style="margin-top:12px;gap:10px">
-              <a class="btn primary" href="mailto:contact@lugh21.com?subject=CamperVanOs%20${encodeURIComponent(item.title)}&body=SKU%3A%20${encodeURIComponent(item.sku||\"\")}%0A">Anfragen</a>
-              <a class="btn" href="#" aria-disabled="true" style="pointer-events:none;opacity:0.6">Shop (bald)</a>
-            </div>
-          `;
+
+          const badge = document.createElement('div');
+          badge.className = 'badge';
+          badge.textContent = item.code || '';
+
+          const h3 = document.createElement('h3');
+          h3.textContent = item.title || '';
+
+          const p = document.createElement('p');
+          p.textContent = item.desc || '';
+
+          const price = document.createElement('div');
+          price.className = 'price';
+          price.textContent = item.price || '';
+
+          const sku = document.createElement('div');
+          sku.className = 'sku';
+          sku.textContent = 'SKU: ' + (item.sku || '–');
+
+          const cta = document.createElement('div');
+          cta.className = 'cta';
+          cta.style.marginTop = '12px';
+          cta.style.gap = '10px';
+
+          const mailHref = 'mailto:contact@lugh21.com?subject=CamperVanOs%20' + encodeURIComponent(item.title || '') + '&body=SKU%3A%20' + encodeURIComponent(item.sku || '') + '%0A';
+          const a1 = document.createElement('a');
+          a1.className = 'btn primary';
+          a1.href = mailHref;
+          a1.textContent = 'Anfragen';
+
+          const a2 = document.createElement('a');
+          a2.className = 'btn';
+          a2.href = '#';
+          a2.setAttribute('aria-disabled','true');
+          a2.style.pointerEvents = 'none';
+          a2.style.opacity = '0.6';
+          a2.textContent = 'Shop (bald)';
+
+          cta.appendChild(a1);
+          cta.appendChild(a2);
+
+          article.appendChild(badge);
+          article.appendChild(h3);
+          article.appendChild(p);
+          article.appendChild(price);
+          article.appendChild(sku);
+          article.appendChild(cta);
+
           kitsContainer.appendChild(article);
         });
       }
@@ -322,17 +366,54 @@
         data.accessories.forEach(item=>{
           const article = document.createElement('article');
           article.className = "panel";
-          article.innerHTML = `
-            <div class="badge">${item.code}</div>
-            <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-            <div class="price">${item.price || ""}</div>
-            <div class="sku">SKU: ${item.sku || "–"}</div>
-            <div class="cta" style="margin-top:12px;gap:10px">
-              <a class="btn primary" href="mailto:contact@lugh21.com?subject=CamperVanOs%20${encodeURIComponent(item.title)}&body=SKU%3A%20${encodeURIComponent(item.sku||\"\")}%0A">Anfragen</a>
-              <a class="btn" href="#" aria-disabled="true" style="pointer-events:none;opacity:0.6">Shop (bald)</a>
-            </div>
-          `;
+
+          const badge = document.createElement('div');
+          badge.className = 'badge';
+          badge.textContent = item.code || '';
+
+          const h3 = document.createElement('h3');
+          h3.textContent = item.title || '';
+
+          const p = document.createElement('p');
+          p.textContent = item.desc || '';
+
+          const price = document.createElement('div');
+          price.className = 'price';
+          price.textContent = item.price || '';
+
+          const sku = document.createElement('div');
+          sku.className = 'sku';
+          sku.textContent = 'SKU: ' + (item.sku || '–');
+
+          const cta = document.createElement('div');
+          cta.className = 'cta';
+          cta.style.marginTop = '12px';
+          cta.style.gap = '10px';
+
+          const mailHref = 'mailto:contact@lugh21.com?subject=CamperVanOs%20' + encodeURIComponent(item.title || '') + '&body=SKU%3A%20' + encodeURIComponent(item.sku || '') + '%0A';
+          const a1 = document.createElement('a');
+          a1.className = 'btn primary';
+          a1.href = mailHref;
+          a1.textContent = 'Anfragen';
+
+          const a2 = document.createElement('a');
+          a2.className = 'btn';
+          a2.href = '#';
+          a2.setAttribute('aria-disabled','true');
+          a2.style.pointerEvents = 'none';
+          a2.style.opacity = '0.6';
+          a2.textContent = 'Shop (bald)';
+
+          cta.appendChild(a1);
+          cta.appendChild(a2);
+
+          article.appendChild(badge);
+          article.appendChild(h3);
+          article.appendChild(p);
+          article.appendChild(price);
+          article.appendChild(sku);
+          article.appendChild(cta);
+
           accContainer.appendChild(article);
         });
       }
@@ -341,6 +422,37 @@
       document.addEventListener('DOMContentLoaded', renderProducts);
     } else {
       renderProducts();
+    }
+    // Shop-Vorschau (visuell): rendert eine kleine Produktübersicht mit nicht-funktionalen Kauf-Buttons
+    function renderShopPreview(){
+      const shop = document.querySelector('[data-shop]');
+      const data = window.vanOsContent?.products;
+      if(!shop || !data) return;
+      shop.innerHTML = '';
+      const items = (data.kits || []).concat(data.accessories || []).slice(0,6);
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'shop-card';
+        const title = item.title || 'Produkt';
+        const desc = item.desc || '';
+        const price = item.price || '€–';
+        card.innerHTML = `
+          <img src="../assets/render-fusion-accessory.svg" alt="${title}">
+          <div style="margin-top:8px;font-weight:700">${title}</div>
+          <div style="color:var(--muted);font-size:13px">${desc}</div>
+          <div class="price">${price}</div>
+          <div class="shop-cta">
+            <a class="btn primary" href="mailto:contact@lugh21.com?subject=Anfrage%20${encodeURIComponent(title)}">Anfragen</a>
+            <button class="btn" type="button" onclick="alert('Shop-Demo: ' + ${JSON.stringify('')} + '${' '}' )">In den Warenkorb</button>
+          </div>
+        `;
+        shop.appendChild(card);
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderShopPreview);
+    } else {
+      renderShopPreview();
     }
   </script>
 </body>
