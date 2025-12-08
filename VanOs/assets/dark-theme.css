@@ -33,6 +33,10 @@ nav a:hover{color:var(--text)}
 /* Gallery captions tweak */
 .gallery figcaption{background:rgba(10,14,22,0.6);color:var(--text)}
 
+/* Typography overrides for dark theme */
+.section-title{color:#f9fbff;font-weight:700;}
+.section-kicker{color:var(--muted);}
+
 /* Steps and lists */
 .steps li, .timeline-item{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--line)}
 
@@ -50,12 +54,15 @@ nav a:hover{color:var(--text)}
 .shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 .shop-card{border-radius:12px;padding:14px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);}
 .shop-card img{width:100%;border-radius:8px;object-fit:cover;aspect-ratio:4/3}
-.shop-card .price{color:var(--accent);font-weight:700;margin-top:8px}
+.shop-card .price{color:#f9fbff;font-weight:700;margin-top:8px}
 .shop-card .shop-cta{display:flex;gap:8px;margin-top:10px}
 .shop-card .shop-cta .btn{flex:1}
 
-/* Accessibility helpers */
-.skip-link{position:absolute;left:-9999px}
+/* Stack bullet points: use muted color for better readability */
+.stack div::before{content:"• ";color:var(--muted);}
+
+/* Mini-dot: use muted instead of accent for less visual noise */
+.mini-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);}
 
 @media (max-width:640px){
   .frame{padding:22px}
