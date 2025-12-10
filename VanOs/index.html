@@ -20,21 +20,22 @@
 
   <style>
     :root{
-      --bg:#f6f7fb;
+      --bg:#fafbfc;
       --panel:#ffffff;
       --text:#0c1224;
       --muted:#5a6172;
       --line:rgba(12,18,36,0.08);
       --shadow:0 12px 28px rgba(12,18,36,0.12);
-      --accent:#0f192f;
-      --pill:#e7eaf2;
+      --accent:#1a5f7a;
+      --accent-warm:#ff8c42;
+      --pill:#e6f2f7;
       --glass:rgba(255,255,255,0.7);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       min-height:100vh;
-      font-family:"Sora",system-ui,-apple-system,Segoe UI,sans-serif;
+      font-family:"Inter", "Roboto", "Space Grotesk", system-ui,-apple-system,Segoe UI,sans-serif;
       background:var(--bg);
       color:var(--text);
       -webkit-font-smoothing:antialiased;
@@ -60,23 +61,25 @@
       font-weight:700;
       letter-spacing:0.02em;
       font-size:18px;
+      color:var(--text);
     }
     .brand-mark{
       width:44px;
       height:44px;
-      border-radius:14px;
-      background:var(--text);
+      border-radius:12px;
+      background:var(--accent);
       display:grid;
       place-items:center;
       color:#fff;
       font-weight:700;
-      box-shadow:var(--shadow);
+      box-shadow:0 4px 12px rgba(26,95,122,0.2);
     }
     nav a{
       margin-left:18px;
       color:var(--muted);
       font-weight:600;
       position:relative;
+      transition:color 0.2s ease;
     }
     nav a::after{
       content:"";
@@ -88,7 +91,7 @@
       background:var(--accent);
       opacity:0;
       transform:scaleX(0.7);
-      transition:opacity .2s ease,transform .2s ease;
+      transition:opacity 0.2s ease,transform 0.2s ease;
     }
     nav a:hover{color:var(--text)}
     nav a:hover::after{opacity:1;transform:scaleX(1)}
@@ -107,7 +110,7 @@
       padding:8px 14px;
       border-radius:999px;
       background:var(--pill);
-      color:#244;
+      color:#0a3a52;
       font-size:13px;
       font-weight:600;
     }
@@ -115,15 +118,16 @@
       width:10px;
       height:10px;
       border-radius:50%;
-      background:linear-gradient(135deg,#0f6fff,#00c2a8);
+      background:linear-gradient(135deg,var(--accent),#00c2a8);
       display:inline-block;
-      box-shadow:0 0 0 6px rgba(15,111,255,0.12);
+      box-shadow:0 0 0 6px rgba(26,95,122,0.12);
     }
     h1{
       margin:14px 0 12px;
       font-size:clamp(34px,5vw,52px);
       line-height:1.1;
       letter-spacing:-0.02em;
+      font-weight:700;
     }
     p.lead{
       margin:0 0 22px;
@@ -142,17 +146,26 @@
       padding:13px 18px;
       font-weight:600;
       font-size:15px;
-      border:1px solid var(--line);
-      background:var(--panel);
-      color:var(--text);
-      box-shadow:0 8px 28px rgba(10,15,28,0.08);
-      transition:transform .18s ease,box-shadow .18s ease;
+      border:2px solid var(--accent);
+      background:transparent;
+      color:var(--accent);
+      box-shadow:0 4px 12px rgba(26,95,122,0.08);
+      transition:all 0.2s ease;
     }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 36px rgba(10,15,28,0.14)}
-    .btn.primary{
-      background:linear-gradient(135deg,#0f6fff,#00c2a8);
+    .btn:hover{
+      background:var(--accent);
       color:#fff;
-      border:none;
+      transform:translateY(-2px);
+      box-shadow:0 8px 24px rgba(26,95,122,0.16);
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:#fff;
+      border-color:var(--accent);
+    }
+    .btn.primary:hover{
+      background:#0f4a62;
+      border-color:#0f4a62;
     }
     .meta{
       display:grid;
@@ -166,16 +179,21 @@
 
     .hero-visual{
       background:var(--panel);
-      border-radius:20px;
+      border-radius:16px;
       padding:16px;
       position:relative;
-      box-shadow:var(--shadow);
+      box-shadow:0 4px 12px rgba(12,18,36,0.08);
       overflow:hidden;
       border:1px solid var(--line);
+      transition:all 0.3s ease;
+    }
+    .hero-visual:hover{
+      box-shadow:0 12px 28px rgba(12,18,36,0.12);
+      transform:translateY(-2px);
     }
     .hero-visual img{
       width:100%;
-      border-radius:14px;
+      border-radius:12px;
       position:relative;
       z-index:2;
       display:block;
@@ -188,11 +206,11 @@
       border-radius:12px;
       padding:10px 12px;
       border:1px solid rgba(12,18,36,0.08);
-      box-shadow:0 10px 24px rgba(10,15,28,0.12);
+      box-shadow:0 4px 12px rgba(12,18,36,0.08);
       display:flex;
       gap:12px;
       align-items:center;
-      color:#0a2344;
+      color:#0a3a52;
     }
     .dot{
       width:10px;
