@@ -32,12 +32,16 @@
     .btn{display:inline-block;padding:10px 12px;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--accent);color:var(--accent)}
     .btn.primary{background:var(--accent);color:#fff;border-color:transparent}
 
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;list-style:none;padding:0;margin:18px 0 0}
     .feature{background:#fff;padding:12px;border-radius:10px;border:1px solid #f1f1f1;font-weight:600;color:#0b0b0b}
 
     .section{margin-top:26px}
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .card{background:#fff;padding:12px;border-radius:10px;border:1px solid #f1f1f1}
+    .you-get{margin:6px 0 12px;color:#0b0b0b;font-weight:600}
+    .you-get-list{list-style:none;padding:0;margin:6px 0 0;color:var(--muted);display:grid;gap:6px}
+    .you-get-list li{display:flex;align-items:flex-start;gap:8px}
+    .you-get-list li::before{content:'•';color:var(--accent);font-weight:700;line-height:1}
 
     footer{margin-top:40px;color:var(--muted);font-size:14px}
 
@@ -107,6 +111,14 @@
 
       <section id="packages" class="section">
         <h2>Packages</h2>
+        <div class="you-get">
+          You get:
+          <ul class="you-get-list" role="list">
+            <li>Google Maps listing fixed for tourists: pin, categories, profile copy.</li>
+            <li>20 fresh photos uploaded with captions that make visitors curious.</li>
+            <li>Simple review + QR routine so happy guests add proof every week.</li>
+          </ul>
+        </div>
         <div class="steps" style="margin-top:10px">
           <div class="card"><strong>Launch</strong><div style="color:var(--muted);margin-top:8px">One‑time setup — photos, copy, verification help.</div></div>
           <div class="card"><strong>Monthly Care</strong><div style="color:var(--muted);margin-top:8px">Ongoing posts, replies, improvements.</div></div>
@@ -132,18 +144,12 @@
         </div>
       </section>
 
-      <!-- Listing comparison gallery (placeholder assets) -->
-      <section class="section" aria-label="Before and after examples">
-        <h2>Before & After</h2>
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px">
-          <figure style="margin:0;">
-            <img src="/tourist-boost/assets/search-screenshot.svg" alt="Search results before optimization - placeholder" style="width:100%;border-radius:10px;border:1px solid #f1f1f1"/>
-            <figcaption style="font-size:13px;color:var(--muted);margin-top:6px">Before: unoptimized listing</figcaption>
-          </figure>
-          <figure style="margin:0;">
-            <img src="/tourist-boost/assets/listing-comparison.svg" alt="Listing after optimization - placeholder" style="width:100%;border-radius:10px;border:1px solid #f1f1f1"/>
-            <figcaption style="font-size:13px;color:var(--muted);margin-top:6px">After: optimized listing with high‑impact photo and reviews</figcaption>
-          </figure>
+      <section class="section" aria-label="Upcoming case study">
+        <h2>Next up: live example</h2>
+        <p style="color:var(--muted);max-width:640px;margin-top:8px">We’re finishing a Google Maps overhaul now. Once it’s live, we’ll publish the before/after screens and the playbook we used. Want to see it first?</p>
+        <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn primary line-link" href="https://line.me/ti/p/2Akbahv6V2" target="_blank" rel="noopener noreferrer">Get the case study first (LINE)</a>
+          <a class="btn whatsapp-link" href="https://wa.me/00000000" data-number="00000000" target="_blank" rel="noopener noreferrer">Send me the follow-up</a>
         </div>
       </section>
 
