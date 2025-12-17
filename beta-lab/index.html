@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Beta Lab - Lugh21</title>
-  <meta name="description" content="Beta Lab von Lugh21: unfertige Projekte, Experimente und Prototypen. Inhalte koennen sich jederzeit aendern." />
+  <meta name="description" content="Beta Lab von Lugh21: unfertige Projekte, Experimente und Prototypen. Inhalte können sich jederzeit ändern." />
   <meta name="robots" content="noindex,nofollow" />
   <link rel="canonical" href="https://lugh21.com/beta-lab/" />
 
@@ -29,10 +29,14 @@
       margin:0;
       color:var(--fg);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      min-height:100vh;
       background:
-        radial-gradient(600px 260px at 80% -40px, rgba(127,255,212,0.35), transparent 70%),
-        radial-gradient(560px 220px at 10% -40px, rgba(255,127,80,0.3), transparent 70%),
+        radial-gradient(760px 340px at 85% 10px, rgba(127,255,212,0.42), transparent 70%),
+        radial-gradient(700px 320px at 12% 10px, rgba(255,127,80,0.36), transparent 70%),
+        radial-gradient(720px 320px at 85% calc(100% - 140px), rgba(127,255,212,0.25), transparent 72%),
+        radial-gradient(680px 300px at 12% calc(100% - 160px), rgba(255,127,80,0.22), transparent 72%),
         var(--bg);
+      background-repeat:no-repeat;
     }
     a{color:inherit;text-decoration:none}
     header{
@@ -40,8 +44,9 @@
       top:0;
       z-index:10;
       backdrop-filter:blur(10px);
-      background:rgba(247,247,247,0.92);
-      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(247,247,247,0.6), rgba(247,247,247,0.88));
+      border-bottom:1px solid rgba(0,0,0,0.06);
+      box-shadow:0 12px 28px rgba(0,0,0,0.04);
     }
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
@@ -72,8 +77,9 @@
       border:1px dashed var(--line);
       border-radius:var(--radius);
       padding:18px;
-      background:rgba(255,255,255,0.7);
+      background:rgba(255,255,255,0.82);
       box-shadow:var(--shadow);
+      backdrop-filter:blur(6px);
     }
     .note strong{display:block;margin-bottom:6px}
     .note ul{margin:0;padding-left:18px;color:var(--muted)}
@@ -85,7 +91,7 @@
       gap:18px;
     }
     .card{
-      background:var(--card);
+      background:rgba(255,255,255,0.92);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -95,6 +101,7 @@
       gap:10px;
       min-height:180px;
       transition:transform .2s ease, box-shadow .2s ease;
+      backdrop-filter:blur(6px);
     }
     .card:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
     .card-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -146,14 +153,14 @@
       <div>
         <span class="pill">Beta Lab - in Arbeit</span>
         <h1>Beta Lab</h1>
-        <p class="lead">Hier liegen unfertige Projekte und Experimente. Inhalte, Preise und Struktur koennen sich jederzeit aendern.</p>
+        <p class="lead">Hier liegen unfertige Projekte und Experimente. Inhalte, Preise und Struktur können sich jederzeit ändern.</p>
       </div>
       <aside class="note" aria-label="Hinweis">
         <strong>Hinweis</strong>
         <ul>
           <li>Beta bedeutet: nicht final, nicht beworben.</li>
           <li>Feedback gern direkt per Nachricht.</li>
-          <li>Zurueck zur Hauptseite: <a href="/">lugh21.com</a></li>
+          <li>Zurück zur Hauptseite: <a href="/">lugh21.com</a></li>
         </ul>
       </aside>
     </section>
@@ -165,9 +172,9 @@
           <h2>CamperVanOs</h2>
           <span class="status">Beta</span>
         </div>
-        <p>Modulares Ausbau-System fuer Campervans. Dokumentiert, planbar und in der Entwicklung.</p>
+        <p>Modulares Ausbau-System für Campervans. Dokumentiert, planbar und in der Entwicklung.</p>
         <div class="meta">Camper-System - VW T5/T6</div>
-        <div class="cta">Oeffnen <span>-&gt;</span></div>
+        <div class="cta">Öffnen <span>-&gt;</span></div>
       </a>
 
       <a class="card" href="/tourist-boost/" aria-label="Tourist Boost">
@@ -175,24 +182,24 @@
           <h2>Tourist Boost</h2>
           <span class="status">Beta</span>
         </div>
-        <p>Google Maps Sichtbarkeit fuer touristische Laeden. Setup in Arbeit, Inhalte noch im Feinschliff.</p>
+        <p>Google Maps Sichtbarkeit für touristische Läden. Setup in Arbeit, Inhalte noch im Feinschliff.</p>
         <div class="meta">Maps & Walk-ins</div>
-        <div class="cta">Oeffnen <span>-&gt;</span></div>
+        <div class="cta">Öffnen <span>-&gt;</span></div>
       </a>
 
       <div class="card ghost" aria-label="Mehr Projekte folgen">
         <div class="card-head">
-          <h2>Naechstes Projekt</h2>
+          <h2>Nächstes Projekt</h2>
           <span class="status">Soon</span>
         </div>
-        <p>Weitere Beta-Projekte tauchen hier auf, sobald sie bereit fuer Feedback sind.</p>
+        <p>Weitere Beta-Projekte tauchen hier auf, sobald sie bereit für Feedback sind.</p>
         <div class="meta">Work in progress</div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">&copy; <span id="y"></span> Lugh21 - <a href="/">Zurueck zur Startseite</a></div>
+    <div class="container">&copy; <span id="y"></span> Lugh21 - <a href="/">Zurück zur Startseite</a></div>
   </footer>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
