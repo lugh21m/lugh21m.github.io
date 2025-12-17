@@ -215,6 +215,8 @@
     }
     .copy-status { font-size: 12px; color: var(--muted); min-height: 16px; }
     .text-link { color: var(--accent); text-decoration: none; font-weight: 600; display: inline-flex; margin-top: 10px; }
+    .inline-link { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .inline-link:hover { color: var(--accent-dark); }
 
     .packages-grid, .features-grid {
       display: grid;
@@ -235,6 +237,7 @@
     }
     .feature-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
     .package-card { position: relative; }
+    .package-card h3 { padding-right: 96px; }
     .badge {
       position: absolute;
       top: 12px;
@@ -251,6 +254,8 @@
     }
     .price { margin-top: 10px; font-size: 22px; color: var(--text); font-weight: 700; }
     .package-list { margin: 12px 0 0; padding-left: 16px; color: var(--muted); display: grid; gap: 6px; }
+    .package-meta { margin-top: 12px; color: var(--muted); font-size: 13px; display: grid; gap: 4px; }
+    .package-meta strong { color: var(--text); font-weight: 600; }
     .package-note { display: none; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
     .package-card.is-highlight { border-color: var(--accent); box-shadow: 0 0 0 3px var(--highlight), var(--shadow-soft); }
     .package-card.show-after .package-note { display: block; }
@@ -272,8 +277,8 @@
   </style>
   <script>
     window.TOURIST_BOOST_CONTACTS = {
-      whatsapp: '00000000',
-      whatsappHref: 'https://wa.me/00000000',
+      whatsapp: '491729175743',
+      whatsappHref: 'https://wa.me/491729175743?text=Hey%20lugh21%20/%20please%20check%20my%20Google%20Maps%20profile',
       lineHref: 'https://line.me/ti/p/2Akbahv6V2',
       email: 'contact@lugh21.com'
     };
@@ -347,29 +352,29 @@
               <li>Photos + English description that converts</li>
               <li>Review system (QR + staff script)</li>
             </ul>
+            <div class="package-meta">
+              <span><strong>Timeline:</strong> 2-7 days</span>
+              <span><strong>Payment:</strong> 50% upfront / 50% after</span>
+              <span><strong>Access:</strong> remote (Manager) or on-site on your phone</span>
+              <span><strong>Photos:</strong> included = curate existing + shotlist / on-site photos = on request + travel</span>
+            </div>
           </article>
           <article class="card package-card" data-card="monthly_care">
             <span class="badge">After Setup</span>
             <div class="package-note" aria-live="polite">Best after Setup</div>
-            <h3>Monthly Care</h3>
-            <div class="price">4,900 THB / month</div>
-            <p class="muted">Keep the listing active with posts, updates, and replies.</p>
-            <ul class="package-list">
-              <li>Monthly posts (events / specials)</li>
-              <li>Review replies + trust maintenance</li>
-              <li>Small improvements as data comes in</li>
-            </ul>
+            <h3>Ongoing Care (on request)</h3>
+            <p class="muted">Want me to manage posts + replies + improvements regularly? Message me and I'll suggest a plan.</p>
           </article>
           <article class="card package-card">
-            <span class="badge">Free</span>
-            <h3>Free 2-minute Maps check</h3>
-            <div class="price">0 THB</div>
+            <h3>2-minute Maps check</h3>
+            <div class="price">Free</div>
             <p class="muted">Quick review to confirm what's missing.</p>
             <div class="cta-row">
               <a class="btn primary line-link" href="https://line.me/ti/p/2Akbahv6V2" target="_blank" rel="noopener noreferrer">LINE check</a>
             </div>
           </article>
         </div>
+        <p class="muted" style="margin-top:12px;">Need a quick fix right now? <a class="inline-link" href="/tourist-boost/now">/tourist-boost/now</a></p>
       </section>
 
       <section class="section" aria-label="Proof">
@@ -413,7 +418,7 @@
         <div class="cta-row">
           <a class="btn primary line-link" href="https://line.me/ti/p/2Akbahv6V2" target="_blank" rel="noopener noreferrer">LINE</a>
           <div class="cta-links">
-            <a class="cta-link whatsapp-link" href="https://wa.me/00000000" data-number="00000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="cta-link whatsapp-link" href="https://wa.me/491729175743?text=Hey%20lugh21%20/%20please%20check%20my%20Google%20Maps%20profile" data-number="491729175743" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             <a class="cta-link email-link" href="mailto:contact@lugh21.com">Email</a>
           </div>
         </div>
@@ -429,8 +434,10 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const contacts = window.TOURIST_BOOST_CONTACTS || {};
-    const defaultWhatsapp = contacts.whatsapp || '00000000';
-    const whatsappHrefTemplate = contacts.whatsappHref || `https://wa.me/${defaultWhatsapp}`;
+    const defaultWhatsapp = contacts.whatsapp || '491729175743';
+    const defaultWhatsappMessage = 'Hey lugh21 / please check my Google Maps profile';
+    const whatsappHrefTemplate = contacts.whatsappHref
+      || `https://wa.me/${defaultWhatsapp}?text=${encodeURIComponent(defaultWhatsappMessage)}`;
     const lineHref = contacts.lineHref || 'https://line.me/ti/p/2Akbahv6V2';
     const emailAddress = contacts.email || 'contact@lugh21.com';
 
@@ -497,10 +504,10 @@
         ]
       },
       care: {
-        question: 'Do you want monthly care after the fix?',
+        question: 'Do you want ongoing care after the fix?',
         options: [
           { id: 'one_time', label: 'No, one-time fix' },
-          { id: 'monthly', label: 'Yes, monthly care' }
+          { id: 'monthly', label: 'Yes, ongoing care' }
         ]
       }
     };
@@ -513,7 +520,7 @@
       ],
       setup_plus_monthly: [
         'We set everything up once, then keep it active with posts and improvements.',
-        'Monthly posts help you look open and current (events / specials).',
+        'Ongoing posts help you look open and current (events / specials).',
         'Ongoing review replies and small tweaks maintain trust.'
       ]
     };
@@ -633,7 +640,7 @@
       const path = flowState.answers.maps_status;
       const care = flowState.answers.care;
       const resultKey = (path === 'weak_maps' && care === 'monthly') ? 'setup_plus_monthly' : 'maps_setup';
-      const title = resultKey === 'setup_plus_monthly' ? 'Maps Setup + Monthly Care' : 'Maps Setup';
+      const title = resultKey === 'setup_plus_monthly' ? 'Maps Setup + Ongoing Care' : 'Maps Setup';
       const emphasis = flowState.answers.issue && issueEmphasis[flowState.answers.issue];
       const bullets = resultBullets[resultKey].slice();
       if (emphasis) {
@@ -717,11 +724,9 @@
         flowState.lastResultKey = recommendation.resultKey;
       }
 
-      const whatsappCta = wizardBody.querySelector('.whatsapp-link');
       const emailCta = wizardBody.querySelector('.email-link');
       const messageBox = wizardBody.querySelector('#flow-message');
 
-      if (whatsappCta) whatsappCta.dataset.message = message;
       if (emailCta) emailCta.dataset.message = message;
       if (messageBox) messageBox.value = message;
 
