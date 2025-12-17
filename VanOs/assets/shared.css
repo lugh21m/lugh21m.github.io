@@ -95,6 +95,24 @@ body{
 a{color:inherit;text-decoration:none}
 img{max-width:100%;}
 .frame{max-width:1200px;margin:0 auto;padding:var(--space-2xl) clamp(20px,5vw,38px) 70px;}
+.beta-banner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font-size:12px;
+  color:var(--muted);
+  background:rgba(26,95,122,0.08);
+  border-bottom:1px dashed var(--line);
+  padding:10px clamp(20px,5vw,38px);
+}
+.beta-banner a{color:var(--accent);font-weight:600}
+.beta-tag{
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-size:11px;
+}
 .skip-link{
   position:absolute;
   left:-999px;
@@ -293,4 +311,5 @@ h6{font-size:var(--text-base);font-weight:600;margin:var(--space-md) 0;}
   h1{font-size:var(--text-3xl);}
   h2{font-size:var(--text-2xl);}
   .section-title{font-size:var(--text-2xl);}
+  .beta-banner{flex-direction:column;align-items:flex-start}
 }

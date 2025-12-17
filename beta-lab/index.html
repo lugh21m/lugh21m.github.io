@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beta Lab - Lugh21</title>
+  <meta name="description" content="Beta Lab von Lugh21: unfertige Projekte, Experimente und Prototypen. Inhalte koennen sich jederzeit aendern." />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="canonical" href="https://lugh21.com/beta-lab/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f7f7;
+      --fg:#111;
+      --muted:#6f6f6f;
+      --card:#ffffff;
+      --line:#e8e8e8;
+      --acc1:#ff7f50;
+      --acc2:#7fffd4;
+      --radius:20px;
+      --shadow:0 12px 30px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--fg);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(600px 260px at 80% -40px, rgba(127,255,212,0.35), transparent 70%),
+        radial-gradient(560px 220px at 10% -40px, rgba(255,127,80,0.3), transparent 70%),
+        var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter:blur(10px);
+      background:rgba(247,247,247,0.92);
+      border-bottom:1px solid var(--line);
+    }
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:26px;letter-spacing:.3px}
+    .brand-dot{display:inline-block;width:10px;height:10px;border-radius:999px;background:var(--acc1);margin-left:6px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600;opacity:.85}
+    .links a:hover{opacity:1;text-decoration:underline}
+
+    main{padding:clamp(28px,6vh,56px) 0 80px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(255,127,80,0.18);
+      color:#7d311a;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    h1{margin:14px 0 10px;font-size:clamp(32px,5vw,54px);line-height:1.05}
+    .lead{margin:0 0 18px;color:var(--muted);font-size:18px;line-height:1.6}
+    .note{
+      border:1px dashed var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      background:rgba(255,255,255,0.7);
+      box-shadow:var(--shadow);
+    }
+    .note strong{display:block;margin-bottom:6px}
+    .note ul{margin:0;padding-left:18px;color:var(--muted)}
+
+    .section-title{margin:32px 0 14px;font-size:20px;font-weight:600}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height:180px;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
+    .card-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .card h2{margin:0;font-size:22px}
+    .status{
+      font-size:11px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(127,255,212,0.3);
+      color:#0b4b3c;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .meta{color:var(--muted);font-size:13px}
+    .cta{margin-top:auto;font-weight:600;color:#1a1a1a}
+    .cta span{color:var(--acc1)}
+    .ghost{
+      border-style:dashed;
+      background:rgba(255,255,255,0.55);
+      color:var(--muted);
+      box-shadow:none;
+      cursor:default;
+    }
+    .ghost:hover{transform:none;box-shadow:none}
+
+    footer{border-top:1px solid var(--line);padding:18px 0;color:var(--muted);font-size:13px}
+    footer a{font-weight:600;color:#1a1a1a}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/"><span>Lugh21</span><span class="brand-dot" aria-hidden="true"></span></a>
+      <nav class="links" aria-label="Navigation">
+        <a href="/">Start</a>
+        <a href="/hire/">Hire</a>
+        <a href="/read/">Read</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-label="Beta Lab Intro">
+      <div>
+        <span class="pill">Beta Lab - in Arbeit</span>
+        <h1>Beta Lab</h1>
+        <p class="lead">Hier liegen unfertige Projekte und Experimente. Inhalte, Preise und Struktur koennen sich jederzeit aendern.</p>
+      </div>
+      <aside class="note" aria-label="Hinweis">
+        <strong>Hinweis</strong>
+        <ul>
+          <li>Beta bedeutet: nicht final, nicht beworben.</li>
+          <li>Feedback gern direkt per Nachricht.</li>
+          <li>Zurueck zur Hauptseite: <a href="/">lugh21.com</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <div class="section-title">Projekte</div>
+    <section class="grid" aria-label="Beta Projekte">
+      <a class="card" href="/VanOs/" aria-label="CamperVanOs">
+        <div class="card-head">
+          <h2>CamperVanOs</h2>
+          <span class="status">Beta</span>
+        </div>
+        <p>Modulares Ausbau-System fuer Campervans. Dokumentiert, planbar und in der Entwicklung.</p>
+        <div class="meta">Camper-System - VW T5/T6</div>
+        <div class="cta">Oeffnen <span>-&gt;</span></div>
+      </a>
+
+      <a class="card" href="/tourist-boost/" aria-label="Tourist Boost">
+        <div class="card-head">
+          <h2>Tourist Boost</h2>
+          <span class="status">Beta</span>
+        </div>
+        <p>Google Maps Sichtbarkeit fuer touristische Laeden. Setup in Arbeit, Inhalte noch im Feinschliff.</p>
+        <div class="meta">Maps & Walk-ins</div>
+        <div class="cta">Oeffnen <span>-&gt;</span></div>
+      </a>
+
+      <div class="card ghost" aria-label="Mehr Projekte folgen">
+        <div class="card-head">
+          <h2>Naechstes Projekt</h2>
+          <span class="status">Soon</span>
+        </div>
+        <p>Weitere Beta-Projekte tauchen hier auf, sobald sie bereit fuer Feedback sind.</p>
+        <div class="meta">Work in progress</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">&copy; <span id="y"></span> Lugh21 - <a href="/">Zurueck zur Startseite</a></div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

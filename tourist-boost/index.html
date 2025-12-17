@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tourist Visibility Boost — lugh21</title>
   <meta name="description" content="Make your Google Maps listing visible and convincing for tourists. Fast setup, no ads." />
+  <meta name="robots" content="noindex,nofollow" />
   <link rel="canonical" href="https://lugh21.com/tourist-boost/" />
   <meta property="og:title" content="Tourist Visibility Boost — lugh21" />
   <meta property="og:description" content="Turn your Maps presence into predictable walk-ins. Free quick check via LINE." />
@@ -15,6 +16,20 @@
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#0b0b0b;background:#ffffff;-webkit-font-smoothing:antialiased}
     .container{max-width:980px;margin:0 auto;padding:28px}
+    .beta-banner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-size:12px;
+      color:var(--muted);
+      background:#f6fbfd;
+      border:1px dashed #d8eef2;
+      border-radius:10px;
+      padding:8px 12px;
+      margin-bottom:14px;
+    }
+    .beta-banner a{color:var(--accent);font-weight:600}
     header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:14px;border-bottom:1px solid #f1f1f1}
     .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
     .brand .brand-mark{width:36px;height:36px;border-radius:8px;background:var(--accent);display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px}
@@ -63,6 +78,10 @@
 </head>
 <body>
   <div class="container">
+    <div class="beta-banner" aria-label="Beta Lab Hinweis">
+      <span>Beta Lab - Work in progress</span>
+      <a href="/beta-lab/">Back to Beta Lab</a>
+    </div>
     <header>
       <a class="brand" href="/">
         <span class="brand-mark" aria-hidden="true">L</span>

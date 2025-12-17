@@ -88,6 +88,8 @@
 
     /* Inhalt linksbündig, keine Streckung */
     .foot { padding: 16px 0; font-size: 14px; }  /* kein display:flex nötig */
+    .beta-link{font-size:12px;opacity:.6}
+    .beta-link:hover{opacity:1;text-decoration:underline}
 
     @media (max-width:820px){
       .choices{grid-template-columns:1fr}
@@ -121,19 +123,11 @@
         <span class="label">Read</span>
         <span class="chip">Journal & Guides</span>
       </a>
-      <a class="card" href="/VanOs/" aria-label="CamperVanOs">
-        <span class="label">CamperVanOs</span>
-        <span class="chip">Camper-System</span>
-      </a>
-      <a class="card" href="/tourist-boost/" aria-label="Tourist Visibility Boost">
-        <span class="label">Tourist Boost</span>
-        <span class="chip">Maps & Walk‑ins</span>
-      </a>
     </section>
   </main>
 
   <footer>
-    <div class="container foot">© <span id="y"></span> Lugh21</div>
+    <div class="container foot">© <span id="y"></span> Lugh21 - <a class="beta-link" href="/beta-lab/" aria-label="Beta Lab">Beta Lab</a></div>
   </footer>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
