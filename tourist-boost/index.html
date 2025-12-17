@@ -217,6 +217,33 @@
     .text-link { color: var(--accent); text-decoration: none; font-weight: 600; display: inline-flex; margin-top: 10px; }
     .inline-link { color: var(--accent); text-decoration: none; font-weight: 600; }
     .inline-link:hover { color: var(--accent-dark); }
+    .addon-block {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed #e2e8f0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .addon-title { font-size: 16px; font-weight: 700; }
+    .addon-text { color: var(--muted); font-size: 14px; max-width: 560px; }
+    .addon-cta { margin-left: auto; }
+    .addon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #d7dde7;
+      font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--text);
+      background: #ffffff;
+      box-shadow: var(--shadow-soft);
+    }
+    .addon-link:hover { color: var(--accent); border-color: #c5d4ff; }
 
     .packages-grid, .features-grid {
       display: grid;
@@ -279,7 +306,7 @@
     window.TOURIST_BOOST_CONTACTS = {
       whatsapp: '491729175743',
       whatsappHref: 'https://wa.me/491729175743?text=Hey%20lugh21%20/%20please%20check%20my%20Google%20Maps%20profile',
-      lineHref: 'https://line.me/ti/p/2Akbahv6V2',
+      lineHref: 'https://line.me/R/ti/p/@261pmifi',
       email: 'contact@lugh21.com'
     };
   </script>
@@ -370,9 +397,18 @@
             <div class="price">Free</div>
             <p class="muted">Quick review to confirm what's missing.</p>
             <div class="cta-row">
-              <a class="btn primary line-link" href="https://line.me/ti/p/2Akbahv6V2" target="_blank" rel="noopener noreferrer">LINE check</a>
+              <a class="btn primary line-link" href="https://line.me/R/ti/p/@261pmifi" target="_blank" rel="noopener noreferrer">LINE check</a>
             </div>
           </article>
+        </div>
+        <div class="addon-block" aria-label="Optional add-on">
+          <div>
+            <div class="addon-title">Need a website too?</div>
+            <div class="addon-text">Optional: WebsiteSprint — a simple website you can link inside Google Maps (menu / booking / contact).</div>
+          </div>
+          <div class="addon-cta">
+            <a class="addon-link" href="/hire/webseiten-sprint.html" target="_blank" rel="noopener" data-action="website-sprint">Open WebsiteSprint</a>
+          </div>
         </div>
         <p class="muted" style="margin-top:12px;">Need a quick fix right now? <a class="inline-link" href="/tourist-boost/now">/tourist-boost/now</a></p>
       </section>
@@ -416,7 +452,7 @@
         <h2>Ready to start?</h2>
         <p class="muted">Message me on LINE for a free 2-minute check.</p>
         <div class="cta-row">
-          <a class="btn primary line-link" href="https://line.me/ti/p/2Akbahv6V2" target="_blank" rel="noopener noreferrer">LINE</a>
+          <a class="btn primary line-link" href="https://line.me/R/ti/p/@261pmifi" target="_blank" rel="noopener noreferrer">LINE</a>
           <div class="cta-links">
             <a class="cta-link whatsapp-link" href="https://wa.me/491729175743?text=Hey%20lugh21%20/%20please%20check%20my%20Google%20Maps%20profile" data-number="491729175743" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             <a class="cta-link email-link" href="mailto:contact@lugh21.com">Email</a>
@@ -426,7 +462,8 @@
     </main>
 
     <footer>
-      © <span id="year"></span> lugh21 — Tourist Visibility Boost
+      © <span id="year"></span> lugh21 — Tourist Visibility Boost ·
+      <a class="inline-link" href="/hire/webseiten-sprint.html" target="_blank" rel="noopener" data-action="website-sprint">Open WebsiteSprint</a>
     </footer>
   </div>
 
@@ -438,7 +475,7 @@
     const defaultWhatsappMessage = 'Hey lugh21 / please check my Google Maps profile';
     const whatsappHrefTemplate = contacts.whatsappHref
       || `https://wa.me/${defaultWhatsapp}?text=${encodeURIComponent(defaultWhatsappMessage)}`;
-    const lineHref = contacts.lineHref || 'https://line.me/ti/p/2Akbahv6V2';
+    const lineHref = contacts.lineHref || 'https://line.me/R/ti/p/@261pmifi';
     const emailAddress = contacts.email || 'contact@lugh21.com';
 
     const wizardBody = document.getElementById('wizard-body');
@@ -887,6 +924,9 @@
       }
       if (event.target.closest('.email-link')) {
         track('cta_email_click');
+      }
+      if (event.target.closest('[data-action="website-sprint"]')) {
+        track('website_sprint_click');
       }
     });
 
