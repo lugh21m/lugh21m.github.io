@@ -1,14 +1,91 @@
 :root{
-    --gutter-min:16px;
-    --gutter-vw:4vw;
-    --gutter-max:28px;
-  }
-  /* Gilt für Header, Main, Footer – überall wo .container genutzt wird */
-  .container{
-    padding-left: calc(clamp(var(--gutter-min), var(--gutter-vw), var(--gutter-max)) + env(safe-area-inset-left));
-    padding-right: calc(clamp(var(--gutter-min), var(--gutter-vw), var(--gutter-max)) + env(safe-area-inset-right));
-  }
-  /* Einheitlicher oberer Abstand */
+  --gutter-min:16px;
+  --gutter-vw:4vw;
+  --gutter-max:28px;
+  --bg:#f7f7f7;
+  --fg:#111;
+  --muted:#6f6f6f;
+  --card:#ffffff;
+  --line:#e8e8e8;
+  --acc1:#ff7f50;
+  --acc2:#7fffd4;
+  --radius:20px;
+  --shadow:0 12px 30px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color:var(--fg);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  min-height:100vh;
+  background:
+    radial-gradient(760px 340px at 85% 10px, rgba(127,255,212,0.42), transparent 70%),
+    radial-gradient(700px 320px at 12% 10px, rgba(255,127,80,0.36), transparent 70%),
+    radial-gradient(720px 320px at 85% calc(100% - 140px), rgba(127,255,212,0.25), transparent 72%),
+    radial-gradient(680px 300px at 12% calc(100% - 160px), rgba(255,127,80,0.22), transparent 72%),
+    var(--bg);
+  background-repeat:no-repeat;
+}
+a{color:inherit;text-decoration:none}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(10px);
+  background:linear-gradient(180deg, rgba(247,247,247,0.6), rgba(247,247,247,0.88));
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 12px 28px rgba(0,0,0,0.04);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:26px;letter-spacing:.3px}
+.brand-dot{display:inline-block;width:10px;height:10px;border-radius:999px;background:var(--acc1);margin-left:6px}
+.links{display:flex;gap:18px}
+.links a{font-weight:600;opacity:.85}
+.links a:hover{opacity:1;text-decoration:underline}
+
+/* Gilt fuer Header, Main, Footer - ueberall wo .container genutzt wird */
+.container{
+  padding-left: calc(clamp(var(--gutter-min), var(--gutter-vw), var(--gutter-max)) + env(safe-area-inset-left));
+  padding-right: calc(clamp(var(--gutter-min), var(--gutter-vw), var(--gutter-max)) + env(safe-area-inset-right));
+}
+
+.card{
+  background:rgba(255,255,255,0.92);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(6px);
+}
+.btn{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.9);
+  box-shadow:0 10px 24px rgba(0,0,0,.06);
+  backdrop-filter:blur(6px);
+}
+.btn.primary{background:#111;color:#fff;border-color:#111;box-shadow:none}
+.btn.ghost{background:rgba(255,255,255,0.7)}
+.btn.linklike{background:transparent;border:0;padding:0;text-decoration:underline;font-weight:600;box-shadow:none}
+
+.pill,
+.chip,
+.kpi,
+.badge,
+.dot{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(6px);
+}
+
+p.sub{color:var(--muted);opacity:1}
+.meta{color:var(--muted);opacity:1}
+.muted{color:var(--muted);opacity:1}
+
+footer{margin-top:48px;color:var(--muted);font-size:13px}
+footer .container{border-top:1px solid var(--line)}
+footer a{font-weight:600;color:#1a1a1a}
+
+/* Einheitlicher oberer Abstand */
 body.hire-page main{
   padding-top: clamp(20px, 4svh, 30px) !important;
   padding-bottom: 64px !important;
