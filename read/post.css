@@ -1,0 +1,223 @@
+:root{
+  --post-max:860px;
+}
+
+body.read-post main{
+  padding-top: clamp(28px, 5vh, 52px) !important;
+  padding-bottom: 80px !important;
+}
+
+.post{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+.post-hero{
+  position:relative;
+  padding: clamp(22px, 4vw, 44px);
+  border-radius:24px;
+  background: var(--hero, linear-gradient(135deg, rgba(255,127,80,0.9), rgba(127,255,212,0.7)));
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.post-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.68), rgba(255,255,255,0.92));
+}
+.post-hero-content{
+  position:relative;
+  z-index:1;
+  max-width: var(--post-max);
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color: var(--muted);
+  font-weight:700;
+}
+.eyebrow::before{
+  content:"";
+  width:20px;
+  height:2px;
+  border-radius:999px;
+  background: var(--acc1);
+}
+.post-hero h1{
+  margin:12px 0 10px;
+  font-size: clamp(30px, 4.6vw, 52px);
+  line-height:1.08;
+}
+.post-meta{
+  color: var(--muted);
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.post-tags{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.tag{
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,0.75);
+  font-weight:600;
+}
+
+.post-body{
+  max-width: var(--post-max);
+  background: rgba(255,255,255,0.92);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding: clamp(24px, 4vw, 46px);
+  box-shadow: var(--shadow);
+}
+.post-body p{
+  margin:0 0 18px;
+  font-size:18px;
+  line-height:1.7;
+}
+.post-body p.lead{
+  font-size:20px;
+  color: var(--fg);
+}
+.post-body h2{
+  margin:32px 0 14px;
+  font-size:26px;
+}
+.post-body h3{
+  margin:26px 0 10px;
+  font-size:20px;
+}
+.post-body ul,
+.post-body ol{
+  margin:0 0 18px;
+  padding-left:20px;
+  line-height:1.7;
+}
+.post-body li{
+  margin-bottom:8px;
+}
+.post-body blockquote{
+  margin:22px 0;
+  padding:16px 20px;
+  border-left:3px solid var(--acc1);
+  background: rgba(255,127,80,0.12);
+  border-radius:14px;
+  color:#4a2a1c;
+}
+.post-body pre{
+  margin:20px 0;
+  padding:16px;
+  border-radius:16px;
+  background:#111;
+  color:#f7f7f7;
+  overflow:auto;
+}
+.post-body code{
+  font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:0.95em;
+  background: rgba(0,0,0,0.06);
+  padding:2px 6px;
+  border-radius:6px;
+}
+.post-body pre code{
+  background:transparent;
+  padding:0;
+}
+.post-body a{
+  text-decoration:underline;
+}
+.post-body img{
+  max-width:100%;
+  border-radius:16px;
+  border:1px solid var(--line);
+  display:block;
+  margin:20px 0;
+}
+.post-body hr{
+  border:0;
+  border-top:1px solid var(--line);
+  margin:28px 0;
+}
+
+.related{
+  margin-top:10px;
+}
+.section-title{
+  margin:0 0 14px;
+  font-size:14px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color: var(--muted);
+}
+.related-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+.related-card{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:16px;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,0.9);
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.related-card:hover{
+  transform: translateY(-2px);
+  box-shadow:0 14px 34px rgba(0,0,0,0.08);
+}
+.related-meta{
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color: var(--muted);
+  font-weight:700;
+}
+.related-card h3{
+  margin:0;
+  font-size:18px;
+}
+.related-card p{
+  margin:0;
+  color: var(--muted);
+}
+.related-empty{
+  color: var(--muted);
+  font-size:14px;
+}
+
+footer .foot{
+  padding:16px 0;
+  font-size:14px;
+}
+
+@media (max-width: 900px){
+  .post-body{
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation:none !important;
+    transition:none !important;
+  }
+}

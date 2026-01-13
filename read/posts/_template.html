@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Read - Lugh21</title>
-  <meta name="description" content="Blogartikel über random Themen aus meinem Leben. Klar, direkt, typischer Lugh21-Style." />
+  <title>[Titel] - Lugh21</title>
+  <meta name="description" content="[Kurzbeschreibung]" />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://lugh21.com/read/" />
+  <link rel="canonical" href="https://lugh21.com/read/posts/[slug].html" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,6 @@
       --muted:#5f5f5f;
       --line:#e3dfd8;
       --accent:#ff6a3d;
-      --radius:16px;
     }
     *{box-sizing:border-box}
     body{
@@ -26,17 +25,23 @@
       font-family:"Manrope","Space Grotesk",sans-serif;
       color:var(--ink);
       background:
-        radial-gradient(900px 320px at 12% -10%, rgba(255,106,61,0.16), transparent 60%),
-        radial-gradient(900px 320px at 92% 0%, rgba(47,181,157,0.16), transparent 62%),
+        radial-gradient(900px 320px at 12% -10%, rgba(255,106,61,0.14), transparent 60%),
+        radial-gradient(900px 320px at 92% 0%, rgba(47,181,157,0.14), transparent 62%),
         var(--bg);
       min-height:100vh;
     }
     a{color:inherit;text-decoration:none}
-    h1{font-family:"Space Grotesk","Manrope",sans-serif;margin:0;letter-spacing:-0.01em;font-size:clamp(30px,5vw,52px);line-height:1.05}
-    p{margin:0;color:var(--muted);line-height:1.7}
+    h1{
+      font-family:"Space Grotesk","Manrope",sans-serif;
+      margin:8px 0 10px;
+      letter-spacing:-0.01em;
+      font-size:clamp(28px,4.6vw,46px);
+      line-height:1.1;
+    }
+    p{margin:0;color:var(--ink);line-height:1.75}
 
     .container{
-      max-width:880px;
+      max-width:780px;
       margin:0 auto;
       padding:24px clamp(18px,4vw,36px) 80px;
     }
@@ -72,53 +77,32 @@
       font-weight:700;
       color:var(--muted);
     }
-    .lead{
-      margin-top:14px;
-      font-size:18px;
-      color:var(--ink);
-    }
-    .sub{
-      margin-top:6px;
-      font-size:15px;
-    }
-
-    .list-head{
-      margin-top:32px;
+    .meta{
       font-size:12px;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:700;
+    }
+    .content{
+      margin-top:24px;
+      display:grid;
+      gap:14px;
+      font-size:18px;
+    }
+    .section-title{
+      margin-top:20px;
+      font-size:13px;
       letter-spacing:0.2em;
       text-transform:uppercase;
       color:var(--muted);
       font-weight:700;
     }
-    .post-list{display:grid}
-    .post-row{
-      border-bottom:1px solid var(--line);
-      padding:16px 0;
-      animation:fadeUp .45s ease both;
-      animation-delay:calc(var(--i) * 80ms);
+    hr{
+      border:0;
+      border-top:1px solid var(--line);
+      margin:18px 0;
     }
-    .post-row:last-child{border-bottom:0}
-    .post-link{display:flex;flex-direction:column;gap:6px}
-    .post-date{
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:0.12em;
-      color:var(--muted);
-      font-weight:700;
-    }
-    .post-title{
-      font-size:20px;
-      font-weight:600;
-      color:var(--ink);
-    }
-    .post-row:hover .post-title{color:var(--accent)}
-    .post-excerpt{font-size:15px}
-    .empty{
-      margin-top:12px;
-      font-size:14px;
-      color:var(--muted);
-    }
-
     footer{
       margin-top:56px;
       padding-top:16px;
@@ -126,19 +110,8 @@
       color:var(--muted);
       font-size:13px;
     }
-
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(10px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-
     @media (max-width:700px){
-      .lead{font-size:17px}
-      .post-title{font-size:18px}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none !important;transition:none !important}
+      .content{font-size:17px}
     }
   </style>
 </head>
@@ -147,20 +120,22 @@
     <header>
       <a class="brand" href="/">lugh21</a>
       <nav class="nav" aria-label="Navigation">
-        <a href="/">Start</a>
+        <a href="/read/">Read</a>
         <a href="mailto:hi@lugh21.com?subject=Read%20Notes">Kontakt</a>
       </nav>
     </header>
 
     <main>
       <p class="kicker">Read</p>
-      <h1>Random Themen aus meinem Leben.</h1>
-      <p class="lead">Blogartikel über Beobachtungen, die hängen bleiben. Klar, direkt, mit dem typischen Lugh21-Angle.</p>
-      <p class="sub">Ein Gedanke pro Beitrag. Kontext, Entscheidung, nächster Schritt.</p>
+      <h1>[Titel]</h1>
+      <p class="meta">[Datum]</p>
 
-      <div class="list-head">Aktueller Artikel</div>
-      <div class="post-list" data-posts></div>
-      <p class="empty" data-empty hidden>Noch keine Artikel.</p>
+      <div class="content">
+        <p>[Lead]</p>
+        <hr>
+        <p class="section-title">[Abschnitt]</p>
+        <p>Text.</p>
+      </div>
     </main>
 
     <footer>
@@ -168,8 +143,6 @@
     </footer>
   </div>
 
-  <script src="/read/posts.js"></script>
-  <script src="/read/read.js"></script>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
