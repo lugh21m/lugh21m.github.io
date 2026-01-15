@@ -4,7 +4,7 @@ Kurzanleitung zum Veröffentlichen neuer Beiträge.
 
 1) Beitrag anlegen
 - Kopiere `read/posts/_template.html` nach `read/posts/dein-slug.html`.
-- Ersetze `[slug]`, `[Titel]`, `[Kurzbeschreibung]`, Datum und Inhalt.
+- Ersetze `[slug]`, `[Titel]`, `[Kurzbeschreibung]`, Datum (+ Ort) und Inhalt.
 
 2) Beitrag im Index sichtbar machen
 - Ergänze einen neuen Eintrag in `read/posts.js`.
