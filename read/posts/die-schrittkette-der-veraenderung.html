@@ -18,6 +18,9 @@
       --muted:#5f5f5f;
       --line:#e3dfd8;
       --accent:#ff6a3d;
+      --radius:18px;
+      --paper:rgba(255,255,255,0.88);
+      --shadow:0 18px 40px rgba(20,20,20,0.08);
     }
     *{box-sizing:border-box}
     body{
@@ -41,7 +44,7 @@
     p{margin:0;color:var(--ink);line-height:1.75}
 
     .container{
-      max-width:780px;
+      max-width:960px;
       margin:0 auto;
       padding:24px clamp(18px,4vw,36px) 80px;
     }
@@ -70,6 +73,21 @@
     .nav a:hover{border-bottom-color:var(--accent);color:var(--ink)}
 
     main{padding-top:28px}
+    .post{
+      display:grid;
+      gap:22px;
+      padding:clamp(20px,4vw,42px);
+      border-radius:24px;
+      background:var(--paper);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .intro{
+      display:grid;
+      gap:6px;
+      max-width:68ch;
+      margin:0 auto;
+    }
     .kicker{
       font-size:11px;
       letter-spacing:0.28em;
@@ -85,10 +103,35 @@
       font-weight:700;
     }
     .content{
-      margin-top:24px;
       display:grid;
-      gap:14px;
+      gap:16px;
       font-size:18px;
+    }
+    .content > *{
+      max-width:68ch;
+      margin:0 auto;
+    }
+    .content > p{
+      text-wrap:pretty;
+    }
+    .content > .photo-grid{
+      max-width:960px;
+      margin:10px auto 22px;
+    }
+    .photo-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      width:100%;
+    }
+    .photo-grid img{
+      display:block;
+      width:100%;
+      height:auto;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      box-shadow:0 12px 28px rgba(20,20,20,0.08);
+      background:#fff;
     }
     .section-title{
       margin-top:20px;
@@ -96,6 +139,49 @@
       letter-spacing:0.2em;
       text-transform:uppercase;
       color:var(--muted);
+      font-weight:700;
+    }
+    .chain-block .section-title{margin-top:0}
+    .step-chain{
+      margin:14px 0 6px;
+      padding-left:26px;
+      list-style:none;
+      display:grid;
+      gap:14px;
+      position:relative;
+    }
+    .step-chain::before{
+      content:"";
+      position:absolute;
+      left:11px;
+      top:6px;
+      bottom:6px;
+      width:2px;
+      background:var(--line);
+    }
+    .step-chain li{
+      position:relative;
+      padding:16px 18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,0.7);
+      box-shadow:0 10px 24px rgba(20,20,20,0.06);
+    }
+    .step-chain li::before{
+      content:"";
+      position:absolute;
+      left:-21px;
+      top:20px;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 5px rgba(255,106,61,0.15);
+    }
+    .step-chain strong{
+      display:block;
+      font-size:16px;
+      letter-spacing:0.01em;
       font-weight:700;
     }
     hr{
@@ -112,6 +198,20 @@
     }
     @media (max-width:700px){
       .content{font-size:17px}
+      .post{
+        padding:18px;
+        border-radius:20px;
+      }
+      .step-chain li{padding:14px 16px}
+      .step-chain strong{font-size:15px}
+    }
+    @media (min-width:720px){
+      .photo-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+      .photo-grid .wide{
+        grid-column:span 2;
+      }
     }
   </style>
 </head>
@@ -126,11 +226,14 @@
     </header>
 
     <main>
-      <p class="kicker">Read</p>
-      <h1>Die Schrittkette der Veränderung</h1>
-      <p class="meta">15. Januar 2026 - Koh Phangan</p>
+      <article class="post">
+        <div class="intro">
+          <p class="kicker">Read</p>
+          <h1>Die Schrittkette der Veränderung</h1>
+          <p class="meta">15. Januar 2026 - Koh Phangan</p>
+        </div>
 
-      <div class="content">
+        <div class="content">
         <p>Ich saß hier und habe auf Instagram einen dieser Posts gesehen. So ein Satz, der einem ständig begegnet: Du kannst alles schaffen, was du willst. Du musst nur daran glauben. Wenn du dich damit identifizierst, dann ist alles möglich. Und mein erster Impuls war Zustimmung. Irgendwo fühlt sich das wahr an. Gleichzeitig kam sofort dieses innere „Ja, aber …“. Nicht, weil der Satz falsch wäre, sondern weil er einen entscheidenden Teil überspringt.</p>
 
         <p>Denn klar, Identifikation ist mächtig. Wenn man wirklich mit etwas verschmilzt, wenn kein innerer Widerspruch mehr da ist, dann entsteht eine enorme Kraft. Aber diese Identifikation ist kein Startpunkt. Sie ist ein Resultat. Und genau das war der Moment, in dem ich gemerkt habe, dass zwischen diesem einen Satz und der tatsächlichen Realität ein ganzer Prozess fehlt.</p>
@@ -138,6 +241,20 @@
         <p>Also habe ich mein Heft rausgeholt. Kein Plan, kein Anspruch, kein fertiges Modell. Ich habe einfach versucht, diesen Prozess einmal sichtbar zu machen. Handschriftlich. Kästen untereinander. Dazwischen Linien. Eine Schrittkette. Je länger ich sie angeschaut habe, desto klarer wurde mir, dass diese einfache Struktur ziemlich genau abbildet, wie Veränderung wirklich abläuft – zumindest dann, wenn sie nicht nur kurzfristig sein soll.</p>
 
         <p>Die Schrittkette ist bewusst als Prozesskette gedacht. Die Kästen stehen für klar unterscheidbare Zustände, die Linien für Übergänge. Genau so werden auch industrielle oder technische Prozesse beschrieben. Man startet in einem definierten Zustand, durchläuft Transformationen und erreicht anschließend einen neuen stabilen Zustand. Nicht jeder Schritt ist eine Aktion. Manche Schritte sind reine Zustandsänderungen. Diese Struktur zwingt zur Klarheit und verhindert, dass man Übergänge überspringt, nur weil man schnell irgendwo ankommen will.</p>
+
+        <section class="chain-block" aria-labelledby="schrittkette-title">
+          <p class="section-title" id="schrittkette-title">Schrittkette</p>
+          <ol class="step-chain">
+            <li><strong>Bestehendes Leben</strong></li>
+            <li><strong>Blick hinter die Kulisse</strong></li>
+            <li><strong>Zurücklassen, was zurückhält</strong></li>
+            <li><strong>Leeres Blatt</strong></li>
+            <li><strong>Leeres Gefäß</strong></li>
+            <li><strong>Zielklärung</strong></li>
+            <li><strong>Ziel steht fest und ist in Resonanz mit dem Selbst</strong></li>
+            <li><strong>Umsetzung</strong></li>
+          </ol>
+        </section>
 
         <p>Der erste Zustand ist immer das bestehende Leben. Das Leben vorher. Identitäten, Rollen, Routinen, Erwartungen. Vieles davon wurde nie bewusst gewählt, sondern übernommen. Bei mir war das lange Zeit ein ziemlich klares Setup: Job, Land, Umfeld, Klima, ein bestimmter Lebensrhythmus. Funktional, stabil, aber innerlich zunehmend eng. Ziele entstehen in so einem Zustand fast automatisch aus Vergleich, Mangel oder äußeren Erwartungen. Man will etwas, weil man glaubt, es zu müssen. Weil es logisch erscheint. Weil es „normal“ ist.</p>
 
@@ -162,7 +279,8 @@
         <p>In einem Satz zusammengefasst: Ziele ohne Leere reproduzieren Vergangenheit. Leere ohne Richtung löst auf. Erst Leere in Verbindung mit Resonanz erzeugt tragfähige Realität.</p>
 
         <p>Genau deshalb ist diese Schrittkette kein Motivationstool, sondern ein Orientierungssystem. Sie ist zyklisch. Man durchläuft sie nicht einmal im Leben, sondern immer dann, wenn etwas wirklich Neues entstehen soll. Die handschriftliche Skizze ist kein Symbol und kein Konzeptpapier, sondern eine Momentaufnahme aus einem echten Prozess. Und genau deshalb funktioniert sie.</p>
-      </div>
+        </div>
+      </article>
     </main>
 
     <footer>

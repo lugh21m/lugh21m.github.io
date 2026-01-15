@@ -119,6 +119,60 @@
       color:var(--muted);
     }
 
+    .newsletter{
+      margin-top:32px;
+      padding:18px 20px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,0.72);
+    }
+    .newsletter p{margin:0 0 12px;color:var(--muted);line-height:1.6}
+    .newsletter-form{display:flex;flex-wrap:wrap;gap:10px}
+    .newsletter input[type="email"]{
+      flex:1 1 220px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:14px;
+    }
+    .newsletter button{
+      padding:10px 16px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:transparent;
+      font-weight:600;
+      color:var(--ink);
+      cursor:pointer;
+    }
+    .newsletter button:hover{background:#fff}
+    .newsletter-status{
+      margin-top:8px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .newsletter-list{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .newsletter-list li{
+      padding:6px 0;
+      border-top:1px dashed var(--line);
+    }
+    .visually-hidden{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      border:0;
+    }
+
     footer{
       margin-top:56px;
       padding-top:16px;
@@ -160,6 +214,18 @@
       <div class="list-head">Aktueller Artikel</div>
       <div class="post-list" data-posts></div>
       <p class="empty" data-empty hidden>Noch keine Artikel.</p>
+
+      <section class="newsletter" aria-label="Newsletter">
+        <p>Wenn du magst, schicke ich dir ausgewählte neue, relevante Artikel per Mail dazu. Kein fester Rhythmus, nur wenn es passt.</p>
+        <!-- TODO: Newsletter-Anbindung einfügen (action + Backend). Aktuell nur lokale Liste im Browser. -->
+        <form class="newsletter-form" action="#" method="post">
+          <label class="visually-hidden" for="newsletter-email">E-Mail-Adresse</label>
+          <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="deine@email.de" required>
+          <button type="submit">Mitlesen</button>
+        </form>
+        <p class="newsletter-status" data-newsletter-status aria-live="polite"></p>
+        <ul class="newsletter-list" data-newsletter-list hidden></ul>
+      </section>
     </main>
 
     <footer>
@@ -171,6 +237,56 @@
   <script src="/read/read.js"></script>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    const form = document.querySelector('.newsletter-form');
+    const input = document.getElementById('newsletter-email');
+    const status = document.querySelector('[data-newsletter-status]');
+    const list = document.querySelector('[data-newsletter-list]');
+    const storageKey = 'lugh21-newsletter-emails';
+
+    const renderList = (items) => {
+      if (!items.length) {
+        list.hidden = true;
+        list.innerHTML = '';
+        return;
+      }
+      list.hidden = false;
+      list.innerHTML = items.map((email) => `<li>${email}</li>`).join('');
+    };
+
+    const loadEmails = () => {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || [];
+      } catch (error) {
+        return [];
+      }
+    };
+
+    const saveEmails = (items) => {
+      localStorage.setItem(storageKey, JSON.stringify(items));
+    };
+
+    renderList(loadEmails());
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!input.reportValidity()) {
+        return;
+      }
+      const email = input.value.trim().toLowerCase();
+      if (!email) {
+        return;
+      }
+      const items = loadEmails();
+      if (!items.includes(email)) {
+        items.unshift(email);
+        saveEmails(items);
+        renderList(items);
+      }
+      status.textContent = 'Gespeichert (lokal im Browser).';
+      form.reset();
+    });
   </script>
   <!-- deploy touch -->
 </body>
