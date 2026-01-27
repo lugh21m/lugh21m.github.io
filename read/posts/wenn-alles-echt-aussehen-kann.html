@@ -142,7 +142,7 @@
       display:grid;
       gap:6px;
       max-width:68ch;
-      margin:0 auto;
+      margin:0;
     }
     .kicker{
       font-size:11px;
@@ -162,17 +162,18 @@
       display:grid;
       gap:16px;
       font-size:18px;
+      justify-items:start;
     }
     .content > *{
       max-width:68ch;
-      margin:0 auto;
+      margin:0;
     }
     .content > p{
       text-wrap:pretty;
     }
     .content > .photo-grid{
       max-width:960px;
-      margin:10px auto 22px;
+      margin:10px 0 22px;
     }
     .photo-grid{
       display:grid;
@@ -284,10 +285,13 @@
         <p>Ihnen fehlt das, was nicht künstlich erzeugt werden kann: Zeit, Verteilung, Widerstand, Geschichte unter realem Druck.</p>
         <p>Bitcoin hat diesen Punkt überschritten. Nicht, weil es perfekt ist, sondern weil es nicht neu gestartet werden kann, ohne die Vergangenheit zu fälschen.</p>
         <p>Und das Entscheidende: Bei Bitcoin braucht man niemanden, der sagt, dass es stimmt. Man prüft es selbst.</p>
+        <p>Man sieht das sogar als Anfänger: Jeder Block enthält den Hash des vorherigen Blocks. Wenn ein Hash nicht passt, bricht die Kette sofort.</p>
+        <p>Zusätzlich muss der Block-Hash eine bestimmte Anzahl führender Nullen haben. Daran erkennt man den Proof-of-Work – die Arbeit, die im Block steckt.</p>
+        <p>Darum kann man die Geschichte nicht einfach neu schreiben. Eine Mehr-als-50%-Attacke müsste ab einem Punkt mehr Arbeit liefern als der Rest des Netzwerks zusammen und das dauerhaft durchhalten. Je tiefer ein Block liegt, desto mehr Arbeit hängt daran – und desto unwahrscheinlicher wird eine Umschreibung.</p>
         <p>Wenn alles gefälscht werden kann, bleibt nur Selbstverifikation.</p>
         <p>In einer KI-Welt ist nicht entscheidend, was am meisten kann, sondern was ohne Vertrauen funktioniert.</p>
         <p>Sobald Vertrauen zur Schwachstelle wird, setzen sich nur Systeme durch, die ohne Vertrauen auskommen.</p>
-        <p>Bitcoin ist genau so ein System. Nicht elegant. Nicht flexibel. Aber überprüfbar.</p>
+        <p>Bitcoin ist genau so ein System. Schlicht im Design. Hart in den Regeln. Aber überprüfbar.</p>
         <p>KI erzeugt die Nachfrage – Bitcoin ist bereits da.</p>
         <p>Die Nachfrage nach Verifikation entsteht nicht durch Bitcoin. Sie entsteht durch KI. Durch perfekte Simulation. Durch Austauschbarkeit. Durch den Verlust von natürlichem Vertrauen.</p>
         <p>Sobald es realen Schaden gibt, reicht es nicht mehr, dass etwas gut aussieht oder plausibel klingt. Dann zählt nur noch, ob es selbst überprüfbar ist.</p>

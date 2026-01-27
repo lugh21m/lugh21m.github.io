@@ -124,7 +124,7 @@ header {
 
 .nav {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   padding: 16px 0
 }
