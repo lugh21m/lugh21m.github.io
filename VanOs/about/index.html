@@ -2,6 +2,23 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
+    <script>
+    (() => {
+      try {
+        const stored = localStorage.getItem('lugh21-theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else if (stored === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Über CamperVanOs</title>
   <meta name="description" content="CamperVanOs kombiniert Design-Systeme, Dokumentation und modulare Ausbauten für Vans.">
@@ -51,6 +68,7 @@
     .feature-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
   </style>
   <link rel="stylesheet" href="../assets/dark-theme.css">
+  <script src="/assets/theme.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>

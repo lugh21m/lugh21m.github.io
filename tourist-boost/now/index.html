@@ -2,6 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+    <script>
+    (() => {
+      try {
+        const stored = localStorage.getItem('lugh21-theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else if (stored === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Quick Fix - Tourist Visibility Boost</title>
   <meta name="description" content="Quick Fix (on-site): 15-30 minutes to fix the biggest Google Maps leaks." />
@@ -16,25 +33,111 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
+      color-scheme: light;
       --bg: #ffffff;
       --text: #0f172a;
       --muted: #5b6470;
       --accent: #2b6cff;
       --accent-dark: #2155e6;
       --accent-soft: #edf3ff;
+      --accent-contrast: #dfe9ff;
       --border: #e5e7eb;
+      --border-strong: #d7dde7;
+      --border-soft: #f1f5f9;
+      --border-accent: #dbe6ff;
+      --border-alt: #dbe2ee;
       --card: #ffffff;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --surface-muted: #f1f5f9;
+      --surface-alt: #f5f7fb;
+      --surface-contrast: #f6f9ff;
+      --text-strong: #1f2937;
+      --text-subtle: #374151;
+      --disabled: #b9c4c9;
+      --step-dot: #d6dde7;
+      --addon-link-hover-border: #c5d4ff;
+      --highlight: rgba(43, 108, 255, 0.14);
       --shadow: 0 24px 40px rgba(15, 23, 42, 0.12);
       --shadow-soft: 0 12px 24px rgba(15, 23, 42, 0.08);
+      --page-bg: radial-gradient(1200px 520px at 15% -10%, #eef4ff 0%, #ffffff 55%), var(--bg);
+      --entry-card-bg: linear-gradient(180deg, #f6f9ff 0%, #ffffff 60%);
       --font-body: "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
       --font-display: "Sora", "Segoe UI", "Helvetica Neue", sans-serif;
+    }
+      :root[data-theme="dark"]{
+        color-scheme: dark;
+        --bg: #0d1117;
+        --text: #f3f6fb;
+        --muted: #a6afbf;
+        --accent: #6ea3ff;
+        --accent-dark: #4a7ef0;
+        --accent-soft: rgba(110, 163, 255, 0.18);
+        --accent-contrast: #dbe7ff;
+        --border: rgba(255, 255, 255, 0.1);
+        --border-strong: rgba(255, 255, 255, 0.16);
+        --border-soft: rgba(255, 255, 255, 0.06);
+        --border-accent: rgba(110, 163, 255, 0.35);
+        --border-alt: rgba(255, 255, 255, 0.14);
+        --card: #121826;
+        --surface: #121826;
+        --surface-soft: #182033;
+        --surface-muted: #141b2b;
+        --surface-alt: #151d2e;
+        --surface-contrast: #1a2237;
+        --text-strong: #e2e8f0;
+        --text-subtle: #cbd5e1;
+        --disabled: #6b7484;
+        --step-dot: #2d3748;
+        --addon-link-hover-border: rgba(110, 163, 255, 0.45);
+        --highlight: rgba(110, 163, 255, 0.2);
+        --shadow: 0 24px 40px rgba(0, 0, 0, 0.45);
+        --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.35);
+        --page-bg: radial-gradient(1200px 520px at 15% -10%, rgba(46, 110, 255, 0.18) 0%, rgba(13, 17, 23, 0.95) 55%), var(--bg);
+        --entry-card-bg: linear-gradient(180deg, rgba(26, 34, 55, 0.9) 0%, rgba(18, 24, 38, 0.98) 60%);
+      }
+
+
+
+@media (prefers-color-scheme: dark) {
+      :root:not([data-theme]){
+        color-scheme: dark;
+        --bg: #0d1117;
+        --text: #f3f6fb;
+        --muted: #a6afbf;
+        --accent: #6ea3ff;
+        --accent-dark: #4a7ef0;
+        --accent-soft: rgba(110, 163, 255, 0.18);
+        --accent-contrast: #dbe7ff;
+        --border: rgba(255, 255, 255, 0.1);
+        --border-strong: rgba(255, 255, 255, 0.16);
+        --border-soft: rgba(255, 255, 255, 0.06);
+        --border-accent: rgba(110, 163, 255, 0.35);
+        --border-alt: rgba(255, 255, 255, 0.14);
+        --card: #121826;
+        --surface: #121826;
+        --surface-soft: #182033;
+        --surface-muted: #141b2b;
+        --surface-alt: #151d2e;
+        --surface-contrast: #1a2237;
+        --text-strong: #e2e8f0;
+        --text-subtle: #cbd5e1;
+        --disabled: #6b7484;
+        --step-dot: #2d3748;
+        --addon-link-hover-border: rgba(110, 163, 255, 0.45);
+        --highlight: rgba(110, 163, 255, 0.2);
+        --shadow: 0 24px 40px rgba(0, 0, 0, 0.45);
+        --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.35);
+        --page-bg: radial-gradient(1200px 520px at 15% -10%, rgba(46, 110, 255, 0.18) 0%, rgba(13, 17, 23, 0.95) 55%), var(--bg);
+        --entry-card-bg: linear-gradient(180deg, rgba(26, 34, 55, 0.9) 0%, rgba(18, 24, 38, 0.98) 60%);
+      }
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: var(--font-body);
       color: var(--text);
-      background: radial-gradient(1200px 520px at 15% -10%, #eef4ff 0%, #ffffff 55%), var(--bg);
+      background: var(--page-bg);
       -webkit-font-smoothing: antialiased;
     }
     h1, h2, h3 { margin: 0; letter-spacing: -0.02em; font-family: var(--font-display); }
@@ -47,7 +150,7 @@
       justify-content: space-between;
       gap: 16px;
       padding-bottom: 12px;
-      border-bottom: 1px solid #f1f5f9;
+      border-bottom: 1px solid var(--border-soft);
     }
     .site-logo { font-weight: 700; font-size: 17px; text-decoration: none; color: var(--text); }
     .site-title { font-weight: 600; font-size: 13px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
@@ -64,7 +167,7 @@
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      border: 1px solid #dbe6ff;
+      border: 1px solid var(--border-accent);
       font-size: 12px;
       font-weight: 600;
       margin-bottom: 12px;
@@ -85,9 +188,9 @@
       border-radius: 12px;
       font-weight: 600;
       text-decoration: none;
-      border: 1.5px solid #d7dde7;
+      border: 1.5px solid var(--border-strong);
       color: var(--text);
-      background: #ffffff;
+      background: var(--surface);
       box-shadow: var(--shadow-soft);
     }
     .btn.primary {
@@ -111,6 +214,7 @@
       lineHref: 'https://lin.ee/PZHsWKr'
     };
   </script>
+  <script src="/assets/theme.js" defer></script>
 </head>
 <body>
   <div class="container">

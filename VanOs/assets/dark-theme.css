@@ -1,5 +1,6 @@
 /* Dunkles Theme für VanOs-Seiten — visuelle Anpassungen + CSS-Variablen */
-:root{
+:root[data-theme="dark"]{
+  color-scheme: dark;
   --bg: #0c0f1a;
   --panel: #161c2e;
   --text: #e8ecf5;
@@ -15,61 +16,153 @@
   --glass: rgba(255,255,255,0.03);
 }
 
-html,body{background:radial-gradient(circle at 20% 20%, rgba(26,95,122,0.08), transparent 28%),
+:root[data-theme="dark"],
+:root[data-theme="dark"] body{background:radial-gradient(circle at 20% 20%, rgba(26,95,122,0.08), transparent 28%),
   radial-gradient(circle at 80% 0, rgba(255,140,66,0.06), transparent 26%),
   var(--bg); color:var(--text);}
 
 /* Grundelemente */
-.frame{color:var(--text)}
-header{background:rgba(12,15,26,0.6);backdrop-filter:blur(6px)}
-.brand-mark{background:var(--accent);color:#fff;box-shadow:0 4px 12px rgba(26,95,122,0.3)}
-nav a{color:var(--muted);transition:color 0.2s ease;}
-nav a:hover{color:var(--text)}
+:root[data-theme="dark"] .frame{color:var(--text)}
+:root[data-theme="dark"] header{background:rgba(12,15,26,0.6);backdrop-filter:blur(6px)}
+:root[data-theme="dark"] .brand-mark{background:var(--accent);color:#fff;box-shadow:0 4px 12px rgba(26,95,122,0.3)}
+:root[data-theme="dark"] nav a{color:var(--muted);transition:color 0.2s ease;}
+:root[data-theme="dark"] nav a:hover{color:var(--text)}
 
 /* Panels, Karten, Buttons */
-.panel, .card, .panel-hero, .hero-visual, .badge{background:linear-gradient(180deg, rgba(26,95,122,0.04), rgba(255,140,66,0.02));border:1px solid var(--line);}
-.card, .panel{box-shadow:0 4px 12px rgba(0,0,0,0.3);transition:all 0.3s ease;}
-.card:hover{box-shadow:0 12px 28px rgba(0,0,0,0.4);transform:translateY(-2px);}
-.btn{background:transparent;color:var(--text);border:2px solid var(--accent);}
-.btn:hover{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(26,95,122,0.3);}
-.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 4px 12px rgba(26,95,122,0.3);}
-.btn.primary:hover{background:#0f4a62;border-color:#0f4a62;}
+:root[data-theme="dark"] .panel,
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .panel-hero,
+:root[data-theme="dark"] .hero-visual,
+:root[data-theme="dark"] .badge{background:linear-gradient(180deg, rgba(26,95,122,0.04), rgba(255,140,66,0.02));border:1px solid var(--line);}
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .panel{box-shadow:0 4px 12px rgba(0,0,0,0.3);transition:all 0.3s ease;}
+:root[data-theme="dark"] .card:hover{box-shadow:0 12px 28px rgba(0,0,0,0.4);transform:translateY(-2px);}
+:root[data-theme="dark"] .btn{background:transparent;color:var(--text);border:2px solid var(--accent);}
+:root[data-theme="dark"] .btn:hover{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(26,95,122,0.3);}
+:root[data-theme="dark"] .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 4px 12px rgba(26,95,122,0.3);}
+:root[data-theme="dark"] .btn.primary:hover{background:#0f4a62;border-color:#0f4a62;}
 
 /* Gallery captions tweak */
-.gallery figcaption{background:rgba(10,14,22,0.6);color:var(--text)}
+:root[data-theme="dark"] .gallery figcaption{background:rgba(10,14,22,0.6);color:var(--text)}
 
 /* Typography overrides for dark theme */
-.section-title{color:#f9fbff;font-weight:700;}
-.section-kicker{color:var(--muted);}
+:root[data-theme="dark"] .section-title{color:#f9fbff;font-weight:700;}
+:root[data-theme="dark"] .section-kicker{color:var(--muted);}
 
 /* Steps and lists */
-.steps li, .timeline-item{background:linear-gradient(180deg, rgba(26,95,122,0.04), rgba(255,140,66,0.02));border:1px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+:root[data-theme="dark"] .steps li,
+:root[data-theme="dark"] .timeline-item{background:linear-gradient(180deg, rgba(26,95,122,0.04), rgba(255,140,66,0.02));border:1px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
 
 /* Accent fixes: make small status dots primary color instead of old accent */
-.pill span, .dot {
+:root[data-theme="dark"] .pill span,
+:root[data-theme="dark"] .dot {
   background: var(--accent) !important;
   box-shadow: 0 0 0 8px rgba(26,95,122,0.18) !important;
 }
-.pill span { width:10px; height:10px; border-radius:50%; display:inline-block }
+:root[data-theme="dark"] .pill span { width:10px; height:10px; border-radius:50%; display:inline-block }
 
 /* Pill-Hintergrund */
-.pill{background:var(--pill);color:#a0d4e8;}
+:root[data-theme="dark"] .pill{background:var(--pill);color:#a0d4e8;}
 
 /* Shop preview specific */
-.shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.shop-card{border-radius:12px;padding:14px;background:linear-gradient(180deg, rgba(26,95,122,0.04), rgba(255,140,66,0.02));border:1px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-.shop-card img{width:100%;border-radius:8px;object-fit:cover;aspect-ratio:4/3}
-.shop-card .price{color:#f9fbff;font-weight:700;margin-top:8px}
-.shop-card .shop-cta{display:flex;gap:8px;margin-top:10px}
-.shop-card .shop-cta .btn{flex:1}
-
+:root[data-theme="dark"] .shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+:root[data-theme="dark"] .shop-card{border-radius:12px;padding:14px;background:linear-gradient(180deg, rgba(26,95,122,0.04), rgba(255,140,66,0.02));border:1px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+:root[data-theme="dark"] .shop-card img{width:100%;border-radius:8px;object-fit:cover;aspect-ratio:4/3}
+:root[data-theme="dark"] .shop-card .price{color:#f9fbff;font-weight:700;margin-top:8px}
+:root[data-theme="dark"] .shop-card .shop-cta{display:flex;gap:8px;margin-top:10px}
+:root[data-theme="dark"] .shop-card .shop-cta .btn{flex:1}
 
 /* Stack bullet points: use muted color for better readability */
-.stack div::before{content:"• ";color:var(--muted);}
+:root[data-theme="dark"] .stack div::before{content:"• ";color:var(--muted);}
 
 /* Mini-dot: use muted instead of accent for less visual noise */
-.mini-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);}
+:root[data-theme="dark"] .mini-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);}
 
 @media (max-width:640px){
-  .frame{padding:22px}
+  :root[data-theme="dark"] .frame{padding:22px}
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]){
+    color-scheme: dark;
+    --bg: #0c0f1a;
+    --panel: #161c2e;
+    --text: #e8ecf5;
+    --muted: #a0abb5;
+    --line: rgba(255,255,255,0.08);
+    --shadow: 0 14px 36px rgba(2,6,20,0.7);
+    /* Haupt-Akzent: Technisches Blau */
+    --accent: #1a5f7a;
+    /* Warmer Akzent: Orange */
+    --accent-warm: #ff8c42;
+    /* hellere Pill-Hintergrund/Glühen für bessere Sichtbarkeit */
+    --pill: rgba(26,95,122,0.14);
+    --glass: rgba(255,255,255,0.03);
+  }
+
+  :root:not([data-theme]),
+  :root:not([data-theme]) body{background:radial-gradient(circle at 20% 20%, rgba(26,95,122,0.08), transparent 28%),
+    radial-gradient(circle at 80% 0, rgba(255,140,66,0.06), transparent 26%),
+    var(--bg); color:var(--text);}
+
+  /* Grundelemente */
+  :root:not([data-theme]) .frame{color:var(--text)}
+  :root:not([data-theme]) header{background:rgba(12,15,26,0.6);backdrop-filter:blur(6px)}
+  :root:not([data-theme]) .brand-mark{background:var(--accent);color:#fff;box-shadow:0 4px 12px rgba(26,95,122,0.3)}
+  :root:not([data-theme]) nav a{color:var(--muted);transition:color 0.2s ease;}
+  :root:not([data-theme]) nav a:hover{color:var(--text)}
+
+  /* Panels, Karten, Buttons */
+  :root:not([data-theme]) .panel,
+  :root:not([data-theme]) .card,
+  :root:not([data-theme]) .panel-hero,
+  :root:not([data-theme]) .hero-visual,
+  :root:not([data-theme]) .badge{background:linear-gradient(180deg, rgba(26,95,122,0.04), rgba(255,140,66,0.02));border:1px solid var(--line);}
+  :root:not([data-theme]) .card,
+  :root:not([data-theme]) .panel{box-shadow:0 4px 12px rgba(0,0,0,0.3);transition:all 0.3s ease;}
+  :root:not([data-theme]) .card:hover{box-shadow:0 12px 28px rgba(0,0,0,0.4);transform:translateY(-2px);}
+  :root:not([data-theme]) .btn{background:transparent;color:var(--text);border:2px solid var(--accent);}
+  :root:not([data-theme]) .btn:hover{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(26,95,122,0.3);}
+  :root:not([data-theme]) .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 4px 12px rgba(26,95,122,0.3);}
+  :root:not([data-theme]) .btn.primary:hover{background:#0f4a62;border-color:#0f4a62;}
+
+  /* Gallery captions tweak */
+  :root:not([data-theme]) .gallery figcaption{background:rgba(10,14,22,0.6);color:var(--text)}
+
+  /* Typography overrides for dark theme */
+  :root:not([data-theme]) .section-title{color:#f9fbff;font-weight:700;}
+  :root:not([data-theme]) .section-kicker{color:var(--muted);}
+
+  /* Steps and lists */
+  :root:not([data-theme]) .steps li,
+  :root:not([data-theme]) .timeline-item{background:linear-gradient(180deg, rgba(26,95,122,0.04), rgba(255,140,66,0.02));border:1px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+
+  /* Accent fixes: make small status dots primary color instead of old accent */
+  :root:not([data-theme]) .pill span,
+  :root:not([data-theme]) .dot {
+    background: var(--accent) !important;
+    box-shadow: 0 0 0 8px rgba(26,95,122,0.18) !important;
+  }
+  :root:not([data-theme]) .pill span { width:10px; height:10px; border-radius:50%; display:inline-block }
+
+  /* Pill-Hintergrund */
+  :root:not([data-theme]) .pill{background:var(--pill);color:#a0d4e8;}
+
+  /* Shop preview specific */
+  :root:not([data-theme]) .shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  :root:not([data-theme]) .shop-card{border-radius:12px;padding:14px;background:linear-gradient(180deg, rgba(26,95,122,0.04), rgba(255,140,66,0.02));border:1px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+  :root:not([data-theme]) .shop-card img{width:100%;border-radius:8px;object-fit:cover;aspect-ratio:4/3}
+  :root:not([data-theme]) .shop-card .price{color:#f9fbff;font-weight:700;margin-top:8px}
+  :root:not([data-theme]) .shop-card .shop-cta{display:flex;gap:8px;margin-top:10px}
+  :root:not([data-theme]) .shop-card .shop-cta .btn{flex:1}
+
+  /* Stack bullet points: use muted color for better readability */
+  :root:not([data-theme]) .stack div::before{content:"• ";color:var(--muted);}
+
+  /* Mini-dot: use muted instead of accent for less visual noise */
+  :root:not([data-theme]) .mini-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);}
+
+  @media (max-width:640px){
+    :root:not([data-theme]) .frame{padding:22px}
+  }
 }

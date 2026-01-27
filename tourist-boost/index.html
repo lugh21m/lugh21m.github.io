@@ -2,6 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+    <script>
+    (() => {
+      try {
+        const stored = localStorage.getItem('lugh21-theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else if (stored === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tourist Visibility Boost — lugh21</title>
   <meta name="description" content="Get a 30-second recommendation to improve your Google Maps presence and win tourist customers." />
@@ -16,26 +33,111 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
+      color-scheme: light;
       --bg: #ffffff;
       --text: #0f172a;
       --muted: #5b6470;
       --accent: #2b6cff;
       --accent-dark: #2155e6;
       --accent-soft: #edf3ff;
+      --accent-contrast: #dfe9ff;
       --border: #e5e7eb;
+      --border-strong: #d7dde7;
+      --border-soft: #f1f5f9;
+      --border-accent: #dbe6ff;
+      --border-alt: #dbe2ee;
       --card: #ffffff;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --surface-muted: #f1f5f9;
+      --surface-alt: #f5f7fb;
+      --surface-contrast: #f6f9ff;
+      --text-strong: #1f2937;
+      --text-subtle: #374151;
+      --disabled: #b9c4c9;
+      --step-dot: #d6dde7;
+      --addon-link-hover-border: #c5d4ff;
       --highlight: rgba(43, 108, 255, 0.14);
       --shadow: 0 24px 40px rgba(15, 23, 42, 0.12);
       --shadow-soft: 0 12px 24px rgba(15, 23, 42, 0.08);
+      --page-bg: radial-gradient(1200px 520px at 15% -10%, #eef4ff 0%, #ffffff 55%), var(--bg);
+      --entry-card-bg: linear-gradient(180deg, #f6f9ff 0%, #ffffff 60%);
       --font-body: "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
       --font-display: "Sora", "Segoe UI", "Helvetica Neue", sans-serif;
+    }
+      :root[data-theme="dark"]{
+        color-scheme: dark;
+        --bg: #0d1117;
+        --text: #f3f6fb;
+        --muted: #a6afbf;
+        --accent: #6ea3ff;
+        --accent-dark: #4a7ef0;
+        --accent-soft: rgba(110, 163, 255, 0.18);
+        --accent-contrast: #dbe7ff;
+        --border: rgba(255, 255, 255, 0.1);
+        --border-strong: rgba(255, 255, 255, 0.16);
+        --border-soft: rgba(255, 255, 255, 0.06);
+        --border-accent: rgba(110, 163, 255, 0.35);
+        --border-alt: rgba(255, 255, 255, 0.14);
+        --card: #121826;
+        --surface: #121826;
+        --surface-soft: #182033;
+        --surface-muted: #141b2b;
+        --surface-alt: #151d2e;
+        --surface-contrast: #1a2237;
+        --text-strong: #e2e8f0;
+        --text-subtle: #cbd5e1;
+        --disabled: #6b7484;
+        --step-dot: #2d3748;
+        --addon-link-hover-border: rgba(110, 163, 255, 0.45);
+        --highlight: rgba(110, 163, 255, 0.2);
+        --shadow: 0 24px 40px rgba(0, 0, 0, 0.45);
+        --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.35);
+        --page-bg: radial-gradient(1200px 520px at 15% -10%, rgba(46, 110, 255, 0.18) 0%, rgba(13, 17, 23, 0.95) 55%), var(--bg);
+        --entry-card-bg: linear-gradient(180deg, rgba(26, 34, 55, 0.9) 0%, rgba(18, 24, 38, 0.98) 60%);
+      }
+
+
+
+@media (prefers-color-scheme: dark) {
+      :root:not([data-theme]){
+        color-scheme: dark;
+        --bg: #0d1117;
+        --text: #f3f6fb;
+        --muted: #a6afbf;
+        --accent: #6ea3ff;
+        --accent-dark: #4a7ef0;
+        --accent-soft: rgba(110, 163, 255, 0.18);
+        --accent-contrast: #dbe7ff;
+        --border: rgba(255, 255, 255, 0.1);
+        --border-strong: rgba(255, 255, 255, 0.16);
+        --border-soft: rgba(255, 255, 255, 0.06);
+        --border-accent: rgba(110, 163, 255, 0.35);
+        --border-alt: rgba(255, 255, 255, 0.14);
+        --card: #121826;
+        --surface: #121826;
+        --surface-soft: #182033;
+        --surface-muted: #141b2b;
+        --surface-alt: #151d2e;
+        --surface-contrast: #1a2237;
+        --text-strong: #e2e8f0;
+        --text-subtle: #cbd5e1;
+        --disabled: #6b7484;
+        --step-dot: #2d3748;
+        --addon-link-hover-border: rgba(110, 163, 255, 0.45);
+        --highlight: rgba(110, 163, 255, 0.2);
+        --shadow: 0 24px 40px rgba(0, 0, 0, 0.45);
+        --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.35);
+        --page-bg: radial-gradient(1200px 520px at 15% -10%, rgba(46, 110, 255, 0.18) 0%, rgba(13, 17, 23, 0.95) 55%), var(--bg);
+        --entry-card-bg: linear-gradient(180deg, rgba(26, 34, 55, 0.9) 0%, rgba(18, 24, 38, 0.98) 60%);
+      }
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: var(--font-body);
       color: var(--text);
-      background: radial-gradient(1200px 520px at 15% -10%, #eef4ff 0%, #ffffff 55%), var(--bg);
+      background: var(--page-bg);
       -webkit-font-smoothing: antialiased;
     }
     h1, h2, h3 { margin: 0; letter-spacing: -0.02em; font-family: var(--font-display); }
@@ -60,7 +162,7 @@
       justify-content: space-between;
       gap: 16px;
       padding-bottom: 12px;
-      border-bottom: 1px solid #f1f5f9;
+      border-bottom: 1px solid var(--border-soft);
     }
     .site-logo { font-weight: 700; font-size: 17px; text-decoration: none; color: var(--text); }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -75,8 +177,8 @@
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; box-shadow: var(--shadow-soft); }
     .entry-card {
       width: 380px;
-      border: 1px solid #dbe2ee;
-      background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 60%);
+      border: 1px solid var(--border-alt);
+      background: var(--entry-card-bg);
       box-shadow: var(--shadow);
       position: relative;
     }
@@ -88,7 +190,7 @@
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      border: 1px solid #dbe6ff;
+      border: 1px solid var(--border-accent);
       font-size: 12px;
       font-weight: 600;
       margin-bottom: 10px;
@@ -98,8 +200,8 @@
     .entry-buttons { display: grid; gap: 12px; margin-top: 16px; }
     .entry-btn {
       border-radius: 12px;
-      border: 1px solid #dbe2ee;
-      background: #ffffff;
+      border: 1px solid var(--border-alt);
+      background: var(--surface);
       padding: 14px 16px;
       text-align: left;
       font-weight: 600;
@@ -117,8 +219,8 @@
       color: #fff;
       box-shadow: 0 14px 26px rgba(37, 99, 235, 0.28);
     }
-    .entry-btn.primary small { color: #dfe9ff; }
-    .entry-btn.secondary { background: #f8fafc; border-color: #e2e8f0; color: var(--text); }
+    .entry-btn.primary small { color: var(--accent-contrast); }
+    .entry-btn.secondary { background: var(--surface-soft); border-color: var(--border); color: var(--text); }
     .entry-btn small { font-size: 13px; font-weight: 500; color: var(--muted); }
     .trust-line { margin-top: 12px; font-size: 12px; color: var(--muted); }
 
@@ -134,15 +236,15 @@
       gap: 12px;
       padding: 14px 16px;
       border-bottom: 1px solid var(--border);
-      background: #f5f7fb;
+      background: var(--surface-alt);
     }
     .step-indicator { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); font-weight: 600; }
     .step-dots { display: flex; gap: 6px; }
-    .step-dot { width: 8px; height: 8px; border-radius: 999px; background: #d6dde7; }
+    .step-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--step-dot); }
     .step-dot.active { background: var(--accent); }
     .flow-controls { display: flex; gap: 10px; }
     .link-btn { background: none; border: none; font-weight: 600; color: var(--accent); cursor: pointer; padding: 0; }
-    .link-btn[disabled] { color: #b9c4c9; cursor: not-allowed; }
+    .link-btn[disabled] { color: var(--disabled); cursor: not-allowed; }
     .wizard-body { padding: 20px; }
     .wizard-body h3 { font-size: 18px; font-weight: 700; }
     .prompt-hint { margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--accent); }
@@ -154,9 +256,9 @@
     }
     .choice-btn {
       border-radius: 10px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--border);
       padding: 12px 14px;
-      background: #ffffff;
+      background: var(--surface);
       text-align: left;
       font-weight: 600;
       cursor: pointer;
@@ -189,9 +291,9 @@
       border-radius: 12px;
       font-weight: 600;
       text-decoration: none;
-      border: 1.5px solid #d7dde7;
+      border: 1.5px solid var(--border-strong);
       color: var(--text);
-      background: #ffffff;
+      background: var(--surface);
       box-shadow: var(--shadow-soft);
     }
     .btn.primary {
@@ -205,12 +307,12 @@
       width: 100%;
       min-height: 120px;
       border-radius: 10px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--border);
       padding: 10px;
       font-family: inherit;
       font-size: 13px;
-      color: #374151;
-      background: #f8fafc;
+      color: var(--text-subtle);
+      background: var(--surface-soft);
       resize: vertical;
     }
     .copy-status { font-size: 12px; color: var(--muted); min-height: 16px; }
@@ -220,7 +322,7 @@
     .addon-block {
       margin-top: 18px;
       padding-top: 16px;
-      border-top: 1px dashed #e2e8f0;
+      border-top: 1px dashed var(--border);
       display: flex;
       flex-wrap: wrap;
       align-items: flex-start;
@@ -235,15 +337,15 @@
       gap: 6px;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid #d7dde7;
+      border: 1px solid var(--border-strong);
       font-weight: 600;
       font-size: 13px;
       text-decoration: none;
       color: var(--text);
-      background: #ffffff;
+      background: var(--surface);
       box-shadow: var(--shadow-soft);
     }
-    .addon-link:hover { color: var(--accent); border-color: #c5d4ff; }
+    .addon-link:hover { color: var(--accent); border-color: var(--addon-link-hover-border); }
 
     .packages-grid, .features-grid {
       display: grid;
@@ -256,8 +358,8 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
+      background: var(--surface-muted);
+      border: 1px solid var(--border);
       display: grid;
       place-items: center;
       color: var(--accent);
@@ -269,11 +371,11 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      background: #f1f5f9;
-      color: #1f2937;
+      background: var(--surface-muted);
+      color: var(--text-strong);
       padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--border);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.04em;
@@ -310,6 +412,7 @@
       email: 'contact@lugh21.com'
     };
   </script>
+  <script src="/assets/theme.js" defer></script>
 </head>
 <body>
   <div class="container">

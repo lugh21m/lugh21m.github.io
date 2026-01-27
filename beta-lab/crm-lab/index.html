@@ -2,6 +2,23 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+    <script>
+    (() => {
+      try {
+        const stored = localStorage.getItem('lugh21-theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else if (stored === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CRM Lab - Beta</title>
   <meta name="description" content="CRM Lab: Prototyp für ein neues CRM-System im Beta Lab." />
@@ -14,6 +31,7 @@
 
   <style>
     :root{
+      color-scheme: light;
       --bg:#f7f7f7;
       --fg:#111;
       --muted:#6f6f6f;
@@ -23,6 +41,78 @@
       --acc2:#7fffd4;
       --radius:20px;
       --shadow:0 12px 30px rgba(0,0,0,.06);
+      --shadow-hover:0 16px 40px rgba(0,0,0,.08);
+      --surface-1:rgba(255,255,255,0.95);
+      --surface-2:rgba(255,255,255,0.88);
+      --surface-3:rgba(255,255,255,0.7);
+      --surface-4:rgba(255,255,255,0.55);
+      --header-bg:linear-gradient(180deg, rgba(247,247,247,0.6), rgba(247,247,247,0.88));
+      --header-border:rgba(0,0,0,0.06);
+      --header-shadow:0 12px 28px rgba(0,0,0,0.04);
+      --pill-bg:rgba(255,127,80,0.18);
+      --pill-fg:#7d311a;
+      --footer-link:#1a1a1a;
+      --page-bg:
+        radial-gradient(760px 340px at 85% 10px, rgba(127,255,212,0.42), transparent 70%),
+        radial-gradient(700px 320px at 12% 10px, rgba(255,127,80,0.36), transparent 70%),
+        radial-gradient(720px 320px at 85% calc(100% - 140px), rgba(127,255,212,0.25), transparent 72%),
+        radial-gradient(680px 300px at 12% calc(100% - 160px), rgba(255,127,80,0.22), transparent 72%),
+        var(--bg);
+    }
+          :root[data-theme="dark"]{
+        color-scheme: dark;
+        --bg:#0f1114;
+        --fg:#f5f5f5;
+        --muted:#b0b6bf;
+        --card:#15181d;
+        --line:rgba(255,255,255,0.08);
+        --shadow:0 14px 34px rgba(0,0,0,0.45);
+        --shadow-hover:0 20px 46px rgba(0,0,0,0.55);
+        --surface-1:rgba(20,22,26,0.9);
+        --surface-2:rgba(20,22,26,0.82);
+        --surface-3:rgba(20,22,26,0.68);
+        --surface-4:rgba(20,22,26,0.6);
+        --header-bg:linear-gradient(180deg, rgba(15,17,20,0.72), rgba(15,17,20,0.92));
+        --header-border:rgba(255,255,255,0.08);
+        --header-shadow:0 12px 30px rgba(0,0,0,0.45);
+        --pill-bg:rgba(255,127,80,0.2);
+        --pill-fg:#ffb9a2;
+        --footer-link:#f0f3f7;
+        --page-bg:
+          radial-gradient(760px 340px at 85% 10px, rgba(127,255,212,0.12), transparent 70%),
+          radial-gradient(700px 320px at 12% 10px, rgba(255,127,80,0.14), transparent 70%),
+          radial-gradient(720px 320px at 85% calc(100% - 140px), rgba(127,255,212,0.08), transparent 72%),
+          radial-gradient(680px 300px at 12% calc(100% - 160px), rgba(255,127,80,0.1), transparent 72%),
+          var(--bg);
+      }
+
+@media (prefers-color-scheme: dark){
+      :root:not([data-theme]){
+        color-scheme: dark;
+        --bg:#0f1114;
+        --fg:#f5f5f5;
+        --muted:#b0b6bf;
+        --card:#15181d;
+        --line:rgba(255,255,255,0.08);
+        --shadow:0 14px 34px rgba(0,0,0,0.45);
+        --shadow-hover:0 20px 46px rgba(0,0,0,0.55);
+        --surface-1:rgba(20,22,26,0.9);
+        --surface-2:rgba(20,22,26,0.82);
+        --surface-3:rgba(20,22,26,0.68);
+        --surface-4:rgba(20,22,26,0.6);
+        --header-bg:linear-gradient(180deg, rgba(15,17,20,0.72), rgba(15,17,20,0.92));
+        --header-border:rgba(255,255,255,0.08);
+        --header-shadow:0 12px 30px rgba(0,0,0,0.45);
+        --pill-bg:rgba(255,127,80,0.2);
+        --pill-fg:#ffb9a2;
+        --footer-link:#f0f3f7;
+        --page-bg:
+          radial-gradient(760px 340px at 85% 10px, rgba(127,255,212,0.12), transparent 70%),
+          radial-gradient(700px 320px at 12% 10px, rgba(255,127,80,0.14), transparent 70%),
+          radial-gradient(720px 320px at 85% calc(100% - 140px), rgba(127,255,212,0.08), transparent 72%),
+          radial-gradient(680px 300px at 12% calc(100% - 160px), rgba(255,127,80,0.1), transparent 72%),
+          var(--bg);
+      }
     }
     *{box-sizing:border-box}
     body{
@@ -30,12 +120,7 @@
       color:var(--fg);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       min-height:100vh;
-      background:
-        radial-gradient(760px 340px at 85% 10px, rgba(127,255,212,0.42), transparent 70%),
-        radial-gradient(700px 320px at 12% 10px, rgba(255,127,80,0.36), transparent 70%),
-        radial-gradient(720px 320px at 85% calc(100% - 140px), rgba(127,255,212,0.25), transparent 72%),
-        radial-gradient(680px 300px at 12% calc(100% - 160px), rgba(255,127,80,0.22), transparent 72%),
-        var(--bg);
+      background:var(--page-bg);
       background-repeat:no-repeat;
     }
     a{color:inherit;text-decoration:none}
@@ -44,9 +129,9 @@
       top:0;
       z-index:10;
       backdrop-filter:blur(10px);
-      background:linear-gradient(180deg, rgba(247,247,247,0.6), rgba(247,247,247,0.88));
-      border-bottom:1px solid rgba(0,0,0,0.06);
-      box-shadow:0 12px 28px rgba(0,0,0,0.04);
+      background:var(--header-bg);
+      border-bottom:1px solid var(--header-border);
+      box-shadow:var(--header-shadow);
     }
     .container{max-width:980px;margin:0 auto;padding:0 20px}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
@@ -58,7 +143,7 @@
 
     main{padding:clamp(20px,4svh,30px) 0 64px}
     .hero{
-      background:rgba(255,255,255,0.88);
+      background:var(--surface-2);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -72,8 +157,8 @@
       gap:8px;
       padding:6px 12px;
       border-radius:999px;
-      background:rgba(255,127,80,0.18);
-      color:#7d311a;
+      background:var(--pill-bg);
+      color:var(--pill-fg);
       font-size:12px;
       font-weight:700;
       letter-spacing:.08em;
@@ -89,7 +174,7 @@
       margin-top:8px;
     }
     .panel{
-      background:rgba(255,255,255,0.95);
+      background:var(--surface-1);
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:18px;
@@ -102,13 +187,14 @@
     .panel ul{margin:0;padding-left:18px;color:var(--muted)}
 
     footer{border-top:1px solid var(--line);padding:18px 0;color:var(--muted);font-size:13px}
-    footer a{font-weight:600;color:#1a1a1a}
+    footer a{font-weight:600;color:var(--footer-link)}
 
     .container{
       padding-left:calc(clamp(16px,4vw,28px) + env(safe-area-inset-left));
       padding-right:calc(clamp(16px,4vw,28px) + env(safe-area-inset-right));
     }
   </style>
+  <script src="/assets/theme.js" defer></script>
 </head>
 <body>
   <header>

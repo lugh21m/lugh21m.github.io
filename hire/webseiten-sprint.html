@@ -3,6 +3,23 @@
 <head>
 
   <meta charset="utf-8" />
+    <script>
+    (() => {
+      try {
+        const stored = localStorage.getItem('lugh21-theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else if (stored === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <title>Webseiten-Sprint — Design → Page in 3 Tagen | Lugh21</title>
@@ -97,6 +114,7 @@
     .foot{padding:16px 0;font-size:14px}
   </style>
   <link rel="stylesheet" href="/assets/global.css">
+  <script src="/assets/theme.js" defer></script>
 </head>
 <body class="service-page service-web">
   <header>

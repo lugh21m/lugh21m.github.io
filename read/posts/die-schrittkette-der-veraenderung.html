@@ -2,6 +2,23 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+    <script>
+    (() => {
+      try {
+        const stored = localStorage.getItem('lugh21-theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else if (stored === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Die Schrittkette der Veränderung - Lugh21</title>
   <meta name="description" content="Warum Identifikation ein Resultat ist und wie Leere, Resonanz und Zielklärung echte Veränderung tragen." />
@@ -13,6 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
+      color-scheme: light;
       --bg:#f7f5f0;
       --ink:#141414;
       --muted:#5f5f5f;
@@ -20,17 +38,55 @@
       --accent:#ff6a3d;
       --radius:18px;
       --paper:rgba(255,255,255,0.88);
+      --paper-strong:#ffffff;
       --shadow:0 18px 40px rgba(20,20,20,0.08);
+      --shadow-soft:0 12px 28px rgba(20,20,20,0.08);
+      --page-bg:
+        radial-gradient(900px 320px at 12% -10%, rgba(255,106,61,0.14), transparent 60%),
+        radial-gradient(900px 320px at 92% 0%, rgba(47,181,157,0.14), transparent 62%),
+        var(--bg);
+    }
+          :root[data-theme="dark"]{
+        color-scheme: dark;
+        --bg:#0f1114;
+        --ink:#f5f5f5;
+        --muted:#b2b8c2;
+        --line:rgba(255,255,255,0.1);
+        --accent:#ff8a65;
+        --paper:rgba(20,22,26,0.86);
+        --paper-strong:#14161b;
+        --shadow:0 18px 40px rgba(0,0,0,0.45);
+        --shadow-soft:0 12px 28px rgba(0,0,0,0.45);
+        --page-bg:
+          radial-gradient(900px 320px at 12% -10%, rgba(255,138,101,0.12), transparent 60%),
+          radial-gradient(900px 320px at 92% 0%, rgba(47,181,157,0.1), transparent 62%),
+          var(--bg);
+      }
+
+@media (prefers-color-scheme: dark){
+      :root:not([data-theme]){
+        color-scheme: dark;
+        --bg:#0f1114;
+        --ink:#f5f5f5;
+        --muted:#b2b8c2;
+        --line:rgba(255,255,255,0.1);
+        --accent:#ff8a65;
+        --paper:rgba(20,22,26,0.86);
+        --paper-strong:#14161b;
+        --shadow:0 18px 40px rgba(0,0,0,0.45);
+        --shadow-soft:0 12px 28px rgba(0,0,0,0.45);
+        --page-bg:
+          radial-gradient(900px 320px at 12% -10%, rgba(255,138,101,0.12), transparent 60%),
+          radial-gradient(900px 320px at 92% 0%, rgba(47,181,157,0.1), transparent 62%),
+          var(--bg);
+      }
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family:"Manrope","Space Grotesk",sans-serif;
       color:var(--ink);
-      background:
-        radial-gradient(900px 320px at 12% -10%, rgba(255,106,61,0.14), transparent 60%),
-        radial-gradient(900px 320px at 92% 0%, rgba(47,181,157,0.14), transparent 62%),
-        var(--bg);
+      background: var(--page-bg);
       min-height:100vh;
     }
     a{color:inherit;text-decoration:none}
@@ -130,8 +186,8 @@
       height:auto;
       border-radius:var(--radius);
       border:1px solid var(--line);
-      box-shadow:0 12px 28px rgba(20,20,20,0.08);
-      background:#fff;
+      box-shadow:var(--shadow-soft);
+      background:var(--paper-strong);
     }
     .section-title{
       margin-top:20px;
@@ -140,6 +196,11 @@
       text-transform:uppercase;
       color:var(--muted);
       font-weight:700;
+    }
+    .author{
+      margin-top:20px;
+      font-size:12px;
+      color:var(--muted);
     }
     .chain-block .section-title{margin-top:0}
     .step-chain{
@@ -214,6 +275,7 @@
       }
     }
   </style>
+  <script src="/assets/theme.js" defer></script>
 </head>
 <body>
   <div class="container">
@@ -234,40 +296,41 @@
         </div>
 
         <div class="content">
-        <p>Ich saß hier und habe auf Instagram einen dieser Posts gesehen. So ein Satz, der einem ständig begegnet: Du kannst alles schaffen, was du willst. Du musst nur daran glauben. Wenn du dich damit identifizierst, dann ist alles möglich. Und mein erster Impuls war Zustimmung. Irgendwo fühlt sich das wahr an. Gleichzeitig kam sofort dieses innere „Ja, aber …“. Nicht, weil der Satz falsch wäre, sondern weil er einen entscheidenden Teil überspringt.</p>
+          <p>Ich saß hier und habe auf Instagram einen dieser Posts gesehen. So ein Satz, der einem ständig begegnet: Du kannst alles schaffen, was du willst. Du musst nur daran glauben. Wenn du dich damit identifizierst, dann ist alles möglich. Und mein erster Impuls war Zustimmung. Irgendwo fühlt sich das wahr an. Gleichzeitig kam sofort dieses innere „Ja, aber …“. Nicht, weil der Satz falsch wäre, sondern weil er einen entscheidenden Teil überspringt.</p>
 
-        <p>Denn klar, Identifikation ist mächtig. Wenn man wirklich mit etwas verschmilzt, wenn kein innerer Widerspruch mehr da ist, dann entsteht eine enorme Kraft. Aber diese Identifikation ist kein Startpunkt. Sie ist ein Resultat. Und genau das war der Moment, in dem ich gemerkt habe, dass zwischen diesem einen Satz und der tatsächlichen Realität ein ganzer Prozess fehlt.</p>
+          <p>Denn klar, Identifikation ist mächtig. Wenn man wirklich mit etwas verschmilzt, wenn kein innerer Widerspruch mehr da ist, dann entsteht eine enorme Kraft. Aber diese Identifikation ist kein Startpunkt. Sie ist ein Resultat. Und genau das war der Moment, in dem ich gemerkt habe, dass zwischen diesem einen Satz und der tatsächlichen Realität ein ganzer Prozess fehlt.</p>
 
-        <p>Also habe ich mein Heft rausgeholt. Kein Plan, kein Anspruch, kein fertiges Modell. Ich habe einfach versucht, diesen Prozess einmal sichtbar zu machen. Handschriftlich. Kästen untereinander. Dazwischen Linien. Eine Schrittkette. Je länger ich sie angeschaut habe, desto klarer wurde mir, dass diese einfache Struktur ziemlich genau abbildet, wie Veränderung wirklich abläuft – zumindest dann, wenn sie nicht nur kurzfristig sein soll.</p>
-        <div class="photo-grid" aria-label="Originale Schrittkette">
-          <img class="wide" src="/read/assets/die-schrittkette-der-veraenderung/schrittkette-original.jpg" alt="Originale handschriftliche Schrittkette." loading="lazy" decoding="async" />
-        </div>
+          <p>Also habe ich mein Heft rausgeholt. Kein Plan, kein Anspruch, kein fertiges Modell. Ich habe einfach versucht, diesen Prozess einmal sichtbar zu machen. Handschriftlich. Kästen untereinander. Dazwischen Linien. Eine Schrittkette. Je länger ich sie angeschaut habe, desto klarer wurde mir, dass diese einfache Struktur ziemlich genau abbildet, wie Veränderung wirklich abläuft – zumindest dann, wenn sie nicht nur kurzfristig sein soll.</p>
+          <div class="photo-grid" aria-label="Originale Schrittkette">
+            <img class="wide" src="/read/assets/die-schrittkette-der-veraenderung/schrittkette-original.jpg" alt="Originale handschriftliche Schrittkette." loading="lazy" decoding="async" />
+          </div>
 
-        <p>Die Schrittkette ist bewusst als Prozesskette gedacht. Die Kästen stehen für klar unterscheidbare Zustände, die Linien für Übergänge. Genau so werden auch industrielle oder technische Prozesse beschrieben. Man startet in einem definierten Zustand, durchläuft Transformationen und erreicht anschließend einen neuen stabilen Zustand. Nicht jeder Schritt ist eine Aktion. Manche Schritte sind reine Zustandsänderungen. Diese Struktur zwingt zur Klarheit und verhindert, dass man Übergänge überspringt, nur weil man schnell irgendwo ankommen will.</p>
+          <p>Die Schrittkette ist bewusst als Prozesskette gedacht. Die Kästen stehen für klar unterscheidbare Zustände, die Linien für Übergänge. Genau so werden auch industrielle oder technische Prozesse beschrieben. Man startet in einem definierten Zustand, durchläuft Transformationen und erreicht anschließend einen neuen stabilen Zustand. Nicht jeder Schritt ist eine Aktion. Manche Schritte sind reine Zustandsänderungen. Diese Struktur zwingt zur Klarheit und verhindert, dass man Übergänge überspringt, nur weil man schnell irgendwo ankommen will.</p>
 
-        <p>Der erste Zustand ist immer das bestehende Leben. Das Leben vorher. Identitäten, Rollen, Routinen, Erwartungen. Vieles davon wurde nie bewusst gewählt, sondern übernommen. Bei mir war das lange Zeit ein ziemlich klares Setup: Job, Land, Umfeld, Klima, ein bestimmter Lebensrhythmus. Funktional, stabil, aber innerlich zunehmend eng. Ziele entstehen in so einem Zustand fast automatisch aus Vergleich, Mangel oder äußeren Erwartungen. Man will etwas, weil man glaubt, es zu müssen. Weil es logisch erscheint. Weil es „normal“ ist.</p>
+          <p>Der erste Zustand ist immer das bestehende Leben. Das Leben vorher. Identitäten, Rollen, Routinen, Erwartungen. Vieles davon wurde nie bewusst gewählt, sondern übernommen. Bei mir war das lange Zeit ein ziemlich klares Setup: Job, Land, Umfeld, Klima, ein bestimmter Lebensrhythmus. Funktional, stabil, aber innerlich zunehmend eng. Ziele entstehen in so einem Zustand fast automatisch aus Vergleich, Mangel oder äußeren Erwartungen. Man will etwas, weil man glaubt, es zu müssen. Weil es logisch erscheint. Weil es „normal“ ist.</p>
 
-        <p>Irgendwann kam der Punkt, an dem ich hinter diese Kulisse geblickt habe. Nicht auf einen Schlag, sondern schrittweise. Ich habe gemerkt, dass vieles, was ich für gegeben hielt, mich eigentlich zurückhält. Dass bestimmte Strukturen nicht neutral sind, sondern Wirkung haben. Dass ich mich über Jahre an Dinge angepasst habe, die mir Energie gezogen haben. Das war kein einzelnes Erlebnis, sondern eher ein langsames Verschieben der Perspektive. Ich stand nicht mehr vollständig in meiner eigenen Geschichte, sondern begann, sie von außen zu betrachten.</p>
+          <p>Irgendwann kam der Punkt, an dem ich hinter diese Kulisse geblickt habe. Nicht auf einen Schlag, sondern schrittweise. Ich habe gemerkt, dass vieles, was ich für gegeben hielt, mich eigentlich zurückhält. Dass bestimmte Strukturen nicht neutral sind, sondern Wirkung haben. Dass ich mich über Jahre an Dinge angepasst habe, die mir Energie gezogen haben. Das war kein einzelnes Erlebnis, sondern eher ein langsames Verschieben der Perspektive. Ich stand nicht mehr vollständig in meiner eigenen Geschichte, sondern begann, sie von außen zu betrachten.</p>
 
-        <p>Darauf folgte etwas, das man oft unter dem Begriff Schattenarbeit zusammenfasst. Für mich hieß das vor allem: ehrlich hinschauen. Welche Motive treiben mich eigentlich an? Welche Entscheidungen treffe ich aus Angst, aus Gewohnheit oder aus Anpassung? Und was würde wegfallen, wenn ich aufhöre, mich darüber zu definieren? In meiner Skizze steht bewusst „Zurücklassen, was zurückhält“. Genau so hat es sich angefühlt. Nicht wie ein Hinzufügen, sondern wie ein Abstreifen.</p>
+          <p>Darauf folgte etwas, das man oft unter dem Begriff Schattenarbeit zusammenfasst. Für mich hieß das vor allem: ehrlich hinschauen. Welche Motive treiben mich eigentlich an? Welche Entscheidungen treffe ich aus Angst, aus Gewohnheit oder aus Anpassung? Und was würde wegfallen, wenn ich aufhöre, mich darüber zu definieren? In meiner Skizze steht bewusst „Zurücklassen, was zurückhält“. Genau so hat es sich angefühlt. Nicht wie ein Hinzufügen, sondern wie ein Abstreifen.</p>
 
-        <p>Irgendwann wurde klar, dass diese Fragen nicht innerhalb der alten Struktur zu Ende gedacht werden können. Also habe ich sie verlassen. Ich habe Dinge verkauft, Verpflichtungen aufgelöst, meinen Wohnsitz aufgegeben. Heute habe ich einen Rucksack. Kein festes Zuhause. Kein fixes Land. Keine langfristigen Verpflichtungen, außer der einen simplen Realität, dass ich irgendwann wieder Geld verdienen muss. Und selbst das ist offen in der Form. Theoretisch könnte ich zurückgehen. Ich könnte woanders hingehen. Ich könnte etwas völlig anderes machen. Objektiv betrachtet ist das ein ziemlich leeres Blatt.</p>
+          <p>Irgendwann wurde klar, dass diese Fragen nicht innerhalb der alten Struktur zu Ende gedacht werden können. Also habe ich sie verlassen. Ich habe Dinge verkauft, Verpflichtungen aufgelöst, meinen Wohnsitz aufgegeben. Heute habe ich einen Rucksack. Kein festes Zuhause. Kein fixes Land. Keine langfristigen Verpflichtungen, außer der einen simplen Realität, dass ich irgendwann wieder Geld verdienen muss. Und selbst das ist offen in der Form. Theoretisch könnte ich zurückgehen. Ich könnte woanders hingehen. Ich könnte etwas völlig anderes machen. Objektiv betrachtet ist das ein ziemlich leeres Blatt.</p>
 
-        <p>Und trotzdem merke ich: Dieses leere Blatt ist nicht automatisch das leere Gefäß. Äußerlich habe ich viel losgelassen, innerlich bin ich noch mitten im Prozess. Das leere Gefäß ist kein Schalter, den man umlegt. Es ist eher ein Zustand, dem man sich annähert. Kein innerer Zwang mehr, keine vorgegebene Richtung, kein Druck, jetzt sofort wissen zu müssen, wie alles weitergeht. Genau das auszuhalten ist wahrscheinlich der schwierigste Teil.</p>
+          <p>Und trotzdem merke ich: Dieses leere Blatt ist nicht automatisch das leere Gefäß. Äußerlich habe ich viel losgelassen, innerlich bin ich noch mitten im Prozess. Das leere Gefäß ist kein Schalter, den man umlegt. Es ist eher ein Zustand, dem man sich annähert. Kein innerer Zwang mehr, keine vorgegebene Richtung, kein Druck, jetzt sofort wissen zu müssen, wie alles weitergeht. Genau das auszuhalten ist wahrscheinlich der schwierigste Teil.</p>
 
-        <p>Aus dieser Leere heraus beginnt sich langsam so etwas wie Zielklärung zu formen. Nicht als fertiger Plan, sondern als Wahrnehmung. Durch Beobachten. Durch Ausprobieren. Durch kleine Erfahrungen unterwegs. Manche Dinge erzeugen Resonanz, andere nicht. Manche fühlen sich weit an, andere machen sofort eng. Es ist weniger eine Frage von Denken als von Spüren. Nicht „Was sollte ich wollen?“, sondern „Womit komme ich in Kontakt, ohne mich innerlich zu verbiegen?“</p>
+          <p>Aus dieser Leere heraus beginnt sich langsam so etwas wie Zielklärung zu formen. Nicht als fertiger Plan, sondern als Wahrnehmung. Durch Beobachten. Durch Ausprobieren. Durch kleine Erfahrungen unterwegs. Manche Dinge erzeugen Resonanz, andere nicht. Manche fühlen sich weit an, andere machen sofort eng. Es ist weniger eine Frage von Denken als von Spüren. Nicht „Was sollte ich wollen?“, sondern „Womit komme ich in Kontakt, ohne mich innerlich zu verbiegen?“</p>
 
-        <p>Wenn etwas aus dieser Phase heraus entsteht und bleibt, bekommt es eine andere Qualität. Es trägt sich selbst. Es verschwindet nicht beim ersten Zweifel. Es hängt nicht an Motivation. Es ist einfach da. In der Skizze steht deshalb: Ziel steht fest und ist in Resonanz mit dem Selbst. Nicht als Idee, sondern als innere Stimmigkeit, die auch dann noch vorhanden ist, wenn es unbequem wird.</p>
+          <p>Wenn etwas aus dieser Phase heraus entsteht und bleibt, bekommt es eine andere Qualität. Es trägt sich selbst. Es verschwindet nicht beim ersten Zweifel. Es hängt nicht an Motivation. Es ist einfach da. In der Skizze steht deshalb: Ziel steht fest und ist in Resonanz mit dem Selbst. Nicht als Idee, sondern als innere Stimmigkeit, die auch dann noch vorhanden ist, wenn es unbequem wird.</p>
 
-        <p>Erst danach beginnt die Phase der Umsetzung. Struktur, Disziplin, Handlung, Wiederholung. Nicht aus Druck, sondern weil keine innere Gegenbewegung mehr da ist. Innen und Außen arbeiten nicht mehr gegeneinander. Handlung entsteht nicht, weil man sich antreibt, sondern weil es nichts gibt, was sie blockiert.</p>
+          <p>Erst danach beginnt die Phase der Umsetzung. Struktur, Disziplin, Handlung, Wiederholung. Nicht aus Druck, sondern weil keine innere Gegenbewegung mehr da ist. Innen und Außen arbeiten nicht mehr gegeneinander. Handlung entsteht nicht, weil man sich antreibt, sondern weil es nichts gibt, was sie blockiert.</p>
 
-        <p>Der eigentliche Knackpunkt dieses ganzen Prozesses liegt nicht in der Umsetzung, sondern in der Zielsetzung. Genauer gesagt darin, wie leicht man Ziele verfolgt, die eigentlich nicht die eigenen sind. Viele Menschen scheitern nicht, weil sie zu wenig können, sondern weil sie fremde Ziele perfektionieren. Dann ist viel Energie da, viel Disziplin, aber innerlich entsteht Reibung. Das System wird instabil, nicht aus Schwäche, sondern aus fehlender Stimmigkeit.</p>
+          <p>Der eigentliche Knackpunkt dieses ganzen Prozesses liegt nicht in der Umsetzung, sondern in der Zielsetzung. Genauer gesagt darin, wie leicht man Ziele verfolgt, die eigentlich nicht die eigenen sind. Viele Menschen scheitern nicht, weil sie zu wenig können, sondern weil sie fremde Ziele perfektionieren. Dann ist viel Energie da, viel Disziplin, aber innerlich entsteht Reibung. Das System wird instabil, nicht aus Schwäche, sondern aus fehlender Stimmigkeit.</p>
 
-        <p>Die Phase der Leere ist dabei kein Nebenschauplatz, sondern ein eigener Lebensabschnitt. Eine Übergangsphase zwischen Identitäten. Sie fühlt sich reduziert an, manchmal offen, manchmal unsicher. Nicht, weil etwas fehlt, sondern weil sich etwas neu ordnet. Leere ist kein Dauerzustand. Sie ist Rekalibrierung.</p>
+          <p>Die Phase der Leere ist dabei kein Nebenschauplatz, sondern ein eigener Lebensabschnitt. Eine Übergangsphase zwischen Identitäten. Sie fühlt sich reduziert an, manchmal offen, manchmal unsicher. Nicht, weil etwas fehlt, sondern weil sich etwas neu ordnet. Leere ist kein Dauerzustand. Sie ist Rekalibrierung.</p>
 
-        <p>In einem Satz zusammengefasst: Ziele ohne Leere reproduzieren Vergangenheit. Leere ohne Richtung löst auf. Erst Leere in Verbindung mit Resonanz erzeugt tragfähige Realität.</p>
+          <p>In einem Satz zusammengefasst: Ziele ohne Leere reproduzieren Vergangenheit. Leere ohne Richtung löst auf. Erst Leere in Verbindung mit Resonanz erzeugt tragfähige Realität.</p>
 
-        <p>Genau deshalb ist diese Schrittkette kein Motivationstool, sondern ein Orientierungssystem. Sie ist zyklisch. Man durchläuft sie nicht einmal im Leben, sondern immer dann, wenn etwas wirklich Neues entstehen soll. Die handschriftliche Skizze ist kein Symbol und kein Konzeptpapier, sondern eine Momentaufnahme aus einem echten Prozess. Und genau deshalb funktioniert sie.</p>
+          <p>Genau deshalb ist diese Schrittkette kein Motivationstool, sondern ein Orientierungssystem. Sie ist zyklisch. Man durchläuft sie nicht einmal im Leben, sondern immer dann, wenn etwas wirklich Neues entstehen soll. Die handschriftliche Skizze ist kein Symbol und kein Konzeptpapier, sondern eine Momentaufnahme aus einem echten Prozess. Und genau deshalb funktioniert sie.</p>
+          <p class="author">Autor: Lugh21</p>
         </div>
       </article>
     </main>

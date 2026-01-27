@@ -1,4 +1,5 @@
 :root{
+  color-scheme: light;
   /* Farbpalette nach Design Guidelines */
   /* Primär: Technisches Blau/Grün */
   --color-primary:#1a5f7a;

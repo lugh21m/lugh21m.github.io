@@ -1,201 +1,352 @@
 <!doctype html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8" />
+    <script>
+    (() => {
+      try {
+        const stored = localStorage.getItem('lugh21-theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else if (stored === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Read - Lugh21</title>
-  <meta name="description" content="Blogartikel über random Themen aus meinem Leben. Klar, direkt, typischer Lugh21-Style." />
+  <meta name="description"
+    content="Blogartikel über random Themen aus meinem Leben. Klar, direkt, typischer Lugh21-Style." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://lugh21.com/read/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
   <style>
-    :root{
-      --bg:#f7f5f0;
-      --ink:#141414;
-      --muted:#5f5f5f;
-      --line:#e3dfd8;
-      --accent:#ff6a3d;
-      --radius:16px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:"Manrope","Space Grotesk",sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(900px 320px at 12% -10%, rgba(255,106,61,0.16), transparent 60%),
-        radial-gradient(900px 320px at 92% 0%, rgba(47,181,157,0.16), transparent 62%),
+    :root {
+      color-scheme: light;
+      --bg: #f7f5f0;
+      --ink: #141414;
+      --muted: #5f5f5f;
+      --line: #e3dfd8;
+      --accent: #ff6a3d;
+      --radius: 16px;
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-strong: #ffffff;
+      --page-bg:
+        radial-gradient(900px 320px at 12% -10%, rgba(255, 106, 61, 0.16), transparent 60%),
+        radial-gradient(900px 320px at 92% 0%, rgba(47, 181, 157, 0.16), transparent 62%),
         var(--bg);
-      min-height:100vh;
     }
-    a{color:inherit;text-decoration:none}
-    h1{font-family:"Space Grotesk","Manrope",sans-serif;margin:0;letter-spacing:-0.01em;font-size:clamp(30px,5vw,52px);line-height:1.05}
-    p{margin:0;color:var(--muted);line-height:1.7}
+      :root[data-theme="dark"]{
+        color-scheme: dark;
+        --bg: #0f1114;
+        --ink: #f5f5f5;
+        --muted: #b2b8c2;
+        --line: rgba(255, 255, 255, 0.1);
+        --accent: #ff8a65;
+        --surface: rgba(20, 22, 26, 0.72);
+        --surface-strong: #14161b;
+        --page-bg:
+          radial-gradient(900px 320px at 12% -10%, rgba(255, 138, 101, 0.12), transparent 60%),
+          radial-gradient(900px 320px at 92% 0%, rgba(47, 181, 157, 0.1), transparent 62%),
+          var(--bg);
+      }
 
-    .container{
-      max-width:880px;
-      margin:0 auto;
-      padding:24px clamp(18px,4vw,36px) 80px;
-    }
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      padding-bottom:16px;
-      border-bottom:1px solid var(--line);
-    }
-    .brand{
-      font-weight:700;
-      letter-spacing:0.04em;
-      text-transform:uppercase;
-      font-size:14px;
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      font-size:14px;
-      color:var(--muted);
-    }
-    .nav a{padding-bottom:2px;border-bottom:1px solid transparent}
-    .nav a:hover{border-bottom-color:var(--accent);color:var(--ink)}
 
-    main{padding-top:28px}
-    .kicker{
-      font-size:11px;
-      letter-spacing:0.28em;
-      text-transform:uppercase;
-      font-weight:700;
-      color:var(--muted);
-    }
-    .lead{
-      margin-top:14px;
-      font-size:18px;
-      color:var(--ink);
-    }
-    .sub{
-      margin-top:6px;
-      font-size:15px;
+
+@media (prefers-color-scheme: dark) {
+      :root:not([data-theme]){
+        color-scheme: dark;
+        --bg: #0f1114;
+        --ink: #f5f5f5;
+        --muted: #b2b8c2;
+        --line: rgba(255, 255, 255, 0.1);
+        --accent: #ff8a65;
+        --surface: rgba(20, 22, 26, 0.72);
+        --surface-strong: #14161b;
+        --page-bg:
+          radial-gradient(900px 320px at 12% -10%, rgba(255, 138, 101, 0.12), transparent 60%),
+          radial-gradient(900px 320px at 92% 0%, rgba(47, 181, 157, 0.1), transparent 62%),
+          var(--bg);
+      }
     }
 
-    .list-head{
-      margin-top:32px;
-      font-size:12px;
-      letter-spacing:0.2em;
-      text-transform:uppercase;
-      color:var(--muted);
-      font-weight:700;
-    }
-    .post-list{display:grid}
-    .post-row{
-      border-bottom:1px solid var(--line);
-      padding:16px 0;
-      animation:fadeUp .45s ease both;
-      animation-delay:calc(var(--i) * 80ms);
-    }
-    .post-row:last-child{border-bottom:0}
-    .post-link{display:flex;flex-direction:column;gap:6px}
-    .post-date{
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:0.12em;
-      color:var(--muted);
-      font-weight:700;
-    }
-    .post-title{
-      font-size:20px;
-      font-weight:600;
-      color:var(--ink);
-    }
-    .post-row:hover .post-title{color:var(--accent)}
-    .post-excerpt{font-size:15px}
-    .empty{
-      margin-top:12px;
-      font-size:14px;
-      color:var(--muted);
+    * {
+      box-sizing: border-box
     }
 
-    .newsletter{
-      margin-top:32px;
-      padding:18px 20px;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(255,255,255,0.72);
-    }
-    .newsletter p{margin:0 0 12px;color:var(--muted);line-height:1.6}
-    .newsletter-form{display:flex;flex-wrap:wrap;gap:10px}
-    .newsletter input[type="email"]{
-      flex:1 1 220px;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:#fff;
-      font-size:14px;
-    }
-    .newsletter button{
-      padding:10px 16px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:transparent;
-      font-weight:600;
-      color:var(--ink);
-      cursor:pointer;
-    }
-    .newsletter button:hover{background:#fff}
-    .newsletter-status{
-      margin-top:8px;
-      font-size:12px;
-      color:var(--muted);
-    }
-    .newsletter-list{
-      margin:10px 0 0;
-      padding:0;
-      list-style:none;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .newsletter-list li{
-      padding:6px 0;
-      border-top:1px dashed var(--line);
-    }
-    .visually-hidden{
-      position:absolute;
-      width:1px;
-      height:1px;
-      padding:0;
-      margin:-1px;
-      overflow:hidden;
-      clip:rect(0,0,0,0);
-      border:0;
+    body {
+      margin: 0;
+      font-family: "Manrope", "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background: var(--page-bg);
+      min-height: 100vh;
     }
 
-    footer{
-      margin-top:56px;
-      padding-top:16px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:13px;
+    a {
+      color: inherit;
+      text-decoration: none
     }
 
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(10px)}
-      to{opacity:1;transform:translateY(0)}
+    h1 {
+      font-family: "Space Grotesk", "Manrope", sans-serif;
+      margin: 0;
+      letter-spacing: -0.01em;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.05
     }
 
-    @media (max-width:700px){
-      .lead{font-size:17px}
-      .post-title{font-size:18px}
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7
     }
 
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none !important;transition:none !important}
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 24px clamp(18px, 4vw, 36px) 80px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav a {
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent
+    }
+
+    .nav a:hover {
+      border-bottom-color: var(--accent);
+      color: var(--ink)
+    }
+
+    main {
+      padding-top: 28px
+    }
+
+    .kicker {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .lead {
+      margin-top: 14px;
+      font-size: 18px;
+      color: var(--ink);
+    }
+
+    .sub {
+      margin-top: 6px;
+      font-size: 15px;
+    }
+
+    .list-head {
+      margin-top: 32px;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .post-list {
+      display: grid
+    }
+
+    .post-row {
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+      animation: fadeUp .45s ease both;
+      animation-delay: calc(var(--i) * 80ms);
+    }
+
+    .post-row:last-child {
+      border-bottom: 0
+    }
+
+    .post-link {
+      display: flex;
+      flex-direction: column;
+      gap: 6px
+    }
+
+    .post-date {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .post-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .post-row:hover .post-title {
+      color: var(--accent)
+    }
+
+    .post-excerpt {
+      font-size: 15px
+    }
+
+    .empty {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .newsletter {
+      margin-top: 32px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .newsletter p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.6
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .newsletter input[type="email"] {
+      flex: 1 1 220px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+      font-size: 14px;
+    }
+
+    .newsletter button {
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: transparent;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .newsletter button:hover {
+      background: var(--surface-strong)
+    }
+
+    .newsletter-status {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .newsletter-list {
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .newsletter-list li {
+      padding: 6px 0;
+      border-top: 1px dashed var(--line);
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @media (max-width:700px) {
+      .lead {
+        font-size: 17px
+      }
+
+      .post-title {
+        font-size: 18px
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important
+      }
     }
   </style>
+  <script src="/assets/theme.js" defer></script>
 </head>
+
 <body>
   <div class="container">
     <header>
@@ -216,11 +367,13 @@
       <p class="empty" data-empty hidden>Noch keine Artikel.</p>
 
       <section class="newsletter" aria-label="Newsletter">
-        <p>Wenn du magst, schicke ich dir ausgewählte neue, relevante Artikel per Mail dazu. Kein fester Rhythmus, nur wenn es passt.</p>
+        <p>Wenn du magst, schicke ich dir ausgewählte neue, relevante Artikel per Mail dazu. Kein fester Rhythmus, nur
+          wenn es passt.</p>
         <!-- TODO: Newsletter-Anbindung einfügen (action + Backend). Aktuell nur lokale Liste im Browser. -->
         <form class="newsletter-form" action="#" method="post">
           <label class="visually-hidden" for="newsletter-email">E-Mail-Adresse</label>
-          <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="deine@email.de" required>
+          <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="deine@email.de"
+            required>
           <button type="submit">Mitlesen</button>
         </form>
         <p class="newsletter-status" data-newsletter-status aria-live="polite"></p>
@@ -290,4 +443,5 @@
   </script>
   <!-- deploy touch -->
 </body>
+
 </html>

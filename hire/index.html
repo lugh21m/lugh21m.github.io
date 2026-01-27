@@ -1,13 +1,32 @@
 <!doctype html>
 <html lang="de">
+
 <head>
 
   <meta charset="utf-8" />
+    <script>
+    (() => {
+      try {
+        const stored = localStorage.getItem('lugh21-theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else if (stored === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+
   <title>Hire — WLAN, Home Assistant, CAD, PCB, PoC, Drohne | Lugh21</title>
   <link rel="canonical" href="https://lugh21.com/hire/">
-  <meta name="description" content="Alle Services auf einen Blick: WLAN-Optimierung, Hotel-WLAN-Design, Home Assistant Setup, CAD-Auftragskonstruktion, PCB (KiCad), Proof of Concept, Drohne, Mining-Check.">
+  <meta name="description"
+    content="Alle Services auf einen Blick: WLAN-Optimierung, Hotel-WLAN-Design, Home Assistant Setup, CAD-Auftragskonstruktion, PCB (KiCad), Proof of Concept, Drohne, Mining-Check.">
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Lugh21">
@@ -23,61 +42,180 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bitcount+Prop+Single+Ink:wght@400;700&display=swap"
+    rel="stylesheet">
 
   <style>
-    :root{--bg:#fff;--fg:#111;--muted:#e8e8e8;--card:#fff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.06)}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    header{border-bottom:1px solid var(--muted);background:#fff}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:24px}
-    .links{display:flex;gap:18px}
-    .links a{font-weight:600}
+    :root {
+      --bg: #fff;
+      --fg: #111;
+      --muted: #e8e8e8;
+      --card: #fff;
+      --radius: 16px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, .06)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    header {
+      border-bottom: 1px solid var(--muted);
+      background: #fff
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0
+    }
+
+    .brand {
+      font-family: "Bitcount Prop Single Ink", Inter, sans-serif;
+      font-size: 24px
+    }
+
+    .links {
+      display: flex;
+      gap: 18px
+    }
+
+    .links a {
+      font-weight: 600
+    }
 
     /* organischer Top-Abstand (Überschrift weiter hoch) */
-    body.hire-page main{
-      padding-top: clamp(72px,10vh,140px) !important;
+    body.hire-page main {
+      padding-top: clamp(72px, 10vh, 140px) !important;
       padding-bottom: 64px !important;
     }
-    body.hire-page .grid{gap:clamp(20px,3.5vw,36px) !important;}
 
-    h1{margin:0 0 8px 0;font-size:34px;line-height:1.1}
-    p.sub{margin:0 0 26px 0;opacity:.75}
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-    .card{
-      background:var(--card);
-      border:1px solid var(--muted);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      min-height:120px;
-      padding:20px;
-      word-wrap:break-word;
-      overflow-wrap:anywhere;
-      hyphens:auto;
+    body.hire-page .grid {
+      gap: clamp(20px, 3.5vw, 36px) !important;
     }
 
-    .price{font-weight:700;margin-top:8px}
-    .meta{font-size:13px;opacity:.8;margin-top:6px}
-    .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-    .btn{display:inline-block;border:1px solid var(--muted);padding:10px 14px;border-radius:12px;font-weight:600}
-    .btn.primary{background:#111;color:#fff;border-color:#111}
-    .btn.ghost{background:#fff}
-    .badge{display:inline-block;font-size:12px;padding:4px 8px;border:1px solid var(--muted);border-radius:999px;margin-left:8px}
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 34px;
+      line-height: 1.1
+    }
 
-    @media (max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:640px){.grid{grid-template-columns:1fr}}
-    footer { margin-top: 48px; }
-    footer .container { border-top: 1px solid var(--muted); }
-    .foot { padding: 16px 0; font-size: 14px; }
+    p.sub {
+      margin: 0 0 26px 0;
+      opacity: .75
+    }
 
-  
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
 
+    .card {
+      background: var(--card);
+      border: 1px solid var(--muted);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      min-height: 120px;
+      padding: 20px;
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
+      hyphens: auto;
+    }
+
+    .price {
+      font-weight: 700;
+      margin-top: 8px
+    }
+
+    .meta {
+      font-size: 13px;
+      opacity: .8;
+      margin-top: 6px
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-block;
+      border: 1px solid var(--muted);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 600
+    }
+
+    .btn.primary {
+      background: #111;
+      color: #fff;
+      border-color: #111
+    }
+
+    .btn.ghost {
+      background: #fff
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      padding: 4px 8px;
+      border: 1px solid var(--muted);
+      border-radius: 999px;
+      margin-left: 8px
+    }
+
+    @media (max-width:920px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media (max-width:640px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    footer {
+      margin-top: 48px;
+    }
+
+    footer .container {
+      border-top: 1px solid var(--muted);
+    }
+
+    .foot {
+      padding: 16px 0;
+      font-size: 14px;
+    }
   </style>
   <link rel="stylesheet" href="/assets/global.css">
+  <script src="/assets/theme.js" defer></script>
 </head>
+
 <body class="hire-page">
   <header>
     <div class="container nav">
@@ -122,7 +260,8 @@
       <!-- 3) Problem → Lösung (Scoping / PoC / Integration Day) -->
       <div class="card">
         <h2 style="margin:0 0 6px 0;">Problem → Lösung</h2>
-        <p style="margin:0"><strong>Scoping • Proof of Concept • Integration Day</strong> – Plan, Proof und funktionierendes Setup.</p>
+        <p style="margin:0"><strong>Scoping • Proof of Concept • Integration Day</strong> – Plan, Proof und
+          funktionierendes Setup.</p>
         <div class="meta">Vendor-neutral • messbare Akzeptanzkriterien • klare Next Steps</div>
         <div class="price">Scoping €49 • Blueprint ab €499 • PoC ab €1.490</div>
         <div class="actions">
@@ -134,7 +273,8 @@
       <!-- 4) Home-Assistant Setup / Sprint (remote-first) -->
       <div class="card">
         <h2 style="margin:0 0 6px 0;">Home-Assistant Setup / Sprint</h2>
-        <p style="margin:0">Remote-first Einrichtung, Integrationen & Automationen – via Nabu Casa / Tailscale, sauber dokumentiert.</p>
+        <p style="margin:0">Remote-first Einrichtung, Integrationen & Automationen – via Nabu Casa / Tailscale, sauber
+          dokumentiert.</p>
         <div class="meta">Remote bevorzugt • Vor Ort Kreta optional • Backup & Handoff</div>
         <div class="price">ab €149 / Setup • Flow Sprint ab €199</div>
         <div class="actions">
@@ -170,7 +310,8 @@
       <!-- 7) Bitcoin-Mining-Check -->
       <div class="card">
         <h2 style="margin:0 0 6px 0;">Bitcoin-Mining-Check<span class="badge">30 Min</span></h2>
-        <p style="margin:0">Lohnt sich Mining für dich? Strompreis, Hardware-Pfad, Lärm / Wärme, ROI-Daumen – ehrlich & klar.</p>
+        <p style="margin:0">Lohnt sich Mining für dich? Strompreis, Hardware-Pfad, Lärm / Wärme, ROI-Daumen – ehrlich &
+          klar.</p>
         <div class="meta">„Check 30“ €49 • „Deep Dive 90“ €149 • anrechenbar</div>
         <div class="price">ab €49 • Remote-Call</div>
         <div class="actions">
@@ -182,7 +323,8 @@
       <!-- Drohnenpilot + Schnitt -->
       <div class="card">
         <h2 style="margin:0 0 6px 0;">Drohnenpilot + Schnitt (Kreta)</h2>
-        <p style="margin:0">4K-Luftaufnahmen, die wirken — Hotel, Immobilie, Influencer. Auf Wunsch inkl. Schnitt 9:16 / 16:9.</p>
+        <p style="margin:0">4K-Luftaufnahmen, die wirken — Hotel, Immobilie, Influencer. Auf Wunsch inkl. Schnitt 9:16 /
+          16:9.</p>
         <div class="meta">Hotel / Immo / Influencer • PV / Dach Visual-Check • Baustellen-Progress</div>
         <div class="price">Fly-Only €250 • Fly + Cut €450 • PV / Dach €199</div>
         <div class="actions">
@@ -193,7 +335,8 @@
       <!-- Webseiten / Website Sprint -->
       <div class="card">
         <h2 style="margin:0 0 6px 0;">Website Sprint</h2>
-        <p style="margin:0">Schnelle, schlanke Seiten: Design + Build aus einer Hand. Landing Page, One-Pager oder Mini-Site.</p>
+        <p style="margin:0">Schnelle, schlanke Seiten: Design + Build aus einer Hand. Landing Page, One-Pager oder
+          Mini-Site.</p>
         <div class="meta">Mobile-first • Lighthouse 90+ • Cal.com / Plausible • Copy-Boost optional</div>
         <div class="price">Landing Page ab €590 • Website Sprint 3–5 Seiten ab €1.290 • SEO Fix €149</div>
         <div class="actions">
@@ -207,6 +350,7 @@
   <footer>
     <div class="container foot">© <span id="y"></span> Lugh21</div>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
+
 </html>
