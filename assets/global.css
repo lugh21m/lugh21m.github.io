@@ -124,7 +124,7 @@ header {
 
 .nav {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   padding: 16px 0
 }
@@ -146,6 +146,7 @@ header {
 
 .links {
   display: flex;
+  align-items: center;
   gap: 18px
 }
 

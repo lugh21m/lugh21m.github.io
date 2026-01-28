@@ -6,6 +6,7 @@
     { value: "dark", label: "Dunkel" },
     { value: "system", label: "System" }
   ];
+  const stickyTop = 24;
 
   const isValid = (value) => ["light", "dark", "system"].includes(value);
 
@@ -44,6 +45,8 @@
   --theme-switch-border: rgba(0,0,0,0.12);
   --theme-switch-shadow: 0 10px 24px rgba(0,0,0,0.12);
   --theme-switch-text: var(--fg, var(--text, var(--ink, currentColor)));
+  --theme-switch-top: ${stickyTop}px;
+  --theme-switch-edge-gap: 12px;
 }
 :root[data-theme="dark"] {
   --theme-switch-bg: rgba(15,17,20,0.7);
@@ -74,6 +77,19 @@
   font-weight: 600;
   line-height: 1;
   white-space: nowrap;
+  flex: 0 0 auto;
+}
+.theme-switch--header {
+  margin-left: 0;
+  align-self: center;
+}
+.theme-switch-placeholder {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: calc(var(--theme-switch-width, 0px) + var(--theme-switch-edge-gap, 0px));
+  height: var(--theme-switch-height, 0px);
+  pointer-events: none;
 }
 .theme-switch__label {
   font-size: 11px;
@@ -111,6 +127,20 @@
   margin-left: -12px;
   pointer-events: none;
   opacity: 0.7;
+}
+.theme-switch-slot {
+  display: flex;
+  justify-content: flex-end;
+}
+.theme-switch--sticky {
+  position: sticky;
+  top: var(--theme-switch-top);
+  z-index: 60;
+  align-self: flex-start;
+}
+.theme-switch--fixed {
+  position: fixed;
+  z-index: 80;
 }
 .theme-switch--floating {
   position: fixed;
@@ -176,24 +206,105 @@
   const mountSwitcher = () => {
     if (document.querySelector(".theme-switch")) return;
     const wrapper = buildSwitcher();
-    const targets = [
-      "header .links",
-      "header nav",
-      ".header-right",
-      ".site-header",
-      "header"
-    ];
-    let target = null;
-    for (const selector of targets) {
-      const el = document.querySelector(selector);
-      if (el) {
-        target = el;
-        break;
+    const isReadPost = Boolean(document.querySelector("main article.post"));
+
+    const findHeaderTarget = () => {
+      const targets = [
+        "header .links",
+        "header nav",
+        ".header-right",
+        ".site-header",
+        "header"
+      ];
+      for (const selector of targets) {
+        const el = document.querySelector(selector);
+        if (el) return el;
       }
+      return null;
+    };
+
+    if (isReadPost) {
+      const headerTarget = findHeaderTarget();
+      const ensurePlaceholder = (target) => {
+        let placeholder = target.querySelector(".theme-switch-placeholder");
+        if (!placeholder) {
+          placeholder = document.createElement("span");
+          placeholder.className = "theme-switch-placeholder";
+          target.appendChild(placeholder);
+        }
+        return placeholder;
+      };
+      if (headerTarget) {
+        headerTarget.appendChild(wrapper);
+        wrapper.classList.add("theme-switch--header");
+      } else {
+        const header = document.querySelector("header");
+        if (header) {
+          header.appendChild(wrapper);
+          wrapper.classList.add("theme-switch--header");
+        }
+      }
+
+      const applyFixedPosition = (rect) => {
+        const anchor =
+          document.querySelector("main article.post") ||
+          document.querySelector(".post") ||
+          document.querySelector(".container");
+        const anchorRect = anchor ? anchor.getBoundingClientRect() : null;
+        const minInset = 8;
+        const edgeGapValue = getComputedStyle(root).getPropertyValue("--theme-switch-edge-gap");
+        const edgeGap = Number.parseFloat(edgeGapValue) || 12;
+        const desiredLeft = anchorRect
+          ? anchorRect.right - rect.width - edgeGap
+          : rect.left;
+        const left = Math.min(
+          Math.max(minInset, desiredLeft),
+          window.innerWidth - rect.width - minInset
+        );
+        const top = Math.max(minInset, rect.top);
+        wrapper.style.left = `${left}px`;
+        wrapper.style.top = `${top}px`;
+      };
+
+      const toFixed = () => {
+        const rect = wrapper.getBoundingClientRect();
+        const target = headerTarget || document.querySelector("header");
+        if (target) {
+          ensurePlaceholder(target);
+        }
+        wrapper.classList.remove("theme-switch--header");
+        wrapper.classList.add("theme-switch--fixed");
+        document.body.appendChild(wrapper);
+        root.style.setProperty("--theme-switch-width", `${rect.width}px`);
+        root.style.setProperty("--theme-switch-height", `${rect.height}px`);
+        applyFixedPosition(rect);
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => {
+          requestAnimationFrame(toFixed);
+        }, { once: true });
+      } else {
+        requestAnimationFrame(toFixed);
+      }
+
+      const onResize = () => {
+        const rect = wrapper.getBoundingClientRect();
+        root.style.setProperty("--theme-switch-width", `${rect.width}px`);
+        root.style.setProperty("--theme-switch-height", `${rect.height}px`);
+        applyFixedPosition(rect);
+      };
+      window.addEventListener("resize", onResize);
+      window.addEventListener("orientationchange", onResize);
+
+      syncActive(wrapper, safeGet());
+      return;
     }
 
+    const target = findHeaderTarget();
     if (target) {
       target.appendChild(wrapper);
+      wrapper.classList.add("theme-switch--header");
     } else {
       wrapper.classList.add("theme-switch--floating");
       document.body.appendChild(wrapper);
