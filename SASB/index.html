@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SASB | Wissen aus dem Schichtbuch in Sekunden nutzen</title>
+  <meta name="description" content="SASB macht historische Schichtbucheinträge direkt durchsuchbar und reduziert Suchzeit bei wiederkehrenden Störungen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/SASB/assets/sasb.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="/SASB/" aria-label="SASB Startseite">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>SASB</span>
+        <small>Smart Agent Schichtbuch</small>
+      </a>
+      <button class="menu-btn" type="button" aria-label="Navigation öffnen" aria-expanded="false">Menü</button>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="/SASB/" aria-current="page">Start</a>
+        <a href="/SASB/case-study/">Case Study</a>
+        <a href="/SASB/pilot/">Pilot</a>
+        <a href="/SASB/ueber/">Über</a>
+        <a class="cta-link" href="/SASB/termin/">15-Min Termin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <span class="badge">Industrieeinsatz im Fokus</span>
+          <h1>Wenn die gleiche Störung zurückkommt, sollte nicht die gleiche Sucharbeit starten.</h1>
+          <p>
+            SASB holt vorhandenes Wissen aus alten Schichtbucheinträgen und macht es dort auffindbar,
+            wo die Anlage gerade steht: in der Schicht, am Handy, unter Zeitdruck.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="/SASB/case-study/">Praxisnachweis ansehen</a>
+            <a class="btn btn-ghost" href="/SASB/termin/">15-Min ROI-Check</a>
+          </div>
+        </div>
+        <aside class="panel signal-box reveal d2" aria-label="Einsatzprofil">
+          <h2>Für wen passt SASB?</h2>
+          <div class="metric"><span>Anlagentyp</span><strong>Engpass mit Wiederholfehlern</strong></div>
+          <div class="metric"><span>Datenbasis</span><strong>Bestehendes Schichtbuch / Export</strong></div>
+          <div class="metric"><span>Projektzeit</span><strong>6 Wochen Pilotlauf</strong></div>
+          <div class="metric"><span>Auswertung</span><strong>Zeitvergleich vor/nach Pilot</strong></div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Ablauf</div>
+            <h2>Vom ersten Kontakt bis zum Termin in vier klaren Schritten</h2>
+          </div>
+        </div>
+        <div class="flow reveal d2">
+          <article class="flow-step">
+            <strong>Schritt 01</strong>
+            <p>Kurze Nachricht auf LinkedIn weckt Interesse an einer konkreten Engpassanlage.</p>
+          </article>
+          <article class="flow-step">
+            <strong>Schritt 02</strong>
+            <p>Profilbesuch führt auf diese Seite, um Arbeitsweise und Nutzen schnell zu prüfen.</p>
+          </article>
+          <article class="flow-step">
+            <strong>Schritt 03</strong>
+            <p>Case Study zeigt den Beweis: reale Störung, nachvollziehbarer Ablauf, messbare Zeit.</p>
+          </article>
+          <article class="flow-step">
+            <strong>Schritt 04</strong>
+            <p>Kurzes Gespräch klärt, ob ein Pilot auf eurer Bottleneck-Anlage sinnvoll ist.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Typische Realität</div>
+            <h2>Warum Wiederholstörungen trotzdem lange stehen</h2>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal d2">
+            <h3>Fehler wird gesucht statt behoben</h3>
+            <p>Ein großer Teil der Zeit geht in Rückfragen, Ordner und alte Notizen statt in die technische Lösung.</p>
+          </article>
+          <article class="card reveal d3">
+            <h3>Erfahrung bleibt personengebunden</h3>
+            <p>Wenn der richtige Kollege nicht greifbar ist, startet die Diagnose zu oft wieder bei null.</p>
+          </article>
+          <article class="card reveal d4">
+            <h3>Nachtschicht hat weniger Kontext</h3>
+            <p>Informationen aus Tag- und Frühschicht liegen vor, sind aber im Moment der Störung zu langsam auffindbar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap demo">
+        <article class="terminal reveal" aria-label="SASB Suchablauf">
+          <div class="terminal-head">
+            <i></i><i></i><i></i>
+            <span style="margin-left:0.4rem;color:#8ea6df">SASB Suche</span>
+          </div>
+<pre>> suchbegriff: foerderband stoppt bei station 7
+
+1 treffer mit hoher aehnlichkeit gefunden
+
+fall #384 | KW 37 | nachtschicht
+symptom: band stoppt kurz vor sensorgruppe b
+ursache: stecker x17 locker durch vibration
+massnahme: stecker neu verriegelt + kabelhalter ersetzt
+zeit bis freigabe: 12 min
+</pre>
+        </article>
+        <aside class="stat-block reveal d2">
+          <strong>Pilot ab 03/2026</strong>
+          <p>Erste belastbare Kennzahlen werden nach dem ersten Werkseinsatz veröffentlicht.</p>
+          <div class="callout">
+            Bis die Live-Daten vorliegen, arbeiten wir mit einem transparenten Vorher/Nachher-Setup statt mit geschönten Marketingwerten.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap two-col">
+        <article class="surface reveal">
+          <div class="kicker">Pilotmodell</div>
+          <h2>In sechs Wochen zur belastbaren Entscheidung</h2>
+          <div class="timeline" style="margin-top: 1rem;">
+            <div class="timeline-item">
+              <span class="time-tag">Tag 1</span>
+              <div>
+                <h3>Datenübernahme</h3>
+                <p>Historische Einträge importieren, erste Suchlogik für die Engpassanlage aufsetzen.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="time-tag">Woche 1</span>
+              <div>
+                <h3>Schichtstart</h3>
+                <p>Kickoff mit Instandhaltung, Zugriff für alle Schichten, Nutzung direkt im Alltag.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="time-tag">Woche 6</span>
+              <div>
+                <h3>Auswertung</h3>
+                <p>Vergleich von Diagnosezeiten und dokumentierter Wirkung für die Entscheidung im Werk.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="warn reveal d2">
+          <h3>Klare Risikoregel</h3>
+          <p>Wenn im vereinbarten Zeitraum keine messbare Verbesserung entsteht, wird der Pilot nicht berechnet.</p>
+          <div class="actions" style="margin-top: 1rem;">
+            <a class="btn btn-primary" href="/SASB/pilot/">Pilotdetails prüfen</a>
+            <a class="btn btn-ghost" href="/SASB/termin/">Termin buchen</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-row">
+        <span>&copy; <span data-year></span> SASB</span>
+        <span>Smart Agent Schichtbuch · Industrieeinsatz</span>
+      </div>
+      <div class="beta-tail">
+        SASB Projekt im Beta Lab: <a href="/beta-lab/">Hier im Beta Lab öffnen</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/SASB/assets/sasb.js"></script>
+</body>
+</html>

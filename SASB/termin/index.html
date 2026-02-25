@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SASB Termin | 15-Min ROI-Check</title>
+  <meta name="description" content="Terminseite für SASB: 15-Min ROI-Check zur Einschätzung eines Piloten auf eurer Engpassanlage." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/SASB/assets/sasb.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="/SASB/" aria-label="SASB Startseite">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>SASB</span>
+        <small>Smart Agent Schichtbuch</small>
+      </a>
+      <button class="menu-btn" type="button" aria-label="Navigation öffnen" aria-expanded="false">Menü</button>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="/SASB/">Start</a>
+        <a href="/SASB/case-study/">Case Study</a>
+        <a href="/SASB/pilot/">Pilot</a>
+        <a href="/SASB/ueber/">Über</a>
+        <a class="cta-link" href="/SASB/termin/" aria-current="page">15-Min Termin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap reveal">
+        <span class="badge">Termin</span>
+        <h1>15 Minuten reichen für eine erste Pilot-Einschätzung.</h1>
+        <p>
+          Du bekommst eine ehrliche Einschätzung, ob euer Engpass für einen SASB-Pilot geeignet ist
+          und welche Kennzahl für die Erfolgsmessung sinnvoll wäre.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap two-col">
+        <article class="surface reveal">
+          <div class="kicker">Gesprächsinhalte</div>
+          <h2>Das klären wir im ROI-Check</h2>
+          <ul class="list" style="margin-top: 0.8rem;">
+            <li>Welche Störungstypen regelmäßig Suchzeit verursachen.</li>
+            <li>Welche Datenquellen für den Pilot genutzt werden können.</li>
+            <li>Welche Kennzahl im Werk als Erfolg zählt.</li>
+            <li>Wie hoch der Aufwand für euer Team realistisch ist.</li>
+          </ul>
+          <div class="callout" style="margin-top: 1rem;">
+            Kein Verkaufsgespräch mit Folien-Marathon. Nur ein technischer Realitätscheck.
+          </div>
+          <div class="actions" style="margin-top: 1rem;">
+            <a class="btn btn-primary" href="mailto:hello@lugh21.com?subject=SASB%20ROI-Check">Termin per Mail anfragen</a>
+          </div>
+        </article>
+
+        <aside class="form-shell reveal d2" aria-label="Kontaktformular">
+          <div class="kicker">Kurz anfragen</div>
+          <h2 style="margin: 0.4rem 0 0.8rem;">Pilot-Check vorbereiten</h2>
+          <form>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Vor- und Nachname" />
+
+            <label for="werk">Werk / Standort</label>
+            <input id="werk" name="werk" type="text" placeholder="z. B. Werk XY" />
+
+            <label for="anlage">Anlagentyp</label>
+            <select id="anlage" name="anlage">
+              <option>Bitte wählen</option>
+              <option>Fördertechnik</option>
+              <option>Karosseriebau</option>
+              <option>Lackiererei</option>
+              <option>Andere Anlage</option>
+            </select>
+
+            <label for="msg">Kurzbeschreibung</label>
+            <textarea id="msg" name="msg" placeholder="Welche Störungen kosten aktuell am meisten Zeit?"></textarea>
+
+            <button class="btn btn-ghost" type="button">Formular-Demo (ohne Versand)</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-row">
+        <span>&copy; <span data-year></span> SASB</span>
+        <span>Terminseite · 15-Min ROI-Check</span>
+      </div>
+      <div class="beta-tail">
+        SASB Projekt im Beta Lab: <a href="/beta-lab/">Hier im Beta Lab öffnen</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/SASB/assets/sasb.js"></script>
+</body>
+</html>
