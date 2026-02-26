@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <script>
+  (() => {
+    try {
+      const stored = localStorage.getItem('lugh21-theme');
+      if (stored === 'dark' || stored === 'light') {
+        document.documentElement.setAttribute('data-theme', stored);
+      } else if (stored === 'system') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SASB | Zwei echte Fälle</title>
+  <meta name="description" content="Zwei dokumentierte Trefferfälle zeigen, wie der Diagnose-Assistent bei realen Störungen die Diagnosezeit verkürzt." />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/SASB_CaseStudy/assets/style.css" />
+  <script src="/assets/theme.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="/SASB_CaseStudy/">
+        <span class="brand-dot" aria-hidden="true"></span>
+        SASB
+      </a>
+      <nav class="steps" aria-label="Fortschritt">
+        <span class="step-dot done">1</span>
+        <span class="step-line done"></span>
+        <span class="step-dot done">2</span>
+        <span class="step-line done"></span>
+        <span class="step-dot active">3</span>
+        <span class="step-line"></span>
+        <span class="step-dot">4</span>
+        <span class="step-line"></span>
+        <span class="step-dot">5</span>
+      </nav>
+      <div class="links"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <div class="reveal">
+        <p class="page-label">Schritt 3 von 5</p>
+        <h1>Zwei echte Fälle</h1>
+        <p class="lead">Jeder Fall zeigt: Symptom, Treffer aus dem Schichtbuch, angewendete Maßnahme, Ergebnis.</p>
+      </div>
+
+      <div class="card-grid reveal d2">
+
+        <article class="case-card">
+          <h3>Fall A &middot; Förderstrecke stoppt an Sensorgruppe</h3>
+          <ul>
+            <li>Symptom trat in ähnlicher Form bereits mehrfach auf.</li>
+            <li>Diagnose-Assistent verknüpft mit einem alten Schichtbuch-Eintrag.</li>
+            <li>Empfohlene Maßnahme: Steckverbindung prüfen, Halterung ersetzen.</li>
+            <li>Freigabe deutlich schneller als im Referenzfall.</li>
+          </ul>
+        </article>
+
+        <article class="case-card">
+          <h3>Fall B &middot; Sporadische Abschaltung an Fördertechnik</h3>
+          <ul>
+            <li>Anderes Fehlerbild, gleiche Frage: Wurde das schon einmal gelöst?</li>
+            <li>Treffer enthält ähnlichen Eintrag mit identischer Grundursache.</li>
+            <li>Team nutzt vorhandene Lösung statt kompletter Neuerkundung.</li>
+            <li>Zeigt: Der Ansatz funktioniert bei verschiedenen Störungstypen.</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <h2 class="reveal d2" style="margin-top: 1.5rem;">Kennzahlen</h2>
+
+      <div class="kpi-grid reveal d3">
+        <div class="kpi-item">
+          <strong>Medianzeit</strong>
+          <span>Vorher / Nachher je Störungstyp</span>
+        </div>
+        <div class="kpi-item">
+          <strong>Gesamtmin.</strong>
+          <span>Stillstand im Vergleich</span>
+        </div>
+        <div class="kpi-item">
+          <strong>ROI-Logik</strong>
+          <span>Minuten &times; Stillstandskosten</span>
+        </div>
+      </div>
+
+      <p class="note reveal d3">Live-Kennzahlen werden nach dem ersten Werkpilot veröffentlicht. Bis dahin arbeiten wir mit einem transparenten Vorher/Nachher-Setup.</p>
+
+      <nav class="wizard-nav reveal d3">
+        <a class="btn btn-back" href="/SASB_CaseStudy/loesung/">&larr; Zurück</a>
+        <a class="btn btn-next" href="/SASB_CaseStudy/ablauf/">Wie der Pilot abläuft &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      &copy; 2026 SASB &middot; <a href="/beta-lab/">Beta Lab</a>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <script>
+  (() => {
+    try {
+      const stored = localStorage.getItem('lugh21-theme');
+      if (stored === 'dark' || stored === 'light') {
+        document.documentElement.setAttribute('data-theme', stored);
+      } else if (stored === 'system') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SASB | Der Diagnose-Assistent</title>
+  <meta name="description" content="Der Diagnose-Assistent macht Schichtbuchwissen durchsuchbar — wie ein erfahrener Kollege, der immer da ist." />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/SASB_CaseStudy/assets/style.css" />
+  <script src="/assets/theme.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="/SASB_CaseStudy/">
+        <span class="brand-dot" aria-hidden="true"></span>
+        SASB
+      </a>
+      <nav class="steps" aria-label="Fortschritt">
+        <span class="step-dot done">1</span>
+        <span class="step-line done"></span>
+        <span class="step-dot active">2</span>
+        <span class="step-line"></span>
+        <span class="step-dot">3</span>
+        <span class="step-line"></span>
+        <span class="step-dot">4</span>
+        <span class="step-line"></span>
+        <span class="step-dot">5</span>
+      </nav>
+      <div class="links"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <div class="reveal">
+        <p class="page-label">Schritt 2 von 5</p>
+        <h1>Der erfahrene Kollege in der Hosentasche</h1>
+        <p class="lead">Stell dir vor, du hättest einen Kollegen, der sich an jede Störung erinnert, die je ins Schichtbuch geschrieben wurde — und den du jederzeit fragen kannst. Vom Handy. In jeder Schicht.</p>
+      </div>
+
+      <div class="terminal reveal d2">
+        <div class="terminal-head">
+          <i></i><i></i><i></i>
+          <span>Diagnose-Assistent</span>
+        </div>
+<pre>&gt; störung: förderband stoppt bei station 7
+
+1 treffer mit hoher ähnlichkeit
+
+fall #384 | kw 37
+symptom: band stoppt kurz vor sensorgruppe b
+ursache: stecker x17 locker durch vibration
+maßnahme: stecker neu verriegelt + kabelhalter ersetzt
+zeit bis freigabe: 12 min</pre>
+      </div>
+
+      <p class="reveal d2" style="color: var(--muted); font-size: 0.95rem; margin: 1.2rem 0;">
+        Wir nehmen eure Schichtbuchdaten der letzten Monate, machen sie durchsuchbar und stellen eurem Team einen Diagnose-Assistenten bereit. Keine neue Dokumentation. Kein Mehraufwand. Nur schnellerer Zugriff auf Wissen, das schon da ist.
+      </p>
+
+      <div class="compare reveal d3">
+        <div class="compare-box positive">
+          <h3>Ist</h3>
+          <ul>
+            <li>Der erfahrene Kollege als Tool — immer in der Hosentasche</li>
+            <li>Kennt jede dokumentierte Störung aus dem Schichtbuch</li>
+            <li>Ähnliche Fälle + Maßnahmen in Sekunden</li>
+            <li>Verfügbar für alle Schichten, an jedem Arbeitsplatz</li>
+          </ul>
+        </div>
+        <div class="compare-box negative">
+          <h3>Ist nicht</h3>
+          <ul>
+            <li>Kein neues MES</li>
+            <li>Kein CMMS-Ersatz</li>
+            <li>Nichts, was euer Team zusätzlich befüllen muss</li>
+          </ul>
+        </div>
+      </div>
+
+      <nav class="wizard-nav reveal d3">
+        <a class="btn btn-back" href="/SASB_CaseStudy/">&larr; Zurück</a>
+        <a class="btn btn-next" href="/SASB_CaseStudy/beweis/">Wie das in der Praxis aussieht &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      &copy; 2026 SASB &middot; <a href="/beta-lab/">Beta Lab</a>
+    </div>
+  </footer>
+
+</body>
+</html>
