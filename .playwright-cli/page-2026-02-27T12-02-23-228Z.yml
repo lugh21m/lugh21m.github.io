@@ -1,0 +1,78 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "SASB" [ref=e4] [cursor=pointer]:
+        - /url: /SASB_CaseStudy/
+        - text: SASB
+      - navigation "Fortschritt" [ref=e6]:
+        - link "Schritt 1" [ref=e7] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/
+          - text: "1"
+        - generic "Schritt 2" [ref=e9]: "2"
+        - link "Schritt 3" [ref=e11] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/ablauf/
+          - text: "3"
+        - link "Schritt 4" [ref=e13] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/termin/
+          - text: "4"
+      - generic "Theme" [ref=e15]:
+        - generic [ref=e16]: Theme
+        - combobox "Theme" [ref=e18] [cursor=pointer]:
+          - option "Hell" [selected]
+          - option "Dunkel"
+          - option "System"
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: Schritt 2 von 4
+        - heading "Der erfahrene Kollege in der Hosentasche" [level=1] [ref=e23]
+        - paragraph [ref=e24]: Ein Kollege, der sich an jede Störung erinnert — und den du jederzeit fragen kannst. Vom Handy. In jeder Schicht.
+      - paragraph [ref=e25]: "Du beschreibst dem Assistenten einfach den aktuellen Anlagenstand:"
+      - generic [ref=e26]:
+        - generic [ref=e28]: Eingabe
+        - paragraph [ref=e29]: "> Karosse auf Station XY, müsste eigentlich vorfördern, Belegtmeldungsstörung von Station XYZ steht an"
+      - paragraph [ref=e30]: "Das bekommst du als Antwort — direkt:"
+      - generic [ref=e31]:
+        - generic [ref=e33]: Ursache
+        - generic [ref=e34]: Platzdaten in Pufferverwaltung bereits verschoben, Transportauftrag aber nicht gestartet
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - generic [ref=e37]: Einzuleitende Maßnahmen
+          - generic [ref=e38]:
+            - generic [ref=e39]: "Sicherheit: 95 %"
+            - link "Basierend auf 1 Schichtbucheintrag ↓" [ref=e40] [cursor=pointer]:
+              - /url: "#quelle"
+        - list [ref=e41]:
+          - listitem [ref=e42]: Anlage auf Handbetrieb stellen
+          - listitem [ref=e43]: Platzdaten manuell auf die Station kopieren, auf der die Karosse tatsächlich steht
+          - listitem [ref=e44]: Falsch geschobene Platzdaten löschen
+          - listitem [ref=e45]: Zurück auf Automatik
+        - group [ref=e46]:
+          - generic "▶ Langfristige Maßnahme" [ref=e47] [cursor=pointer]
+        - group [ref=e48]:
+          - 'generic "▶ Quelle: Rohtext Schichtbucheintrag" [ref=e49] [cursor=pointer]'
+      - paragraph [ref=e50]: Egal ob Fördertechnik, Roboter oder Peripherie — der Assistent durchsucht alle Schichtbucheinträge und liefert passende Maßnahmen in Sekunden. Keine neue Dokumentation. Kein Mehraufwand. Nur schnellerer Zugriff auf Wissen, das schon da ist.
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - heading "Ist" [level=3] [ref=e53]
+          - list [ref=e54]:
+            - listitem [ref=e55]: Der erfahrene Kollege als Tool — immer in der Hosentasche
+            - listitem [ref=e56]: Kennt jede dokumentierte Störung aus dem Schichtbuch
+            - listitem [ref=e57]: Ähnliche Fälle + Maßnahmen in Sekunden
+            - listitem [ref=e58]: Verfügbar für alle Schichten, an jedem Arbeitsplatz
+        - generic [ref=e59]:
+          - heading "Ist nicht" [level=3] [ref=e60]
+          - list [ref=e61]:
+            - listitem [ref=e62]: Kein neues MES
+            - listitem [ref=e63]: Kein CMMS-Ersatz
+            - listitem [ref=e64]: Nichts, was euer Team zusätzlich befüllen muss
+      - navigation [ref=e65]:
+        - link "← Zurück" [ref=e66] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/
+        - link "Wie der Pilot abläuft →" [ref=e67] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/ablauf/
+  - contentinfo [ref=e68]:
+    - generic [ref=e69]:
+      - text: © 2026 SASB ·
+      - link "Beta Lab" [ref=e70] [cursor=pointer]:
+        - /url: /beta-lab/

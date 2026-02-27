@@ -512,11 +512,10 @@ h2 {
   margin: 0.4rem 0 0;
   padding-left: 1rem;
   color: var(--terminal-text);
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.74rem;
-  line-height: 1.45;
+  white-space: normal;
+  overflow-wrap: break-word;
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 .terminal-details[open] {
@@ -859,6 +858,25 @@ h2 {
   width: 100%;
   padding: 0.85rem;
   font-size: 0.95rem;
+}
+
+.contact-options {
+  margin: 1.5rem 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.btn-whatsapp {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 0.95rem;
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.45);
+  color: var(--text);
+}
+
+.btn-whatsapp:hover {
+  border-color: rgba(52, 211, 153, 0.7);
 }
 
 /* === FOOTER === */
