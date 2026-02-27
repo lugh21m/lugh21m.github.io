@@ -57,27 +57,55 @@
       <div class="reveal">
         <p class="page-label">Schritt 2 von 5</p>
         <h1>Der erfahrene Kollege in der Hosentasche</h1>
-        <p class="lead">Stell dir vor, du hättest einen Kollegen, der sich an jede Störung erinnert, die je ins Schichtbuch geschrieben wurde — und den du jederzeit fragen kannst. Vom Handy. In jeder Schicht.</p>
+        <p class="lead">Ein Kollege, der sich an jede Störung erinnert — und den du jederzeit fragen kannst. Vom Handy. In jeder Schicht.</p>
       </div>
 
-      <div class="terminal reveal d2">
-        <div class="terminal-head">
-          <i></i><i></i><i></i>
-          <span>Diagnose-Assistent</span>
+      <p class="demo-context reveal d2">Du beschreibst dem Assistenten einfach den aktuellen Anlagenstand:</p>
+
+      <div class="demo-block reveal d2">
+        <div class="demo-block-head">
+          <span class="terminal-label">Eingabe</span>
         </div>
-<pre>&gt; störung: förderband stoppt bei station 7
+        <p><span class="terminal-prompt">&gt;</span> Karosse auf Station XY, müsste eigentlich vorfördern, Belegtmeldungsstörung von Station XYZ steht an</p>
+      </div>
 
-1 treffer mit hoher ähnlichkeit
+      <p class="demo-context reveal d2">Das bekommst du als Antwort — direkt:</p>
 
-fall #384 | kw 37
-symptom: band stoppt kurz vor sensorgruppe b
-ursache: stecker x17 locker durch vibration
-maßnahme: stecker neu verriegelt + kabelhalter ersetzt
-zeit bis freigabe: 12 min</pre>
+      <div class="demo-block reveal d3">
+        <div class="demo-block-head">
+          <span class="terminal-label" style="color: var(--signal);">Ursache</span>
+        </div>
+        <div class="terminal-cause">Platzdaten in Pufferverwaltung bereits verschoben, Transportauftrag aber nicht gestartet</div>
+      </div>
+
+      <div class="demo-block reveal d3">
+        <div class="demo-block-head">
+          <span class="terminal-label action">Einzuleitende Maßnahmen</span>
+          <div class="demo-block-head-right">
+            <span class="terminal-score">Sicherheit: 95 %</span>
+            <a class="terminal-source-link" href="#quelle">Basierend auf 1 Schichtbucheintrag ↓</a>
+          </div>
+        </div>
+        <ol style="margin: 0.3rem 0 0; padding-left: 1.2rem; color: var(--terminal-text);">
+          <li>Anlage auf Handbetrieb stellen</li>
+          <li>Platzdaten manuell auf die Station kopieren, auf der die Karosse tatsächlich steht</li>
+          <li>Falsch geschobene Platzdaten löschen</li>
+          <li>Zurück auf Automatik</li>
+        </ol>
+
+        <details class="terminal-details">
+          <summary>Langfristige Maßnahme</summary>
+          <p>Untersuchen, warum der Transport trotz verschobener Platzdaten nicht gestartet ist. Mögliche Ursache: Timing-Problem zwischen Pufferverwaltung und Transportauftrag. Root-Cause-Analyse empfohlen.</p>
+        </details>
+
+        <details class="terminal-details" id="quelle">
+          <summary>Quelle: Schichtbucheintrag</summary>
+          <p>An der Station XYZ fuhr die Karosse nicht weiter, obwohl eigentlich ein Transport hätte starten müssen. Mechanisch war alles i.O. Es Stand eine Belegtmeldungs Störung auf der Station an, auf die eigentlich hätte gefördert werden müssen. Haben dann gesehen dass die Platzdaten in der Pufferverwaltung bereits weitergeschoben wurden, der Transport der die Rollenbahn allerdings startet, lag nicht an. Anlage auf Handbetrieb gestellt. Haben dann die Platzdaten die bereits weitergeschoben wurden manuell auf die Station auf der die Karosse tatsächlich steht kopiert, dann die Platzdaten die fälschlicherweise geschoben wurden gelöscht. Dann lief es im Automatik Betrieb weiter.</p>
+        </details>
       </div>
 
       <p class="reveal d2" style="color: var(--muted); font-size: 0.95rem; margin: 1.2rem 0;">
-        Wir nehmen eure Schichtbuchdaten der letzten Monate, machen sie durchsuchbar und stellen eurem Team einen Diagnose-Assistenten bereit. Keine neue Dokumentation. Kein Mehraufwand. Nur schnellerer Zugriff auf Wissen, das schon da ist.
+        Egal ob Fördertechnik, Roboter oder Peripherie — der Assistent durchsucht alle Schichtbucheinträge und liefert passende Maßnahmen in Sekunden. Keine neue Dokumentation. Kein Mehraufwand. Nur schnellerer Zugriff auf Wissen, das schon da ist.
       </p>
 
       <div class="compare reveal d3">

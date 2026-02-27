@@ -313,6 +313,188 @@ h2 {
   line-height: 1.55;
 }
 
+/* === DEMO BLOCKS (Eingabe / Antwort) === */
+.demo-context {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 1rem 0 0.5rem;
+}
+
+.demo-block {
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  background: var(--terminal-bg);
+  padding: 0.8rem 1rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--terminal-text);
+  line-height: 1.55;
+}
+
+.demo-block + .demo-block {
+  margin-top: 0.75rem;
+}
+
+.demo-block-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.demo-block-head .terminal-label {
+  margin-bottom: 0;
+}
+
+.demo-block-head-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.demo-block p {
+  margin: 0 0 0.6rem;
+}
+
+.demo-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* === TERMINAL BODY (structured content) === */
+.terminal-body {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--terminal-text);
+  line-height: 1.55;
+}
+
+.terminal-body p {
+  margin: 0 0 0.6rem;
+}
+
+.terminal-body p:last-child {
+  margin-bottom: 0;
+}
+
+.terminal-input {
+  color: var(--text);
+  font-weight: 700;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.terminal-prompt {
+  color: var(--signal);
+  margin-right: 0.3rem;
+}
+
+.terminal-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  margin-bottom: 0.25rem;
+  color: var(--muted);
+}
+
+.terminal-label.action {
+  color: var(--ok);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.terminal-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--ok);
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 6px;
+  padding: 0.15rem 0.45rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.terminal-cause {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--signal-soft);
+  background: rgba(240, 180, 41, 0.07);
+  border: 1px solid rgba(240, 180, 41, 0.35);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  line-height: 1.45;
+  margin: 0.3rem 0 0;
+}
+
+.terminal-source-link {
+  font-size: 0.68rem;
+  color: var(--blue-soft);
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.terminal-source-link:hover {
+  text-decoration: underline;
+}
+
+.terminal-details {
+  border-top: 1px solid var(--line);
+  padding-top: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.terminal-details summary {
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.terminal-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.terminal-details summary::before {
+  content: "\25B6";
+  font-size: 0.55rem;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+
+.terminal-details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.terminal-details p {
+  margin: 0.4rem 0 0;
+  padding-left: 1rem;
+  color: var(--terminal-text);
+}
+
+.terminal-details[open] {
+  padding-bottom: 0.2rem;
+}
+
 /* === COMPARE BOX (Ist / Ist nicht) === */
 .compare {
   display: grid;
