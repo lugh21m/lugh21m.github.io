@@ -782,6 +782,43 @@ h2 {
   outline-offset: 1px;
 }
 
+/* === CALENDLY EMBED === */
+.calendly-container {
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+
+.calendly-container .calendly-inline-widget {
+  min-height: 760px;
+}
+
+.contact-divider {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+  margin: 1.2rem 0 0.8rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.contact-divider::before,
+.contact-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.contact-alt {
+  display: grid;
+  gap: 0.65rem;
+}
+
 /* === CHECK LIST (Termin) === */
 .check-list {
   margin: 0.8rem 0;
@@ -877,6 +914,98 @@ h2 {
 
 .btn-whatsapp:hover {
   border-color: rgba(52, 211, 153, 0.7);
+}
+
+/* === TRUST STRIP === */
+.trust-strip {
+  border-radius: var(--r);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  background: rgba(52, 211, 153, 0.06);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.trust-strip h3 {
+  font-size: 0.95rem;
+  color: var(--ok);
+  margin: 0 0 0.5rem;
+}
+
+.trust-strip ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trust-strip li {
+  padding: 0.3rem 0 0.3rem 1.2rem;
+  position: relative;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.trust-strip li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ok);
+}
+
+/* === FAQ SECTION === */
+.faq-section {
+  margin: 1rem 0;
+}
+
+.faq-section h3 {
+  font-size: 0.95rem;
+  margin: 0 0 0.6rem;
+}
+
+.faq-item {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin-bottom: 0.5rem;
+}
+
+.faq-item summary {
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::before {
+  content: "\25B6";
+  font-size: 0.5rem;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.faq-item[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 1rem 0.7rem 1.8rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
 }
 
 /* === FOOTER === */
