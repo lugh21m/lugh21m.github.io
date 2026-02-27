@@ -37,15 +37,13 @@
         SASB
       </a>
       <nav class="steps" aria-label="Fortschritt">
-        <span class="step-dot done">1</span>
+        <a class="step-dot done" href="/SASB_CaseStudy/" aria-label="Schritt 1">1</a>
         <span class="step-line done"></span>
-        <span class="step-dot active">2</span>
+        <span class="step-dot active" aria-current="step" aria-label="Schritt 2">2</span>
         <span class="step-line"></span>
-        <span class="step-dot">3</span>
+        <a class="step-dot" href="/SASB_CaseStudy/ablauf/" aria-label="Schritt 3">3</a>
         <span class="step-line"></span>
-        <span class="step-dot">4</span>
-        <span class="step-line"></span>
-        <span class="step-dot">5</span>
+        <a class="step-dot" href="/SASB_CaseStudy/termin/" aria-label="Schritt 4">4</a>
       </nav>
       <div class="links"></div>
     </div>
@@ -55,7 +53,7 @@
     <div class="wrap">
 
       <div class="reveal">
-        <p class="page-label">Schritt 2 von 5</p>
+        <p class="page-label">Schritt 2 von 4</p>
         <h1>Der erfahrene Kollege in der Hosentasche</h1>
         <p class="lead">Ein Kollege, der sich an jede Störung erinnert — und den du jederzeit fragen kannst. Vom Handy. In jeder Schicht.</p>
       </div>
@@ -83,7 +81,7 @@
           <span class="terminal-label action">Einzuleitende Maßnahmen</span>
           <div class="demo-block-head-right">
             <span class="terminal-score">Sicherheit: 95 %</span>
-            <a class="terminal-source-link" href="#quelle">Basierend auf 1 Schichtbucheintrag ↓</a>
+            <a class="terminal-source-link" href="#quelle" data-open-source="true">Basierend auf 1 Schichtbucheintrag ↓</a>
           </div>
         </div>
         <ol style="margin: 0.3rem 0 0; padding-left: 1.2rem; color: var(--terminal-text);">
@@ -99,8 +97,8 @@
         </details>
 
         <details class="terminal-details" id="quelle">
-          <summary>Quelle: Schichtbucheintrag</summary>
-          <p>An der Station XYZ fuhr die Karosse nicht weiter, obwohl eigentlich ein Transport hätte starten müssen. Mechanisch war alles i.O. Es Stand eine Belegtmeldungs Störung auf der Station an, auf die eigentlich hätte gefördert werden müssen. Haben dann gesehen dass die Platzdaten in der Pufferverwaltung bereits weitergeschoben wurden, der Transport der die Rollenbahn allerdings startet, lag nicht an. Anlage auf Handbetrieb gestellt. Haben dann die Platzdaten die bereits weitergeschoben wurden manuell auf die Station auf der die Karosse tatsächlich steht kopiert, dann die Platzdaten die fälschlicherweise geschoben wurden gelöscht. Dann lief es im Automatik Betrieb weiter.</p>
+          <summary>Quelle: Rohtext Schichtbucheintrag</summary>
+          <pre class="terminal-raw-entry">An der Station XYZ fuhr die Karosse nicht weiter, obwohl eigentlich ein Transport hätte starten müssen. Mechanisch war alles i.O. Es Stand eine Belegtmeldungs Störung auf der Station an, auf die eigentlich hätte gefördert werden müssen. Haben dann gesehen dass die Platzdaten in der Pufferverwaltung bereits weitergeschoben wurden, der Transport der die Rollenbahn allerdings startet, lag nicht an. Anlage auf Handbetrieb gestellt. Haben dann die Platzdaten die bereits weitergeschoben wurden manuell auf die Station auf der die Karosse tatsächlich steht kopiert, dann die Platzdaten die fälschlicherweise geschoben wurden gelöscht. Dann lief es im Automatik Betrieb weiter.</pre>
         </details>
       </div>
 
@@ -130,7 +128,7 @@
 
       <nav class="wizard-nav reveal d3">
         <a class="btn btn-back" href="/SASB_CaseStudy/">&larr; Zurück</a>
-        <a class="btn btn-next" href="/SASB_CaseStudy/beweis/">Wie das in der Praxis aussieht &rarr;</a>
+        <a class="btn btn-next" href="/SASB_CaseStudy/ablauf/">Wie der Pilot abläuft &rarr;</a>
       </nav>
 
     </div>
@@ -141,6 +139,25 @@
       &copy; 2026 SASB &middot; <a href="/beta-lab/">Beta Lab</a>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const openSourceLink = document.querySelector('[data-open-source="true"]');
+      const sourceEntry = document.getElementById('quelle');
+      const rawEntry = sourceEntry?.querySelector('.terminal-raw-entry');
+
+      if (!openSourceLink || !sourceEntry) return;
+
+      openSourceLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        sourceEntry.open = true;
+        requestAnimationFrame(() => {
+          const scrollTarget = rawEntry || sourceEntry;
+          scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>

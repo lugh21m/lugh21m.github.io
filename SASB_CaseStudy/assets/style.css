@@ -164,6 +164,23 @@ main {
   transition: 0.2s ease;
 }
 
+a.step-dot:hover {
+  border-color: var(--blue-soft);
+  color: var(--text);
+  box-shadow: 0 0 0 3px rgba(59, 125, 255, 0.12);
+}
+
+a.step-dot.done:hover {
+  border-color: var(--blue-soft);
+  background: var(--blue-soft);
+  color: #fff;
+}
+
+a.step-dot:focus-visible {
+  outline: 2px solid rgba(59, 125, 255, 0.55);
+  outline-offset: 2px;
+}
+
 .step-dot.done {
   border-color: var(--blue);
   background: var(--blue);
@@ -489,6 +506,17 @@ h2 {
   margin: 0.4rem 0 0;
   padding-left: 1rem;
   color: var(--terminal-text);
+}
+
+.terminal-details .terminal-raw-entry {
+  margin: 0.4rem 0 0;
+  padding-left: 1rem;
+  color: var(--terminal-text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  line-height: 1.45;
 }
 
 .terminal-details[open] {
