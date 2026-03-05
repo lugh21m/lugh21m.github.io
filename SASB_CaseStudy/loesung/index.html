@@ -27,6 +27,75 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/SASB_CaseStudy/assets/style.css" />
   <script src="/assets/theme.js" defer></script>
+  <style>
+    .terminal-longterm-addon {
+      margin: 0.55rem 0 0.2rem;
+    }
+
+    .terminal-longterm-addon summary {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      cursor: pointer;
+    }
+
+    .terminal-longterm-addon summary:focus-visible {
+      outline: 2px solid rgba(59, 125, 255, 0.45);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    .terminal-longterm-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.64rem;
+      font-weight: 700;
+      color: var(--blue-soft);
+      border: 1px solid rgba(59, 125, 255, 0.35);
+      border-radius: 999px;
+      padding: 0.2rem 0.55rem;
+      background: rgba(59, 125, 255, 0.08);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .terminal-longterm-addon summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .terminal-longterm-button::before {
+      content: "+";
+      font-size: 0.75rem;
+      line-height: 1;
+    }
+
+    .terminal-longterm-addon[open] .terminal-longterm-button::before {
+      content: "\2212";
+    }
+
+    .terminal-longterm-wrap {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.5rem;
+    }
+
+    .terminal-longterm-copy {
+      padding: 0.45rem 0.6rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      line-height: 1.55;
+      color: var(--terminal-text);
+      border: 1px dashed rgba(59, 125, 255, 0.42);
+      border-radius: 6px;
+      background: rgba(59, 125, 255, 0.08);
+      max-width: 58ch;
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
 
@@ -91,9 +160,15 @@
           <li>Zurück auf Automatik</li>
         </ol>
 
-        <details class="terminal-details">
-          <summary>Langfristige Maßnahme</summary>
-          <p>Untersuchen, warum der Transport trotz verschobener Platzdaten nicht gestartet ist. Mögliche Ursache: Timing-Problem zwischen Pufferverwaltung und Transportauftrag. Root-Cause-Analyse empfohlen.</p>
+        <details class="terminal-longterm-addon">
+          <summary>
+            <span class="terminal-longterm-button">Prävention für diese Störung</span>
+          </summary>
+          <div class="terminal-longterm-wrap">
+            <p class="terminal-longterm-copy">
+              Vorgeschlagener Präventionscheck — Warum laufen Platzdaten und Transportauftrag zeitlich auseinander? Ursache identifizieren = Störungsrate senken.
+            </p>
+          </div>
         </details>
 
         <details class="terminal-details" id="quelle">
@@ -119,9 +194,9 @@
         <div class="compare-box negative">
           <h3>Ist nicht</h3>
           <ul>
-            <li>Kein neues MES</li>
-            <li>Kein CMMS-Ersatz</li>
-            <li>Nichts, was euer Team zusätzlich befüllen muss</li>
+            <li>Kein neues System, das ihr zusätzlich bedienen müsst</li>
+            <li>Keine doppelte Doku neben dem Schichtbuch</li>
+            <li>Keine Extra-Eingaben im laufenden Betrieb</li>
           </ul>
         </div>
       </div>

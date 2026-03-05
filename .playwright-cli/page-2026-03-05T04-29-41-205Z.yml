@@ -1,0 +1,81 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "SASB" [ref=e4] [cursor=pointer]:
+        - /url: /SASB_CaseStudy/
+        - text: SASB
+      - navigation "Fortschritt" [ref=e6]:
+        - link "Schritt 1" [ref=e7] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/
+          - text: "1"
+        - link "Schritt 2" [ref=e9] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/loesung/
+          - text: "2"
+        - generic "Schritt 3" [ref=e11]: "3"
+        - link "Schritt 4" [ref=e13] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/termin/
+          - text: "4"
+      - generic "Theme" [ref=e15]:
+        - generic [ref=e16]: Theme
+        - combobox "Theme" [ref=e18] [cursor=pointer]:
+          - option "Hell" [selected]
+          - option "Dunkel"
+          - option "System"
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: Schritt 3 von 4
+        - heading "6 Wochen. 1 Anlage. Klare Antwort." [level=1] [ref=e23]
+        - paragraph [ref=e24]: Am Ende habt ihr eine Vorher-Nachher-Messung eurer Störzeiten — die ihr direkt in Stillstandskosten umrechnen könnt.
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e27]: Woche 0
+          - generic [ref=e28]:
+            - heading "Datenübergabe" [level=3] [ref=e29]
+            - paragraph [ref=e30]: Ihr schickt den Schichtbuch-Export. Setup und Import machen wir — datenschutzkonform und per Auftragsverarbeitung.
+        - generic [ref=e31]:
+          - generic [ref=e32]: Woche 1
+          - generic [ref=e33]:
+            - heading "Kickoff + Schichtstart" [level=3] [ref=e34]
+            - paragraph [ref=e35]: 45-Min Kickoff mit der Kern Feedback Gruppe. Danach offener Zugang für alle Schichten ab Tag 1.
+        - generic [ref=e36]:
+          - generic [ref=e37]: Wo. 2–6
+          - generic [ref=e38]:
+            - heading "Nutzung im Alltag" [level=3] [ref=e39]
+            - paragraph [ref=e40]: Offener Zugang im Schichtbetrieb. 20 Min/Woche Review mit der Kern Feedback Gruppe.
+        - generic [ref=e41]:
+          - generic [ref=e42]: Ende W6
+          - generic [ref=e43]:
+            - heading "Auswertung" [level=3] [ref=e44]
+            - paragraph [ref=e45]: KPI-Vergleich Störzeit Baseline vs. Pilot + mindestens 2 dokumentierte Trefferfälle.
+      - heading "Kern Feedback Gruppe" [level=2] [ref=e46]
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - strong [ref=e49]: Senior-IH
+          - generic [ref=e50]: Fachliche Validierung und Realitätscheck
+        - generic [ref=e51]:
+          - strong [ref=e52]: Junior / Azubi
+          - generic [ref=e53]: Maximaler Lern- und Wow-Hebel
+        - generic [ref=e54]:
+          - strong [ref=e55]: Schichtführer
+          - generic [ref=e56]: Weniger Eskalationen, schnellerer Wiederanlauf
+      - generic [ref=e57]:
+        - heading "Euer Aufwand" [level=3] [ref=e58]
+        - list [ref=e59]:
+          - listitem [ref=e60]: Einmaliger Datenexport schicken
+          - listitem [ref=e61]: 45 Minuten Kickoff
+          - listitem [ref=e62]: 20 Minuten pro Woche mit der Kern Feedback Gruppe
+        - paragraph [ref=e63]: Alles andere — Import, Setup, Optimierung — machen wir.
+      - generic [ref=e64]:
+        - heading "Keine plausible Verbesserung? Dann zahlt ihr nichts." [level=3] [ref=e65]
+        - paragraph [ref=e66]: Wenn nach 6 Wochen keine messbare Verbesserung in der Störzeit erkennbar ist und wir keine 2 klaren Trefferfälle vorweisen können — kostet der Pilot 0 €.
+      - navigation [ref=e67]:
+        - link "← Zurück" [ref=e68] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/loesung/
+        - link "Gespräch starten →" [ref=e69] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/termin/
+  - contentinfo [ref=e70]:
+    - generic [ref=e71]:
+      - text: © 2026 SASB ·
+      - link "Beta Lab" [ref=e72] [cursor=pointer]:
+        - /url: /beta-lab/

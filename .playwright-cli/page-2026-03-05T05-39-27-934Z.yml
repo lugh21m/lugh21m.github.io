@@ -1,0 +1,155 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "SASB" [ref=e4] [cursor=pointer]:
+        - /url: /SASB_CaseStudy/
+        - text: SASB
+      - navigation "Fortschritt" [ref=e6]:
+        - link "Schritt 1" [ref=e7] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/
+          - text: "1"
+        - link "Schritt 2" [ref=e9] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/loesung/
+          - text: "2"
+        - generic "Schritt 3" [ref=e11]: "3"
+        - link "Schritt 4" [ref=e13] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/termin/
+          - text: "4"
+      - generic "Theme" [ref=e15]:
+        - generic [ref=e16]: Theme
+        - combobox "Theme" [ref=e18] [cursor=pointer]:
+          - option "Hell" [selected]
+          - option "Dunkel"
+          - option "System"
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: Schritt 3 von 4
+        - heading "6 Wochen. 1 Anlage. Klare Antwort." [level=1] [ref=e23]
+        - paragraph [ref=e24]: Am Ende habt ihr eine Vorher-Nachher-Messung eurer Störzeiten — die ihr direkt in Stillstandskosten umrechnen könnt.
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e27]: Woche 0
+          - generic [ref=e28]:
+            - heading "Datenübergabe" [level=3] [ref=e29]
+            - paragraph [ref=e30]: Ihr schickt den Schichtbuch-Export. Setup und Import machen wir — datenschutzkonform und per Auftragsverarbeitung.
+        - generic [ref=e31]:
+          - generic [ref=e32]: Woche 1
+          - generic [ref=e33]:
+            - heading "Kickoff + Schichtstart" [level=3] [ref=e34]
+            - paragraph [ref=e35]: 45-Min Kickoff mit der Kern Feedback Gruppe. Danach offener Zugang für alle Schichten ab Tag 1.
+        - generic [ref=e36]:
+          - generic [ref=e37]: Wo. 2–6
+          - generic [ref=e38]:
+            - heading "Nutzung im Alltag" [level=3] [ref=e39]
+            - paragraph [ref=e40]: Offener Zugang im Schichtbetrieb. 20 Min/Woche Review mit der Kern Feedback Gruppe.
+        - generic [ref=e41]:
+          - generic [ref=e42]: Ende W6
+          - generic [ref=e43]:
+            - heading "Auswertung" [level=3] [ref=e44]
+            - paragraph [ref=e45]: KPI-Vergleich Störzeit Baseline vs. Pilot + mindestens 2 dokumentierte Trefferfälle.
+      - heading "Kern Feedback Gruppe" [level=2] [ref=e46]
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - strong [ref=e49]: Senior-IH
+          - generic [ref=e50]: Fachliche Validierung und Realitätscheck
+        - generic [ref=e51]:
+          - strong [ref=e52]: Junior / Azubi
+          - generic [ref=e53]: Maximaler Lern- und Wow-Hebel
+        - generic [ref=e54]:
+          - strong [ref=e55]: Schichtführer
+          - generic [ref=e56]: Weniger Eskalationen, schnellerer Wiederanlauf
+      - generic [ref=e57]:
+        - heading "Euer Aufwand" [level=3] [ref=e58]
+        - list [ref=e59]:
+          - listitem [ref=e60]: Einmaliger Datenexport schicken
+          - listitem [ref=e61]: 45 Minuten Kickoff
+          - listitem [ref=e62]: 20 Minuten pro Woche mit der Kern Feedback Gruppe
+        - paragraph [ref=e63]: Alles andere — Import, Setup, Optimierung — machen wir.
+      - generic [ref=e64]:
+        - heading "Keine plausible Verbesserung? Dann zahlt ihr nichts." [level=3] [ref=e65]
+        - paragraph [ref=e66]: Wenn nach 6 Wochen keine messbare Verbesserung in der Störzeit erkennbar ist und wir keine 2 klaren Trefferfälle vorweisen können — kostet der Pilot 0 €.
+      - navigation [ref=e67]:
+        - link "← Zurück" [ref=e68] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/loesung/
+        - link "Gespräch starten →" [ref=e69] [cursor=pointer]:
+          - /url: /SASB_CaseStudy/termin/
+  - contentinfo [ref=e70]:
+    - generic [ref=e71]:
+      - text: © 2026 SASB ·
+      - link "Beta Lab" [ref=e72] [cursor=pointer]:
+        - /url: /beta-lab/
+  - iframe [ref=e73]:
+    - generic [active] [ref=f1e1]:
+      - banner [ref=f1e2]:
+        - generic:
+          - link "SASB" [ref=f1e3] [cursor=pointer]:
+            - /url: /SASB_CaseStudy/
+            - text: SASB
+          - navigation "Fortschritt" [ref=f1e5]:
+            - link "Schritt 1" [ref=f1e6] [cursor=pointer]:
+              - /url: /SASB_CaseStudy/
+              - text: "1"
+            - link "Schritt 2" [ref=f1e8] [cursor=pointer]:
+              - /url: /SASB_CaseStudy/loesung/
+              - text: "2"
+            - link "Schritt 3" [ref=f1e10] [cursor=pointer]:
+              - /url: /SASB_CaseStudy/ablauf/
+              - text: "3"
+            - generic "Schritt 4" [ref=f1e12]: "4"
+          - generic "Theme" [ref=f1e14]:
+            - generic [ref=f1e15]: Theme
+            - combobox "Theme" [ref=f1e17] [cursor=pointer]:
+              - option "Hell" [selected]
+              - option "Dunkel"
+              - option "System"
+      - main [ref=f1e18]:
+        - generic:
+          - generic:
+            - paragraph: Schritt 4 von 4
+            - heading "15 Minuten reichen für eine erste Einschätzung." [level=1]
+            - paragraph: Ich zeige euch anhand eurer Anlage, was realistisch drin ist. Kein Verkaufsgespräch. Nur ein technischer Realitätscheck.
+          - heading "Das klären wir" [level=2]
+          - list:
+            - listitem [ref=f1e19]: Welche Störungstypen regelmäßig Fehlersuche verursachen
+            - listitem [ref=f1e20]: Welche Datenquellen für den Pilot genutzt werden können
+            - listitem [ref=f1e21]: Welche Kennzahl im Werk als Erfolg zählt
+            - listitem [ref=f1e22]: Ob ein Pilot sofort Sinn ergibt oder erst Datenvorbereitung nötig ist
+          - generic [ref=f1e23]:
+            - status:
+              - generic: Kalender wird geladen …
+            - iframe [ref=f1e24]:
+              
+          - paragraph: Oder direkt Kontakt aufnehmen
+          - generic:
+            - link "ROI-Check per E-Mail anfragen" [ref=f1e25] [cursor=pointer]:
+              - /url: mailto:contact@lugh21.com?subject=SASB%20ROI-Check&body=Hallo%2C%0A%0AIch%20interessiere%20mich%20f%C3%BCr%20einen%20SASB-Pilot%20an%20unserer%20Engpassanlage.%0A%0AWerk%20%2F%20Standort%3A%20%0AAnlagentyp%3A%20%0AHauptproblem%3A%20%0A%0ADanke!
+            - 'link "WhatsApp: +49 172 9175743" [ref=f1e26] [cursor=pointer]':
+              - /url: https://wa.me/491729175743
+          - generic [ref=f1e27]: Kein Verkaufsgespräch mit Folien-Marathon. Nur ein technischer Realitätscheck — anhand eurer konkreten Anlage und eurer Daten.
+          - generic [ref=f1e28]:
+            - 'heading "Datenschutz & Mitbestimmung: mitgedacht" [level=3]'
+            - list:
+              - listitem [ref=f1e29]: Auftragsverarbeitung & Sicherheitsmaßnahmen als Standard
+              - listitem [ref=f1e30]: Keine Nutzung eurer Daten fürs Modelltraining
+              - listitem [ref=f1e31]: Betriebsrat-Themen frühzeitig adressierbar — Vorlagen verfügbar
+          - generic:
+            - heading "Häufige Fragen zu Datenschutz & KI" [level=3]
+            - group [ref=f1e32]:
+              - generic "▶ Arbeitet ihr DSGVO-konform?" [ref=f1e33] [cursor=pointer]
+            - group [ref=f1e34]:
+              - generic "▶ Was passiert mit unseren Schichtbuchdaten?" [ref=f1e35] [cursor=pointer]
+            - group [ref=f1e36]:
+              - generic "▶ Werden unsere Daten zum Modelltraining genutzt?" [ref=f1e37] [cursor=pointer]
+            - group [ref=f1e38]:
+              - generic "▶ Wie steht es mit dem Betriebsrat?" [ref=f1e39] [cursor=pointer]
+          - navigation:
+            - link "← Zurück" [ref=f1e40] [cursor=pointer]:
+              - /url: /SASB_CaseStudy/ablauf/
+      - contentinfo [ref=f1e41]:
+        - generic:
+          - text: © 2026 SASB ·
+          - link "Beta Lab" [ref=f1e42] [cursor=pointer]:
+            - /url: /beta-lab/
+  - iframe [ref=e74]:
+    
