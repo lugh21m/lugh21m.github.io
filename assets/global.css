@@ -112,21 +112,34 @@ a {
   text-decoration: none
 }
 
+/* ─── Header – single source of truth für alle Seiten ─────────────── */
 header {
   position: sticky;
   top: 0;
   z-index: 10;
-  backdrop-filter: blur(10px);
-  background: var(--header-bg);
-  border-bottom: 1px solid var(--header-border);
-  box-shadow: var(--header-shadow);
+  background: rgba(247, 247, 247, .85);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--header-border)
 }
 
+:root[data-theme="dark"] header {
+  background: rgba(15, 17, 20, .85)
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) header {
+    background: rgba(15, 17, 20, .85)
+  }
+}
+
+/* WICHTIG: padding-top/bottom statt Shorthand "padding:16px 0" –
+   Shorthand würde padding-left des .container überschreiben! */
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0
+  padding-top: 16px;
+  padding-bottom: 16px
 }
 
 .brand {
@@ -158,6 +171,11 @@ header {
 .links a:hover {
   opacity: 1;
   text-decoration: underline
+}
+
+@media (max-width: 520px) {
+  .links .hide-xs { display: none }
+  .links { gap: 12px }
 }
 
 /* Gilt fuer Header, Main, Footer - ueberall wo .container genutzt wird */
