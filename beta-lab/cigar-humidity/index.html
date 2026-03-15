@@ -121,23 +121,24 @@
 
     /* ─── Header ──────────────────────────────────────────────────────── */
     header{
-      position:-webkit-sticky;
       position:sticky;top:0;z-index:100;
-      backdrop-filter:blur(14px);
-      background:var(--header-bg);
-      border-bottom:1px solid var(--header-border);
-      box-shadow:var(--header-shadow);
+      background:rgba(247,247,247,.85);
+      backdrop-filter:saturate(140%) blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    :root[data-theme="dark"] header{
+      background:rgba(12,10,7,.85);
     }
     .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
     .brand{font-family:"Bitcount Prop Single Ink",Inter,sans-serif;font-size:26px;letter-spacing:.3px}
-    .brand-dot{display:inline-block;width:10px;height:10px;border-radius:999px;background:var(--gold);margin-left:6px}
-    .nav-links{display:flex;gap:16px}
-    .nav-links a{font-weight:600;opacity:.8;transition:opacity .15s;white-space:nowrap}
-    .nav-links a:hover{opacity:1;text-decoration:underline}
+    .brand-dot{display:inline-block;width:10px;height:10px;border-radius:999px;background:#ff7f50;margin-left:6px}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600;opacity:.9;white-space:nowrap}
+    .links a:hover{opacity:1;text-decoration:underline}
     /* Hide secondary nav links on very small screens */
     @media(max-width:520px){
-      .nav-links .hide-xs{display:none}
-      .nav-links{gap:12px}
+      .links .hide-xs{display:none}
+      .links{gap:12px}
     }
 
     /* ─── Hero ────────────────────────────────────────────────────────── */
@@ -469,7 +470,7 @@
   <header>
     <div class="container nav">
       <a class="brand" href="/"><span>Lugh21</span><span class="brand-dot" aria-hidden="true"></span></a>
-      <nav class="nav-links" aria-label="Navigation">
+      <nav class="links" aria-label="Navigation">
         <a href="/">Start</a>
         <a href="/beta-lab/">Beta Lab</a>
         <a href="/hire/" class="hide-xs">Hire</a>
